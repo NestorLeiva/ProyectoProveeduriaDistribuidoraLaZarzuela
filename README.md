@@ -1,5 +1,5 @@
 _Tarea Programada # 1_<br>
-# _<strong>Distribuidora La Zarzuela</strong>_ <br>
+# _<strong>Proveeduria Distribuidora La Zarzuela</strong>_ <br>
 IDE <br> _<strong>Visual Studio Comunity 2022</strong>_ <br>
 Framework: <br> _<strong>.NET 7</strong>_ <br>
 
