@@ -6,11 +6,11 @@ Framework: <br> _<strong>.NET 7</strong>_ <br>
 Objetivo: Poner en uso los conocimientos adquiridos sobre desarrollo de aplicaciones con Visual Studio .Net y el lenguaje de programación C#;<br>
 aplicando POO, desarrollo en capas, manejo de archivos, validación de datos y manejo de errores.
 
-Institucion: <br> _<strong>Colegio Universitario de Cartago_</strong> <br>
+Institucion: <br> _<strong>Colegio Universitario de Cartago</strong>_ <br>
 
-Profesor: <br> _<strong>Roger Rodrigez López_</strong> <br>
+Profesor: <br> _<strong>Roger Rodrigez López</strong>_ <br>
 
-<br> _<strong>TI-131 Programación II   - I Cuatrimestre, 2024_</strong> <br>
+<br> _<strong>TI-131 Programación II <br>   I Cuatrimestre, 2024</strong>_ <br>
  
 
  
