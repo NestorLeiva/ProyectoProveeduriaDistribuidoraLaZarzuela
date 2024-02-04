@@ -1,3 +1,7 @@
-*.xlsx
+# Documentacion
+
 *.docx
+*.xlsx
 *.png
+*.zip
+*.rar
