@@ -16,5 +16,10 @@ namespace Proveeduria
         {
             InitializeComponent();
         }
+
+        private void frmModificacionFuncionarios_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

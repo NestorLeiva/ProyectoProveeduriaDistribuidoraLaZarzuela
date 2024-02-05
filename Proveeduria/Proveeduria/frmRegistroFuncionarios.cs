@@ -16,5 +16,15 @@ namespace Proveeduria
         {
             InitializeComponent();
         }
+
+        private void btnFuncionarioLimpiar_Click(object sender, EventArgs e)
+        {
+            txtFuncionarioNombre.Text = "";
+            txtFuncionarioApellidoPrimero.Text = "";
+            txtFuncionarioApellidoSegundo.Text = "";
+            txtFuncionarioDNI.Text = "";
+            txtFuncionarioCodigo.Text = "";
+            txtFuncionarioEmail.Text = "";
+        }
     }
 }
