@@ -235,7 +235,7 @@
             gbxRegistroFuncionariosTitulo.Dock = DockStyle.Top;
             gbxRegistroFuncionariosTitulo.Location = new Point(0, 0);
             gbxRegistroFuncionariosTitulo.Name = "gbxRegistroFuncionariosTitulo";
-            gbxRegistroFuncionariosTitulo.Size = new Size(594, 159);
+            gbxRegistroFuncionariosTitulo.Size = new Size(710, 159);
             gbxRegistroFuncionariosTitulo.TabIndex = 1;
             gbxRegistroFuncionariosTitulo.TabStop = false;
             // 
@@ -259,7 +259,7 @@
             gbxRegistroFuncionariosDatos.Dock = DockStyle.Fill;
             gbxRegistroFuncionariosDatos.Location = new Point(0, 159);
             gbxRegistroFuncionariosDatos.Name = "gbxRegistroFuncionariosDatos";
-            gbxRegistroFuncionariosDatos.Size = new Size(594, 502);
+            gbxRegistroFuncionariosDatos.Size = new Size(710, 502);
             gbxRegistroFuncionariosDatos.TabIndex = 2;
             gbxRegistroFuncionariosDatos.TabStop = false;
             // 
@@ -267,9 +267,9 @@
             // 
             groupBox1.Controls.Add(dgvRegistroListaFuncionarios);
             groupBox1.Dock = DockStyle.Bottom;
-            groupBox1.Location = new Point(0, 487);
+            groupBox1.Location = new Point(0, 457);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(594, 174);
+            groupBox1.Size = new Size(710, 204);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
             // 
@@ -282,7 +282,7 @@
             dgvRegistroListaFuncionarios.Location = new Point(3, 19);
             dgvRegistroListaFuncionarios.Name = "dgvRegistroListaFuncionarios";
             dgvRegistroListaFuncionarios.RowTemplate.Height = 25;
-            dgvRegistroListaFuncionarios.Size = new Size(588, 152);
+            dgvRegistroListaFuncionarios.Size = new Size(704, 182);
             dgvRegistroListaFuncionarios.TabIndex = 9;
             // 
             // colNombre
@@ -327,7 +327,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(594, 661);
+            ClientSize = new Size(710, 661);
             Controls.Add(groupBox1);
             Controls.Add(gbxRegistroFuncionariosDatos);
             Controls.Add(gbxRegistroFuncionariosTitulo);
