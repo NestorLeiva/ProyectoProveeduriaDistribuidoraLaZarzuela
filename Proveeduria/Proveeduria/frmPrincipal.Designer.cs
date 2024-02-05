@@ -39,8 +39,8 @@
             mnModificacionProveedores = new ToolStripMenuItem();
             mnModificacionProductos = new ToolStripMenuItem();
             mnFuncionarios = new ToolStripMenuItem();
-            registroToolStripMenuItem1 = new ToolStripMenuItem();
-            modificacionToolStripMenuItem1 = new ToolStripMenuItem();
+            mnRegistroFuncionario = new ToolStripMenuItem();
+            mnModificacionFuncionario = new ToolStripMenuItem();
             mnConsultas = new ToolStripMenuItem();
             mnConsultaClientes = new ToolStripMenuItem();
             mnConsultaProveedores = new ToolStripMenuItem();
@@ -49,6 +49,7 @@
             mnVentas = new ToolStripMenuItem();
             mnVentasVentas = new ToolStripMenuItem();
             mnVentasHacienda = new ToolStripMenuItem();
+            mnCalculoDeImpuestos = new ToolStripMenuItem();
             mnAcercaDe = new ToolStripMenuItem();
             mnCerrarSesion = new ToolStripMenuItem();
             mnSalir = new ToolStripMenuItem();
@@ -83,12 +84,14 @@
             mnRegistro.Name = "mnRegistro";
             mnRegistro.Size = new Size(189, 22);
             mnRegistro.Text = "Registro Clientes";
+            mnRegistro.Click += mnRegistro_Click;
             // 
             // mnModificacion
             // 
             mnModificacion.Name = "mnModificacion";
             mnModificacion.Size = new Size(189, 22);
             mnModificacion.Text = "Modificacion Clientes";
+            mnModificacion.Click += mnModificacion_Click;
             // 
             // mnProveedores
             // 
@@ -102,43 +105,49 @@
             mnRgistroProveedores.Name = "mnRgistroProveedores";
             mnRgistroProveedores.Size = new Size(212, 22);
             mnRgistroProveedores.Text = "Registro Proveedores";
+            mnRgistroProveedores.Click += mnRgistroProveedores_Click;
             // 
             // mnRegistroProductos
             // 
             mnRegistroProductos.Name = "mnRegistroProductos";
             mnRegistroProductos.Size = new Size(212, 22);
             mnRegistroProductos.Text = "Registro Productos";
+            mnRegistroProductos.Click += mnRegistroProductos_Click;
             // 
             // mnModificacionProveedores
             // 
             mnModificacionProveedores.Name = "mnModificacionProveedores";
             mnModificacionProveedores.Size = new Size(212, 22);
             mnModificacionProveedores.Text = "Modificacion Proveedores";
+            mnModificacionProveedores.Click += mnModificacionProveedores_Click;
             // 
             // mnModificacionProductos
             // 
             mnModificacionProductos.Name = "mnModificacionProductos";
             mnModificacionProductos.Size = new Size(212, 22);
             mnModificacionProductos.Text = "Modificacion Productos";
+            mnModificacionProductos.Click += mnModificacionProductos_Click;
             // 
             // mnFuncionarios
             // 
-            mnFuncionarios.DropDownItems.AddRange(new ToolStripItem[] { registroToolStripMenuItem1, modificacionToolStripMenuItem1 });
+            mnFuncionarios.DropDownItems.AddRange(new ToolStripItem[] { mnRegistroFuncionario, mnModificacionFuncionario });
             mnFuncionarios.Name = "mnFuncionarios";
             mnFuncionarios.Size = new Size(142, 22);
             mnFuncionarios.Text = "Funcionarios";
             // 
-            // registroToolStripMenuItem1
+            // mnRegistroFuncionario
             // 
-            registroToolStripMenuItem1.Name = "registroToolStripMenuItem1";
-            registroToolStripMenuItem1.Size = new Size(215, 22);
-            registroToolStripMenuItem1.Text = "Registro Funcionarios";
+            mnRegistroFuncionario.Name = "mnRegistroFuncionario";
+            mnRegistroFuncionario.Size = new Size(215, 22);
+            mnRegistroFuncionario.Text = "Registro Funcionarios";
+            mnRegistroFuncionario.Click += mnRegistroFuncionario_Click;
             // 
-            // modificacionToolStripMenuItem1
+            // mnModificacionFuncionario
             // 
-            modificacionToolStripMenuItem1.Name = "modificacionToolStripMenuItem1";
-            modificacionToolStripMenuItem1.Size = new Size(215, 22);
-            modificacionToolStripMenuItem1.Text = "Modificacion Funcionarios";
+            mnModificacionFuncionario.Name = "mnModificacionFuncionario";
+            mnModificacionFuncionario.Size = new Size(215, 22);
+            mnModificacionFuncionario.Text = "Modificacion Funcionarios";
+            mnModificacionFuncionario.Click += mnModificacionFuncionario_Click;
             // 
             // mnConsultas
             // 
@@ -152,6 +161,7 @@
             mnConsultaClientes.Name = "mnConsultaClientes";
             mnConsultaClientes.Size = new Size(139, 22);
             mnConsultaClientes.Text = "Clientes";
+            mnConsultaClientes.Click += mnConsultaClientes_Click;
             // 
             // mnConsultaProveedores
             // 
@@ -165,12 +175,14 @@
             mnConsultaFacturas.Name = "mnConsultaFacturas";
             mnConsultaFacturas.Size = new Size(128, 22);
             mnConsultaFacturas.Text = "Facturas";
+            mnConsultaFacturas.Click += mnConsultaFacturas_Click;
             // 
             // mnConsultaProductos
             // 
             mnConsultaProductos.Name = "mnConsultaProductos";
             mnConsultaProductos.Size = new Size(128, 22);
             mnConsultaProductos.Text = "Productos";
+            mnConsultaProductos.Click += mnConsultaProductos_Click;
             // 
             // mnVentas
             // 
@@ -182,14 +194,23 @@
             // mnVentasVentas
             // 
             mnVentasVentas.Name = "mnVentasVentas";
-            mnVentasVentas.Size = new Size(124, 22);
-            mnVentasVentas.Text = "Ventas";
+            mnVentasVentas.Size = new Size(180, 22);
+            mnVentasVentas.Text = "Ventas Facturacion";
+            mnVentasVentas.Click += mnVentasVentas_Click;
             // 
             // mnVentasHacienda
             // 
+            mnVentasHacienda.DropDownItems.AddRange(new ToolStripItem[] { mnCalculoDeImpuestos });
             mnVentasHacienda.Name = "mnVentasHacienda";
-            mnVentasHacienda.Size = new Size(124, 22);
+            mnVentasHacienda.Size = new Size(180, 22);
             mnVentasHacienda.Text = "Hacienda";
+            // 
+            // mnCalculoDeImpuestos
+            // 
+            mnCalculoDeImpuestos.Name = "mnCalculoDeImpuestos";
+            mnCalculoDeImpuestos.Size = new Size(188, 22);
+            mnCalculoDeImpuestos.Text = "Calculo de Impuestos";
+            mnCalculoDeImpuestos.Click += mnCalculoDeImpuestos_Click;
             // 
             // mnAcercaDe
             // 
@@ -244,8 +265,8 @@
         private ToolStripMenuItem mnModificacionProveedores;
         private ToolStripMenuItem mnModificacionProductos;
         private ToolStripMenuItem mnFuncionarios;
-        private ToolStripMenuItem registroToolStripMenuItem1;
-        private ToolStripMenuItem modificacionToolStripMenuItem1;
+        private ToolStripMenuItem mnRegistroFuncionario;
+        private ToolStripMenuItem mnModificacionFuncionario;
         private ToolStripMenuItem mnVentas;
         private ToolStripMenuItem mnConsultas;
         private ToolStripMenuItem mnConsultaClientes;
@@ -255,5 +276,6 @@
         private ToolStripMenuItem mnVentasHacienda;
         private ToolStripMenuItem mnConsultaProductos;
         private ToolStripMenuItem mnCerrarSesion;
+        private ToolStripMenuItem mnCalculoDeImpuestos;
     }
 }

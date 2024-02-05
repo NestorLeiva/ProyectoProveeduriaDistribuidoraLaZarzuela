@@ -26,10 +26,88 @@ namespace Proveeduria
 
         private void mnCerrarSesion_Click(object sender, EventArgs e)
         {
-           // this.Close();
+            // this.Close();
             frmLogin pantallaLogin = new frmLogin();
             pantallaLogin.Show();
- 
+
+        }
+
+        private void mnRegistro_Click(object sender, EventArgs e)
+        {
+            frmRegistroClientes pantalla = new frmRegistroClientes();
+            this.CargarPantalla(pantalla);
+        }
+
+        private void mnModificacion_Click(object sender, EventArgs e)
+        {
+            frmModificacionClientes pantalla = new frmModificacionClientes();
+            this.CargarPantalla(pantalla);
+        }
+
+        private void mnRgistroProveedores_Click(object sender, EventArgs e)
+        {
+            frmRegistroProveedores pantalla = new frmRegistroProveedores();
+            this.CargarPantalla(pantalla);
+        }
+
+        private void mnRegistroProductos_Click(object sender, EventArgs e)
+        {
+            frmRegistroProductos pantalla = new frmRegistroProductos();
+            this.CargarPantalla(pantalla);
+        }
+
+        private void mnModificacionProveedores_Click(object sender, EventArgs e)
+        {
+            frmModificacionProveedores pantalla = new frmModificacionProveedores();
+            this.CargarPantalla(pantalla);
+        }
+
+        private void mnModificacionProductos_Click(object sender, EventArgs e)
+        {
+            frmModificacionProductos pantalla = new frmModificacionProductos();
+            this.CargarPantalla(pantalla);
+        }
+
+        private void mnRegistroFuncionario_Click(object sender, EventArgs e)
+        {
+            frmRegistroFuncionarios pantalla = new frmRegistroFuncionarios();
+            this.CargarPantalla(pantalla);
+        }
+
+        private void mnModificacionFuncionario_Click(object sender, EventArgs e)
+        {
+            frmModificacionFuncionarios pantalla = new frmModificacionFuncionarios();
+            this.CargarPantalla(pantalla);
+        }
+
+        private void mnConsultaClientes_Click(object sender, EventArgs e)
+        {
+            frmConsultaClientes pantalla = new frmConsultaClientes();
+            this.CargarPantalla(pantalla);
+        }
+
+        private void mnConsultaFacturas_Click(object sender, EventArgs e)
+        {
+            frmConsultaFacturas pantalla = new frmConsultaFacturas();
+            this.CargarPantalla(pantalla);
+        }
+
+        private void mnConsultaProductos_Click(object sender, EventArgs e)
+        {
+            frmConsultaProductos pantalla = new frmConsultaProductos();
+            this.CargarPantalla(pantalla);
+        }
+
+        private void mnVentasVentas_Click(object sender, EventArgs e)
+        {
+            frmVentasFacturacion pantalla = new frmVentasFacturacion();
+            this.CargarPantalla(pantalla);
+        }
+
+        private void mnCalculoDeImpuestos_Click(object sender, EventArgs e)
+        {
+            frmCalculoHacienda pantalla = new frmCalculoHacienda();
+            this.CargarPantalla(pantalla);
         }
     }
 }
