@@ -194,7 +194,7 @@
             // mnVentasVentas
             // 
             mnVentasVentas.Name = "mnVentasVentas";
-            mnVentasVentas.Size = new Size(180, 22);
+            mnVentasVentas.Size = new Size(173, 22);
             mnVentasVentas.Text = "Ventas Facturacion";
             mnVentasVentas.Click += mnVentasVentas_Click;
             // 
@@ -202,7 +202,7 @@
             // 
             mnVentasHacienda.DropDownItems.AddRange(new ToolStripItem[] { mnCalculoDeImpuestos });
             mnVentasHacienda.Name = "mnVentasHacienda";
-            mnVentasHacienda.Size = new Size(180, 22);
+            mnVentasHacienda.Size = new Size(173, 22);
             mnVentasHacienda.Text = "Hacienda";
             // 
             // mnCalculoDeImpuestos
@@ -243,6 +243,7 @@
             MainMenuStrip = mnMenu;
             MinimumSize = new Size(1000, 900);
             Name = "frmPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Proveedura Distribuidora La Zarzuela";
             mnMenu.ResumeLayout(false);
             mnMenu.PerformLayout();

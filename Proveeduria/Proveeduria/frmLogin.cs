@@ -22,5 +22,10 @@ namespace Proveeduria
             txtIdentificacion.Text = "";
             txtContrasenia.Text = "";
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
