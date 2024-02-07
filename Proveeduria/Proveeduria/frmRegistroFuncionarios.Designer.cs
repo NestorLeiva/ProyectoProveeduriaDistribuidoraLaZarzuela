@@ -48,10 +48,10 @@
             lblFuncionarioTitulo = new Label();
             gbxRegistroFuncionariosTitulo = new GroupBox();
             gbxRegistroFuncionariosDatos = new GroupBox();
-            gbListaFuncionarios = new GroupBox();
-            dgvRegistroListaFuncionarios = new DataGridView();
             lblFuncionarioEstado = new Label();
             rbtnEstadoActivo = new RadioButton();
+            gbListaFuncionarios = new GroupBox();
+            dgvRegistroListaFuncionarios = new DataGridView();
             colNombre = new DataGridViewTextBoxColumn();
             colApellidoPrimero = new DataGridViewTextBoxColumn();
             colSegundoApellido = new DataGridViewTextBoxColumn();
@@ -238,7 +238,7 @@
             gbxRegistroFuncionariosTitulo.Dock = DockStyle.Top;
             gbxRegistroFuncionariosTitulo.Location = new Point(0, 0);
             gbxRegistroFuncionariosTitulo.Name = "gbxRegistroFuncionariosTitulo";
-            gbxRegistroFuncionariosTitulo.Size = new Size(594, 159);
+            gbxRegistroFuncionariosTitulo.Size = new Size(664, 159);
             gbxRegistroFuncionariosTitulo.TabIndex = 1;
             gbxRegistroFuncionariosTitulo.TabStop = false;
             // 
@@ -264,33 +264,10 @@
             gbxRegistroFuncionariosDatos.Dock = DockStyle.Fill;
             gbxRegistroFuncionariosDatos.Location = new Point(0, 159);
             gbxRegistroFuncionariosDatos.Name = "gbxRegistroFuncionariosDatos";
-            gbxRegistroFuncionariosDatos.Size = new Size(594, 502);
+            gbxRegistroFuncionariosDatos.Size = new Size(664, 502);
             gbxRegistroFuncionariosDatos.TabIndex = 2;
             gbxRegistroFuncionariosDatos.TabStop = false;
             gbxRegistroFuncionariosDatos.Text = "Datos Funcionarios";
-            // 
-            // gbListaFuncionarios
-            // 
-            gbListaFuncionarios.Controls.Add(dgvRegistroListaFuncionarios);
-            gbListaFuncionarios.Dock = DockStyle.Bottom;
-            gbListaFuncionarios.Location = new Point(0, 506);
-            gbListaFuncionarios.Name = "gbListaFuncionarios";
-            gbListaFuncionarios.Size = new Size(594, 155);
-            gbListaFuncionarios.TabIndex = 3;
-            gbListaFuncionarios.TabStop = false;
-            gbListaFuncionarios.Text = "Lista de Funcionarios";
-            // 
-            // dgvRegistroListaFuncionarios
-            // 
-            dgvRegistroListaFuncionarios.AllowUserToDeleteRows = false;
-            dgvRegistroListaFuncionarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dgvRegistroListaFuncionarios.Columns.AddRange(new DataGridViewColumn[] { colNombre, colApellidoPrimero, colSegundoApellido, colDNI, colCodFuncionario, colEmail, ColEstado });
-            dgvRegistroListaFuncionarios.Dock = DockStyle.Fill;
-            dgvRegistroListaFuncionarios.Location = new Point(3, 19);
-            dgvRegistroListaFuncionarios.Name = "dgvRegistroListaFuncionarios";
-            dgvRegistroListaFuncionarios.RowTemplate.Height = 25;
-            dgvRegistroListaFuncionarios.Size = new Size(588, 133);
-            dgvRegistroListaFuncionarios.TabIndex = 9;
             // 
             // lblFuncionarioEstado
             // 
@@ -313,6 +290,30 @@
             rbtnEstadoActivo.TabStop = true;
             rbtnEstadoActivo.Text = "Activo";
             rbtnEstadoActivo.UseVisualStyleBackColor = true;
+            // 
+            // gbListaFuncionarios
+            // 
+            gbListaFuncionarios.Controls.Add(dgvRegistroListaFuncionarios);
+            gbListaFuncionarios.Dock = DockStyle.Bottom;
+            gbListaFuncionarios.Location = new Point(0, 506);
+            gbListaFuncionarios.Name = "gbListaFuncionarios";
+            gbListaFuncionarios.Size = new Size(664, 155);
+            gbListaFuncionarios.TabIndex = 3;
+            gbListaFuncionarios.TabStop = false;
+            gbListaFuncionarios.Text = "Lista de Funcionarios";
+            // 
+            // dgvRegistroListaFuncionarios
+            // 
+            dgvRegistroListaFuncionarios.AllowUserToDeleteRows = false;
+            dgvRegistroListaFuncionarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dgvRegistroListaFuncionarios.Columns.AddRange(new DataGridViewColumn[] { colNombre, colApellidoPrimero, colSegundoApellido, colDNI, colCodFuncionario, colEmail, ColEstado });
+            dgvRegistroListaFuncionarios.Dock = DockStyle.Fill;
+            dgvRegistroListaFuncionarios.Location = new Point(3, 19);
+            dgvRegistroListaFuncionarios.Name = "dgvRegistroListaFuncionarios";
+            dgvRegistroListaFuncionarios.ReadOnly = true;
+            dgvRegistroListaFuncionarios.RowTemplate.Height = 25;
+            dgvRegistroListaFuncionarios.Size = new Size(658, 133);
+            dgvRegistroListaFuncionarios.TabIndex = 9;
             // 
             // colNombre
             // 
@@ -367,11 +368,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(594, 661);
+            ClientSize = new Size(664, 661);
             Controls.Add(gbListaFuncionarios);
             Controls.Add(gbxRegistroFuncionariosDatos);
             Controls.Add(gbxRegistroFuncionariosTitulo);
-            MinimumSize = new Size(610, 700);
+            MinimumSize = new Size(680, 700);
             Name = "frmRegistroFuncionarios";
             Text = "Registro de Funcionarios ";
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
