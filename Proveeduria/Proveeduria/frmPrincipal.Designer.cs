@@ -35,8 +35,8 @@
             mnModificacion = new ToolStripMenuItem();
             mnProveedores = new ToolStripMenuItem();
             mnRgistroProveedores = new ToolStripMenuItem();
-            mnRegistroProductos = new ToolStripMenuItem();
             mnModificacionProveedores = new ToolStripMenuItem();
+            mnIngresoFacturas = new ToolStripMenuItem();
             mnModificacionProductos = new ToolStripMenuItem();
             mnFuncionarios = new ToolStripMenuItem();
             mnRegistroFuncionario = new ToolStripMenuItem();
@@ -76,7 +76,7 @@
             // 
             mnClientes.DropDownItems.AddRange(new ToolStripItem[] { mnRegistro, mnModificacion });
             mnClientes.Name = "mnClientes";
-            mnClientes.Size = new Size(142, 22);
+            mnClientes.Size = new Size(180, 22);
             mnClientes.Text = "Clientes";
             // 
             // mnRegistro
@@ -95,36 +95,36 @@
             // 
             // mnProveedores
             // 
-            mnProveedores.DropDownItems.AddRange(new ToolStripItem[] { mnRgistroProveedores, mnRegistroProductos, mnModificacionProveedores, mnModificacionProductos });
+            mnProveedores.DropDownItems.AddRange(new ToolStripItem[] { mnRgistroProveedores, mnModificacionProveedores, mnIngresoFacturas, mnModificacionProductos });
             mnProveedores.Name = "mnProveedores";
-            mnProveedores.Size = new Size(142, 22);
+            mnProveedores.Size = new Size(180, 22);
             mnProveedores.Text = "Proveedores";
             // 
             // mnRgistroProveedores
             // 
             mnRgistroProveedores.Name = "mnRgistroProveedores";
-            mnRgistroProveedores.Size = new Size(212, 22);
+            mnRgistroProveedores.Size = new Size(217, 22);
             mnRgistroProveedores.Text = "Registro Proveedores";
             mnRgistroProveedores.Click += mnRgistroProveedores_Click;
-            // 
-            // mnRegistroProductos
-            // 
-            mnRegistroProductos.Name = "mnRegistroProductos";
-            mnRegistroProductos.Size = new Size(212, 22);
-            mnRegistroProductos.Text = "Registro Productos";
-            mnRegistroProductos.Click += mnRegistroProductos_Click;
             // 
             // mnModificacionProveedores
             // 
             mnModificacionProveedores.Name = "mnModificacionProveedores";
-            mnModificacionProveedores.Size = new Size(212, 22);
+            mnModificacionProveedores.Size = new Size(217, 22);
             mnModificacionProveedores.Text = "Modificacion Proveedores";
             mnModificacionProveedores.Click += mnModificacionProveedores_Click;
+            // 
+            // mnIngresoFacturas
+            // 
+            mnIngresoFacturas.Name = "mnIngresoFacturas";
+            mnIngresoFacturas.Size = new Size(217, 22);
+            mnIngresoFacturas.Text = "Ingreso Facturas Proveedor";
+            mnIngresoFacturas.Click += mnRegistroProductos_Click;
             // 
             // mnModificacionProductos
             // 
             mnModificacionProductos.Name = "mnModificacionProductos";
-            mnModificacionProductos.Size = new Size(212, 22);
+            mnModificacionProductos.Size = new Size(217, 22);
             mnModificacionProductos.Text = "Modificacion Productos";
             mnModificacionProductos.Click += mnModificacionProductos_Click;
             // 
@@ -132,7 +132,7 @@
             // 
             mnFuncionarios.DropDownItems.AddRange(new ToolStripItem[] { mnRegistroFuncionario, mnModificacionFuncionario });
             mnFuncionarios.Name = "mnFuncionarios";
-            mnFuncionarios.Size = new Size(142, 22);
+            mnFuncionarios.Size = new Size(180, 22);
             mnFuncionarios.Text = "Funcionarios";
             // 
             // mnRegistroFuncionario
@@ -262,7 +262,7 @@
         private ToolStripMenuItem mnRegistro;
         private ToolStripMenuItem mnModificacion;
         private ToolStripMenuItem mnRgistroProveedores;
-        private ToolStripMenuItem mnRegistroProductos;
+        private ToolStripMenuItem mnIngresoFacturas;
         private ToolStripMenuItem mnModificacionProveedores;
         private ToolStripMenuItem mnModificacionProductos;
         private ToolStripMenuItem mnFuncionarios;

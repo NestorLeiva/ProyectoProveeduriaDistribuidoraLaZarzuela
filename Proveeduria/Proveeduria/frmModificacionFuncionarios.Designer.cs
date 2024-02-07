@@ -30,12 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModificacionFuncionarios));
             dgvListaFuncionarios = new DataGridView();
-            colNombre = new DataGridViewTextBoxColumn();
-            colApellidoPrimero = new DataGridViewTextBoxColumn();
-            colSegundoApellido = new DataGridViewTextBoxColumn();
-            colDNI = new DataGridViewTextBoxColumn();
-            colCodFuncionario = new DataGridViewTextBoxColumn();
-            colEmail = new DataGridViewTextBoxColumn();
             txtFuncionarioCodigo = new TextBox();
             txtFuncionarioEmail = new TextBox();
             txtFuncionarioDNI = new TextBox();
@@ -52,68 +46,41 @@
             lblFuncionarioTitulo = new Label();
             gbxModificacion = new GroupBox();
             txtFuncionarioConsulta = new TextBox();
-            lblFuncionarioConsulta = new Label();
             gbxModificarFuncionarioDatos = new GroupBox();
             btnModificarCancelar = new Button();
             btnModifcarLimpiar = new Button();
             btnModificarFuncionario = new Button();
             gbxFuncionarioModificarLista = new GroupBox();
+            gbxConsultaFuncionario = new GroupBox();
+            colNombre = new DataGridViewTextBoxColumn();
+            colApellidoPrimero = new DataGridViewTextBoxColumn();
+            colSegundoApellido = new DataGridViewTextBoxColumn();
+            colDNI = new DataGridViewTextBoxColumn();
+            colCodFuncionario = new DataGridViewTextBoxColumn();
+            colEmail = new DataGridViewTextBoxColumn();
+            colEstado = new DataGridViewTextBoxColumn();
+            rbtnEstadoInactivo = new RadioButton();
+            rbtnEstadoActivo = new RadioButton();
+            lblFuncionarioEstado = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvListaFuncionarios).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
             gbxModificacion.SuspendLayout();
             gbxModificarFuncionarioDatos.SuspendLayout();
             gbxFuncionarioModificarLista.SuspendLayout();
+            gbxConsultaFuncionario.SuspendLayout();
             SuspendLayout();
             // 
             // dgvListaFuncionarios
             // 
             dgvListaFuncionarios.AllowUserToDeleteRows = false;
             dgvListaFuncionarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dgvListaFuncionarios.Columns.AddRange(new DataGridViewColumn[] { colNombre, colApellidoPrimero, colSegundoApellido, colDNI, colCodFuncionario, colEmail });
+            dgvListaFuncionarios.Columns.AddRange(new DataGridViewColumn[] { colNombre, colApellidoPrimero, colSegundoApellido, colDNI, colCodFuncionario, colEmail, colEstado });
             dgvListaFuncionarios.Dock = DockStyle.Fill;
             dgvListaFuncionarios.Location = new Point(3, 19);
             dgvListaFuncionarios.Name = "dgvListaFuncionarios";
             dgvListaFuncionarios.RowTemplate.Height = 25;
             dgvListaFuncionarios.Size = new Size(588, 194);
             dgvListaFuncionarios.TabIndex = 8;
-            // 
-            // colNombre
-            // 
-            colNombre.HeaderText = "Nombre";
-            colNombre.Name = "colNombre";
-            colNombre.Width = 76;
-            // 
-            // colApellidoPrimero
-            // 
-            colApellidoPrimero.HeaderText = "Primer Apellido";
-            colApellidoPrimero.Name = "colApellidoPrimero";
-            colApellidoPrimero.Width = 114;
-            // 
-            // colSegundoApellido
-            // 
-            colSegundoApellido.HeaderText = "Segundo Apellido";
-            colSegundoApellido.Name = "colSegundoApellido";
-            colSegundoApellido.Width = 126;
-            // 
-            // colDNI
-            // 
-            colDNI.HeaderText = "Identificacion";
-            colDNI.Name = "colDNI";
-            colDNI.ReadOnly = true;
-            colDNI.Width = 104;
-            // 
-            // colCodFuncionario
-            // 
-            colCodFuncionario.HeaderText = "Codigo Funcionario";
-            colCodFuncionario.Name = "colCodFuncionario";
-            colCodFuncionario.ReadOnly = true;
-            colCodFuncionario.Width = 137;
-            // 
-            // colEmail
-            // 
-            colEmail.HeaderText = "Email";
-            colEmail.Name = "colEmail";
-            colEmail.Width = 61;
             // 
             // txtFuncionarioCodigo
             // 
@@ -244,7 +211,7 @@
             // lblFuncionarioTitulo
             // 
             lblFuncionarioTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioTitulo.Location = new Point(204, 22);
+            lblFuncionarioTitulo.Location = new Point(204, 37);
             lblFuncionarioTitulo.Name = "lblFuncionarioTitulo";
             lblFuncionarioTitulo.Size = new Size(296, 31);
             lblFuncionarioTitulo.TabIndex = 25;
@@ -253,8 +220,7 @@
             // 
             // gbxModificacion
             // 
-            gbxModificacion.Controls.Add(txtFuncionarioConsulta);
-            gbxModificacion.Controls.Add(lblFuncionarioConsulta);
+            gbxModificacion.Controls.Add(gbxConsultaFuncionario);
             gbxModificacion.Controls.Add(pbLogo);
             gbxModificacion.Controls.Add(lblFuncionarioTitulo);
             gbxModificacion.Dock = DockStyle.Top;
@@ -267,23 +233,17 @@
             // txtFuncionarioConsulta
             // 
             txtFuncionarioConsulta.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioConsulta.Location = new Point(226, 93);
+            txtFuncionarioConsulta.Location = new Point(6, 22);
             txtFuncionarioConsulta.Name = "txtFuncionarioConsulta";
             txtFuncionarioConsulta.Size = new Size(254, 29);
             txtFuncionarioConsulta.TabIndex = 1;
             txtFuncionarioConsulta.TextAlign = HorizontalAlignment.Center;
             // 
-            // lblFuncionarioConsulta
-            // 
-            lblFuncionarioConsulta.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioConsulta.Location = new Point(226, 67);
-            lblFuncionarioConsulta.Name = "lblFuncionarioConsulta";
-            lblFuncionarioConsulta.Size = new Size(194, 23);
-            lblFuncionarioConsulta.TabIndex = 26;
-            lblFuncionarioConsulta.Text = "Consulta de Funcionarios";
-            // 
             // gbxModificarFuncionarioDatos
             // 
+            gbxModificarFuncionarioDatos.Controls.Add(lblFuncionarioEstado);
+            gbxModificarFuncionarioDatos.Controls.Add(rbtnEstadoActivo);
+            gbxModificarFuncionarioDatos.Controls.Add(rbtnEstadoInactivo);
             gbxModificarFuncionarioDatos.Controls.Add(btnModificarCancelar);
             gbxModificarFuncionarioDatos.Controls.Add(btnModifcarLimpiar);
             gbxModificarFuncionarioDatos.Controls.Add(btnModificarFuncionario);
@@ -309,7 +269,7 @@
             // btnModificarCancelar
             // 
             btnModificarCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificarCancelar.Location = new Point(380, 245);
+            btnModificarCancelar.Location = new Point(380, 263);
             btnModificarCancelar.Name = "btnModificarCancelar";
             btnModificarCancelar.Size = new Size(120, 30);
             btnModificarCancelar.TabIndex = 10;
@@ -319,7 +279,7 @@
             // btnModifcarLimpiar
             // 
             btnModifcarLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModifcarLimpiar.Location = new Point(226, 245);
+            btnModifcarLimpiar.Location = new Point(226, 263);
             btnModifcarLimpiar.Name = "btnModifcarLimpiar";
             btnModifcarLimpiar.Size = new Size(120, 30);
             btnModifcarLimpiar.TabIndex = 9;
@@ -329,7 +289,7 @@
             // btnModificarFuncionario
             // 
             btnModificarFuncionario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificarFuncionario.Location = new Point(82, 245);
+            btnModificarFuncionario.Location = new Point(82, 263);
             btnModificarFuncionario.Name = "btnModificarFuncionario";
             btnModificarFuncionario.Size = new Size(120, 30);
             btnModificarFuncionario.TabIndex = 8;
@@ -346,6 +306,93 @@
             gbxFuncionarioModificarLista.TabIndex = 28;
             gbxFuncionarioModificarLista.TabStop = false;
             // 
+            // gbxConsultaFuncionario
+            // 
+            gbxConsultaFuncionario.Controls.Add(txtFuncionarioConsulta);
+            gbxConsultaFuncionario.Location = new Point(226, 88);
+            gbxConsultaFuncionario.Name = "gbxConsultaFuncionario";
+            gbxConsultaFuncionario.Size = new Size(274, 59);
+            gbxConsultaFuncionario.TabIndex = 26;
+            gbxConsultaFuncionario.TabStop = false;
+            gbxConsultaFuncionario.Text = "Consulta Funcionraio por Identificacion";
+            // 
+            // colNombre
+            // 
+            colNombre.HeaderText = "Nombre";
+            colNombre.Name = "colNombre";
+            colNombre.Width = 76;
+            // 
+            // colApellidoPrimero
+            // 
+            colApellidoPrimero.HeaderText = "Primer Apellido";
+            colApellidoPrimero.Name = "colApellidoPrimero";
+            colApellidoPrimero.Width = 114;
+            // 
+            // colSegundoApellido
+            // 
+            colSegundoApellido.HeaderText = "Segundo Apellido";
+            colSegundoApellido.Name = "colSegundoApellido";
+            colSegundoApellido.Width = 126;
+            // 
+            // colDNI
+            // 
+            colDNI.HeaderText = "Identificacion";
+            colDNI.Name = "colDNI";
+            colDNI.ReadOnly = true;
+            colDNI.Width = 104;
+            // 
+            // colCodFuncionario
+            // 
+            colCodFuncionario.HeaderText = "Codigo Funcionario";
+            colCodFuncionario.Name = "colCodFuncionario";
+            colCodFuncionario.ReadOnly = true;
+            colCodFuncionario.Width = 137;
+            // 
+            // colEmail
+            // 
+            colEmail.HeaderText = "Email";
+            colEmail.Name = "colEmail";
+            colEmail.Width = 61;
+            // 
+            // colEstado
+            // 
+            colEstado.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colEstado.HeaderText = "Estado";
+            colEstado.Name = "colEstado";
+            colEstado.ReadOnly = true;
+            // 
+            // rbtnEstadoInactivo
+            // 
+            rbtnEstadoInactivo.AutoSize = true;
+            rbtnEstadoInactivo.Location = new Point(252, 231);
+            rbtnEstadoInactivo.Name = "rbtnEstadoInactivo";
+            rbtnEstadoInactivo.Size = new Size(67, 19);
+            rbtnEstadoInactivo.TabIndex = 18;
+            rbtnEstadoInactivo.TabStop = true;
+            rbtnEstadoInactivo.Text = "Inactivo";
+            rbtnEstadoInactivo.UseVisualStyleBackColor = true;
+            // 
+            // rbtnEstadoActivo
+            // 
+            rbtnEstadoActivo.AutoSize = true;
+            rbtnEstadoActivo.Location = new Point(392, 231);
+            rbtnEstadoActivo.Name = "rbtnEstadoActivo";
+            rbtnEstadoActivo.Size = new Size(59, 19);
+            rbtnEstadoActivo.TabIndex = 19;
+            rbtnEstadoActivo.TabStop = true;
+            rbtnEstadoActivo.Text = "Activo";
+            rbtnEstadoActivo.UseVisualStyleBackColor = true;
+            // 
+            // lblFuncionarioEstado
+            // 
+            lblFuncionarioEstado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblFuncionarioEstado.Location = new Point(59, 231);
+            lblFuncionarioEstado.Name = "lblFuncionarioEstado";
+            lblFuncionarioEstado.Size = new Size(168, 22);
+            lblFuncionarioEstado.TabIndex = 20;
+            lblFuncionarioEstado.Text = "Estado";
+            lblFuncionarioEstado.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // frmModificacionFuncionarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -361,10 +408,11 @@
             ((System.ComponentModel.ISupportInitialize)dgvListaFuncionarios).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
             gbxModificacion.ResumeLayout(false);
-            gbxModificacion.PerformLayout();
             gbxModificarFuncionarioDatos.ResumeLayout(false);
             gbxModificarFuncionarioDatos.PerformLayout();
             gbxFuncionarioModificarLista.ResumeLayout(false);
+            gbxConsultaFuncionario.ResumeLayout(false);
+            gbxConsultaFuncionario.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -386,18 +434,22 @@
         private PictureBox pbLogo;
         private Label lblFuncionarioTitulo;
         private GroupBox gbxModificacion;
-        private Label lblFuncionarioConsulta;
         private GroupBox gbxModificarFuncionarioDatos;
         private TextBox txtFuncionarioConsulta;
         private GroupBox gbxFuncionarioModificarLista;
         private Button btnModificarCancelar;
         private Button btnModifcarLimpiar;
         private Button btnModificarFuncionario;
+        private GroupBox gbxConsultaFuncionario;
         private DataGridViewTextBoxColumn colNombre;
         private DataGridViewTextBoxColumn colApellidoPrimero;
         private DataGridViewTextBoxColumn colSegundoApellido;
         private DataGridViewTextBoxColumn colDNI;
         private DataGridViewTextBoxColumn colCodFuncionario;
         private DataGridViewTextBoxColumn colEmail;
+        private DataGridViewTextBoxColumn colEstado;
+        private Label lblFuncionarioEstado;
+        private RadioButton rbtnEstadoActivo;
+        private RadioButton rbtnEstadoInactivo;
     }
 }

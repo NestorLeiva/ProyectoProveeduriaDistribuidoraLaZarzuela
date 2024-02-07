@@ -52,7 +52,7 @@ namespace Proveeduria
 
         private void mnRegistroProductos_Click(object sender, EventArgs e)
         {
-            frmRegistroProductos pantalla = new frmRegistroProductos();
+            frmIngresoFacturas pantalla = new frmIngresoFacturas();
             this.CargarPantalla(pantalla);
         }
 
