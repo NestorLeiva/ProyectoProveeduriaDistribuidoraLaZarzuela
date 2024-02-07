@@ -58,12 +58,15 @@
             txtFacturaNumero = new TextBox();
             lblFacturaFecha = new Label();
             lblFacturaNumero = new Label();
+            btnFacturaPagar = new Button();
+            gbxFacturasRegistro = new GroupBox();
             gbxRegistroProductosTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvRegistroListaFuncionarios).BeginInit();
             gbxListaProductos.SuspendLayout();
             gbxRegistroDeProductos.SuspendLayout();
             gbxIngresoFactura.SuspendLayout();
+            gbxFacturasRegistro.SuspendLayout();
             SuspendLayout();
             // 
             // gbxRegistroProductosTitulo
@@ -106,7 +109,7 @@
             dgvRegistroListaFuncionarios.Location = new Point(3, 19);
             dgvRegistroListaFuncionarios.Name = "dgvRegistroListaFuncionarios";
             dgvRegistroListaFuncionarios.RowTemplate.Height = 25;
-            dgvRegistroListaFuncionarios.Size = new Size(768, 243);
+            dgvRegistroListaFuncionarios.Size = new Size(768, 193);
             dgvRegistroListaFuncionarios.TabIndex = 11;
             // 
             // colFacturaCodigo
@@ -145,9 +148,9 @@
             // 
             gbxListaProductos.Controls.Add(dgvRegistroListaFuncionarios);
             gbxListaProductos.Dock = DockStyle.Bottom;
-            gbxListaProductos.Location = new Point(0, 396);
+            gbxListaProductos.Location = new Point(0, 446);
             gbxListaProductos.Name = "gbxListaProductos";
-            gbxListaProductos.Size = new Size(774, 265);
+            gbxListaProductos.Size = new Size(774, 215);
             gbxListaProductos.TabIndex = 4;
             gbxListaProductos.TabStop = false;
             gbxListaProductos.Text = "Lista de Productos";
@@ -166,9 +169,9 @@
             gbxRegistroDeProductos.Controls.Add(txtFuncionarioApellidoPrimero);
             gbxRegistroDeProductos.Controls.Add(txtFacturaCantidad);
             gbxRegistroDeProductos.Dock = DockStyle.Right;
-            gbxRegistroDeProductos.Location = new Point(335, 19);
+            gbxRegistroDeProductos.Location = new Point(370, 19);
             gbxRegistroDeProductos.Name = "gbxRegistroDeProductos";
-            gbxRegistroDeProductos.Size = new Size(436, 236);
+            gbxRegistroDeProductos.Size = new Size(401, 286);
             gbxRegistroDeProductos.TabIndex = 3;
             gbxRegistroDeProductos.TabStop = false;
             gbxRegistroDeProductos.Text = "Datos Productos";
@@ -176,7 +179,7 @@
             // lblFacturaPrecioUnd
             // 
             lblFacturaPrecioUnd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFacturaPrecioUnd.Location = new Point(46, 149);
+            lblFacturaPrecioUnd.Location = new Point(12, 149);
             lblFacturaPrecioUnd.Name = "lblFacturaPrecioUnd";
             lblFacturaPrecioUnd.Size = new Size(114, 22);
             lblFacturaPrecioUnd.TabIndex = 13;
@@ -187,7 +190,7 @@
             // 
             txtFacturaPrecioUnd.AcceptsTab = true;
             txtFacturaPrecioUnd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFacturaPrecioUnd.Location = new Point(166, 142);
+            txtFacturaPrecioUnd.Location = new Point(132, 142);
             txtFacturaPrecioUnd.Name = "txtFacturaPrecioUnd";
             txtFacturaPrecioUnd.Size = new Size(151, 29);
             txtFacturaPrecioUnd.TabIndex = 7;
@@ -196,7 +199,7 @@
             // lblFacturaCantidad
             // 
             lblFacturaCantidad.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFacturaCantidad.Location = new Point(46, 114);
+            lblFacturaCantidad.Location = new Point(12, 114);
             lblFacturaCantidad.Name = "lblFacturaCantidad";
             lblFacturaCantidad.Size = new Size(114, 22);
             lblFacturaCantidad.TabIndex = 11;
@@ -206,7 +209,7 @@
             // btnFacturaCancelar
             // 
             btnFacturaCancelar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnFacturaCancelar.Location = new Point(323, 109);
+            btnFacturaCancelar.Location = new Point(289, 109);
             btnFacturaCancelar.Name = "btnFacturaCancelar";
             btnFacturaCancelar.Size = new Size(93, 32);
             btnFacturaCancelar.TabIndex = 10;
@@ -216,7 +219,7 @@
             // btnFacturaLimpiar
             // 
             btnFacturaLimpiar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnFacturaLimpiar.Location = new Point(323, 71);
+            btnFacturaLimpiar.Location = new Point(289, 71);
             btnFacturaLimpiar.Name = "btnFacturaLimpiar";
             btnFacturaLimpiar.Size = new Size(93, 32);
             btnFacturaLimpiar.TabIndex = 9;
@@ -226,7 +229,7 @@
             // btnFacturaAceptar
             // 
             btnFacturaAceptar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnFacturaAceptar.Location = new Point(323, 33);
+            btnFacturaAceptar.Location = new Point(289, 33);
             btnFacturaAceptar.Name = "btnFacturaAceptar";
             btnFacturaAceptar.Size = new Size(93, 32);
             btnFacturaAceptar.TabIndex = 8;
@@ -236,7 +239,7 @@
             // txtFacturaCodigo
             // 
             txtFacturaCodigo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFacturaCodigo.Location = new Point(166, 31);
+            txtFacturaCodigo.Location = new Point(132, 31);
             txtFacturaCodigo.Name = "txtFacturaCodigo";
             txtFacturaCodigo.Size = new Size(151, 29);
             txtFacturaCodigo.TabIndex = 4;
@@ -245,7 +248,7 @@
             // lblFacturaCodigo
             // 
             lblFacturaCodigo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFacturaCodigo.Location = new Point(46, 31);
+            lblFacturaCodigo.Location = new Point(12, 31);
             lblFacturaCodigo.Name = "lblFacturaCodigo";
             lblFacturaCodigo.Size = new Size(114, 22);
             lblFacturaCodigo.TabIndex = 0;
@@ -255,7 +258,7 @@
             // lblFacturaNombre
             // 
             lblFacturaNombre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFacturaNombre.Location = new Point(46, 72);
+            lblFacturaNombre.Location = new Point(12, 72);
             lblFacturaNombre.Name = "lblFacturaNombre";
             lblFacturaNombre.Size = new Size(114, 22);
             lblFacturaNombre.TabIndex = 1;
@@ -265,7 +268,7 @@
             // txtFuncionarioApellidoPrimero
             // 
             txtFuncionarioApellidoPrimero.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioApellidoPrimero.Location = new Point(166, 72);
+            txtFuncionarioApellidoPrimero.Location = new Point(132, 72);
             txtFuncionarioApellidoPrimero.Name = "txtFuncionarioApellidoPrimero";
             txtFuncionarioApellidoPrimero.Size = new Size(151, 29);
             txtFuncionarioApellidoPrimero.TabIndex = 5;
@@ -275,7 +278,7 @@
             // 
             txtFacturaCantidad.AcceptsTab = true;
             txtFacturaCantidad.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFacturaCantidad.Location = new Point(166, 107);
+            txtFacturaCantidad.Location = new Point(132, 107);
             txtFacturaCantidad.Name = "txtFacturaCantidad";
             txtFacturaCantidad.Size = new Size(151, 29);
             txtFacturaCantidad.TabIndex = 6;
@@ -283,17 +286,17 @@
             // 
             // gbxIngresoFactura
             // 
+            gbxIngresoFactura.Controls.Add(btnFacturaPagar);
             gbxIngresoFactura.Controls.Add(txtFacturaMonto);
-            gbxIngresoFactura.Controls.Add(gbxRegistroDeProductos);
             gbxIngresoFactura.Controls.Add(lblFacturaMonto);
             gbxIngresoFactura.Controls.Add(dtpFacturaFecha);
             gbxIngresoFactura.Controls.Add(txtFacturaNumero);
             gbxIngresoFactura.Controls.Add(lblFacturaFecha);
             gbxIngresoFactura.Controls.Add(lblFacturaNumero);
-            gbxIngresoFactura.Dock = DockStyle.Fill;
-            gbxIngresoFactura.Location = new Point(0, 138);
+            gbxIngresoFactura.Dock = DockStyle.Left;
+            gbxIngresoFactura.Location = new Point(3, 19);
             gbxIngresoFactura.Name = "gbxIngresoFactura";
-            gbxIngresoFactura.Size = new Size(774, 258);
+            gbxIngresoFactura.Size = new Size(345, 286);
             gbxIngresoFactura.TabIndex = 2;
             gbxIngresoFactura.TabStop = false;
             gbxIngresoFactura.Text = "Ingreso Datos Factura";
@@ -354,12 +357,33 @@
             lblFacturaNumero.Text = "Factura Numero ";
             lblFacturaNumero.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // btnFacturaPagar
+            // 
+            btnFacturaPagar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnFacturaPagar.Location = new Point(91, 121);
+            btnFacturaPagar.Name = "btnFacturaPagar";
+            btnFacturaPagar.Size = new Size(176, 32);
+            btnFacturaPagar.TabIndex = 17;
+            btnFacturaPagar.Text = "Pagar Factura";
+            btnFacturaPagar.UseVisualStyleBackColor = true;
+            // 
+            // gbxFacturasRegistro
+            // 
+            gbxFacturasRegistro.Controls.Add(gbxIngresoFactura);
+            gbxFacturasRegistro.Controls.Add(gbxRegistroDeProductos);
+            gbxFacturasRegistro.Dock = DockStyle.Fill;
+            gbxFacturasRegistro.Location = new Point(0, 138);
+            gbxFacturasRegistro.Name = "gbxFacturasRegistro";
+            gbxFacturasRegistro.Size = new Size(774, 308);
+            gbxFacturasRegistro.TabIndex = 5;
+            gbxFacturasRegistro.TabStop = false;
+            // 
             // frmIngresoFacturas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(774, 661);
-            Controls.Add(gbxIngresoFactura);
+            Controls.Add(gbxFacturasRegistro);
             Controls.Add(gbxListaProductos);
             Controls.Add(gbxRegistroProductosTitulo);
             MinimumSize = new Size(790, 700);
@@ -374,6 +398,7 @@
             gbxRegistroDeProductos.PerformLayout();
             gbxIngresoFactura.ResumeLayout(false);
             gbxIngresoFactura.PerformLayout();
+            gbxFacturasRegistro.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -419,5 +444,7 @@
         private Label lblFacturaPrecioUnd;
         private TextBox txtFacturaPrecioUnd;
         private Label lblFacturaCantidad;
+        private Button btnFacturaPagar;
+        private GroupBox gbxFacturasRegistro;
     }
 }
