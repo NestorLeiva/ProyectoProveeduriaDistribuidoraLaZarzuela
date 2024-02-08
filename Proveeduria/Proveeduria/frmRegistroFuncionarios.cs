@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utils;
+
+
+
 
 namespace Proveeduria
 {
@@ -25,6 +29,46 @@ namespace Proveeduria
             txtFuncionarioDNI.Text = "";
             txtFuncionarioCodigo.Text = "";
             txtFuncionarioEmail.Text = "";
+        }
+
+        private void txtFuncionarioNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtFuncionarioApellidoPrimero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtFuncionarioApellidoSegundo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtFuncionarioDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtFuncionarioCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -134,6 +134,7 @@
             txtFuncionarioNombre.Size = new Size(211, 29);
             txtFuncionarioNombre.TabIndex = 1;
             txtFuncionarioNombre.TextAlign = HorizontalAlignment.Center;
+            txtFuncionarioNombre.KeyPress += txtFuncionarioNombre_KeyPress;
             // 
             // txtFuncionarioApellidoPrimero
             // 
@@ -143,6 +144,7 @@
             txtFuncionarioApellidoPrimero.Size = new Size(211, 29);
             txtFuncionarioApellidoPrimero.TabIndex = 2;
             txtFuncionarioApellidoPrimero.TextAlign = HorizontalAlignment.Center;
+            txtFuncionarioApellidoPrimero.KeyPress += txtFuncionarioApellidoPrimero_KeyPress;
             // 
             // txtFuncionarioApellidoSegundo
             // 
@@ -152,6 +154,7 @@
             txtFuncionarioApellidoSegundo.Size = new Size(211, 29);
             txtFuncionarioApellidoSegundo.TabIndex = 3;
             txtFuncionarioApellidoSegundo.TextAlign = HorizontalAlignment.Center;
+            txtFuncionarioApellidoSegundo.KeyPress += txtFuncionarioApellidoSegundo_KeyPress;
             // 
             // txtFuncionarioDNI
             // 
@@ -161,6 +164,7 @@
             txtFuncionarioDNI.Size = new Size(211, 29);
             txtFuncionarioDNI.TabIndex = 4;
             txtFuncionarioDNI.TextAlign = HorizontalAlignment.Center;
+            txtFuncionarioDNI.KeyPress += txtFuncionarioDNI_KeyPress;
             // 
             // txtFuncionarioEmail
             // 
@@ -179,6 +183,7 @@
             txtFuncionarioCodigo.Size = new Size(211, 29);
             txtFuncionarioCodigo.TabIndex = 5;
             txtFuncionarioCodigo.TextAlign = HorizontalAlignment.Center;
+            txtFuncionarioCodigo.KeyPress += txtFuncionarioCodigo_KeyPress;
             // 
             // btnFuncionarioAceptar
             // 
