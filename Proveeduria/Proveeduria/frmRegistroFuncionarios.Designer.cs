@@ -69,7 +69,7 @@
             // lblFuncionarioNombre
             // 
             lblFuncionarioNombre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioNombre.Location = new Point(102, 32);
+            lblFuncionarioNombre.Location = new Point(11, 22);
             lblFuncionarioNombre.Name = "lblFuncionarioNombre";
             lblFuncionarioNombre.Size = new Size(168, 22);
             lblFuncionarioNombre.TabIndex = 0;
@@ -79,7 +79,7 @@
             // lblFuncionarioApellidoPrimero
             // 
             lblFuncionarioApellidoPrimero.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioApellidoPrimero.Location = new Point(102, 73);
+            lblFuncionarioApellidoPrimero.Location = new Point(11, 63);
             lblFuncionarioApellidoPrimero.Name = "lblFuncionarioApellidoPrimero";
             lblFuncionarioApellidoPrimero.Size = new Size(168, 22);
             lblFuncionarioApellidoPrimero.TabIndex = 1;
@@ -89,7 +89,7 @@
             // lblFuncionarioApellidoSegundo
             // 
             lblFuncionarioApellidoSegundo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioApellidoSegundo.Location = new Point(102, 108);
+            lblFuncionarioApellidoSegundo.Location = new Point(11, 98);
             lblFuncionarioApellidoSegundo.Name = "lblFuncionarioApellidoSegundo";
             lblFuncionarioApellidoSegundo.Size = new Size(168, 22);
             lblFuncionarioApellidoSegundo.TabIndex = 2;
@@ -99,7 +99,7 @@
             // lblFuncionarioDNI
             // 
             lblFuncionarioDNI.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioDNI.Location = new Point(102, 143);
+            lblFuncionarioDNI.Location = new Point(11, 133);
             lblFuncionarioDNI.Name = "lblFuncionarioDNI";
             lblFuncionarioDNI.Size = new Size(168, 22);
             lblFuncionarioDNI.TabIndex = 3;
@@ -109,7 +109,7 @@
             // lblFuncionarioCodigo
             // 
             lblFuncionarioCodigo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioCodigo.Location = new Point(102, 178);
+            lblFuncionarioCodigo.Location = new Point(11, 168);
             lblFuncionarioCodigo.Name = "lblFuncionarioCodigo";
             lblFuncionarioCodigo.Size = new Size(168, 22);
             lblFuncionarioCodigo.TabIndex = 4;
@@ -119,7 +119,7 @@
             // lblFuncionarioEmail
             // 
             lblFuncionarioEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioEmail.Location = new Point(102, 213);
+            lblFuncionarioEmail.Location = new Point(11, 203);
             lblFuncionarioEmail.Name = "lblFuncionarioEmail";
             lblFuncionarioEmail.Size = new Size(168, 22);
             lblFuncionarioEmail.TabIndex = 5;
@@ -129,7 +129,7 @@
             // txtFuncionarioNombre
             // 
             txtFuncionarioNombre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioNombre.Location = new Point(276, 32);
+            txtFuncionarioNombre.Location = new Point(185, 22);
             txtFuncionarioNombre.Name = "txtFuncionarioNombre";
             txtFuncionarioNombre.Size = new Size(211, 29);
             txtFuncionarioNombre.TabIndex = 1;
@@ -139,7 +139,7 @@
             // txtFuncionarioApellidoPrimero
             // 
             txtFuncionarioApellidoPrimero.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioApellidoPrimero.Location = new Point(276, 73);
+            txtFuncionarioApellidoPrimero.Location = new Point(185, 63);
             txtFuncionarioApellidoPrimero.Name = "txtFuncionarioApellidoPrimero";
             txtFuncionarioApellidoPrimero.Size = new Size(211, 29);
             txtFuncionarioApellidoPrimero.TabIndex = 2;
@@ -149,7 +149,7 @@
             // txtFuncionarioApellidoSegundo
             // 
             txtFuncionarioApellidoSegundo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioApellidoSegundo.Location = new Point(276, 108);
+            txtFuncionarioApellidoSegundo.Location = new Point(185, 98);
             txtFuncionarioApellidoSegundo.Name = "txtFuncionarioApellidoSegundo";
             txtFuncionarioApellidoSegundo.Size = new Size(211, 29);
             txtFuncionarioApellidoSegundo.TabIndex = 3;
@@ -159,7 +159,7 @@
             // txtFuncionarioDNI
             // 
             txtFuncionarioDNI.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioDNI.Location = new Point(276, 143);
+            txtFuncionarioDNI.Location = new Point(185, 133);
             txtFuncionarioDNI.Name = "txtFuncionarioDNI";
             txtFuncionarioDNI.Size = new Size(211, 29);
             txtFuncionarioDNI.TabIndex = 4;
@@ -169,7 +169,7 @@
             // txtFuncionarioEmail
             // 
             txtFuncionarioEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioEmail.Location = new Point(276, 213);
+            txtFuncionarioEmail.Location = new Point(185, 203);
             txtFuncionarioEmail.Name = "txtFuncionarioEmail";
             txtFuncionarioEmail.Size = new Size(211, 29);
             txtFuncionarioEmail.TabIndex = 6;
@@ -178,7 +178,7 @@
             // txtFuncionarioCodigo
             // 
             txtFuncionarioCodigo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioCodigo.Location = new Point(276, 178);
+            txtFuncionarioCodigo.Location = new Point(185, 168);
             txtFuncionarioCodigo.Name = "txtFuncionarioCodigo";
             txtFuncionarioCodigo.Size = new Size(211, 29);
             txtFuncionarioCodigo.TabIndex = 5;
@@ -277,7 +277,7 @@
             // lblFuncionarioEstado
             // 
             lblFuncionarioEstado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioEstado.Location = new Point(102, 248);
+            lblFuncionarioEstado.Location = new Point(11, 238);
             lblFuncionarioEstado.Name = "lblFuncionarioEstado";
             lblFuncionarioEstado.Size = new Size(168, 22);
             lblFuncionarioEstado.TabIndex = 22;
@@ -288,7 +288,7 @@
             // 
             rbtnEstadoActivo.AutoSize = true;
             rbtnEstadoActivo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            rbtnEstadoActivo.Location = new Point(276, 248);
+            rbtnEstadoActivo.Location = new Point(185, 238);
             rbtnEstadoActivo.Name = "rbtnEstadoActivo";
             rbtnEstadoActivo.Size = new Size(71, 25);
             rbtnEstadoActivo.TabIndex = 21;
