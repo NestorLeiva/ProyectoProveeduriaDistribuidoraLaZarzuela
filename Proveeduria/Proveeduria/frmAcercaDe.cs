@@ -21,5 +21,12 @@ namespace Proveeduria
         {
             this.Close();
         }
+
+        private void frmAcercaDe_Load(object sender, EventArgs e)
+        {
+            this.lblAcercaDeDerechosReservados.Text += " " + DateTime.Now.Year;
+        }
+
+
     }
 }
