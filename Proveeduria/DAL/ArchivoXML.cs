@@ -1,12 +1,9 @@
 ﻿using System.Xml;
-using System.IO;
 
 namespace DAL
 {
     public class ArchivoXML
     {
-        public ArchivoXML() { }
-
         public XmlDocument leerXML(string rutaArchivo)
         {
             XmlDocument xmlDoc = new XmlDocument(); /*instancia del objeto XML Document*/
