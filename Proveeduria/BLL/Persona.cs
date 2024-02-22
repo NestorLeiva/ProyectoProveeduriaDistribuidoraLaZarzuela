@@ -23,7 +23,7 @@ namespace BLL
             Email = email;
         }
 
-
+        /*Atributos */
         private string nombre = string.Empty;
         private string apellidoPrimero = string.Empty;
         private string apellidoSegundo = string.Empty;
