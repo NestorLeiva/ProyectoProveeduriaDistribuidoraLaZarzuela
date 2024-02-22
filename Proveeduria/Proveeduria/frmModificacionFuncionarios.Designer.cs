@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModificacionFuncionarios));
-            dgvListaFuncionarios = new DataGridView();
-            colNombre = new DataGridViewTextBoxColumn();
-            colApellidoPrimero = new DataGridViewTextBoxColumn();
-            colSegundoApellido = new DataGridViewTextBoxColumn();
-            colDNI = new DataGridViewTextBoxColumn();
-            colCodFuncionario = new DataGridViewTextBoxColumn();
-            colEmail = new DataGridViewTextBoxColumn();
-            colEstado = new DataGridViewTextBoxColumn();
             txtFuncionarioCodigo = new TextBox();
             txtFuncionarioEmail = new TextBox();
             txtFuncionarioDNI = new TextBox();
@@ -53,8 +45,10 @@
             lblFuncionarioTitulo = new Label();
             gbxModificacion = new GroupBox();
             gbxConsultaFuncionario = new GroupBox();
+            btnModificarConsutar = new Button();
             txtFuncionarioConsulta = new TextBox();
             gbxModificarFuncionarioDatos = new GroupBox();
+            btnModificarActualizar = new Button();
             lblFuncionarioEstado = new Label();
             rbtnEstadoActivo = new RadioButton();
             rbtnEstadoInactivo = new RadioButton();
@@ -62,7 +56,15 @@
             btnModifcarLimpiar = new Button();
             btnModificarFuncionario = new Button();
             gbxFuncionarioModificarLista = new GroupBox();
-            ((System.ComponentModel.ISupportInitialize)dgvListaFuncionarios).BeginInit();
+            lvListaFuncionarios = new ListView();
+            colIdentificacion = new ColumnHeader();
+            colNombre = new ColumnHeader();
+            colApellidoPrimero = new ColumnHeader();
+            colApellidoSegundo = new ColumnHeader();
+            colEmail = new ColumnHeader();
+            colCodigoFuncionario = new ColumnHeader();
+            colContrasenia = new ColumnHeader();
+            colEstado = new ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
             gbxModificacion.SuspendLayout();
             gbxConsultaFuncionario.SuspendLayout();
@@ -70,175 +72,122 @@
             gbxFuncionarioModificarLista.SuspendLayout();
             SuspendLayout();
             // 
-            // dgvListaFuncionarios
-            // 
-            dgvListaFuncionarios.AllowUserToDeleteRows = false;
-            dgvListaFuncionarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dgvListaFuncionarios.Columns.AddRange(new DataGridViewColumn[] { colNombre, colApellidoPrimero, colSegundoApellido, colDNI, colCodFuncionario, colEmail, colEstado });
-            dgvListaFuncionarios.Dock = DockStyle.Fill;
-            dgvListaFuncionarios.Location = new Point(3, 19);
-            dgvListaFuncionarios.Name = "dgvListaFuncionarios";
-            dgvListaFuncionarios.RowTemplate.Height = 25;
-            dgvListaFuncionarios.Size = new Size(768, 253);
-            dgvListaFuncionarios.TabIndex = 8;
-            // 
-            // colNombre
-            // 
-            colNombre.HeaderText = "Nombre";
-            colNombre.Name = "colNombre";
-            colNombre.Width = 76;
-            // 
-            // colApellidoPrimero
-            // 
-            colApellidoPrimero.HeaderText = "Primer Apellido";
-            colApellidoPrimero.Name = "colApellidoPrimero";
-            colApellidoPrimero.Width = 114;
-            // 
-            // colSegundoApellido
-            // 
-            colSegundoApellido.HeaderText = "Segundo Apellido";
-            colSegundoApellido.Name = "colSegundoApellido";
-            colSegundoApellido.Width = 126;
-            // 
-            // colDNI
-            // 
-            colDNI.HeaderText = "Identificacion";
-            colDNI.Name = "colDNI";
-            colDNI.ReadOnly = true;
-            colDNI.Width = 104;
-            // 
-            // colCodFuncionario
-            // 
-            colCodFuncionario.HeaderText = "Codigo Funcionario";
-            colCodFuncionario.Name = "colCodFuncionario";
-            colCodFuncionario.ReadOnly = true;
-            colCodFuncionario.Width = 137;
-            // 
-            // colEmail
-            // 
-            colEmail.HeaderText = "Email";
-            colEmail.Name = "colEmail";
-            colEmail.Width = 61;
-            // 
-            // colEstado
-            // 
-            colEstado.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colEstado.HeaderText = "Estado";
-            colEstado.Name = "colEstado";
-            colEstado.ReadOnly = true;
-            // 
             // txtFuncionarioCodigo
             // 
-            txtFuncionarioCodigo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioCodigo.Location = new Point(560, 62);
+            txtFuncionarioCodigo.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtFuncionarioCodigo.Location = new Point(527, 52);
             txtFuncionarioCodigo.Name = "txtFuncionarioCodigo";
             txtFuncionarioCodigo.ReadOnly = true;
-            txtFuncionarioCodigo.Size = new Size(199, 29);
+            txtFuncionarioCodigo.Size = new Size(223, 27);
             txtFuncionarioCodigo.TabIndex = 6;
             txtFuncionarioCodigo.TextAlign = HorizontalAlignment.Center;
             // 
             // txtFuncionarioEmail
             // 
-            txtFuncionarioEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioEmail.Location = new Point(560, 97);
+            txtFuncionarioEmail.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtFuncionarioEmail.Location = new Point(527, 85);
             txtFuncionarioEmail.Name = "txtFuncionarioEmail";
-            txtFuncionarioEmail.Size = new Size(199, 29);
+            txtFuncionarioEmail.Size = new Size(223, 27);
             txtFuncionarioEmail.TabIndex = 7;
             txtFuncionarioEmail.TextAlign = HorizontalAlignment.Center;
+            txtFuncionarioEmail.KeyPress += txtFuncionarioEmail_KeyPress;
             // 
             // txtFuncionarioDNI
             // 
-            txtFuncionarioDNI.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioDNI.Location = new Point(560, 27);
+            txtFuncionarioDNI.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtFuncionarioDNI.Location = new Point(527, 19);
             txtFuncionarioDNI.Name = "txtFuncionarioDNI";
             txtFuncionarioDNI.ReadOnly = true;
-            txtFuncionarioDNI.Size = new Size(199, 29);
+            txtFuncionarioDNI.Size = new Size(223, 27);
             txtFuncionarioDNI.TabIndex = 5;
             txtFuncionarioDNI.TextAlign = HorizontalAlignment.Center;
             // 
             // txtFuncionarioApellidoSegundo
             // 
-            txtFuncionarioApellidoSegundo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioApellidoSegundo.Location = new Point(182, 96);
+            txtFuncionarioApellidoSegundo.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtFuncionarioApellidoSegundo.Location = new Point(202, 83);
             txtFuncionarioApellidoSegundo.Name = "txtFuncionarioApellidoSegundo";
-            txtFuncionarioApellidoSegundo.Size = new Size(199, 29);
+            txtFuncionarioApellidoSegundo.Size = new Size(179, 27);
             txtFuncionarioApellidoSegundo.TabIndex = 4;
             txtFuncionarioApellidoSegundo.TextAlign = HorizontalAlignment.Center;
+            txtFuncionarioApellidoSegundo.KeyPress += txtFuncionarioApellidoSegundo_KeyPress;
             // 
             // txtFuncionarioApellidoPrimero
             // 
-            txtFuncionarioApellidoPrimero.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioApellidoPrimero.Location = new Point(182, 61);
+            txtFuncionarioApellidoPrimero.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtFuncionarioApellidoPrimero.Location = new Point(202, 50);
             txtFuncionarioApellidoPrimero.Name = "txtFuncionarioApellidoPrimero";
-            txtFuncionarioApellidoPrimero.Size = new Size(199, 29);
+            txtFuncionarioApellidoPrimero.Size = new Size(179, 27);
             txtFuncionarioApellidoPrimero.TabIndex = 3;
             txtFuncionarioApellidoPrimero.TextAlign = HorizontalAlignment.Center;
+            txtFuncionarioApellidoPrimero.KeyPress += txtFuncionarioApellidoPrimero_KeyPress;
             // 
             // txtFuncionarioNombre
             // 
-            txtFuncionarioNombre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioNombre.Location = new Point(182, 27);
+            txtFuncionarioNombre.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtFuncionarioNombre.Location = new Point(202, 17);
             txtFuncionarioNombre.Name = "txtFuncionarioNombre";
-            txtFuncionarioNombre.Size = new Size(199, 29);
+            txtFuncionarioNombre.Size = new Size(179, 27);
             txtFuncionarioNombre.TabIndex = 2;
             txtFuncionarioNombre.TextAlign = HorizontalAlignment.Center;
+            txtFuncionarioNombre.KeyPress += txtFuncionarioNombre_KeyPress;
             // 
             // lblFuncionarioEmail
             // 
-            lblFuncionarioEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioEmail.Location = new Point(387, 104);
+            lblFuncionarioEmail.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblFuncionarioEmail.Location = new Point(387, 90);
             lblFuncionarioEmail.Name = "lblFuncionarioEmail";
-            lblFuncionarioEmail.Size = new Size(154, 22);
+            lblFuncionarioEmail.Size = new Size(134, 22);
             lblFuncionarioEmail.TabIndex = 17;
             lblFuncionarioEmail.Text = "Correo Electronico";
             lblFuncionarioEmail.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblFuncionarioCodigo
             // 
-            lblFuncionarioCodigo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioCodigo.Location = new Point(387, 69);
+            lblFuncionarioCodigo.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblFuncionarioCodigo.Location = new Point(387, 57);
             lblFuncionarioCodigo.Name = "lblFuncionarioCodigo";
-            lblFuncionarioCodigo.Size = new Size(154, 22);
+            lblFuncionarioCodigo.Size = new Size(134, 22);
             lblFuncionarioCodigo.TabIndex = 16;
             lblFuncionarioCodigo.Text = "Codigo Funcionario";
             lblFuncionarioCodigo.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblFuncionarioDNI
             // 
-            lblFuncionarioDNI.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioDNI.Location = new Point(387, 34);
+            lblFuncionarioDNI.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblFuncionarioDNI.Location = new Point(387, 24);
             lblFuncionarioDNI.Name = "lblFuncionarioDNI";
-            lblFuncionarioDNI.Size = new Size(154, 22);
+            lblFuncionarioDNI.Size = new Size(134, 22);
             lblFuncionarioDNI.TabIndex = 15;
             lblFuncionarioDNI.Text = "Identificacion";
             lblFuncionarioDNI.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblFuncionarioApellidoSegundo
             // 
-            lblFuncionarioApellidoSegundo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioApellidoSegundo.Location = new Point(9, 103);
+            lblFuncionarioApellidoSegundo.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblFuncionarioApellidoSegundo.Location = new Point(37, 88);
             lblFuncionarioApellidoSegundo.Name = "lblFuncionarioApellidoSegundo";
-            lblFuncionarioApellidoSegundo.Size = new Size(154, 22);
+            lblFuncionarioApellidoSegundo.Size = new Size(134, 22);
             lblFuncionarioApellidoSegundo.TabIndex = 14;
             lblFuncionarioApellidoSegundo.Text = "Segundo Apellido";
             lblFuncionarioApellidoSegundo.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblFuncionarioApellidoPrimero
             // 
-            lblFuncionarioApellidoPrimero.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioApellidoPrimero.Location = new Point(9, 68);
+            lblFuncionarioApellidoPrimero.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblFuncionarioApellidoPrimero.Location = new Point(37, 55);
             lblFuncionarioApellidoPrimero.Name = "lblFuncionarioApellidoPrimero";
-            lblFuncionarioApellidoPrimero.Size = new Size(154, 22);
+            lblFuncionarioApellidoPrimero.Size = new Size(134, 22);
             lblFuncionarioApellidoPrimero.TabIndex = 13;
             lblFuncionarioApellidoPrimero.Text = "Primer Apellido";
             lblFuncionarioApellidoPrimero.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblFuncionarioNombre
             // 
-            lblFuncionarioNombre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioNombre.Location = new Point(9, 34);
+            lblFuncionarioNombre.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblFuncionarioNombre.Location = new Point(29, 19);
             lblFuncionarioNombre.Name = "lblFuncionarioNombre";
-            lblFuncionarioNombre.Size = new Size(154, 22);
+            lblFuncionarioNombre.Size = new Size(134, 22);
             lblFuncionarioNombre.TabIndex = 12;
             lblFuncionarioNombre.Text = "Nombre";
             lblFuncionarioNombre.TextAlign = ContentAlignment.MiddleRight;
@@ -277,13 +226,25 @@
             // 
             // gbxConsultaFuncionario
             // 
+            gbxConsultaFuncionario.Controls.Add(btnModificarConsutar);
             gbxConsultaFuncionario.Controls.Add(txtFuncionarioConsulta);
-            gbxConsultaFuncionario.Location = new Point(226, 88);
+            gbxConsultaFuncionario.Location = new Point(182, 90);
             gbxConsultaFuncionario.Name = "gbxConsultaFuncionario";
-            gbxConsultaFuncionario.Size = new Size(274, 59);
+            gbxConsultaFuncionario.Size = new Size(466, 59);
             gbxConsultaFuncionario.TabIndex = 26;
             gbxConsultaFuncionario.TabStop = false;
             gbxConsultaFuncionario.Text = "Consulta Funcionraio por Identificacion";
+            // 
+            // btnModificarConsutar
+            // 
+            btnModificarConsutar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnModificarConsutar.Location = new Point(266, 22);
+            btnModificarConsutar.Name = "btnModificarConsutar";
+            btnModificarConsutar.Size = new Size(90, 28);
+            btnModificarConsutar.TabIndex = 9;
+            btnModificarConsutar.Text = "Consultar";
+            btnModificarConsutar.UseVisualStyleBackColor = true;
+            btnModificarConsutar.Click += btnModificarConsutar_Click;
             // 
             // txtFuncionarioConsulta
             // 
@@ -296,6 +257,7 @@
             // 
             // gbxModificarFuncionarioDatos
             // 
+            gbxModificarFuncionarioDatos.Controls.Add(btnModificarActualizar);
             gbxModificarFuncionarioDatos.Controls.Add(lblFuncionarioEstado);
             gbxModificarFuncionarioDatos.Controls.Add(rbtnEstadoActivo);
             gbxModificarFuncionarioDatos.Controls.Add(rbtnEstadoInactivo);
@@ -322,12 +284,22 @@
             gbxModificarFuncionarioDatos.TabStop = false;
             gbxModificarFuncionarioDatos.Text = "Datos Funcionarios";
             // 
+            // btnModificarActualizar
+            // 
+            btnModificarActualizar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnModificarActualizar.Location = new Point(592, 158);
+            btnModificarActualizar.Name = "btnModificarActualizar";
+            btnModificarActualizar.Size = new Size(90, 31);
+            btnModificarActualizar.TabIndex = 21;
+            btnModificarActualizar.Text = "Actualizar";
+            btnModificarActualizar.UseVisualStyleBackColor = true;
+            // 
             // lblFuncionarioEstado
             // 
-            lblFuncionarioEstado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioEstado.Location = new Point(17, 141);
+            lblFuncionarioEstado.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblFuncionarioEstado.Location = new Point(37, 125);
             lblFuncionarioEstado.Name = "lblFuncionarioEstado";
-            lblFuncionarioEstado.Size = new Size(154, 22);
+            lblFuncionarioEstado.Size = new Size(134, 22);
             lblFuncionarioEstado.TabIndex = 20;
             lblFuncionarioEstado.Text = "Estado";
             lblFuncionarioEstado.TextAlign = ContentAlignment.MiddleRight;
@@ -335,10 +307,10 @@
             // rbtnEstadoActivo
             // 
             rbtnEstadoActivo.AutoSize = true;
-            rbtnEstadoActivo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            rbtnEstadoActivo.Location = new Point(387, 138);
+            rbtnEstadoActivo.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            rbtnEstadoActivo.Location = new Point(387, 122);
             rbtnEstadoActivo.Name = "rbtnEstadoActivo";
-            rbtnEstadoActivo.Size = new Size(71, 25);
+            rbtnEstadoActivo.Size = new Size(69, 24);
             rbtnEstadoActivo.TabIndex = 19;
             rbtnEstadoActivo.TabStop = true;
             rbtnEstadoActivo.Text = "Activo";
@@ -347,10 +319,10 @@
             // rbtnEstadoInactivo
             // 
             rbtnEstadoInactivo.AutoSize = true;
-            rbtnEstadoInactivo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            rbtnEstadoInactivo.Location = new Point(226, 141);
+            rbtnEstadoInactivo.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            rbtnEstadoInactivo.Location = new Point(226, 125);
             rbtnEstadoInactivo.Name = "rbtnEstadoInactivo";
-            rbtnEstadoInactivo.Size = new Size(82, 25);
+            rbtnEstadoInactivo.Size = new Size(79, 24);
             rbtnEstadoInactivo.TabIndex = 18;
             rbtnEstadoInactivo.TabStop = true;
             rbtnEstadoInactivo.Text = "Inactivo";
@@ -358,44 +330,96 @@
             // 
             // btnModificarCancelar
             // 
-            btnModificarCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificarCancelar.Location = new Point(440, 172);
+            btnModificarCancelar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnModificarCancelar.Location = new Point(460, 158);
             btnModificarCancelar.Name = "btnModificarCancelar";
-            btnModificarCancelar.Size = new Size(120, 30);
+            btnModificarCancelar.Size = new Size(78, 33);
             btnModificarCancelar.TabIndex = 10;
             btnModificarCancelar.Text = "Cancelar";
             btnModificarCancelar.UseVisualStyleBackColor = true;
             // 
             // btnModifcarLimpiar
             // 
-            btnModifcarLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModifcarLimpiar.Location = new Point(286, 172);
+            btnModifcarLimpiar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnModifcarLimpiar.Location = new Point(306, 158);
             btnModifcarLimpiar.Name = "btnModifcarLimpiar";
-            btnModifcarLimpiar.Size = new Size(120, 30);
+            btnModifcarLimpiar.Size = new Size(78, 33);
             btnModifcarLimpiar.TabIndex = 9;
             btnModifcarLimpiar.Text = "Limpiar";
             btnModifcarLimpiar.UseVisualStyleBackColor = true;
             // 
             // btnModificarFuncionario
             // 
-            btnModificarFuncionario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificarFuncionario.Location = new Point(142, 172);
+            btnModificarFuncionario.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnModificarFuncionario.Location = new Point(162, 158);
             btnModificarFuncionario.Name = "btnModificarFuncionario";
-            btnModificarFuncionario.Size = new Size(120, 30);
+            btnModificarFuncionario.Size = new Size(78, 33);
             btnModificarFuncionario.TabIndex = 8;
             btnModificarFuncionario.Text = "Modificar";
             btnModificarFuncionario.UseVisualStyleBackColor = true;
             // 
             // gbxFuncionarioModificarLista
             // 
-            gbxFuncionarioModificarLista.Controls.Add(dgvListaFuncionarios);
+            gbxFuncionarioModificarLista.Controls.Add(lvListaFuncionarios);
             gbxFuncionarioModificarLista.Dock = DockStyle.Bottom;
-            gbxFuncionarioModificarLista.Location = new Point(0, 386);
+            gbxFuncionarioModificarLista.Location = new Point(0, 352);
             gbxFuncionarioModificarLista.Name = "gbxFuncionarioModificarLista";
-            gbxFuncionarioModificarLista.Size = new Size(774, 275);
+            gbxFuncionarioModificarLista.Size = new Size(774, 309);
             gbxFuncionarioModificarLista.TabIndex = 28;
             gbxFuncionarioModificarLista.TabStop = false;
             gbxFuncionarioModificarLista.Text = "Lista funcionarios";
+            // 
+            // lvListaFuncionarios
+            // 
+            lvListaFuncionarios.BackColor = SystemColors.Info;
+            lvListaFuncionarios.Columns.AddRange(new ColumnHeader[] { colIdentificacion, colNombre, colApellidoPrimero, colApellidoSegundo, colEmail, colCodigoFuncionario, colContrasenia, colEstado });
+            lvListaFuncionarios.Dock = DockStyle.Fill;
+            lvListaFuncionarios.Location = new Point(3, 19);
+            lvListaFuncionarios.Name = "lvListaFuncionarios";
+            lvListaFuncionarios.Size = new Size(768, 287);
+            lvListaFuncionarios.TabIndex = 1;
+            lvListaFuncionarios.UseCompatibleStateImageBehavior = false;
+            lvListaFuncionarios.View = View.Details;
+            // 
+            // colIdentificacion
+            // 
+            colIdentificacion.Text = "Identificacion";
+            colIdentificacion.Width = 100;
+            // 
+            // colNombre
+            // 
+            colNombre.Text = "Nombre";
+            colNombre.Width = 100;
+            // 
+            // colApellidoPrimero
+            // 
+            colApellidoPrimero.Text = "PrimerApelledio";
+            colApellidoPrimero.Width = 100;
+            // 
+            // colApellidoSegundo
+            // 
+            colApellidoSegundo.Text = "SegundoApellido";
+            colApellidoSegundo.Width = 120;
+            // 
+            // colEmail
+            // 
+            colEmail.Text = "Email";
+            colEmail.Width = 100;
+            // 
+            // colCodigoFuncionario
+            // 
+            colCodigoFuncionario.Text = "Cod. Funcionario";
+            colCodigoFuncionario.Width = 120;
+            // 
+            // colContrasenia
+            // 
+            colContrasenia.Text = "Contrasenia";
+            colContrasenia.Width = 100;
+            // 
+            // colEstado
+            // 
+            colEstado.Text = "Estado";
+            colEstado.Width = 100;
             // 
             // frmModificacionFuncionarios
             // 
@@ -409,7 +433,6 @@
             Name = "frmModificacionFuncionarios";
             Text = "Modificacion Funcionarios";
             Load += frmModificacionFuncionarios_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvListaFuncionarios).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
             gbxModificacion.ResumeLayout(false);
             gbxConsultaFuncionario.ResumeLayout(false);
@@ -421,8 +444,6 @@
         }
 
         #endregion
-
-        private DataGridView dgvListaFuncionarios;
         private TextBox txtFuncionarioCodigo;
         private TextBox txtFuncionarioEmail;
         private TextBox txtFuncionarioDNI;
@@ -445,15 +466,19 @@
         private Button btnModifcarLimpiar;
         private Button btnModificarFuncionario;
         private GroupBox gbxConsultaFuncionario;
-        private DataGridViewTextBoxColumn colNombre;
-        private DataGridViewTextBoxColumn colApellidoPrimero;
-        private DataGridViewTextBoxColumn colSegundoApellido;
-        private DataGridViewTextBoxColumn colDNI;
-        private DataGridViewTextBoxColumn colCodFuncionario;
-        private DataGridViewTextBoxColumn colEmail;
-        private DataGridViewTextBoxColumn colEstado;
         private Label lblFuncionarioEstado;
         private RadioButton rbtnEstadoActivo;
         private RadioButton rbtnEstadoInactivo;
+        private Button btnModificarConsutar;
+        private Button btnModificarActualizar;
+        private ListView lvListaFuncionarios;
+        private ColumnHeader colIdentificacion;
+        private ColumnHeader colNombre;
+        private ColumnHeader colApellidoPrimero;
+        private ColumnHeader colApellidoSegundo;
+        private ColumnHeader colEmail;
+        private ColumnHeader colCodigoFuncionario;
+        private ColumnHeader colContrasenia;
+        private ColumnHeader colEstado;
     }
 }
