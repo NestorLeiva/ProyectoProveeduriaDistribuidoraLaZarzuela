@@ -79,7 +79,7 @@
             txtFuncionarioCodigo.Name = "txtFuncionarioCodigo";
             txtFuncionarioCodigo.ReadOnly = true;
             txtFuncionarioCodigo.Size = new Size(223, 27);
-            txtFuncionarioCodigo.TabIndex = 6;
+            txtFuncionarioCodigo.TabIndex = 10;
             txtFuncionarioCodigo.TextAlign = HorizontalAlignment.Center;
             // 
             // txtFuncionarioEmail
@@ -88,7 +88,7 @@
             txtFuncionarioEmail.Location = new Point(527, 85);
             txtFuncionarioEmail.Name = "txtFuncionarioEmail";
             txtFuncionarioEmail.Size = new Size(223, 27);
-            txtFuncionarioEmail.TabIndex = 7;
+            txtFuncionarioEmail.TabIndex = 11;
             txtFuncionarioEmail.TextAlign = HorizontalAlignment.Center;
             txtFuncionarioEmail.KeyPress += txtFuncionarioEmail_KeyPress;
             // 
@@ -99,7 +99,7 @@
             txtFuncionarioDNI.Name = "txtFuncionarioDNI";
             txtFuncionarioDNI.ReadOnly = true;
             txtFuncionarioDNI.Size = new Size(223, 27);
-            txtFuncionarioDNI.TabIndex = 5;
+            txtFuncionarioDNI.TabIndex = 9;
             txtFuncionarioDNI.TextAlign = HorizontalAlignment.Center;
             // 
             // txtFuncionarioApellidoSegundo
@@ -108,7 +108,7 @@
             txtFuncionarioApellidoSegundo.Location = new Point(202, 83);
             txtFuncionarioApellidoSegundo.Name = "txtFuncionarioApellidoSegundo";
             txtFuncionarioApellidoSegundo.Size = new Size(179, 27);
-            txtFuncionarioApellidoSegundo.TabIndex = 4;
+            txtFuncionarioApellidoSegundo.TabIndex = 8;
             txtFuncionarioApellidoSegundo.TextAlign = HorizontalAlignment.Center;
             txtFuncionarioApellidoSegundo.KeyPress += txtFuncionarioApellidoSegundo_KeyPress;
             // 
@@ -118,7 +118,7 @@
             txtFuncionarioApellidoPrimero.Location = new Point(202, 50);
             txtFuncionarioApellidoPrimero.Name = "txtFuncionarioApellidoPrimero";
             txtFuncionarioApellidoPrimero.Size = new Size(179, 27);
-            txtFuncionarioApellidoPrimero.TabIndex = 3;
+            txtFuncionarioApellidoPrimero.TabIndex = 7;
             txtFuncionarioApellidoPrimero.TextAlign = HorizontalAlignment.Center;
             txtFuncionarioApellidoPrimero.KeyPress += txtFuncionarioApellidoPrimero_KeyPress;
             // 
@@ -128,7 +128,7 @@
             txtFuncionarioNombre.Location = new Point(202, 17);
             txtFuncionarioNombre.Name = "txtFuncionarioNombre";
             txtFuncionarioNombre.Size = new Size(179, 27);
-            txtFuncionarioNombre.TabIndex = 2;
+            txtFuncionarioNombre.TabIndex = 6;
             txtFuncionarioNombre.TextAlign = HorizontalAlignment.Center;
             txtFuncionarioNombre.KeyPress += txtFuncionarioNombre_KeyPress;
             // 
@@ -208,7 +208,7 @@
             lblFuncionarioTitulo.Location = new Point(204, 37);
             lblFuncionarioTitulo.Name = "lblFuncionarioTitulo";
             lblFuncionarioTitulo.Size = new Size(296, 31);
-            lblFuncionarioTitulo.TabIndex = 25;
+            lblFuncionarioTitulo.TabIndex = 1;
             lblFuncionarioTitulo.Text = "Modificacion de Funcionarios";
             lblFuncionarioTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -231,7 +231,7 @@
             gbxConsultaFuncionario.Location = new Point(182, 90);
             gbxConsultaFuncionario.Name = "gbxConsultaFuncionario";
             gbxConsultaFuncionario.Size = new Size(466, 59);
-            gbxConsultaFuncionario.TabIndex = 26;
+            gbxConsultaFuncionario.TabIndex = 2;
             gbxConsultaFuncionario.TabStop = false;
             gbxConsultaFuncionario.Text = "Consulta Funcionraio por Identificacion";
             // 
@@ -241,7 +241,7 @@
             btnModificarConsutar.Location = new Point(266, 22);
             btnModificarConsutar.Name = "btnModificarConsutar";
             btnModificarConsutar.Size = new Size(90, 28);
-            btnModificarConsutar.TabIndex = 9;
+            btnModificarConsutar.TabIndex = 4;
             btnModificarConsutar.Text = "Consultar";
             btnModificarConsutar.UseVisualStyleBackColor = true;
             btnModificarConsutar.Click += btnModificarConsutar_Click;
@@ -252,7 +252,7 @@
             txtFuncionarioConsulta.Location = new Point(6, 22);
             txtFuncionarioConsulta.Name = "txtFuncionarioConsulta";
             txtFuncionarioConsulta.Size = new Size(254, 29);
-            txtFuncionarioConsulta.TabIndex = 1;
+            txtFuncionarioConsulta.TabIndex = 3;
             txtFuncionarioConsulta.TextAlign = HorizontalAlignment.Center;
             // 
             // gbxModificarFuncionarioDatos
@@ -280,17 +280,17 @@
             gbxModificarFuncionarioDatos.Location = new Point(0, 155);
             gbxModificarFuncionarioDatos.Name = "gbxModificarFuncionarioDatos";
             gbxModificarFuncionarioDatos.Size = new Size(774, 506);
-            gbxModificarFuncionarioDatos.TabIndex = 27;
+            gbxModificarFuncionarioDatos.TabIndex = 5;
             gbxModificarFuncionarioDatos.TabStop = false;
             gbxModificarFuncionarioDatos.Text = "Datos Funcionarios";
             // 
             // btnModificarActualizar
             // 
             btnModificarActualizar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificarActualizar.Location = new Point(592, 158);
+            btnModificarActualizar.Location = new Point(495, 160);
             btnModificarActualizar.Name = "btnModificarActualizar";
             btnModificarActualizar.Size = new Size(90, 31);
-            btnModificarActualizar.TabIndex = 21;
+            btnModificarActualizar.TabIndex = 16;
             btnModificarActualizar.Text = "Actualizar";
             btnModificarActualizar.UseVisualStyleBackColor = true;
             // 
@@ -311,7 +311,7 @@
             rbtnEstadoActivo.Location = new Point(387, 122);
             rbtnEstadoActivo.Name = "rbtnEstadoActivo";
             rbtnEstadoActivo.Size = new Size(69, 24);
-            rbtnEstadoActivo.TabIndex = 19;
+            rbtnEstadoActivo.TabIndex = 13;
             rbtnEstadoActivo.TabStop = true;
             rbtnEstadoActivo.Text = "Activo";
             rbtnEstadoActivo.UseVisualStyleBackColor = true;
@@ -323,7 +323,7 @@
             rbtnEstadoInactivo.Location = new Point(226, 125);
             rbtnEstadoInactivo.Name = "rbtnEstadoInactivo";
             rbtnEstadoInactivo.Size = new Size(79, 24);
-            rbtnEstadoInactivo.TabIndex = 18;
+            rbtnEstadoInactivo.TabIndex = 12;
             rbtnEstadoInactivo.TabStop = true;
             rbtnEstadoInactivo.Text = "Inactivo";
             rbtnEstadoInactivo.UseVisualStyleBackColor = true;
@@ -331,10 +331,10 @@
             // btnModificarCancelar
             // 
             btnModificarCancelar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificarCancelar.Location = new Point(460, 158);
+            btnModificarCancelar.Location = new Point(660, 158);
             btnModificarCancelar.Name = "btnModificarCancelar";
             btnModificarCancelar.Size = new Size(78, 33);
-            btnModificarCancelar.TabIndex = 10;
+            btnModificarCancelar.TabIndex = 17;
             btnModificarCancelar.Text = "Cancelar";
             btnModificarCancelar.UseVisualStyleBackColor = true;
             // 
@@ -344,7 +344,7 @@
             btnModifcarLimpiar.Location = new Point(306, 158);
             btnModifcarLimpiar.Name = "btnModifcarLimpiar";
             btnModifcarLimpiar.Size = new Size(78, 33);
-            btnModifcarLimpiar.TabIndex = 9;
+            btnModifcarLimpiar.TabIndex = 15;
             btnModifcarLimpiar.Text = "Limpiar";
             btnModifcarLimpiar.UseVisualStyleBackColor = true;
             // 
@@ -354,7 +354,7 @@
             btnModificarFuncionario.Location = new Point(162, 158);
             btnModificarFuncionario.Name = "btnModificarFuncionario";
             btnModificarFuncionario.Size = new Size(78, 33);
-            btnModificarFuncionario.TabIndex = 8;
+            btnModificarFuncionario.TabIndex = 14;
             btnModificarFuncionario.Text = "Modificar";
             btnModificarFuncionario.UseVisualStyleBackColor = true;
             // 
@@ -365,7 +365,7 @@
             gbxFuncionarioModificarLista.Location = new Point(0, 352);
             gbxFuncionarioModificarLista.Name = "gbxFuncionarioModificarLista";
             gbxFuncionarioModificarLista.Size = new Size(774, 309);
-            gbxFuncionarioModificarLista.TabIndex = 28;
+            gbxFuncionarioModificarLista.TabIndex = 18;
             gbxFuncionarioModificarLista.TabStop = false;
             gbxFuncionarioModificarLista.Text = "Lista funcionarios";
             // 
@@ -377,7 +377,7 @@
             lvListaFuncionarios.Location = new Point(3, 19);
             lvListaFuncionarios.Name = "lvListaFuncionarios";
             lvListaFuncionarios.Size = new Size(768, 287);
-            lvListaFuncionarios.TabIndex = 1;
+            lvListaFuncionarios.TabIndex = 19;
             lvListaFuncionarios.UseCompatibleStateImageBehavior = false;
             lvListaFuncionarios.View = View.Details;
             // 
