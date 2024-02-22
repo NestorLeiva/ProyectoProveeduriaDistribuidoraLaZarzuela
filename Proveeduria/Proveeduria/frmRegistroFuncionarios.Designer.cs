@@ -33,14 +33,12 @@
             lblFuncionarioApellidoPrimero = new Label();
             lblFuncionarioApellidoSegundo = new Label();
             lblFuncionarioDNI = new Label();
-            lblFuncionarioCodigo = new Label();
             lblFuncionarioEmail = new Label();
             txtFuncionarioNombre = new TextBox();
             txtFuncionarioApellidoPrimero = new TextBox();
             txtFuncionarioApellidoSegundo = new TextBox();
             txtFuncionarioDNI = new TextBox();
             txtFuncionarioEmail = new TextBox();
-            txtFuncionarioCodigo = new TextBox();
             btnFuncionarioAceptar = new Button();
             btnFuncionarioCancelar = new Button();
             pbLogo = new PictureBox();
@@ -106,20 +104,10 @@
             lblFuncionarioDNI.Text = "Identificacion";
             lblFuncionarioDNI.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // lblFuncionarioCodigo
-            // 
-            lblFuncionarioCodigo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioCodigo.Location = new Point(11, 168);
-            lblFuncionarioCodigo.Name = "lblFuncionarioCodigo";
-            lblFuncionarioCodigo.Size = new Size(168, 22);
-            lblFuncionarioCodigo.TabIndex = 4;
-            lblFuncionarioCodigo.Text = "Codigo de Funcionario";
-            lblFuncionarioCodigo.TextAlign = ContentAlignment.MiddleRight;
-            // 
             // lblFuncionarioEmail
             // 
             lblFuncionarioEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioEmail.Location = new Point(11, 203);
+            lblFuncionarioEmail.Location = new Point(11, 168);
             lblFuncionarioEmail.Name = "lblFuncionarioEmail";
             lblFuncionarioEmail.Size = new Size(168, 22);
             lblFuncionarioEmail.TabIndex = 5;
@@ -160,6 +148,7 @@
             // 
             txtFuncionarioDNI.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtFuncionarioDNI.Location = new Point(185, 133);
+            txtFuncionarioDNI.MaxLength = 10;
             txtFuncionarioDNI.Name = "txtFuncionarioDNI";
             txtFuncionarioDNI.Size = new Size(211, 29);
             txtFuncionarioDNI.TabIndex = 4;
@@ -169,36 +158,27 @@
             // txtFuncionarioEmail
             // 
             txtFuncionarioEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioEmail.Location = new Point(185, 203);
+            txtFuncionarioEmail.Location = new Point(185, 168);
             txtFuncionarioEmail.Name = "txtFuncionarioEmail";
             txtFuncionarioEmail.Size = new Size(211, 29);
             txtFuncionarioEmail.TabIndex = 6;
             txtFuncionarioEmail.TextAlign = HorizontalAlignment.Center;
             // 
-            // txtFuncionarioCodigo
-            // 
-            txtFuncionarioCodigo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioCodigo.Location = new Point(185, 168);
-            txtFuncionarioCodigo.Name = "txtFuncionarioCodigo";
-            txtFuncionarioCodigo.Size = new Size(211, 29);
-            txtFuncionarioCodigo.TabIndex = 5;
-            txtFuncionarioCodigo.TextAlign = HorizontalAlignment.Center;
-            txtFuncionarioCodigo.KeyPress += txtFuncionarioCodigo_KeyPress;
-            // 
             // btnFuncionarioAceptar
             // 
             btnFuncionarioAceptar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnFuncionarioAceptar.Location = new Point(102, 281);
+            btnFuncionarioAceptar.Location = new Point(89, 234);
             btnFuncionarioAceptar.Name = "btnFuncionarioAceptar";
             btnFuncionarioAceptar.Size = new Size(117, 30);
             btnFuncionarioAceptar.TabIndex = 7;
             btnFuncionarioAceptar.Text = "Aceptar";
             btnFuncionarioAceptar.UseVisualStyleBackColor = true;
+            btnFuncionarioAceptar.Click += btnFuncionarioAceptar_Click;
             // 
             // btnFuncionarioCancelar
             // 
             btnFuncionarioCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnFuncionarioCancelar.Location = new Point(383, 281);
+            btnFuncionarioCancelar.Location = new Point(370, 234);
             btnFuncionarioCancelar.Name = "btnFuncionarioCancelar";
             btnFuncionarioCancelar.Size = new Size(117, 30);
             btnFuncionarioCancelar.TabIndex = 9;
@@ -208,9 +188,9 @@
             // pbLogo
             // 
             pbLogo.Image = (Image)resources.GetObject("pbLogo.Image");
-            pbLogo.Location = new Point(6, 22);
+            pbLogo.Location = new Point(6, 12);
             pbLogo.Name = "pbLogo";
-            pbLogo.Size = new Size(159, 125);
+            pbLogo.Size = new Size(154, 111);
             pbLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             pbLogo.TabIndex = 14;
             pbLogo.TabStop = false;
@@ -218,7 +198,7 @@
             // btnFuncionarioLimpiar
             // 
             btnFuncionarioLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnFuncionarioLimpiar.Location = new Point(240, 281);
+            btnFuncionarioLimpiar.Location = new Point(227, 234);
             btnFuncionarioLimpiar.Name = "btnFuncionarioLimpiar";
             btnFuncionarioLimpiar.Size = new Size(117, 30);
             btnFuncionarioLimpiar.TabIndex = 8;
@@ -243,7 +223,7 @@
             gbxRegistroFuncionariosTitulo.Dock = DockStyle.Top;
             gbxRegistroFuncionariosTitulo.Location = new Point(0, 0);
             gbxRegistroFuncionariosTitulo.Name = "gbxRegistroFuncionariosTitulo";
-            gbxRegistroFuncionariosTitulo.Size = new Size(664, 159);
+            gbxRegistroFuncionariosTitulo.Size = new Size(664, 131);
             gbxRegistroFuncionariosTitulo.TabIndex = 1;
             gbxRegistroFuncionariosTitulo.TabStop = false;
             // 
@@ -259,17 +239,15 @@
             gbxRegistroFuncionariosDatos.Controls.Add(lblFuncionarioApellidoSegundo);
             gbxRegistroFuncionariosDatos.Controls.Add(btnFuncionarioAceptar);
             gbxRegistroFuncionariosDatos.Controls.Add(lblFuncionarioDNI);
-            gbxRegistroFuncionariosDatos.Controls.Add(txtFuncionarioCodigo);
-            gbxRegistroFuncionariosDatos.Controls.Add(lblFuncionarioCodigo);
             gbxRegistroFuncionariosDatos.Controls.Add(txtFuncionarioEmail);
             gbxRegistroFuncionariosDatos.Controls.Add(lblFuncionarioEmail);
             gbxRegistroFuncionariosDatos.Controls.Add(txtFuncionarioDNI);
             gbxRegistroFuncionariosDatos.Controls.Add(txtFuncionarioApellidoPrimero);
             gbxRegistroFuncionariosDatos.Controls.Add(txtFuncionarioApellidoSegundo);
             gbxRegistroFuncionariosDatos.Dock = DockStyle.Fill;
-            gbxRegistroFuncionariosDatos.Location = new Point(0, 159);
+            gbxRegistroFuncionariosDatos.Location = new Point(0, 131);
             gbxRegistroFuncionariosDatos.Name = "gbxRegistroFuncionariosDatos";
-            gbxRegistroFuncionariosDatos.Size = new Size(664, 502);
+            gbxRegistroFuncionariosDatos.Size = new Size(664, 530);
             gbxRegistroFuncionariosDatos.TabIndex = 2;
             gbxRegistroFuncionariosDatos.TabStop = false;
             gbxRegistroFuncionariosDatos.Text = "Datos Funcionarios";
@@ -277,7 +255,7 @@
             // lblFuncionarioEstado
             // 
             lblFuncionarioEstado.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFuncionarioEstado.Location = new Point(11, 238);
+            lblFuncionarioEstado.Location = new Point(11, 203);
             lblFuncionarioEstado.Name = "lblFuncionarioEstado";
             lblFuncionarioEstado.Size = new Size(168, 22);
             lblFuncionarioEstado.TabIndex = 22;
@@ -288,7 +266,7 @@
             // 
             rbtnEstadoActivo.AutoSize = true;
             rbtnEstadoActivo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            rbtnEstadoActivo.Location = new Point(185, 238);
+            rbtnEstadoActivo.Location = new Point(185, 203);
             rbtnEstadoActivo.Name = "rbtnEstadoActivo";
             rbtnEstadoActivo.Size = new Size(71, 25);
             rbtnEstadoActivo.TabIndex = 21;
@@ -300,9 +278,9 @@
             // 
             gbListaFuncionarios.Controls.Add(dgvRegistroListaFuncionarios);
             gbListaFuncionarios.Dock = DockStyle.Bottom;
-            gbListaFuncionarios.Location = new Point(0, 506);
+            gbListaFuncionarios.Location = new Point(0, 415);
             gbListaFuncionarios.Name = "gbListaFuncionarios";
-            gbListaFuncionarios.Size = new Size(664, 155);
+            gbListaFuncionarios.Size = new Size(664, 246);
             gbListaFuncionarios.TabIndex = 3;
             gbListaFuncionarios.TabStop = false;
             gbListaFuncionarios.Text = "Lista de Funcionarios";
@@ -317,7 +295,7 @@
             dgvRegistroListaFuncionarios.Name = "dgvRegistroListaFuncionarios";
             dgvRegistroListaFuncionarios.ReadOnly = true;
             dgvRegistroListaFuncionarios.RowTemplate.Height = 25;
-            dgvRegistroListaFuncionarios.Size = new Size(658, 133);
+            dgvRegistroListaFuncionarios.Size = new Size(658, 224);
             dgvRegistroListaFuncionarios.TabIndex = 9;
             // 
             // colNombre
@@ -380,6 +358,7 @@
             MinimumSize = new Size(680, 700);
             Name = "frmRegistroFuncionarios";
             Text = "Registro de Funcionarios ";
+            Load += frmRegistroFuncionarios_Load;
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
             gbxRegistroFuncionariosTitulo.ResumeLayout(false);
             gbxRegistroFuncionariosDatos.ResumeLayout(false);
@@ -395,14 +374,12 @@
         private Label lblFuncionarioApellidoPrimero;
         private Label lblFuncionarioApellidoSegundo;
         private Label lblFuncionarioDNI;
-        private Label lblFuncionarioCodigo;
         private Label lblFuncionarioEmail;
         private TextBox txtFuncionarioNombre;
         private TextBox txtFuncionarioApellidoPrimero;
         private TextBox txtFuncionarioApellidoSegundo;
         private TextBox txtFuncionarioDNI;
         private TextBox txtFuncionarioEmail;
-        private TextBox txtFuncionarioCodigo;
         private Button btnFuncionarioAceptar;
         private Button btnFuncionarioCancelar;
         private PictureBox pbLogo;

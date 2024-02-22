@@ -21,13 +21,18 @@ namespace Proveeduria
             InitializeComponent();
         }
 
+        private void frmRegistroFuncionarios_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
         private void btnFuncionarioLimpiar_Click(object sender, EventArgs e)
         {
             txtFuncionarioNombre.Text = "";
             txtFuncionarioApellidoPrimero.Text = "";
             txtFuncionarioApellidoSegundo.Text = "";
             txtFuncionarioDNI.Text = "";
-            txtFuncionarioCodigo.Text = "";
             txtFuncionarioEmail.Text = "";
         }
 
@@ -70,5 +75,12 @@ namespace Proveeduria
                 e.Handled = true;
             }
         }
-    }
+
+
+
+        private void btnFuncionarioAceptar_Click(object sender, EventArgs e)
+        {
+
+        }
+    }/*fin clase frmRegistroFuncionarios*/
 }
