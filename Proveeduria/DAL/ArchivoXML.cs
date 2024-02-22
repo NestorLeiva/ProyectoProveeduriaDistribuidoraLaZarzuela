@@ -11,6 +11,18 @@ namespace DAL
             return xmlDoc;/* se devuelve el objeto XML que contiene el XML*/
         } /*fin metodo leerXML */
 
+        public XmlNodeList LeerXML(string rutaArchivo)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(rutaArchivo);
+
+            // Selecciona todos los nodos "Funcionario"
+            XmlNodeList listaFuncionarios = xmlDoc.SelectNodes("//Funcionario");
+
+            return listaFuncionarios;
+        }
+
+
         public void escribirXML(string rutaArchivo, MemoryStream msDatosXML)
         {
             FileStream fsArchivo = new FileStream(rutaArchivo, FileMode.Create, FileAccess.Write);
