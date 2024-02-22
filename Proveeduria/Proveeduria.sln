@@ -5,6 +5,7 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proveeduria", "Proveeduria\Proveeduria.csproj", "{CE71AC67-9023-48B2-B4EC-9DBC72D2806B}"
 	ProjectSection(ProjectDependencies) = postProject
+		{72FC38AA-ED18-4157-A4E1-221249724F53} = {72FC38AA-ED18-4157-A4E1-221249724F53}
 		{7A594F29-96F8-41E2-86ED-5609247024AE} = {7A594F29-96F8-41E2-86ED-5609247024AE}
 	EndProjectSection
 EndProject
