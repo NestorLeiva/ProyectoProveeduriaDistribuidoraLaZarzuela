@@ -68,15 +68,6 @@ namespace Proveeduria
             }
         }
 
-        private void txtFuncionarioCodigo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Validaciones.soloNumeros(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-
 
         private void btnFuncionarioAceptar_Click(object sender, EventArgs e)
         {
