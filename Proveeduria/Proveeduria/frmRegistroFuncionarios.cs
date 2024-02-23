@@ -68,6 +68,16 @@ namespace Proveeduria
             }
         }
 
+        private void txtFuncionarioContrasenia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            {
+                e.Handled = true;
+            }
+        }
+
+
+
         /*----------------------------------------- Botones ------------------------------------------------*/
         private void btnFuncionarioAceptar_Click(object sender, EventArgs e)
         {
@@ -84,7 +94,7 @@ namespace Proveeduria
                     CodFuncionario = Convert.ToInt32(this.txtFuncionarioDNI.Text),
 
                     Contrasenia = this.txtFuncionarioContrasenia.Text.ToUpper(),
-                    Estado = this.rbtnEstadoActivo.Text.ToUpper(),
+                    Estado = this.rbtnEstadoActivo.Text,
                 };
 
 

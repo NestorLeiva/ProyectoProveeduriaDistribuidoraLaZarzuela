@@ -242,6 +242,7 @@
             txtFuncionarioContrasenia.Size = new Size(211, 27);
             txtFuncionarioContrasenia.TabIndex = 6;
             txtFuncionarioContrasenia.TextAlign = HorizontalAlignment.Center;
+            txtFuncionarioContrasenia.KeyPress += txtFuncionarioContrasenia_KeyPress;
             // 
             // lblFuncionarioContrasenia
             // 
