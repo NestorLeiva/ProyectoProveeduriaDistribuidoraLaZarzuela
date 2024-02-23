@@ -11,18 +11,6 @@ namespace DAL
             return xmlDoc;/* se devuelve el objeto XML que contiene el XML*/
         } /*fin metodo leerXML */
 
-        public XmlNodeList LeerXML(string rutaArchivo)
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(rutaArchivo);
-
-            // Selecciona todos los nodos "Funcionario"
-            XmlNodeList listaFuncionarios = xmlDoc.SelectNodes("//Funcionario");
-
-            return listaFuncionarios;
-        }
-
-
         public void escribirXML(string rutaArchivo, MemoryStream msDatosXML)
         {
             FileStream fsArchivo = new FileStream(rutaArchivo, FileMode.Create, FileAccess.Write);
@@ -49,7 +37,7 @@ namespace DAL
         public void modificarXML(string rutaArchivo, string nodoXMLMod, string nuevoNodoXML)
         {
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml(rutaArchivo);
+            xmlDoc.Load(rutaArchivo);
             /*se carga el archivo*/
 
             XmlNode nodoXML = xmlDoc.SelectSingleNode(nodoXMLMod);
@@ -64,4 +52,4 @@ namespace DAL
         } /*fin metodo modificarXML*/
 
     } /*flin clase ArchivoXML*/
-}
+}/*fin namespace DAL*/
