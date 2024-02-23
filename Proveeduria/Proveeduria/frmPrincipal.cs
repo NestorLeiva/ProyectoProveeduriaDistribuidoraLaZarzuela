@@ -26,7 +26,7 @@ namespace Proveeduria
 
         private void mnCerrarSesion_Click(object sender, EventArgs e)
         {
-            // this.Close();
+            this.Hide();
             frmLogin pantallaLogin = new frmLogin();
             pantallaLogin.Show();
 
