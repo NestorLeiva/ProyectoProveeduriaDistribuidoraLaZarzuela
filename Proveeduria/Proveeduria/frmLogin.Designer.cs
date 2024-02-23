@@ -77,16 +77,19 @@
             txtIdentificacion.Size = new Size(193, 33);
             txtIdentificacion.TabIndex = 3;
             txtIdentificacion.TextAlign = HorizontalAlignment.Center;
+            txtIdentificacion.KeyPress += txtIdentificacion_KeyPress;
             // 
             // txtContrasenia
             // 
             txtContrasenia.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtContrasenia.Location = new Point(40, 488);
             txtContrasenia.Name = "txtContrasenia";
+            txtContrasenia.PasswordChar = '*';
             txtContrasenia.Size = new Size(193, 33);
             txtContrasenia.TabIndex = 4;
             txtContrasenia.TextAlign = HorizontalAlignment.Center;
             txtContrasenia.UseSystemPasswordChar = true;
+            txtContrasenia.KeyPress += txtContrasenia_KeyPress;
             // 
             // btnAceptar
             // 
@@ -97,6 +100,7 @@
             btnAceptar.TabIndex = 5;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // btnLimpiar
             // 
@@ -135,6 +139,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(327, 664);
+            ControlBox = false;
             Controls.Add(btnCerrar);
             Controls.Add(pbLogo);
             Controls.Add(btnLimpiar);
