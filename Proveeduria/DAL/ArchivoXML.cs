@@ -4,9 +4,10 @@ namespace DAL
 {
     public class ArchivoXML
     {
+        XmlDocument xmlDoc = new XmlDocument(); /*instancia del objeto XML Document*/
         public XmlDocument leerXML(string rutaArchivo)
         {
-            XmlDocument xmlDoc = new XmlDocument(); /*instancia del objeto XML Document*/
+
             xmlDoc.Load(rutaArchivo);  /*se realiza la lectura del XML desde la ruta*/
             return xmlDoc;/* se devuelve el objeto XML que contiene el XML*/
         } /*fin metodo leerXML */
@@ -51,5 +52,29 @@ namespace DAL
             }
         } /*fin metodo modificarXML*/
 
+
+        public bool validarCredenciales(string rutaArchivo, string codigoFuncionario, string contrasenia, out string estado)
+        {
+            try
+            {
+                leerXML(rutaArchivo);
+
+                XmlNode nodoFuncionario = xmlDoc.SelectSingleNode($"//Funcionario[CodigoFuncionario='{codigoFuncionario}' and Contrasenia='{contrasenia}']");
+
+                if (nodoFuncionario != null)
+                {
+                    estado = nodoFuncionario.SelectSingleNode("Estado").InnerText;
+                    return true;
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            estado = null;
+            return false;
+
+        } /*fin metodo validarCredenciales*/
     } /*flin clase ArchivoXML*/
 }/*fin namespace DAL*/
