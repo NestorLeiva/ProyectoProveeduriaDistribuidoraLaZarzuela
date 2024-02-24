@@ -49,6 +49,13 @@ namespace BLL
             if (File.Exists(rutaArchivo))
             {
                 xmlDocCliente = _ArchivoXML.leerXML(rutaArchivo);/*Lectura del XML*/
+
+                XmlNode existeCliente = xmlDocCliente.SelectSingleNode($"//Cliente [NumeroIdentificacion='{this.DNI}']");
+                if ( existeCliente != null )
+                {
+                    throw new Exception("*** Ya se encuentra Registrado el Cliente ***");
+                }
+                /*Valido si ya existe un cliente registrado por medio de la Identificacion*/
             }
             else
             {
