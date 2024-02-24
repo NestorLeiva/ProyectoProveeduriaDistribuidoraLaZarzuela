@@ -18,23 +18,19 @@ namespace Proveeduria
     {
         public frmModificacionFuncionarios()
         {
-            InitializeComponent();
-            lvListaFuncionarios.SelectedIndexChanged += LvListaFuncionarios_SelectedIndexChanged;
-            /*evento para capturar la fila del listview*/
+            InitializeComponent(); 
         }
-
-        private void LvListaFuncionarios_SelectedIndexChanged(object? sender, EventArgs e)
+        private void frmModificacionFuncionarios_Load(object sender, EventArgs e)
         {
-
+            CargarListaFuncionariosMod("Funcionarios.xml");
         }
 
         /*------------------------------------------------- Objetos --------------------------------------------------------------------*/
         Funcionario _Funcionario;
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
         private int indiceFilaSeleccionada;
-
-        private string dniSeleccionado;
         private string codigoFuncionarioSeleccionado;
+        private string dniSeleccionado;
         private string nombreSeleccionado;
         private string apellidoPrimeroSeleccionado;
         private string apellidoSegundoSeleccionado;
@@ -42,14 +38,6 @@ namespace Proveeduria
         private string contraseniaSeleccionada;
         private string estadoSeleccionado;
         private bool estadoModificado = false;
-
-
-
-
-        private void frmModificacionFuncionarios_Load(object sender, EventArgs e)
-        {
-            CargarListaFuncionariosMod("Funcionarios.xml");
-        }
 
         /*------------------------------------------------- TextBox --------------------------------------------------------------------*/
 
@@ -190,7 +178,7 @@ namespace Proveeduria
             {
                 if (indiceFilaSeleccionada != -1) 
                 {
-                    // Obtener los nuevos valores de los TextBox
+                    
                     string nuevoNombre = txtFuncionarioNombre.Text;
                     string nuevoApellidoPrimero = txtFuncionarioApellidoPrimero.Text;
                     string nuevoApellidoSegundo = txtFuncionarioApellidoSegundo.Text;
@@ -284,6 +272,8 @@ namespace Proveeduria
 
         private void lvListaFuncionarios_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            /* actualizar varios TextBox con la información del elemento seleccionado en el ListView */
+
             /*implemento el evento Select Indez Changed*/
             if (lvListaFuncionarios.SelectedItems.Count > 0)
             {
@@ -300,6 +290,7 @@ namespace Proveeduria
                 txtModificarContrasenia.Text = obtenerItemFuncionario.SubItems[7].Text;
 
             }
+            
         }/*fin evento ListView*/
 
 
