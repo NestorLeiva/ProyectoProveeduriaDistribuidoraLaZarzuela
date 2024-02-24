@@ -53,7 +53,7 @@ namespace Proveeduria
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             string codigoFuncionario = txtIdentificacion.Text;
-            string contrasenia = txtContrasenia.Text;
+            string contrasenia = txtContrasenia.Text.ToUpper();
 
 
             if (_ArchivoXML.validarCredenciales("Funcionarios.xml", codigoFuncionario, contrasenia, out string estado))
