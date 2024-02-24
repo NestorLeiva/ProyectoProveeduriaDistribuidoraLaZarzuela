@@ -61,7 +61,8 @@ namespace Proveeduria
                 if (estado == "Activo")
                 {
                     // Usuario activo, puedes permitir el acceso al sistema
-                    MessageBox.Show("Inicio de Sesion Exitoso");
+                    MessageBox.Show("Inicio de Sesion Exitoso","Distribuidora La Zarzuela",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
                     frmPrincipal principal = new frmPrincipal();
                     principal.Show();
                     this.Hide();
