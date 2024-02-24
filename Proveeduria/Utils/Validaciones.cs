@@ -8,6 +8,13 @@
             /* metodo para validar solamente el ingreso de numeros*/
         }
 
+        public static bool validarTelefono(string numeroTelefono)
+        {
+            return numeroTelefono.Length == 7 && numeroTelefono.All(char.IsDigit);
+            /*Valido la cantidad de numeros del numero de telefono*/
+        }
+
+
         public static bool soloLetras(string texto)  // metodo para realizar la validacion de solamente texto 
         {
             foreach (char caracter in texto) // con este bucle realizo un recorrido por cada caracter del string 
