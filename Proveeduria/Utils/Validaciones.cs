@@ -12,7 +12,8 @@
         {
             foreach (char caracter in texto) // con este bucle realizo un recorrido por cada caracter del string 
             {
-                if (!char.IsLetter(caracter) && caracter != ' ' && caracter != '\b')
+                if (!char.IsLetter(caracter) && !char.IsWhiteSpace(caracter) && caracter != '\b')
+                /*verificar explícitamente si el caracter es un espacio en blanco*/
                 {
                     return false;
                     /* se valida cada caracter No es una letra y no sea el caracter de control de retroceso '\b'
@@ -24,12 +25,11 @@
         }
 
         public static string ConvertirMayusculas(string texto)
-        /*Este método toma una cadena de texto como parámetro y devuelve la misma cadena en mayúsculas.
-         */
+        /*Este método toma una cadena de texto como parámetro y devuelve la misma cadena en mayúsculas. */
         {
             if (string.IsNullOrEmpty(texto))
             {
-                throw new ArgumentException("No pueden haber espacios vacios");
+                return string.Empty;
             }
             return texto.ToUpper();
         }
@@ -39,15 +39,7 @@
         public static bool soloLetrasMayusculas(string texto)
         /*toma una cadena de texto como parámetro, verifica si contiene solo letras y luego convierte la cadena a mayúsculas*/
         {
-            if (soloLetras(texto))
-            {
-                string texto_Mayusculas = ConvertirMayusculas(texto);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return soloLetras(texto) && !string.IsNullOrEmpty(ConvertirMayusculas(texto));
         }
 
 
