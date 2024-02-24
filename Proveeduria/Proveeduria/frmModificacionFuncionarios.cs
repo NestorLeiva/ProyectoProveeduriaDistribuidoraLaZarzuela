@@ -188,7 +188,7 @@ namespace Proveeduria
         {
             try
             {
-                if (indiceFilaSeleccionada != -1) /*(!string.IsNullOrEmpty(dniSeleccionado))*/
+                if (indiceFilaSeleccionada != -1) 
                 {
                     // Obtener los nuevos valores de los TextBox
                     string nuevoNombre = txtFuncionarioNombre.Text;
@@ -218,12 +218,13 @@ namespace Proveeduria
 
 
                     MessageBox.Show("Funcionario modificado correctamente.");
-                    CargarListaFuncionariosMod("Funcionarios.xml"); 
+                    CargarListaFuncionariosMod("Funcionarios.xml");
                     // Recargar la lista después de la modificación
+                    LimpiarTextBox();
                 }
                 else
                 {
-                    MessageBox.Show("Por favor, selecciona un Funcionario antes de intentar modificar.");
+                    MessageBox.Show("Error");
                 }
             }
             catch (Exception ex)
@@ -234,13 +235,7 @@ namespace Proveeduria
 
         private void btnModifcarLimpiar_Click(object sender, EventArgs e)
         {
-            txtFuncionarioConsulta.Text = string.Empty;
-            txtFuncionarioNombre.Text = string.Empty;
-            txtFuncionarioApellidoPrimero.Text = string.Empty;
-            txtFuncionarioApellidoSegundo.Text = string.Empty;
-            txtFuncionarioEmail.Text = string.Empty;
-            txtFuncionarioCodigo.Text = string.Empty;
-            txtFuncionarioDNI.Text = string.Empty;
+            LimpiarTextBox();
         } /*fin boton limpiar*/
 
         private void btnModificarActualizar_Click(object sender, EventArgs e)
@@ -306,6 +301,19 @@ namespace Proveeduria
 
             }
         }/*fin evento ListView*/
+
+
+        public void LimpiarTextBox()
+        {
+            txtFuncionarioConsulta.Text = string.Empty;
+            txtFuncionarioNombre.Text = string.Empty;
+            txtFuncionarioApellidoPrimero.Text = string.Empty;
+            txtFuncionarioApellidoSegundo.Text = string.Empty;
+            txtFuncionarioEmail.Text = string.Empty;
+            txtFuncionarioCodigo.Text = string.Empty;
+            txtFuncionarioDNI.Text = string.Empty;
+            txtModificarContrasenia.Text= string.Empty;
+        }
 
 
     } /*fin frmModificacionFuncionarios*/
