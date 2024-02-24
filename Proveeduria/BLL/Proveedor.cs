@@ -52,6 +52,10 @@ namespace BLL
             {
                 xmlDocProveedor = _ArchivoXML.leerXML(rutaArchivo);
                 /*realiza la lectura del XML*/
+
+                XmlNode existeProveedor = xmlDocProveedor.SelectSingleNode($"//Proveedor [CodigoProveedor='{this.CodigoProveedor}']");
+
+
             }
             else
             {
