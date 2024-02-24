@@ -21,6 +21,7 @@ namespace BLL
             DNI = dni;
             Telefono = telefono;
             Email = email;
+            TipoDni = tipoDni;
         }
 
         /*Atributos */
@@ -30,6 +31,8 @@ namespace BLL
         private int dni;
         private int telefono;
         private string email = string.Empty;
+        private string tipoDni = string.Empty;
+
 
         /*Getter & Setter*/
 
@@ -39,6 +42,7 @@ namespace BLL
         public int DNI { get { return dni; } set { dni = value; } }
         public int Telefono { get { return telefono; } set { telefono = value; } }
         public string Email { get { return email; } set { email = value; } }
+        public string TipoDni { get { return tipoDni; } set { tipoDni = value; } }
 
 
 

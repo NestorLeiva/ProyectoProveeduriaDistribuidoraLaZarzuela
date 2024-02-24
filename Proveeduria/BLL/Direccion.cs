@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class Direccion
+    public class Direccion : Persona
     {
         public Direccion()
         {
