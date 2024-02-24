@@ -54,10 +54,16 @@ namespace Proveeduria
 
         private void txtClienteTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloNumeros(e.KeyChar))
+            if (!Validaciones.soloNumeros(e.KeyChar) )
             {
                 e.Handled = true;
             }
+
+            string numeroTelefono = txtClienteTelefono.Text;
+
+            bool esValido = Validaciones.validarTelefono(numeroTelefono);
+            btnClienteAceptar.Enabled = esValido;
+            /*se habilita / desabilita dependiendo si el numero es valido o no*/
         }
 
         private void txtClienteEmail_KeyPress(object sender, KeyPressEventArgs e)
