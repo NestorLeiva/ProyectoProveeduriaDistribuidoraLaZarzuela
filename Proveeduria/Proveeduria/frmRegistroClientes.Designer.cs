@@ -47,15 +47,17 @@
             colDistrito = new ColumnHeader();
             colOtrasSenias = new ColumnHeader();
             gbxClienteDireccion = new GroupBox();
-            btnClienteDireccionAceptar = new Button();
             lblClienteProvincia = new Label();
             cbxClienteProvincia = new ComboBox();
             lblClienteCanton = new Label();
             txtClienteOtrasSenias = new TextBox();
             lblClienteDistrito = new Label();
+            btnClienteCancelar = new Button();
             txtClienteDistrito = new TextBox();
+            btnClienteLimpiar = new Button();
             lblClienteOtrasSenias = new Label();
             txtClienteCanton = new TextBox();
+            btnClienteAceptar = new Button();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             txtClienteApellidoSegundo = new TextBox();
             txtClienteApellidoPrimero = new TextBox();
@@ -63,11 +65,8 @@
             lblClienteEmail = new Label();
             txtClienteEmail = new TextBox();
             lblClienteDNI = new Label();
-            btnClienteAceptar = new Button();
             lblClienteApellidoSegundo = new Label();
             lblClienteApellidoPrimero = new Label();
-            btnClienteLimpiar = new Button();
-            btnClienteCancelar = new Button();
             lblClienteNombre = new Label();
             txtClienteNombre = new TextBox();
             lblClienteTipoDNI = new Label();
@@ -198,7 +197,6 @@
             // 
             // gbxClienteDireccion
             // 
-            gbxClienteDireccion.Controls.Add(btnClienteDireccionAceptar);
             gbxClienteDireccion.Controls.Add(lblClienteProvincia);
             gbxClienteDireccion.Controls.Add(cbxClienteProvincia);
             gbxClienteDireccion.Controls.Add(lblClienteCanton);
@@ -217,16 +215,6 @@
             gbxClienteDireccion.TabIndex = 10;
             gbxClienteDireccion.TabStop = false;
             gbxClienteDireccion.Text = "Datos Direccion";
-            // 
-            // btnClienteDireccionAceptar
-            // 
-            btnClienteDireccionAceptar.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnClienteDireccionAceptar.Location = new Point(24, 177);
-            btnClienteDireccionAceptar.Name = "btnClienteDireccionAceptar";
-            btnClienteDireccionAceptar.Size = new Size(137, 31);
-            btnClienteDireccionAceptar.TabIndex = 15;
-            btnClienteDireccionAceptar.Text = "Agregar Direccion";
-            btnClienteDireccionAceptar.UseVisualStyleBackColor = true;
             // 
             // lblClienteProvincia
             // 
@@ -278,6 +266,17 @@
             lblClienteDistrito.Text = "Distrito";
             lblClienteDistrito.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // btnClienteCancelar
+            // 
+            btnClienteCancelar.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnClienteCancelar.Location = new Point(238, 216);
+            btnClienteCancelar.Name = "btnClienteCancelar";
+            btnClienteCancelar.Size = new Size(86, 25);
+            btnClienteCancelar.TabIndex = 18;
+            btnClienteCancelar.Text = "Cancelar";
+            btnClienteCancelar.UseVisualStyleBackColor = true;
+            btnClienteCancelar.Click += btnClienteCancelar_Click;
+            // 
             // txtClienteDistrito
             // 
             txtClienteDistrito.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -287,6 +286,17 @@
             txtClienteDistrito.TabIndex = 13;
             txtClienteDistrito.TextAlign = HorizontalAlignment.Center;
             txtClienteDistrito.KeyPress += txtClienteDistrito_KeyPress;
+            // 
+            // btnClienteLimpiar
+            // 
+            btnClienteLimpiar.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnClienteLimpiar.Location = new Point(146, 216);
+            btnClienteLimpiar.Name = "btnClienteLimpiar";
+            btnClienteLimpiar.Size = new Size(86, 25);
+            btnClienteLimpiar.TabIndex = 17;
+            btnClienteLimpiar.Text = "Limpiar";
+            btnClienteLimpiar.UseVisualStyleBackColor = true;
+            btnClienteLimpiar.Click += btnClienteLimpiar_Click;
             // 
             // lblClienteOtrasSenias
             // 
@@ -308,12 +318,23 @@
             txtClienteCanton.TextAlign = HorizontalAlignment.Center;
             txtClienteCanton.KeyPress += txtClienteCanton_KeyPress;
             // 
+            // btnClienteAceptar
+            // 
+            btnClienteAceptar.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnClienteAceptar.Location = new Point(54, 216);
+            btnClienteAceptar.Name = "btnClienteAceptar";
+            btnClienteAceptar.Size = new Size(86, 25);
+            btnClienteAceptar.TabIndex = 16;
+            btnClienteAceptar.Text = "Aceptar";
+            btnClienteAceptar.UseVisualStyleBackColor = true;
+            btnClienteAceptar.Click += btnClienteAceptar_Click;
+            // 
             // txtClienteApellidoSegundo
             // 
             txtClienteApellidoSegundo.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtClienteApellidoSegundo.Location = new Point(203, 158);
+            txtClienteApellidoSegundo.Location = new Point(171, 158);
             txtClienteApellidoSegundo.Name = "txtClienteApellidoSegundo";
-            txtClienteApellidoSegundo.Size = new Size(135, 22);
+            txtClienteApellidoSegundo.Size = new Size(167, 22);
             txtClienteApellidoSegundo.TabIndex = 7;
             txtClienteApellidoSegundo.TextAlign = HorizontalAlignment.Center;
             txtClienteApellidoSegundo.KeyPress += txtClienteApellidoSegundo_KeyPress;
@@ -321,9 +342,9 @@
             // txtClienteApellidoPrimero
             // 
             txtClienteApellidoPrimero.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtClienteApellidoPrimero.Location = new Point(203, 130);
+            txtClienteApellidoPrimero.Location = new Point(171, 130);
             txtClienteApellidoPrimero.Name = "txtClienteApellidoPrimero";
-            txtClienteApellidoPrimero.Size = new Size(135, 22);
+            txtClienteApellidoPrimero.Size = new Size(167, 22);
             txtClienteApellidoPrimero.TabIndex = 6;
             txtClienteApellidoPrimero.TextAlign = HorizontalAlignment.Center;
             txtClienteApellidoPrimero.KeyPress += txtClienteApellidoPrimero_KeyPress;
@@ -331,9 +352,9 @@
             // txtClienteDNI
             // 
             txtClienteDNI.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtClienteDNI.Location = new Point(203, 74);
+            txtClienteDNI.Location = new Point(171, 74);
             txtClienteDNI.Name = "txtClienteDNI";
-            txtClienteDNI.Size = new Size(135, 22);
+            txtClienteDNI.Size = new Size(167, 22);
             txtClienteDNI.TabIndex = 4;
             txtClienteDNI.TextAlign = HorizontalAlignment.Center;
             txtClienteDNI.KeyPress += txtClienteDNI_KeyPress;
@@ -351,9 +372,9 @@
             // txtClienteEmail
             // 
             txtClienteEmail.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtClienteEmail.Location = new Point(203, 214);
+            txtClienteEmail.Location = new Point(171, 214);
             txtClienteEmail.Name = "txtClienteEmail";
-            txtClienteEmail.Size = new Size(135, 22);
+            txtClienteEmail.Size = new Size(167, 22);
             txtClienteEmail.TabIndex = 9;
             txtClienteEmail.TextAlign = HorizontalAlignment.Center;
             txtClienteEmail.KeyPress += txtClienteEmail_KeyPress;
@@ -367,16 +388,6 @@
             lblClienteDNI.TabIndex = 3;
             lblClienteDNI.Text = "Identificacion";
             lblClienteDNI.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // btnClienteAceptar
-            // 
-            btnClienteAceptar.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnClienteAceptar.Location = new Point(52, 255);
-            btnClienteAceptar.Name = "btnClienteAceptar";
-            btnClienteAceptar.Size = new Size(86, 25);
-            btnClienteAceptar.TabIndex = 16;
-            btnClienteAceptar.Text = "Aceptar";
-            btnClienteAceptar.UseVisualStyleBackColor = true;
             // 
             // lblClienteApellidoSegundo
             // 
@@ -398,26 +409,6 @@
             lblClienteApellidoPrimero.Text = "Primer Apellido";
             lblClienteApellidoPrimero.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // btnClienteLimpiar
-            // 
-            btnClienteLimpiar.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnClienteLimpiar.Location = new Point(144, 255);
-            btnClienteLimpiar.Name = "btnClienteLimpiar";
-            btnClienteLimpiar.Size = new Size(86, 25);
-            btnClienteLimpiar.TabIndex = 17;
-            btnClienteLimpiar.Text = "Limpiar";
-            btnClienteLimpiar.UseVisualStyleBackColor = true;
-            // 
-            // btnClienteCancelar
-            // 
-            btnClienteCancelar.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnClienteCancelar.Location = new Point(236, 255);
-            btnClienteCancelar.Name = "btnClienteCancelar";
-            btnClienteCancelar.Size = new Size(86, 25);
-            btnClienteCancelar.TabIndex = 18;
-            btnClienteCancelar.Text = "Cancelar";
-            btnClienteCancelar.UseVisualStyleBackColor = true;
-            // 
             // lblClienteNombre
             // 
             lblClienteNombre.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -431,9 +422,9 @@
             // txtClienteNombre
             // 
             txtClienteNombre.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtClienteNombre.Location = new Point(203, 102);
+            txtClienteNombre.Location = new Point(171, 102);
             txtClienteNombre.Name = "txtClienteNombre";
-            txtClienteNombre.Size = new Size(135, 22);
+            txtClienteNombre.Size = new Size(167, 22);
             txtClienteNombre.TabIndex = 5;
             txtClienteNombre.TextAlign = HorizontalAlignment.Center;
             txtClienteNombre.KeyPress += txtClienteNombre_KeyPress;
@@ -453,9 +444,9 @@
             cbxClienteTipoDNI.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cbxClienteTipoDNI.FormattingEnabled = true;
             cbxClienteTipoDNI.Items.AddRange(new object[] { "JURIDICO", "FISICO" });
-            cbxClienteTipoDNI.Location = new Point(203, 44);
+            cbxClienteTipoDNI.Location = new Point(171, 44);
             cbxClienteTipoDNI.Name = "cbxClienteTipoDNI";
-            cbxClienteTipoDNI.Size = new Size(135, 24);
+            cbxClienteTipoDNI.Size = new Size(167, 24);
             cbxClienteTipoDNI.TabIndex = 3;
             // 
             // lblClienteTelefono
@@ -471,9 +462,9 @@
             // txtClienteTelefono
             // 
             txtClienteTelefono.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtClienteTelefono.Location = new Point(203, 186);
+            txtClienteTelefono.Location = new Point(171, 186);
             txtClienteTelefono.Name = "txtClienteTelefono";
-            txtClienteTelefono.Size = new Size(135, 22);
+            txtClienteTelefono.Size = new Size(167, 22);
             txtClienteTelefono.TabIndex = 8;
             txtClienteTelefono.TextAlign = HorizontalAlignment.Center;
             txtClienteTelefono.KeyPress += txtClienteTelefono_KeyPress;
@@ -515,6 +506,7 @@
             MinimumSize = new Size(790, 700);
             Name = "frmRegistroClientes";
             Text = "Registro Clientes";
+            Load += frmRegistroClientes_Load;
             gbxClienteRegistro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
             gbxClienteLista.ResumeLayout(false);
@@ -541,7 +533,6 @@
         private Label lblClienteDistrito;
         private ComboBox cbxClienteProvincia;
         private GroupBox gbxClienteDireccion;
-        private Button btnClienteDireccionAceptar;
         private TextBox txtClienteApellidoSegundo;
         private TextBox txtClienteApellidoPrimero;
         private TextBox txtClienteDNI;
