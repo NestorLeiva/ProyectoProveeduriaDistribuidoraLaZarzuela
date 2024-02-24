@@ -29,37 +29,41 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModificacionProveedores));
+            ListViewItem listViewItem1 = new ListViewItem("");
             gbxModificacionProveedorTitulo = new GroupBox();
             pbLogo = new PictureBox();
             lblProveedorTitulo = new Label();
             gbxRegistroFuncionariosDatos = new GroupBox();
+            txtModificarTelefono = new TextBox();
+            lblModificarTelefono = new Label();
             txtProveedorNombre = new TextBox();
             lblProveedorNombre = new Label();
             btnProveedorCancelar = new Button();
             btnProveedorLimpiar = new Button();
             lblProveedorCodigo = new Label();
-            btnProveedorAceptar = new Button();
+            btnProveedorModificar = new Button();
             lblProveedorDNI = new Label();
             txtProveedorEmail = new TextBox();
             lblProveedorEmail = new Label();
             txtProveedorDNI = new TextBox();
             txtProveedorCodigo = new TextBox();
             gbListaProveedores = new GroupBox();
-            dgvRegistroListaProveedores = new DataGridView();
-            colNombre = new DataGridViewTextBoxColumn();
-            colIdentificacion = new DataGridViewTextBoxColumn();
-            colCodigo = new DataGridViewTextBoxColumn();
-            colCorreoElectronico = new DataGridViewTextBoxColumn();
+            lvRegistroProveedor = new ListView();
+            colCodProveedor = new ColumnHeader();
+            colNombre = new ColumnHeader();
+            colTipoDNI = new ColumnHeader();
+            colIdentificacion = new ColumnHeader();
+            colTelefono = new ColumnHeader();
+            colEmail = new ColumnHeader();
             gbxProveedorBuscar = new GroupBox();
-            gbxDatosProveedor1 = new GroupBox();
-            btnProveedorBuscar = new Button();
+            lblProveedorBuscar = new Label();
             txtProveedorBuscar = new TextBox();
-            label1 = new Label();
+            btnProveedorBuscar = new Button();
+            gbxDatosProveedor1 = new GroupBox();
             gbxModificacionProveedorTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
             gbxRegistroFuncionariosDatos.SuspendLayout();
             gbListaProveedores.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvRegistroListaProveedores).BeginInit();
             gbxProveedorBuscar.SuspendLayout();
             gbxDatosProveedor1.SuspendLayout();
             SuspendLayout();
@@ -97,12 +101,14 @@
             // 
             // gbxRegistroFuncionariosDatos
             // 
+            gbxRegistroFuncionariosDatos.Controls.Add(txtModificarTelefono);
+            gbxRegistroFuncionariosDatos.Controls.Add(lblModificarTelefono);
             gbxRegistroFuncionariosDatos.Controls.Add(txtProveedorNombre);
             gbxRegistroFuncionariosDatos.Controls.Add(lblProveedorNombre);
             gbxRegistroFuncionariosDatos.Controls.Add(btnProveedorCancelar);
             gbxRegistroFuncionariosDatos.Controls.Add(btnProveedorLimpiar);
             gbxRegistroFuncionariosDatos.Controls.Add(lblProveedorCodigo);
-            gbxRegistroFuncionariosDatos.Controls.Add(btnProveedorAceptar);
+            gbxRegistroFuncionariosDatos.Controls.Add(btnProveedorModificar);
             gbxRegistroFuncionariosDatos.Controls.Add(lblProveedorDNI);
             gbxRegistroFuncionariosDatos.Controls.Add(txtProveedorEmail);
             gbxRegistroFuncionariosDatos.Controls.Add(lblProveedorEmail);
@@ -116,19 +122,38 @@
             gbxRegistroFuncionariosDatos.TabStop = false;
             gbxRegistroFuncionariosDatos.Text = "Datos Proveedores";
             // 
+            // txtModificarTelefono
+            // 
+            txtModificarTelefono.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtModificarTelefono.Location = new Point(199, 125);
+            txtModificarTelefono.Name = "txtModificarTelefono";
+            txtModificarTelefono.Size = new Size(155, 27);
+            txtModificarTelefono.TabIndex = 9;
+            txtModificarTelefono.TextAlign = HorizontalAlignment.Center;
+            // 
+            // lblModificarTelefono
+            // 
+            lblModificarTelefono.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblModificarTelefono.Location = new Point(55, 127);
+            lblModificarTelefono.Name = "lblModificarTelefono";
+            lblModificarTelefono.Size = new Size(138, 22);
+            lblModificarTelefono.TabIndex = 10;
+            lblModificarTelefono.Text = "Telefono";
+            lblModificarTelefono.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // txtProveedorNombre
             // 
-            txtProveedorNombre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtProveedorNombre.Location = new Point(200, 39);
+            txtProveedorNombre.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtProveedorNombre.Location = new Point(199, 22);
             txtProveedorNombre.Name = "txtProveedorNombre";
-            txtProveedorNombre.Size = new Size(155, 29);
+            txtProveedorNombre.Size = new Size(155, 27);
             txtProveedorNombre.TabIndex = 2;
             txtProveedorNombre.TextAlign = HorizontalAlignment.Center;
             // 
             // lblProveedorNombre
             // 
-            lblProveedorNombre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblProveedorNombre.Location = new Point(56, 46);
+            lblProveedorNombre.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblProveedorNombre.Location = new Point(55, 29);
             lblProveedorNombre.Name = "lblProveedorNombre";
             lblProveedorNombre.Size = new Size(138, 22);
             lblProveedorNombre.TabIndex = 0;
@@ -137,48 +162,51 @@
             // 
             // btnProveedorCancelar
             // 
-            btnProveedorCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnProveedorCancelar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnProveedorCancelar.Location = new Point(294, 198);
             btnProveedorCancelar.Name = "btnProveedorCancelar";
             btnProveedorCancelar.Size = new Size(117, 30);
             btnProveedorCancelar.TabIndex = 8;
             btnProveedorCancelar.Text = "Cancelar";
             btnProveedorCancelar.UseVisualStyleBackColor = true;
+            btnProveedorCancelar.Click += btnProveedorCancelar_Click;
             // 
             // btnProveedorLimpiar
             // 
-            btnProveedorLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnProveedorLimpiar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnProveedorLimpiar.Location = new Point(151, 198);
             btnProveedorLimpiar.Name = "btnProveedorLimpiar";
             btnProveedorLimpiar.Size = new Size(117, 30);
             btnProveedorLimpiar.TabIndex = 7;
             btnProveedorLimpiar.Text = "Limpiar";
             btnProveedorLimpiar.UseVisualStyleBackColor = true;
+            btnProveedorLimpiar.Click += btnProveedorLimpiar_Click;
             // 
             // lblProveedorCodigo
             // 
-            lblProveedorCodigo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblProveedorCodigo.Location = new Point(56, 111);
+            lblProveedorCodigo.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblProveedorCodigo.Location = new Point(55, 94);
             lblProveedorCodigo.Name = "lblProveedorCodigo";
             lblProveedorCodigo.Size = new Size(138, 22);
             lblProveedorCodigo.TabIndex = 1;
             lblProveedorCodigo.Text = "Codigo";
             lblProveedorCodigo.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // btnProveedorAceptar
+            // btnProveedorModificar
             // 
-            btnProveedorAceptar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnProveedorAceptar.Location = new Point(13, 198);
-            btnProveedorAceptar.Name = "btnProveedorAceptar";
-            btnProveedorAceptar.Size = new Size(117, 30);
-            btnProveedorAceptar.TabIndex = 6;
-            btnProveedorAceptar.Text = "Aceptar";
-            btnProveedorAceptar.UseVisualStyleBackColor = true;
+            btnProveedorModificar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnProveedorModificar.Location = new Point(13, 198);
+            btnProveedorModificar.Name = "btnProveedorModificar";
+            btnProveedorModificar.Size = new Size(117, 30);
+            btnProveedorModificar.TabIndex = 6;
+            btnProveedorModificar.Text = "Modificar";
+            btnProveedorModificar.UseVisualStyleBackColor = true;
+            btnProveedorModificar.Click += btnProveedorModificar_Click;
             // 
             // lblProveedorDNI
             // 
-            lblProveedorDNI.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblProveedorDNI.Location = new Point(56, 76);
+            lblProveedorDNI.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblProveedorDNI.Location = new Point(55, 59);
             lblProveedorDNI.Name = "lblProveedorDNI";
             lblProveedorDNI.Size = new Size(138, 22);
             lblProveedorDNI.TabIndex = 3;
@@ -187,17 +215,17 @@
             // 
             // txtProveedorEmail
             // 
-            txtProveedorEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtProveedorEmail.Location = new Point(200, 144);
+            txtProveedorEmail.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtProveedorEmail.Location = new Point(199, 165);
             txtProveedorEmail.Name = "txtProveedorEmail";
-            txtProveedorEmail.Size = new Size(155, 29);
+            txtProveedorEmail.Size = new Size(155, 27);
             txtProveedorEmail.TabIndex = 5;
             txtProveedorEmail.TextAlign = HorizontalAlignment.Center;
             // 
             // lblProveedorEmail
             // 
-            lblProveedorEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblProveedorEmail.Location = new Point(56, 146);
+            lblProveedorEmail.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblProveedorEmail.Location = new Point(55, 167);
             lblProveedorEmail.Name = "lblProveedorEmail";
             lblProveedorEmail.Size = new Size(138, 22);
             lblProveedorEmail.TabIndex = 5;
@@ -206,26 +234,26 @@
             // 
             // txtProveedorDNI
             // 
-            txtProveedorDNI.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtProveedorDNI.Location = new Point(200, 74);
+            txtProveedorDNI.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtProveedorDNI.Location = new Point(199, 57);
             txtProveedorDNI.Name = "txtProveedorDNI";
-            txtProveedorDNI.Size = new Size(155, 29);
+            txtProveedorDNI.Size = new Size(155, 27);
             txtProveedorDNI.TabIndex = 3;
             txtProveedorDNI.TextAlign = HorizontalAlignment.Center;
             // 
             // txtProveedorCodigo
             // 
-            txtProveedorCodigo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtProveedorCodigo.Location = new Point(200, 109);
+            txtProveedorCodigo.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtProveedorCodigo.Location = new Point(199, 92);
             txtProveedorCodigo.Name = "txtProveedorCodigo";
             txtProveedorCodigo.ReadOnly = true;
-            txtProveedorCodigo.Size = new Size(155, 29);
+            txtProveedorCodigo.Size = new Size(155, 27);
             txtProveedorCodigo.TabIndex = 4;
             txtProveedorCodigo.TextAlign = HorizontalAlignment.Center;
             // 
             // gbListaProveedores
             // 
-            gbListaProveedores.Controls.Add(dgvRegistroListaProveedores);
+            gbListaProveedores.Controls.Add(lvRegistroProveedor);
             gbListaProveedores.Dock = DockStyle.Bottom;
             gbListaProveedores.Location = new Point(0, 436);
             gbListaProveedores.Name = "gbListaProveedores";
@@ -234,46 +262,53 @@
             gbListaProveedores.TabStop = false;
             gbListaProveedores.Text = "Lista de Provedores";
             // 
-            // dgvRegistroListaProveedores
+            // lvRegistroProveedor
             // 
-            dgvRegistroListaProveedores.AllowUserToDeleteRows = false;
-            dgvRegistroListaProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dgvRegistroListaProveedores.Columns.AddRange(new DataGridViewColumn[] { colNombre, colIdentificacion, colCodigo, colCorreoElectronico });
-            dgvRegistroListaProveedores.Dock = DockStyle.Fill;
-            dgvRegistroListaProveedores.Location = new Point(3, 19);
-            dgvRegistroListaProveedores.Name = "dgvRegistroListaProveedores";
-            dgvRegistroListaProveedores.RowTemplate.Height = 25;
-            dgvRegistroListaProveedores.Size = new Size(768, 203);
-            dgvRegistroListaProveedores.TabIndex = 8;
+            lvRegistroProveedor.BackColor = SystemColors.Info;
+            lvRegistroProveedor.Columns.AddRange(new ColumnHeader[] { colCodProveedor, colNombre, colTipoDNI, colIdentificacion, colTelefono, colEmail });
+            lvRegistroProveedor.Dock = DockStyle.Fill;
+            lvRegistroProveedor.Items.AddRange(new ListViewItem[] { listViewItem1 });
+            lvRegistroProveedor.Location = new Point(3, 19);
+            lvRegistroProveedor.Name = "lvRegistroProveedor";
+            lvRegistroProveedor.Size = new Size(768, 203);
+            lvRegistroProveedor.TabIndex = 1;
+            lvRegistroProveedor.UseCompatibleStateImageBehavior = false;
+            lvRegistroProveedor.View = View.Details;
+            lvRegistroProveedor.SelectedIndexChanged += lvRegistroProveedor_SelectedIndexChanged;
+            // 
+            // colCodProveedor
+            // 
+            colCodProveedor.Text = "Cod. Proveedor";
+            colCodProveedor.Width = 100;
             // 
             // colNombre
             // 
-            colNombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colNombre.HeaderText = "Nombre";
-            colNombre.Name = "colNombre";
+            colNombre.Text = "Proveedor";
+            colNombre.Width = 100;
+            // 
+            // colTipoDNI
+            // 
+            colTipoDNI.Text = "Tipo Identificacion";
+            colTipoDNI.Width = 120;
             // 
             // colIdentificacion
             // 
-            colIdentificacion.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colIdentificacion.HeaderText = "Identificacion";
-            colIdentificacion.Name = "colIdentificacion";
+            colIdentificacion.Text = "Identificacion";
+            colIdentificacion.Width = 100;
             // 
-            // colCodigo
+            // colTelefono
             // 
-            colCodigo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colCodigo.HeaderText = "Codigo";
-            colCodigo.Name = "colCodigo";
+            colTelefono.Text = "Telefono";
+            colTelefono.Width = 100;
             // 
-            // colCorreoElectronico
+            // colEmail
             // 
-            colCorreoElectronico.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colCorreoElectronico.HeaderText = "Correo Electronico";
-            colCorreoElectronico.Name = "colCorreoElectronico";
-            colCorreoElectronico.ReadOnly = true;
+            colEmail.Text = "Email";
+            colEmail.Width = 100;
             // 
             // gbxProveedorBuscar
             // 
-            gbxProveedorBuscar.Controls.Add(label1);
+            gbxProveedorBuscar.Controls.Add(lblProveedorBuscar);
             gbxProveedorBuscar.Controls.Add(txtProveedorBuscar);
             gbxProveedorBuscar.Controls.Add(btnProveedorBuscar);
             gbxProveedorBuscar.Dock = DockStyle.Left;
@@ -283,6 +318,36 @@
             gbxProveedorBuscar.TabIndex = 18;
             gbxProveedorBuscar.TabStop = false;
             gbxProveedorBuscar.Text = "Buscar Proveedor ";
+            // 
+            // lblProveedorBuscar
+            // 
+            lblProveedorBuscar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblProveedorBuscar.Location = new Point(34, 39);
+            lblProveedorBuscar.Name = "lblProveedorBuscar";
+            lblProveedorBuscar.Size = new Size(153, 23);
+            lblProveedorBuscar.TabIndex = 9;
+            lblProveedorBuscar.Text = "Buscar por Codigo";
+            lblProveedorBuscar.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtProveedorBuscar
+            // 
+            txtProveedorBuscar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtProveedorBuscar.Location = new Point(34, 74);
+            txtProveedorBuscar.Name = "txtProveedorBuscar";
+            txtProveedorBuscar.Size = new Size(155, 29);
+            txtProveedorBuscar.TabIndex = 8;
+            txtProveedorBuscar.TextAlign = HorizontalAlignment.Center;
+            // 
+            // btnProveedorBuscar
+            // 
+            btnProveedorBuscar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnProveedorBuscar.Location = new Point(34, 126);
+            btnProveedorBuscar.Name = "btnProveedorBuscar";
+            btnProveedorBuscar.Size = new Size(117, 30);
+            btnProveedorBuscar.TabIndex = 7;
+            btnProveedorBuscar.Text = "Buscar";
+            btnProveedorBuscar.UseVisualStyleBackColor = true;
+            btnProveedorBuscar.Click += btnProveedorBuscar_Click;
             // 
             // gbxDatosProveedor1
             // 
@@ -295,35 +360,6 @@
             gbxDatosProveedor1.TabIndex = 19;
             gbxDatosProveedor1.TabStop = false;
             // 
-            // btnProveedorBuscar
-            // 
-            btnProveedorBuscar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnProveedorBuscar.Location = new Point(34, 126);
-            btnProveedorBuscar.Name = "btnProveedorBuscar";
-            btnProveedorBuscar.Size = new Size(117, 30);
-            btnProveedorBuscar.TabIndex = 7;
-            btnProveedorBuscar.Text = "Buscar";
-            btnProveedorBuscar.UseVisualStyleBackColor = true;
-            // 
-            // txtProveedorBuscar
-            // 
-            txtProveedorBuscar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtProveedorBuscar.Location = new Point(34, 74);
-            txtProveedorBuscar.Name = "txtProveedorBuscar";
-            txtProveedorBuscar.Size = new Size(155, 29);
-            txtProveedorBuscar.TabIndex = 8;
-            txtProveedorBuscar.TextAlign = HorizontalAlignment.Center;
-            // 
-            // label1
-            // 
-            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(34, 39);
-            label1.Name = "label1";
-            label1.Size = new Size(153, 23);
-            label1.TabIndex = 9;
-            label1.Text = "Buscar por Nombre";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // frmModificacionProveedores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -335,12 +371,12 @@
             MinimumSize = new Size(790, 700);
             Name = "frmModificacionProveedores";
             Text = "Modificacion de Proveedores";
+            Load += frmModificacionProveedores_Load;
             gbxModificacionProveedorTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
             gbxRegistroFuncionariosDatos.ResumeLayout(false);
             gbxRegistroFuncionariosDatos.PerformLayout();
             gbListaProveedores.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvRegistroListaProveedores).EndInit();
             gbxProveedorBuscar.ResumeLayout(false);
             gbxProveedorBuscar.PerformLayout();
             gbxDatosProveedor1.ResumeLayout(false);
@@ -358,22 +394,26 @@
         private Button btnProveedorCancelar;
         private Button btnProveedorLimpiar;
         private Label lblProveedorCodigo;
-        private Button btnProveedorAceptar;
+        private Button btnProveedorModificar;
         private Label lblProveedorDNI;
         private TextBox txtProveedorEmail;
         private Label lblProveedorEmail;
         private TextBox txtProveedorDNI;
         private TextBox txtProveedorCodigo;
         private GroupBox gbListaProveedores;
-        private DataGridView dgvRegistroListaProveedores;
-        private DataGridViewTextBoxColumn colNombre;
-        private DataGridViewTextBoxColumn colIdentificacion;
-        private DataGridViewTextBoxColumn colCodigo;
-        private DataGridViewTextBoxColumn colCorreoElectronico;
         private GroupBox gbxProveedorBuscar;
-        private Label label1;
+        private Label lblProveedorBuscar;
         private TextBox txtProveedorBuscar;
         private Button btnProveedorBuscar;
         private GroupBox gbxDatosProveedor1;
+        private ListView lvRegistroProveedor;
+        private ColumnHeader colCodProveedor;
+        private ColumnHeader colNombre;
+        private ColumnHeader colTipoDNI;
+        private ColumnHeader colIdentificacion;
+        private ColumnHeader colTelefono;
+        private ColumnHeader colEmail;
+        private TextBox txtModificarTelefono;
+        private Label lblModificarTelefono;
     }
 }
