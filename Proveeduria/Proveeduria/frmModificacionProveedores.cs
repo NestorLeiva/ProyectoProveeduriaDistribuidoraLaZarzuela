@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using Utils;
 
 namespace Proveeduria
 {
@@ -35,6 +36,36 @@ namespace Proveeduria
         private string DniSeleccionado;
         private string TelefonoSeleccionado;
         private string EmailSeleccionado;
+
+        /*------------------------------------------------- TextBox --------------------------------------------------------------------*/
+        private void txtProveedorNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtProveedorDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtModificarTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            string numeroTelefono = txtModificarTelefono.Text;
+
+            bool esValido = Validaciones.validarTelefono(numeroTelefono);
+            btnProveedorModificar.Enabled = esValido;
+            /*se habilita / desabilita dependiendo si el numero es valido o no*/
+        }
 
 
         /*------------------------------------------------- Botones --------------------------------------------------------------------*/
@@ -143,7 +174,7 @@ namespace Proveeduria
             txtProveedorCodigo.Text = string.Empty;
             txtProveedorEmail.Text = string.Empty;
             txtModificarTelefono.Text = string.Empty;
-            txtProveedorDNI1.Text= string.Empty;
+            txtProveedorDNI1.Text = string.Empty;
         } /*fin LimpiarTextBox*/
 
         private void lvRegistroProveedor_SelectedIndexChanged(object sender, EventArgs e)
@@ -188,6 +219,7 @@ namespace Proveeduria
 
 
         } /*fin CargarListaProveedores*/
+
 
     }/*fin class FrmModificar*/
 }

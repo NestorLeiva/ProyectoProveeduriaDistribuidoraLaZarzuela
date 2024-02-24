@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModificacionProveedores));
-            ListViewItem listViewItem1 = new ListViewItem("");
+            ListViewItem listViewItem3 = new ListViewItem("");
             gbxModificacionProveedorTitulo = new GroupBox();
             pbLogo = new PictureBox();
             lblProveedorTitulo = new Label();
@@ -154,6 +154,7 @@
             txtModificarTelefono.Size = new Size(155, 27);
             txtModificarTelefono.TabIndex = 10;
             txtModificarTelefono.TextAlign = HorizontalAlignment.Center;
+            txtModificarTelefono.KeyPress += txtModificarTelefono_KeyPress;
             // 
             // lblModificarTelefono
             // 
@@ -173,6 +174,7 @@
             txtProveedorNombre.Size = new Size(155, 27);
             txtProveedorNombre.TabIndex = 7;
             txtProveedorNombre.TextAlign = HorizontalAlignment.Center;
+            txtProveedorNombre.KeyPress += txtProveedorNombre_KeyPress;
             // 
             // lblProveedorNombre
             // 
@@ -264,6 +266,7 @@
             txtProveedorDNI.Size = new Size(155, 27);
             txtProveedorDNI.TabIndex = 8;
             txtProveedorDNI.TextAlign = HorizontalAlignment.Center;
+            txtProveedorDNI.KeyPress += txtProveedorDNI_KeyPress;
             // 
             // txtProveedorCodigo
             // 
@@ -291,7 +294,7 @@
             lvRegistroProveedor.BackColor = SystemColors.Info;
             lvRegistroProveedor.Columns.AddRange(new ColumnHeader[] { colCodProveedor, colNombre, colTipoDNI, colIdentificacion, colTelefono, colEmail });
             lvRegistroProveedor.Dock = DockStyle.Fill;
-            lvRegistroProveedor.Items.AddRange(new ListViewItem[] { listViewItem1 });
+            lvRegistroProveedor.Items.AddRange(new ListViewItem[] { listViewItem3 });
             lvRegistroProveedor.Location = new Point(3, 19);
             lvRegistroProveedor.Name = "lvRegistroProveedor";
             lvRegistroProveedor.Size = new Size(768, 203);

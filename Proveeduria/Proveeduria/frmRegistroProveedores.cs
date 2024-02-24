@@ -48,6 +48,12 @@ namespace Proveeduria
             {
                 e.Handled = true;
             }
+            string numeroTelefono = txtProveedorTelefono.Text;
+
+            bool esValido = Validaciones.validarTelefono(numeroTelefono);
+            btnProveedorAceptar.Enabled = esValido;
+            /*se habilita / desabilita dependiendo si el numero es valido o no*/
+
         }
 
         /*------------------------------------------------- Botones --------------------------------------------------------------------*/

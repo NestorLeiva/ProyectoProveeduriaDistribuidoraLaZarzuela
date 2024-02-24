@@ -37,6 +37,8 @@
             pbLogo = new PictureBox();
             lblVentasTitulo = new Label();
             gbxVentasDatosCliente = new GroupBox();
+            lblVentasNumeroFactura = new Label();
+            lblVentasFacturaNumero = new Label();
             lblVentasFecha = new Label();
             dtpVentaFecha = new DateTimePicker();
             txtClienteTelefono = new TextBox();
@@ -48,6 +50,8 @@
             lblClienteEmail = new Label();
             txtClienteEmail = new TextBox();
             gbxVentasPago = new GroupBox();
+            btnVentasNuevaFactura = new Button();
+            btnVentasPagar = new Button();
             txtVentasPago = new TextBox();
             lblVantasPago = new Label();
             label1 = new Label();
@@ -66,10 +70,6 @@
             colCantidad = new DataGridViewTextBoxColumn();
             colPrecioUnitario = new DataGridViewTextBoxColumn();
             colTotal = new DataGridViewTextBoxColumn();
-            btnVentasPagar = new Button();
-            btnVentasNuevaFactura = new Button();
-            lblVentasFacturaNumero = new Label();
-            lblVentasNumeroFactura = new Label();
             gbxVentasTitulo.SuspendLayout();
             gbxClienteModificar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
@@ -175,6 +175,28 @@
             gbxVentasDatosCliente.TabStop = false;
             gbxVentasDatosCliente.Text = "Datos Clientes";
             // 
+            // lblVentasNumeroFactura
+            // 
+            lblVentasNumeroFactura.BackColor = SystemColors.Info;
+            lblVentasNumeroFactura.BorderStyle = BorderStyle.FixedSingle;
+            lblVentasNumeroFactura.Enabled = false;
+            lblVentasNumeroFactura.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblVentasNumeroFactura.Location = new Point(637, 45);
+            lblVentasNumeroFactura.Name = "lblVentasNumeroFactura";
+            lblVentasNumeroFactura.Size = new Size(117, 23);
+            lblVentasNumeroFactura.TabIndex = 17;
+            lblVentasNumeroFactura.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblVentasFacturaNumero
+            // 
+            lblVentasFacturaNumero.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblVentasFacturaNumero.Location = new Point(565, 47);
+            lblVentasFacturaNumero.Name = "lblVentasFacturaNumero";
+            lblVentasFacturaNumero.Size = new Size(66, 22);
+            lblVentasFacturaNumero.TabIndex = 16;
+            lblVentasFacturaNumero.Text = "# Factura";
+            lblVentasFacturaNumero.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // lblVentasFecha
             // 
             lblVentasFecha.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -199,6 +221,7 @@
             txtClienteTelefono.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtClienteTelefono.Location = new Point(415, 17);
             txtClienteTelefono.Name = "txtClienteTelefono";
+            txtClienteTelefono.ReadOnly = true;
             txtClienteTelefono.Size = new Size(154, 22);
             txtClienteTelefono.TabIndex = 8;
             txtClienteTelefono.TextAlign = HorizontalAlignment.Center;
@@ -208,6 +231,7 @@
             txtClienteNombre.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtClienteNombre.Location = new Point(107, 19);
             txtClienteNombre.Name = "txtClienteNombre";
+            txtClienteNombre.ReadOnly = true;
             txtClienteNombre.Size = new Size(224, 22);
             txtClienteNombre.TabIndex = 6;
             txtClienteNombre.TextAlign = HorizontalAlignment.Center;
@@ -267,6 +291,7 @@
             txtClienteEmail.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtClienteEmail.Location = new Point(415, 45);
             txtClienteEmail.Name = "txtClienteEmail";
+            txtClienteEmail.ReadOnly = true;
             txtClienteEmail.Size = new Size(154, 22);
             txtClienteEmail.TabIndex = 9;
             txtClienteEmail.TextAlign = HorizontalAlignment.Center;
@@ -292,6 +317,26 @@
             gbxVentasPago.TabIndex = 13;
             gbxVentasPago.TabStop = false;
             gbxVentasPago.Text = "Forma de Pago";
+            // 
+            // btnVentasNuevaFactura
+            // 
+            btnVentasNuevaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnVentasNuevaFactura.Location = new Point(679, 43);
+            btnVentasNuevaFactura.Name = "btnVentasNuevaFactura";
+            btnVentasNuevaFactura.Size = new Size(78, 40);
+            btnVentasNuevaFactura.TabIndex = 17;
+            btnVentasNuevaFactura.Text = "Nueva Venta";
+            btnVentasNuevaFactura.UseVisualStyleBackColor = true;
+            // 
+            // btnVentasPagar
+            // 
+            btnVentasPagar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnVentasPagar.Location = new Point(534, 54);
+            btnVentasPagar.Name = "btnVentasPagar";
+            btnVentasPagar.Size = new Size(86, 25);
+            btnVentasPagar.TabIndex = 16;
+            btnVentasPagar.Text = "Pagar";
+            btnVentasPagar.UseVisualStyleBackColor = true;
             // 
             // txtVentasPago
             // 
@@ -460,48 +505,6 @@
             colTotal.HeaderText = "Total";
             colTotal.Name = "colTotal";
             colTotal.ReadOnly = true;
-            // 
-            // btnVentasPagar
-            // 
-            btnVentasPagar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnVentasPagar.Location = new Point(534, 54);
-            btnVentasPagar.Name = "btnVentasPagar";
-            btnVentasPagar.Size = new Size(86, 25);
-            btnVentasPagar.TabIndex = 16;
-            btnVentasPagar.Text = "Pagar";
-            btnVentasPagar.UseVisualStyleBackColor = true;
-            // 
-            // btnVentasNuevaFactura
-            // 
-            btnVentasNuevaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnVentasNuevaFactura.Location = new Point(679, 43);
-            btnVentasNuevaFactura.Name = "btnVentasNuevaFactura";
-            btnVentasNuevaFactura.Size = new Size(78, 40);
-            btnVentasNuevaFactura.TabIndex = 17;
-            btnVentasNuevaFactura.Text = "Nueva Venta";
-            btnVentasNuevaFactura.UseVisualStyleBackColor = true;
-            // 
-            // lblVentasFacturaNumero
-            // 
-            lblVentasFacturaNumero.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasFacturaNumero.Location = new Point(565, 47);
-            lblVentasFacturaNumero.Name = "lblVentasFacturaNumero";
-            lblVentasFacturaNumero.Size = new Size(66, 22);
-            lblVentasFacturaNumero.TabIndex = 16;
-            lblVentasFacturaNumero.Text = "# Factura";
-            lblVentasFacturaNumero.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // lblVentasNumeroFactura
-            // 
-            lblVentasNumeroFactura.BackColor = SystemColors.Info;
-            lblVentasNumeroFactura.BorderStyle = BorderStyle.FixedSingle;
-            lblVentasNumeroFactura.Enabled = false;
-            lblVentasNumeroFactura.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasNumeroFactura.Location = new Point(637, 45);
-            lblVentasNumeroFactura.Name = "lblVentasNumeroFactura";
-            lblVentasNumeroFactura.Size = new Size(117, 23);
-            lblVentasNumeroFactura.TabIndex = 17;
-            lblVentasNumeroFactura.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // frmVentasFacturacion
             // 
