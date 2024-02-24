@@ -32,6 +32,7 @@ namespace Proveeduria
         private string codigoSeleccionado;
         private string nombreSeleccionado;
         private string IdentificacionSeleccionado;
+        private string DniSeleccionado;
         private string TelefonoSeleccionado;
         private string EmailSeleccionado;
 
@@ -50,7 +51,28 @@ namespace Proveeduria
 
         private void btnProveedorModificar_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+                string nuevoNombre = txtProveedorNombre.Text;
+                string telefonoNuevo = txtModificarTelefono.Text;
+                string emailNuevo = txtProveedorEmail.Text;
+                // Obtener los nuevos valores de los TextBox
+
+                _ArchivoXML.modificarXML("Proveedores.xml", $"//Proveedor[CodigoProveedor='{codigoSeleccionado}']/NombreProveedor", nuevoNombre);
+                _ArchivoXML.modificarXML("Proveedores.xml", $"//Proveedor[CodigoProveedor='{codigoSeleccionado}']/TelefonoProveedor", telefonoNuevo);
+                _ArchivoXML.modificarXML("Proveedores.xml", $"//Proveedor[CodigoProveedor='{codigoSeleccionado}']/EmailProveedor", emailNuevo);
+
+
+                MessageBox.Show("Proveedor modificado correctamente.");
+                CargarListaProveedores("Proveedores.xml");
+                // Recargar la lista después de la modificación
+                LimpiarTextBox();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al modificar el Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }/*fin boton consultar*/
 
         private void btnProveedorBuscar_Click(object sender, EventArgs e)
@@ -79,7 +101,7 @@ namespace Proveeduria
                         lvRegistroProveedor.Items.Add(_itemProveedor);
                         /*agrego los datos a la lista*/
 
-                        if(_nodoProveedor != null )
+                        if (_nodoProveedor != null)
                         {
                             ListViewItem _itemSeleccionado = lvRegistroProveedor.Items[filaSeleccionada];
 
@@ -88,13 +110,15 @@ namespace Proveeduria
                                 codigoSeleccionado = _itemSeleccionado.SubItems[0].Text;
                                 nombreSeleccionado = _itemSeleccionado.SubItems[1].Text;
                                 IdentificacionSeleccionado = _itemSeleccionado.SubItems[2].Text;
-                                TelefonoSeleccionado = _itemSeleccionado.SubItems[3].Text;
-                                EmailSeleccionado = _itemSeleccionado.SubItems[4].Text;
+                                DniSeleccionado = _itemSeleccionado.SubItems[3].Text;
+                                TelefonoSeleccionado = _itemSeleccionado.SubItems[4].Text;
+                                EmailSeleccionado = _itemSeleccionado.SubItems[5].Text;
                                 // Obtener los datos de la fila seleccionada
 
                                 txtProveedorCodigo.Text = codigoSeleccionado;
                                 txtProveedorNombre.Text = nombreSeleccionado;
                                 txtProveedorDNI.Text = IdentificacionSeleccionado;
+                                txtProveedorDNI1.Text = DniSeleccionado;
                                 txtModificarTelefono.Text = TelefonoSeleccionado;
                                 txtProveedorEmail.Text = EmailSeleccionado;
                                 /*almaceno los datos en las variables*/
@@ -118,6 +142,8 @@ namespace Proveeduria
             txtProveedorDNI.Text = string.Empty;
             txtProveedorCodigo.Text = string.Empty;
             txtProveedorEmail.Text = string.Empty;
+            txtModificarTelefono.Text = string.Empty;
+            txtProveedorDNI1.Text= string.Empty;
         } /*fin LimpiarTextBox*/
 
         private void lvRegistroProveedor_SelectedIndexChanged(object sender, EventArgs e)
@@ -162,7 +188,6 @@ namespace Proveeduria
 
 
         } /*fin CargarListaProveedores*/
-
 
     }/*fin class FrmModificar*/
 }
