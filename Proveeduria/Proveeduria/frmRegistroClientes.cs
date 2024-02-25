@@ -23,6 +23,7 @@ namespace Proveeduria
         private void frmRegistroClientes_Load(object sender, EventArgs e)
         {
             cargarListaClientes("Clientes.xml");
+            LimpiarTextBox();
         }
 
         /* ----------------------------------------------- Objetos -----------------------------------------------*/
@@ -141,8 +142,9 @@ namespace Proveeduria
 
                 MessageBox.Show("Registro de Clientes Exitoso", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                LimpiarTextBox();
+                
                 cargarListaClientes("Clientes.xml");
+                LimpiarTextBox();
             }
             catch (Exception ex)
             {
@@ -163,6 +165,8 @@ namespace Proveeduria
             txtClienteCanton.Text = string.Empty;
             txtClienteDistrito.Text = string.Empty;
             txtClienteOtrasSenias.Text = string.Empty;
+            cbxClienteProvincia.SelectedIndex = 0;
+            cbxClienteTipoDNI.SelectedIndex = 0;
         }/*fin limpiarTextbox*/
 
 
