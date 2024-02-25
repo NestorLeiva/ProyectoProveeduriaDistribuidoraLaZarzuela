@@ -141,6 +141,9 @@ namespace Proveeduria
                             txtFuncionarioApellidoSegundo.Text = apellidoSegundoSeleccionado;
                             txtFuncionarioEmail.Text = emailSeleccionado;
                             txtModificarContrasenia.Text = contraseniaSeleccionada;
+                            txtFuncionarioDNI.Text = dniSeleccionado;
+                            txtFuncionarioCodigo.Text = codigoFuncionarioSeleccionado;
+                            /*pinta los datos en los TextBox*/
                         }
 
 

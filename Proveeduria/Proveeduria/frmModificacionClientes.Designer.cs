@@ -221,6 +221,7 @@
             btnClienteModificar.TabIndex = 20;
             btnClienteModificar.Text = "Modificar";
             btnClienteModificar.UseVisualStyleBackColor = true;
+            btnClienteModificar.Click += btnClienteModificar_Click;
             // 
             // gbxClientesRegistrarDatos
             // 
@@ -271,7 +272,6 @@
             // 
             // cbxClienteTipoDNI
             // 
-            cbxClienteTipoDNI.Enabled = false;
             cbxClienteTipoDNI.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cbxClienteTipoDNI.FormattingEnabled = true;
             cbxClienteTipoDNI.Items.AddRange(new object[] { "JURIDICO", "FISICO" });
@@ -528,6 +528,7 @@
             btnModificarBuscar.TabIndex = 5;
             btnModificarBuscar.Text = "Buscar";
             btnModificarBuscar.UseVisualStyleBackColor = true;
+            btnModificarBuscar.Click += btnModificarBuscar_Click;
             // 
             // cbxBuscarTipoDNI
             // 
