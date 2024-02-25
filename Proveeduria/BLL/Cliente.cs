@@ -51,12 +51,12 @@ namespace BLL
                 xmlDocCliente = _ArchivoXML.leerXML(rutaArchivo);/*Lectura del XML*/
 
                 XmlNode existeCliente = xmlDocCliente.SelectSingleNode($"//Cliente [NumeroIdentificacion='{this.DNI}']");
-                if ( existeCliente != null )
+                if (existeCliente != null)
                 {
                     throw new Exception("*** Ya se encuentra Registrado el Cliente ***");
                 }
-                /*Valido si ya existe un cliente registrado por medio de la Identificacion*/
-            }
+
+            }/*Valido si ya existe un cliente registrado por medio de la Identificacion*/
             else
             {
                 XmlNode xmlRoot = xmlDocCliente.CreateElement("Clientes");
@@ -77,7 +77,7 @@ namespace BLL
             /*nodo Tipo de Identificacion*/
             XmlNode xmlTipoIdentificacion = xmlDocCliente.CreateElement("TipoIdentificacion");
             xmlTipoIdentificacion.InnerText = this.TipoDni;
-            xmlCliente.AppendChild (xmlTipoIdentificacion);
+            xmlCliente.AppendChild(xmlTipoIdentificacion);
 
             /*nodo nombre*/
             XmlNode xmlNombre = xmlDocCliente.CreateElement("Nombre");
@@ -115,7 +115,7 @@ namespace BLL
             xmlCliente.AppendChild(xmlProvinvia);
 
             /*nodo Canton*/
-            XmlNode xmlCanton= xmlDocCliente.CreateElement("Canton");
+            XmlNode xmlCanton = xmlDocCliente.CreateElement("Canton");
             xmlCanton.InnerText = this.Canton;
             xmlCliente.AppendChild(xmlCanton);
 
@@ -128,7 +128,6 @@ namespace BLL
             XmlNode xmlOtrasSenias = xmlDocCliente.CreateElement("OtrasSenias");
             xmlOtrasSenias.InnerText = this.OtrasSenias;
             xmlCliente.AppendChild(xmlOtrasSenias);
-
 
 
             _ArchivoXML.escribirXML(rutaArchivo, xmlDocCliente);
