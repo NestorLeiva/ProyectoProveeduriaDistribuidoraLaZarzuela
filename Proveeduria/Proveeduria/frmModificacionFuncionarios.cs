@@ -182,11 +182,11 @@ namespace Proveeduria
                 if (indiceFilaSeleccionada != -1) 
                 {
                     
-                    string nuevoNombre = txtFuncionarioNombre.Text;
-                    string nuevoApellidoPrimero = txtFuncionarioApellidoPrimero.Text;
-                    string nuevoApellidoSegundo = txtFuncionarioApellidoSegundo.Text;
-                    string nuevoEmail = txtFuncionarioEmail.Text;
-                    string nuevoContrasenia = txtModificarContrasenia.Text;
+                    string nuevoNombre = txtFuncionarioNombre.Text.ToUpper();
+                    string nuevoApellidoPrimero = txtFuncionarioApellidoPrimero.Text.ToUpper();
+                    string nuevoApellidoSegundo = txtFuncionarioApellidoSegundo.Text.ToUpper();
+                    string nuevoEmail = txtFuncionarioEmail.Text.ToUpper();
+                    string nuevoContrasenia = txtModificarContrasenia.Text.ToUpper();
 
                     // Obtener el nuevo estado
                     string nuevoEstado = rbtnEstadoActivo.Checked ? "Activo" : "Inactivo";
