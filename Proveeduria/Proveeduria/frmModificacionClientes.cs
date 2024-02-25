@@ -31,6 +31,7 @@ namespace Proveeduria
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
 
         private int filaSeleccionada;
+        private string consultaDNI;
 
         /* ----------------------------------------------- textbox -----------------------------------------------*/
         private void txtClienteNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -120,7 +121,7 @@ namespace Proveeduria
         {
             try
             {
-                string consultaDNI = txtBuscarDNI.Text; /*obtengo el DNI a consultar*/
+                consultaDNI = txtBuscarDNI.Text; /*obtengo el DNI a consultar*/
                 lvwRegistroClientes.Items.Clear();/*limieza del listview*/
                 XmlDocument xmlDoc = _ArchivoXML.leerXML("Clientes.xml"); /*lectura del XML*/
 
@@ -153,8 +154,8 @@ namespace Proveeduria
                         {
                             string TipoDniClienteSeleccionado = itemSeleccionado.SubItems[0].Text;
                             string NumDniSeleccionado = itemSeleccionado.SubItems[1].Text;
-                            
-                            string NombreSeleccionado =  itemSeleccionado.SubItems[2].Text;
+
+                            string NombreSeleccionado = itemSeleccionado.SubItems[2].Text;
                             string ApellidoPrimeroSeleccionado = itemSeleccionado.SubItems[3].Text;
                             string ApellidoSegungoSeleccionado = itemSeleccionado.SubItems[4].Text;
                             string CodClienteSeleccionado = itemSeleccionado.SubItems[5].Text;
@@ -165,7 +166,7 @@ namespace Proveeduria
                             string DistritoSeleccionado = itemSeleccionado.SubItems[10].Text;
                             string OtrasSeniasSeleccionado = itemSeleccionado.SubItems[11].Text;
                             /*almaceno los datos en las variables*/
-;
+                            ;
                             txtClienteDNI.Text = NumDniSeleccionado;
                             txtClienteNombre.Text = NombreSeleccionado;
                             txtClienteApellidoPrimero.Text = ApellidoPrimeroSeleccionado;
@@ -178,7 +179,7 @@ namespace Proveeduria
                             txtClienteDistrito.Text = DistritoSeleccionado;
                             txtClienteOtrasSenias.Text = OtrasSeniasSeleccionado;
 
-                         
+
                             /*pinta los datos en los TextBox*/
 
 
@@ -207,18 +208,46 @@ namespace Proveeduria
         }/*fin btn Buscar*/
 
 
-
         private void btnClienteModificar_Click(object sender, EventArgs e)
         {
             try
             {
-                LimpiarTexBox();
-                CargarListaClientes("Clientes.xml");
-            }
-            catch (Exception)
-            {
+                if (filaSeleccionada != -1)
+                {
 
-                throw;
+                    string nuevoClienteNombre = this.txtClienteNombre.Text.ToUpper();
+                    string nuevoApellidoPrimero = txtClienteApellidoPrimero.Text.ToUpper();
+                    string nuevoApellidoSegundo = txtClienteApellidoSegundo.Text.ToUpper();
+                    string nuevoTelefono = txtClienteTelefono.Text.ToUpper();
+                    string nuevoEmail = txtClienteEmail.Text.ToUpper();
+                    string nuevoProvincia = cbxClienteProvincia.SelectedItem.ToString();
+                    string nuevoCanton = txtClienteCanton.Text.ToUpper();
+                    string nuevoDistrito = txtClienteDistrito.Text.ToUpper();
+                    string nuevoOtrasSenias = txtClienteOtrasSenias.Text.ToUpper();
+
+                    _ArchivoXML.modificarXML("Clientes.xml", $"//Cliente[NumeroIdentificacion='{consultaDNI}']/Nombre", nuevoClienteNombre);
+                    _ArchivoXML.modificarXML("Clientes.xml", $"//Cliente[NumeroIdentificacion='{consultaDNI}']/ApellidoPrimero", nuevoApellidoPrimero);
+                    _ArchivoXML.modificarXML("Clientes.xml", $"//Cliente[NumeroIdentificacion='{consultaDNI}']/ApellidoSegundo", nuevoApellidoSegundo);
+                    _ArchivoXML.modificarXML("Clientes.xml", $"//Cliente[NumeroIdentificacion='{consultaDNI}']/Telefono", nuevoTelefono);
+                    _ArchivoXML.modificarXML("Clientes.xml", $"//Cliente[NumeroIdentificacion='{consultaDNI}']/Email", nuevoEmail);
+                    _ArchivoXML.modificarXML("Clientes.xml", $"//Cliente[NumeroIdentificacion='{consultaDNI}']/Provincia", nuevoProvincia);
+                    _ArchivoXML.modificarXML("Clientes.xml", $"//Cliente[NumeroIdentificacion='{consultaDNI}']/Canton", nuevoCanton);
+                    _ArchivoXML.modificarXML("Clientes.xml", $"//Cliente[NumeroIdentificacion='{consultaDNI}']/Distrito", nuevoDistrito);
+                    _ArchivoXML.modificarXML("Clientes.xml", $"//Cliente[NumeroIdentificacion='{consultaDNI}']/OtrasSenias", nuevoOtrasSenias);
+                        /*Guardo los nuevos Datos en el XML*/
+
+                    MessageBox.Show("*** Datos del Cliente Modificados con Exito ***", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarTexBox();
+                    CargarListaClientes("Clientes.xml");
+                }
+                else
+                {
+                    MessageBox.Show("Error al Modificar los Datos del Cliente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception )
+            {
+                MessageBox.Show("Error al Modificar los Datos del Cliente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }/*fin btn Modificar*/
 
