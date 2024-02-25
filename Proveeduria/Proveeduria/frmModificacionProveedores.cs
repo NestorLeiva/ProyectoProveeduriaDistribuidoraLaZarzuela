@@ -85,9 +85,9 @@ namespace Proveeduria
             try
             {
 
-                string nuevoNombre = txtProveedorNombre.Text;
+                string nuevoNombre = txtProveedorNombre.Text.ToUpper();
                 string telefonoNuevo = txtModificarTelefono.Text;
-                string emailNuevo = txtProveedorEmail.Text;
+                string emailNuevo = txtProveedorEmail.Text.ToUpper();
                 // Obtener los nuevos valores de los TextBox
 
                 _ArchivoXML.modificarXML("Proveedores.xml", $"//Proveedor[CodigoProveedor='{codigoSeleccionado}']/NombreProveedor", nuevoNombre);
