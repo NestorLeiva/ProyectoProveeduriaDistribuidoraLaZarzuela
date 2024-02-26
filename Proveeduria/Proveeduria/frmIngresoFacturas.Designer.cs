@@ -246,6 +246,7 @@
             btnAgregarProducto.TabIndex = 39;
             btnAgregarProducto.Text = "Agregar Producto";
             btnAgregarProducto.UseVisualStyleBackColor = true;
+            btnAgregarProducto.Click += btnAgregarProducto_Click;
             // 
             // txtCategoriaProducto
             // 
@@ -256,6 +257,7 @@
             txtCategoriaProducto.Size = new Size(94, 21);
             txtCategoriaProducto.TabIndex = 29;
             txtCategoriaProducto.TextAlign = HorizontalAlignment.Center;
+            txtCategoriaProducto.KeyPress += txtCategoriaProducto_KeyPress;
             // 
             // btnCancelarProducto
             // 
@@ -287,6 +289,7 @@
             btnAceptarProducto.TabIndex = 36;
             btnAceptarProducto.Text = "Aceptar";
             btnAceptarProducto.UseVisualStyleBackColor = true;
+            btnAceptarProducto.Click += btnAceptarProducto_Click;
             // 
             // lblPrecioUndProducto
             // 
@@ -307,6 +310,7 @@
             txtPrecioUndProducto.Size = new Size(119, 21);
             txtPrecioUndProducto.TabIndex = 35;
             txtPrecioUndProducto.TextAlign = HorizontalAlignment.Center;
+            txtPrecioUndProducto.KeyPress += txtPrecioUndProducto_KeyPress;
             // 
             // lblCantidadProducto
             // 
@@ -346,6 +350,7 @@
             txtProductoNombre.Size = new Size(156, 21);
             txtProductoNombre.TabIndex = 31;
             txtProductoNombre.TextAlign = HorizontalAlignment.Center;
+            txtProductoNombre.KeyPress += txtProductoNombre_KeyPress;
             // 
             // txtCantidadProducto
             // 
@@ -356,6 +361,7 @@
             txtCantidadProducto.Size = new Size(75, 21);
             txtCantidadProducto.TabIndex = 33;
             txtCantidadProducto.TextAlign = HorizontalAlignment.Center;
+            txtCantidadProducto.KeyPress += txtCantidadProducto_KeyPress;
             // 
             // btnPagarFactura
             // 
