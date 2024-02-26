@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using Utils;
 
 namespace Proveeduria
 {
@@ -26,6 +27,30 @@ namespace Proveeduria
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
         private string consultarCodProveedor;
         /*------------------------------------------------- TextBox --------------------------------------------------------------------*/
+        private void txtNumeroFactura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMontoFactura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMontoIvaFactura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
 
         /*------------------------------------------------- Botones --------------------------------------------------------------------*/
         private void btnLimpiarDatosProveedor_Click(object sender, EventArgs e)
@@ -51,14 +76,14 @@ namespace Proveeduria
                 {
                     string codSeleccionado = _nodoProveedor.SelectSingleNode("CodigoProveedor").InnerText;
                     string nomSeleccionado = _nodoProveedor.SelectSingleNode("NombreProveedor").InnerText;
-                    
+
                     string dniSeleccionado = _nodoProveedor.SelectSingleNode("Identificacion").InnerText;
                     string telefonoSeleccionado = _nodoProveedor.SelectSingleNode("TelefonoProveedor").InnerText;
                     string emailSeleccionado = _nodoProveedor.SelectSingleNode("EmailProveedor").InnerText;
                     /* Obtengo los datos del proveedor */
 
                     txtCodigoProveedor.Text = codSeleccionado;
-                    txtNombreProveedor.Text= nomSeleccionado;
+                    txtNombreProveedor.Text = nomSeleccionado;
                     txtDniProveedor.Text = dniSeleccionado;
                     txtTelefonoProveedor.Text = telefonoSeleccionado;
                     txtEmailProveedor.Text = emailSeleccionado;

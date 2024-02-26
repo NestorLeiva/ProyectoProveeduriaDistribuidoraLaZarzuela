@@ -45,6 +45,7 @@
             colPrecioUndProducto = new ColumnHeader();
             colTotalPrecioProducto = new ColumnHeader();
             gbxRegistroDeProductos = new GroupBox();
+            btnAgregarProducto = new Button();
             txtCategoriaProducto = new TextBox();
             btnCancelarProducto = new Button();
             btnLimpiarProducto = new Button();
@@ -78,7 +79,6 @@
             lblNombreProveedor = new Label();
             txtDniProveedor = new TextBox();
             txtNombreProveedor = new TextBox();
-            btnAgregarProducto = new Button();
             gbxRegistroProductosTitulo.SuspendLayout();
             gbxBuscarProveedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
@@ -237,6 +237,16 @@
             gbxRegistroDeProductos.TabStop = false;
             gbxRegistroDeProductos.Text = "Datos Productos";
             // 
+            // btnAgregarProducto
+            // 
+            btnAgregarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAgregarProducto.Location = new Point(76, 61);
+            btnAgregarProducto.Name = "btnAgregarProducto";
+            btnAgregarProducto.Size = new Size(133, 24);
+            btnAgregarProducto.TabIndex = 39;
+            btnAgregarProducto.Text = "Agregar Producto";
+            btnAgregarProducto.UseVisualStyleBackColor = true;
+            // 
             // txtCategoriaProducto
             // 
             txtCategoriaProducto.AcceptsTab = true;
@@ -365,6 +375,7 @@
             txtMontoIvaFactura.Size = new Size(116, 22);
             txtMontoIvaFactura.TabIndex = 24;
             txtMontoIvaFactura.TextAlign = HorizontalAlignment.Center;
+            txtMontoIvaFactura.KeyPress += txtMontoIvaFactura_KeyPress;
             // 
             // lblMontoIvaFactura
             // 
@@ -384,6 +395,7 @@
             txtMontoFactura.Size = new Size(153, 22);
             txtMontoFactura.TabIndex = 22;
             txtMontoFactura.TextAlign = HorizontalAlignment.Center;
+            txtMontoFactura.KeyPress += txtMontoFactura_KeyPress;
             // 
             // lblMontoFactura
             // 
@@ -412,6 +424,7 @@
             txtNumeroFactura.Size = new Size(116, 22);
             txtNumeroFactura.TabIndex = 20;
             txtNumeroFactura.TextAlign = HorizontalAlignment.Center;
+            txtNumeroFactura.KeyPress += txtNumeroFactura_KeyPress;
             // 
             // lblFechaFactura
             // 
@@ -585,16 +598,6 @@
             txtNombreProveedor.Size = new Size(152, 22);
             txtNombreProveedor.TabIndex = 11;
             txtNombreProveedor.TextAlign = HorizontalAlignment.Center;
-            // 
-            // btnAgregarProducto
-            // 
-            btnAgregarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAgregarProducto.Location = new Point(76, 61);
-            btnAgregarProducto.Name = "btnAgregarProducto";
-            btnAgregarProducto.Size = new Size(133, 24);
-            btnAgregarProducto.TabIndex = 39;
-            btnAgregarProducto.Text = "Agregar Producto";
-            btnAgregarProducto.UseVisualStyleBackColor = true;
             // 
             // frmIngresoFacturas
             // 
