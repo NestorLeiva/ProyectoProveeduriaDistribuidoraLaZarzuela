@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using BLL;
 using System.Xml;
 using Utils;
 
@@ -21,11 +13,16 @@ namespace Proveeduria
 
         private void frmRegistroProductos_Load(object sender, EventArgs e)
         {
-
+            _lstProductos = new List<Productos>();
         }
+
         /*------------------------------------------------- Objetos --------------------------------------------------------------------*/
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
         private string consultarCodProveedor;
+
+        List<Productos> _lstProductos;
+        IngresoFacturas _ingresoFacturas;
+
         /*------------------------------------------------- TextBox --------------------------------------------------------------------*/
         private void txtNumeroFactura_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -44,6 +41,38 @@ namespace Proveeduria
         }
 
         private void txtMontoIvaFactura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCategoriaProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtProductoNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCantidadProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPrecioUndProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Validaciones.soloNumeros(e.KeyChar))
             {
@@ -102,6 +131,52 @@ namespace Proveeduria
             }
         }
 
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Productos _listaProductos = new Productos()
+                {
+                    CategoriaProducto = this.txtCategoriaProducto.Text,
+                    DescripcionProducto = this.txtProductoNombre.Text,
+                    CantidadProducto = Convert.ToInt32(this.txtCantidadProducto.Text),
+                    PrecioUndProducto = Convert.ToInt32(this.txtPrecioUndProducto.Text),
+                };
+                this._lstProductos.Add(_listaProductos);
+                /*agrego los datos a la lista*/
+                MessageBox.Show("Se agrego el Producto Exitosamente.", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimpiarDatosProductos();
+            }
+            catch (Exception ex)
+            {
+                /*Mensaje de error*/
+                MessageBox.Show(ex.Message, "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }/*fin btn Agregar Producto*/
+
+        private void btnAceptarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _ingresoFacturas = new IngresoFacturas()
+                {
+                    CodigoProv = txtCodigoProveedor.Text,
+                    NombreProv = txtNombreProveedor.Text,
+                    FechaFactura = dtpFechaFactura.Value.Date,
+                    NumeroFactura = txtNumeroFactura.Text,
+                    MontoFactura = Convert.ToInt32(txtMontoFactura.Text),
+                    MontoIVA = Convert.ToInt32(txtMontoIvaFactura.Text),
+                };
+                _ingresoFacturas.grabarXMLFactura("Facturas.xml");
+                MessageBox.Show("Se registro la Factura y Producto Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }/*fin btn Aceptar*/
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
         public void LimpiarDatosProveedor()
