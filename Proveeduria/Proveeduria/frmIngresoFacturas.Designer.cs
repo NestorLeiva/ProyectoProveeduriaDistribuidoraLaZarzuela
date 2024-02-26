@@ -78,6 +78,7 @@
             lblNombreProveedor = new Label();
             txtDniProveedor = new TextBox();
             txtNombreProveedor = new TextBox();
+            btnAgregarProducto = new Button();
             gbxRegistroProductosTitulo.SuspendLayout();
             gbxBuscarProveedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
@@ -120,6 +121,7 @@
             btnBuscarProveedor.TabIndex = 5;
             btnBuscarProveedor.Text = "Buscar Proveedor";
             btnBuscarProveedor.UseVisualStyleBackColor = true;
+            btnBuscarProveedor.Click += btnBuscarProveedor_Click;
             // 
             // lblCodProveedor
             // 
@@ -215,6 +217,7 @@
             // 
             // gbxRegistroDeProductos
             // 
+            gbxRegistroDeProductos.Controls.Add(btnAgregarProducto);
             gbxRegistroDeProductos.Controls.Add(txtCategoriaProducto);
             gbxRegistroDeProductos.Controls.Add(btnCancelarProducto);
             gbxRegistroDeProductos.Controls.Add(btnLimpiarProducto);
@@ -247,7 +250,7 @@
             // btnCancelarProducto
             // 
             btnCancelarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCancelarProducto.Location = new Point(455, 63);
+            btnCancelarProducto.Location = new Point(594, 61);
             btnCancelarProducto.Name = "btnCancelarProducto";
             btnCancelarProducto.Size = new Size(98, 24);
             btnCancelarProducto.TabIndex = 38;
@@ -257,7 +260,7 @@
             // btnLimpiarProducto
             // 
             btnLimpiarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimpiarProducto.Location = new Point(345, 63);
+            btnLimpiarProducto.Location = new Point(484, 61);
             btnLimpiarProducto.Name = "btnLimpiarProducto";
             btnLimpiarProducto.Size = new Size(98, 24);
             btnLimpiarProducto.TabIndex = 37;
@@ -268,7 +271,7 @@
             // btnAceptarProducto
             // 
             btnAceptarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAceptarProducto.Location = new Point(241, 63);
+            btnAceptarProducto.Location = new Point(380, 61);
             btnAceptarProducto.Name = "btnAceptarProducto";
             btnAceptarProducto.Size = new Size(98, 24);
             btnAceptarProducto.TabIndex = 36;
@@ -583,6 +586,16 @@
             txtNombreProveedor.TabIndex = 11;
             txtNombreProveedor.TextAlign = HorizontalAlignment.Center;
             // 
+            // btnAgregarProducto
+            // 
+            btnAgregarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAgregarProducto.Location = new Point(76, 61);
+            btnAgregarProducto.Name = "btnAgregarProducto";
+            btnAgregarProducto.Size = new Size(133, 24);
+            btnAgregarProducto.TabIndex = 39;
+            btnAgregarProducto.Text = "Agregar Producto";
+            btnAgregarProducto.UseVisualStyleBackColor = true;
+            // 
             // frmIngresoFacturas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -669,5 +682,6 @@
         private ColumnHeader colPrecioUndProducto;
         private ColumnHeader colTotalPrecioProducto;
         private ColumnHeader colCantidadProducto;
+        private Button btnAgregarProducto;
     }
 }
