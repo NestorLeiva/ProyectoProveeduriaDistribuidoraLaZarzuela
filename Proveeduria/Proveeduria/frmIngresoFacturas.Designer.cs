@@ -30,47 +30,66 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresoFacturas));
             gbxRegistroProductosTitulo = new GroupBox();
+            gbxBuscarProveedor = new GroupBox();
+            btnBuscarProveedor = new Button();
+            lblCodProveedor = new Label();
+            txtBuscarProveedor = new TextBox();
             pbLogo = new PictureBox();
             lblProductosTitulo = new Label();
-            dgvRegistroListaFuncionarios = new DataGridView();
-            colFacturaCodigo = new DataGridViewTextBoxColumn();
-            colFacturaProducto = new DataGridViewTextBoxColumn();
-            colFacturaCantidad = new DataGridViewTextBoxColumn();
-            colFacturaPrecioUnd = new DataGridViewTextBoxColumn();
-            colFacturaPrecioVenta = new DataGridViewTextBoxColumn();
             gbxListaProductos = new GroupBox();
+            lvwListaProductos = new ListView();
+            colCatProducto = new ColumnHeader();
+            colCodProducto = new ColumnHeader();
+            colDesProducto = new ColumnHeader();
+            colCantidadProducto = new ColumnHeader();
+            colPrecioUndProducto = new ColumnHeader();
+            colTotalPrecioProducto = new ColumnHeader();
             gbxRegistroDeProductos = new GroupBox();
-            lblFacturaPrecioUnd = new Label();
-            txtFacturaPrecioUnd = new TextBox();
-            lblFacturaCantidad = new Label();
-            btnFacturaCancelar = new Button();
-            btnFacturaLimpiar = new Button();
-            btnFacturaAceptar = new Button();
-            txtFacturaCodigo = new TextBox();
-            lblFacturaCodigo = new Label();
-            lblFacturaNombre = new Label();
-            txtFuncionarioApellidoPrimero = new TextBox();
-            txtFacturaCantidad = new TextBox();
-            gbxIngresoFactura = new GroupBox();
-            txtFacturaMonto = new TextBox();
-            lblFacturaMonto = new Label();
-            dtpFacturaFecha = new DateTimePicker();
-            txtFacturaNumero = new TextBox();
-            lblFacturaFecha = new Label();
-            lblFacturaNumero = new Label();
-            btnFacturaPagar = new Button();
+            txtCategoriaProducto = new TextBox();
+            btnCancelarProducto = new Button();
+            btnLimpiarProducto = new Button();
+            btnAceptarProducto = new Button();
+            lblPrecioUndProducto = new Label();
+            txtPrecioUndProducto = new TextBox();
+            lblCantidadProducto = new Label();
+            lblCategoriaProducto = new Label();
+            lblProductoNombre = new Label();
+            txtProductoNombre = new TextBox();
+            txtCantidadProducto = new TextBox();
+            btnPagarFactura = new Button();
+            txtMontoIvaFactura = new TextBox();
+            lblMontoIvaFactura = new Label();
+            txtMontoFactura = new TextBox();
+            lblMontoFactura = new Label();
+            dtpFechaFactura = new DateTimePicker();
+            txtNumeroFactura = new TextBox();
+            lblFechaFactura = new Label();
+            lblNumeroFactura = new Label();
             gbxFacturasRegistro = new GroupBox();
+            gbxDatosProveedor = new GroupBox();
+            btnLimpiarDatosProveedor = new Button();
+            lblCodigoProveedor = new Label();
+            txtCodigoProveedor = new TextBox();
+            lblEmailProveedor = new Label();
+            lblTelefonoProveedor = new Label();
+            txtEmailProveedor = new TextBox();
+            txtTelefonoProveedor = new TextBox();
+            lblDniProveedor = new Label();
+            lblNombreProveedor = new Label();
+            txtDniProveedor = new TextBox();
+            txtNombreProveedor = new TextBox();
             gbxRegistroProductosTitulo.SuspendLayout();
+            gbxBuscarProveedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvRegistroListaFuncionarios).BeginInit();
             gbxListaProductos.SuspendLayout();
             gbxRegistroDeProductos.SuspendLayout();
-            gbxIngresoFactura.SuspendLayout();
             gbxFacturasRegistro.SuspendLayout();
+            gbxDatosProveedor.SuspendLayout();
             SuspendLayout();
             // 
             // gbxRegistroProductosTitulo
             // 
+            gbxRegistroProductosTitulo.Controls.Add(gbxBuscarProveedor);
             gbxRegistroProductosTitulo.Controls.Add(pbLogo);
             gbxRegistroProductosTitulo.Controls.Add(lblProductosTitulo);
             gbxRegistroProductosTitulo.Dock = DockStyle.Top;
@@ -79,6 +98,47 @@
             gbxRegistroProductosTitulo.Size = new Size(774, 138);
             gbxRegistroProductosTitulo.TabIndex = 1;
             gbxRegistroProductosTitulo.TabStop = false;
+            // 
+            // gbxBuscarProveedor
+            // 
+            gbxBuscarProveedor.Controls.Add(btnBuscarProveedor);
+            gbxBuscarProveedor.Controls.Add(lblCodProveedor);
+            gbxBuscarProveedor.Controls.Add(txtBuscarProveedor);
+            gbxBuscarProveedor.Location = new Point(199, 75);
+            gbxBuscarProveedor.Name = "gbxBuscarProveedor";
+            gbxBuscarProveedor.Size = new Size(462, 49);
+            gbxBuscarProveedor.TabIndex = 2;
+            gbxBuscarProveedor.TabStop = false;
+            gbxBuscarProveedor.Text = "Buscar Proveedor";
+            // 
+            // btnBuscarProveedor
+            // 
+            btnBuscarProveedor.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBuscarProveedor.Location = new Point(311, 12);
+            btnBuscarProveedor.Name = "btnBuscarProveedor";
+            btnBuscarProveedor.Size = new Size(140, 28);
+            btnBuscarProveedor.TabIndex = 5;
+            btnBuscarProveedor.Text = "Buscar Proveedor";
+            btnBuscarProveedor.UseVisualStyleBackColor = true;
+            // 
+            // lblCodProveedor
+            // 
+            lblCodProveedor.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCodProveedor.Location = new Point(6, 19);
+            lblCodProveedor.Name = "lblCodProveedor";
+            lblCodProveedor.Size = new Size(140, 22);
+            lblCodProveedor.TabIndex = 3;
+            lblCodProveedor.Text = "Codigo de Proveedor";
+            lblCodProveedor.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // txtBuscarProveedor
+            // 
+            txtBuscarProveedor.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtBuscarProveedor.Location = new Point(152, 18);
+            txtBuscarProveedor.Name = "txtBuscarProveedor";
+            txtBuscarProveedor.Size = new Size(153, 22);
+            txtBuscarProveedor.TabIndex = 4;
+            txtBuscarProveedor.TextAlign = HorizontalAlignment.Center;
             // 
             // pbLogo
             // 
@@ -93,290 +153,435 @@
             // lblProductosTitulo
             // 
             lblProductosTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblProductosTitulo.Location = new Point(253, 19);
+            lblProductosTitulo.Location = new Point(257, 9);
             lblProductosTitulo.Name = "lblProductosTitulo";
-            lblProductosTitulo.Size = new Size(224, 82);
+            lblProductosTitulo.Size = new Size(224, 70);
             lblProductosTitulo.TabIndex = 16;
-            lblProductosTitulo.Text = "Registro de Facturas  Productos";
+            lblProductosTitulo.Text = "Ingreso de Facturas  Productos";
             lblProductosTitulo.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // dgvRegistroListaFuncionarios
-            // 
-            dgvRegistroListaFuncionarios.AllowUserToDeleteRows = false;
-            dgvRegistroListaFuncionarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dgvRegistroListaFuncionarios.Columns.AddRange(new DataGridViewColumn[] { colFacturaCodigo, colFacturaProducto, colFacturaCantidad, colFacturaPrecioUnd, colFacturaPrecioVenta });
-            dgvRegistroListaFuncionarios.Dock = DockStyle.Fill;
-            dgvRegistroListaFuncionarios.Location = new Point(3, 19);
-            dgvRegistroListaFuncionarios.Name = "dgvRegistroListaFuncionarios";
-            dgvRegistroListaFuncionarios.RowTemplate.Height = 25;
-            dgvRegistroListaFuncionarios.Size = new Size(768, 193);
-            dgvRegistroListaFuncionarios.TabIndex = 11;
-            // 
-            // colFacturaCodigo
-            // 
-            colFacturaCodigo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colFacturaCodigo.HeaderText = "Codigo";
-            colFacturaCodigo.Name = "colFacturaCodigo";
-            // 
-            // colFacturaProducto
-            // 
-            colFacturaProducto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colFacturaProducto.HeaderText = "Producto";
-            colFacturaProducto.Name = "colFacturaProducto";
-            // 
-            // colFacturaCantidad
-            // 
-            colFacturaCantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colFacturaCantidad.HeaderText = "Cantidad";
-            colFacturaCantidad.Name = "colFacturaCantidad";
-            // 
-            // colFacturaPrecioUnd
-            // 
-            colFacturaPrecioUnd.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colFacturaPrecioUnd.HeaderText = "Precio Unitario";
-            colFacturaPrecioUnd.Name = "colFacturaPrecioUnd";
-            colFacturaPrecioUnd.ReadOnly = true;
-            // 
-            // colFacturaPrecioVenta
-            // 
-            colFacturaPrecioVenta.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colFacturaPrecioVenta.HeaderText = "Precio Venta";
-            colFacturaPrecioVenta.Name = "colFacturaPrecioVenta";
-            colFacturaPrecioVenta.ReadOnly = true;
             // 
             // gbxListaProductos
             // 
-            gbxListaProductos.Controls.Add(dgvRegistroListaFuncionarios);
+            gbxListaProductos.Controls.Add(lvwListaProductos);
             gbxListaProductos.Dock = DockStyle.Bottom;
-            gbxListaProductos.Location = new Point(0, 446);
+            gbxListaProductos.Location = new Point(0, 393);
             gbxListaProductos.Name = "gbxListaProductos";
-            gbxListaProductos.Size = new Size(774, 215);
-            gbxListaProductos.TabIndex = 4;
+            gbxListaProductos.Size = new Size(774, 268);
+            gbxListaProductos.TabIndex = 39;
             gbxListaProductos.TabStop = false;
             gbxListaProductos.Text = "Lista de Productos";
             // 
+            // lvwListaProductos
+            // 
+            lvwListaProductos.BackColor = SystemColors.Info;
+            lvwListaProductos.Columns.AddRange(new ColumnHeader[] { colCatProducto, colCodProducto, colDesProducto, colCantidadProducto, colPrecioUndProducto, colTotalPrecioProducto });
+            lvwListaProductos.Dock = DockStyle.Fill;
+            lvwListaProductos.Location = new Point(3, 19);
+            lvwListaProductos.Name = "lvwListaProductos";
+            lvwListaProductos.Size = new Size(768, 246);
+            lvwListaProductos.TabIndex = 40;
+            lvwListaProductos.UseCompatibleStateImageBehavior = false;
+            lvwListaProductos.View = View.Details;
+            // 
+            // colCatProducto
+            // 
+            colCatProducto.Text = "Categoria Producto";
+            colCatProducto.Width = 130;
+            // 
+            // colCodProducto
+            // 
+            colCodProducto.Text = "Codigo Producto";
+            colCodProducto.Width = 120;
+            // 
+            // colDesProducto
+            // 
+            colDesProducto.Text = "Descripcion Producto";
+            colDesProducto.Width = 130;
+            // 
+            // colCantidadProducto
+            // 
+            colCantidadProducto.Text = "Cantidad Producto";
+            colCantidadProducto.Width = 120;
+            // 
+            // colPrecioUndProducto
+            // 
+            colPrecioUndProducto.Text = "Precio Unitario";
+            colPrecioUndProducto.Width = 120;
+            // 
+            // colTotalPrecioProducto
+            // 
+            colTotalPrecioProducto.Text = "Total Precio Producto";
+            colTotalPrecioProducto.Width = 130;
+            // 
             // gbxRegistroDeProductos
             // 
-            gbxRegistroDeProductos.Controls.Add(lblFacturaPrecioUnd);
-            gbxRegistroDeProductos.Controls.Add(txtFacturaPrecioUnd);
-            gbxRegistroDeProductos.Controls.Add(lblFacturaCantidad);
-            gbxRegistroDeProductos.Controls.Add(btnFacturaCancelar);
-            gbxRegistroDeProductos.Controls.Add(btnFacturaLimpiar);
-            gbxRegistroDeProductos.Controls.Add(btnFacturaAceptar);
-            gbxRegistroDeProductos.Controls.Add(txtFacturaCodigo);
-            gbxRegistroDeProductos.Controls.Add(lblFacturaCodigo);
-            gbxRegistroDeProductos.Controls.Add(lblFacturaNombre);
-            gbxRegistroDeProductos.Controls.Add(txtFuncionarioApellidoPrimero);
-            gbxRegistroDeProductos.Controls.Add(txtFacturaCantidad);
-            gbxRegistroDeProductos.Dock = DockStyle.Right;
-            gbxRegistroDeProductos.Location = new Point(370, 19);
+            gbxRegistroDeProductos.Controls.Add(txtCategoriaProducto);
+            gbxRegistroDeProductos.Controls.Add(btnCancelarProducto);
+            gbxRegistroDeProductos.Controls.Add(btnLimpiarProducto);
+            gbxRegistroDeProductos.Controls.Add(btnAceptarProducto);
+            gbxRegistroDeProductos.Controls.Add(lblPrecioUndProducto);
+            gbxRegistroDeProductos.Controls.Add(txtPrecioUndProducto);
+            gbxRegistroDeProductos.Controls.Add(lblCantidadProducto);
+            gbxRegistroDeProductos.Controls.Add(lblCategoriaProducto);
+            gbxRegistroDeProductos.Controls.Add(lblProductoNombre);
+            gbxRegistroDeProductos.Controls.Add(txtProductoNombre);
+            gbxRegistroDeProductos.Controls.Add(txtCantidadProducto);
+            gbxRegistroDeProductos.Dock = DockStyle.Fill;
+            gbxRegistroDeProductos.Location = new Point(3, 148);
             gbxRegistroDeProductos.Name = "gbxRegistroDeProductos";
-            gbxRegistroDeProductos.Size = new Size(401, 286);
-            gbxRegistroDeProductos.TabIndex = 3;
+            gbxRegistroDeProductos.Size = new Size(768, 104);
+            gbxRegistroDeProductos.TabIndex = 27;
             gbxRegistroDeProductos.TabStop = false;
             gbxRegistroDeProductos.Text = "Datos Productos";
             // 
-            // lblFacturaPrecioUnd
+            // txtCategoriaProducto
             // 
-            lblFacturaPrecioUnd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFacturaPrecioUnd.Location = new Point(12, 149);
-            lblFacturaPrecioUnd.Name = "lblFacturaPrecioUnd";
-            lblFacturaPrecioUnd.Size = new Size(114, 22);
-            lblFacturaPrecioUnd.TabIndex = 13;
-            lblFacturaPrecioUnd.Text = "Precio Und";
-            lblFacturaPrecioUnd.TextAlign = ContentAlignment.MiddleRight;
+            txtCategoriaProducto.AcceptsTab = true;
+            txtCategoriaProducto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCategoriaProducto.Location = new Point(76, 24);
+            txtCategoriaProducto.Name = "txtCategoriaProducto";
+            txtCategoriaProducto.Size = new Size(94, 21);
+            txtCategoriaProducto.TabIndex = 29;
+            txtCategoriaProducto.TextAlign = HorizontalAlignment.Center;
             // 
-            // txtFacturaPrecioUnd
+            // btnCancelarProducto
             // 
-            txtFacturaPrecioUnd.AcceptsTab = true;
-            txtFacturaPrecioUnd.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFacturaPrecioUnd.Location = new Point(132, 142);
-            txtFacturaPrecioUnd.Name = "txtFacturaPrecioUnd";
-            txtFacturaPrecioUnd.Size = new Size(151, 29);
-            txtFacturaPrecioUnd.TabIndex = 7;
-            txtFacturaPrecioUnd.TextAlign = HorizontalAlignment.Center;
+            btnCancelarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancelarProducto.Location = new Point(455, 63);
+            btnCancelarProducto.Name = "btnCancelarProducto";
+            btnCancelarProducto.Size = new Size(98, 24);
+            btnCancelarProducto.TabIndex = 38;
+            btnCancelarProducto.Text = "Cancelar";
+            btnCancelarProducto.UseVisualStyleBackColor = true;
             // 
-            // lblFacturaCantidad
+            // btnLimpiarProducto
             // 
-            lblFacturaCantidad.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFacturaCantidad.Location = new Point(12, 114);
-            lblFacturaCantidad.Name = "lblFacturaCantidad";
-            lblFacturaCantidad.Size = new Size(114, 22);
-            lblFacturaCantidad.TabIndex = 11;
-            lblFacturaCantidad.Text = "Cantidad";
-            lblFacturaCantidad.TextAlign = ContentAlignment.MiddleRight;
+            btnLimpiarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLimpiarProducto.Location = new Point(345, 63);
+            btnLimpiarProducto.Name = "btnLimpiarProducto";
+            btnLimpiarProducto.Size = new Size(98, 24);
+            btnLimpiarProducto.TabIndex = 37;
+            btnLimpiarProducto.Text = "Limpiar";
+            btnLimpiarProducto.UseVisualStyleBackColor = true;
+            btnLimpiarProducto.Click += btnLimpiarProducto_Click;
             // 
-            // btnFacturaCancelar
+            // btnAceptarProducto
             // 
-            btnFacturaCancelar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnFacturaCancelar.Location = new Point(289, 109);
-            btnFacturaCancelar.Name = "btnFacturaCancelar";
-            btnFacturaCancelar.Size = new Size(93, 32);
-            btnFacturaCancelar.TabIndex = 10;
-            btnFacturaCancelar.Text = "Cancelar";
-            btnFacturaCancelar.UseVisualStyleBackColor = true;
+            btnAceptarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAceptarProducto.Location = new Point(241, 63);
+            btnAceptarProducto.Name = "btnAceptarProducto";
+            btnAceptarProducto.Size = new Size(98, 24);
+            btnAceptarProducto.TabIndex = 36;
+            btnAceptarProducto.Text = "Aceptar";
+            btnAceptarProducto.UseVisualStyleBackColor = true;
             // 
-            // btnFacturaLimpiar
+            // lblPrecioUndProducto
             // 
-            btnFacturaLimpiar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnFacturaLimpiar.Location = new Point(289, 71);
-            btnFacturaLimpiar.Name = "btnFacturaLimpiar";
-            btnFacturaLimpiar.Size = new Size(93, 32);
-            btnFacturaLimpiar.TabIndex = 9;
-            btnFacturaLimpiar.Text = "Limpiar";
-            btnFacturaLimpiar.UseVisualStyleBackColor = true;
+            lblPrecioUndProducto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPrecioUndProducto.Location = new Point(559, 24);
+            lblPrecioUndProducto.Name = "lblPrecioUndProducto";
+            lblPrecioUndProducto.Size = new Size(75, 22);
+            lblPrecioUndProducto.TabIndex = 34;
+            lblPrecioUndProducto.Text = "Precio Und";
+            lblPrecioUndProducto.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // btnFacturaAceptar
+            // txtPrecioUndProducto
             // 
-            btnFacturaAceptar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnFacturaAceptar.Location = new Point(289, 33);
-            btnFacturaAceptar.Name = "btnFacturaAceptar";
-            btnFacturaAceptar.Size = new Size(93, 32);
-            btnFacturaAceptar.TabIndex = 8;
-            btnFacturaAceptar.Text = "Aceptar";
-            btnFacturaAceptar.UseVisualStyleBackColor = true;
+            txtPrecioUndProducto.AcceptsTab = true;
+            txtPrecioUndProducto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPrecioUndProducto.Location = new Point(640, 25);
+            txtPrecioUndProducto.Name = "txtPrecioUndProducto";
+            txtPrecioUndProducto.Size = new Size(119, 21);
+            txtPrecioUndProducto.TabIndex = 35;
+            txtPrecioUndProducto.TextAlign = HorizontalAlignment.Center;
             // 
-            // txtFacturaCodigo
+            // lblCantidadProducto
             // 
-            txtFacturaCodigo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFacturaCodigo.Location = new Point(132, 31);
-            txtFacturaCodigo.Name = "txtFacturaCodigo";
-            txtFacturaCodigo.Size = new Size(151, 29);
-            txtFacturaCodigo.TabIndex = 4;
-            txtFacturaCodigo.TextAlign = HorizontalAlignment.Center;
+            lblCantidadProducto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCantidadProducto.Location = new Point(411, 23);
+            lblCantidadProducto.Name = "lblCantidadProducto";
+            lblCantidadProducto.Size = new Size(61, 22);
+            lblCantidadProducto.TabIndex = 32;
+            lblCantidadProducto.Text = "Cantidad";
+            lblCantidadProducto.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // lblFacturaCodigo
+            // lblCategoriaProducto
             // 
-            lblFacturaCodigo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFacturaCodigo.Location = new Point(12, 31);
-            lblFacturaCodigo.Name = "lblFacturaCodigo";
-            lblFacturaCodigo.Size = new Size(114, 22);
-            lblFacturaCodigo.TabIndex = 0;
-            lblFacturaCodigo.Text = "Codigo";
-            lblFacturaCodigo.TextAlign = ContentAlignment.MiddleRight;
+            lblCategoriaProducto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCategoriaProducto.Location = new Point(9, 23);
+            lblCategoriaProducto.Name = "lblCategoriaProducto";
+            lblCategoriaProducto.Size = new Size(61, 22);
+            lblCategoriaProducto.TabIndex = 28;
+            lblCategoriaProducto.Text = "Categoria";
+            lblCategoriaProducto.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // lblFacturaNombre
+            // lblProductoNombre
             // 
-            lblFacturaNombre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFacturaNombre.Location = new Point(12, 72);
-            lblFacturaNombre.Name = "lblFacturaNombre";
-            lblFacturaNombre.Size = new Size(114, 22);
-            lblFacturaNombre.TabIndex = 1;
-            lblFacturaNombre.Text = "Producto";
-            lblFacturaNombre.TextAlign = ContentAlignment.MiddleRight;
+            lblProductoNombre.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lblProductoNombre.Location = new Point(176, 24);
+            lblProductoNombre.Name = "lblProductoNombre";
+            lblProductoNombre.Size = new Size(67, 22);
+            lblProductoNombre.TabIndex = 30;
+            lblProductoNombre.Text = "Producto";
+            lblProductoNombre.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // txtFuncionarioApellidoPrimero
+            // txtProductoNombre
             // 
-            txtFuncionarioApellidoPrimero.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFuncionarioApellidoPrimero.Location = new Point(132, 72);
-            txtFuncionarioApellidoPrimero.Name = "txtFuncionarioApellidoPrimero";
-            txtFuncionarioApellidoPrimero.Size = new Size(151, 29);
-            txtFuncionarioApellidoPrimero.TabIndex = 5;
-            txtFuncionarioApellidoPrimero.TextAlign = HorizontalAlignment.Center;
+            txtProductoNombre.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtProductoNombre.Location = new Point(249, 24);
+            txtProductoNombre.Name = "txtProductoNombre";
+            txtProductoNombre.Size = new Size(156, 21);
+            txtProductoNombre.TabIndex = 31;
+            txtProductoNombre.TextAlign = HorizontalAlignment.Center;
             // 
-            // txtFacturaCantidad
+            // txtCantidadProducto
             // 
-            txtFacturaCantidad.AcceptsTab = true;
-            txtFacturaCantidad.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFacturaCantidad.Location = new Point(132, 107);
-            txtFacturaCantidad.Name = "txtFacturaCantidad";
-            txtFacturaCantidad.Size = new Size(151, 29);
-            txtFacturaCantidad.TabIndex = 6;
-            txtFacturaCantidad.TextAlign = HorizontalAlignment.Center;
+            txtCantidadProducto.AcceptsTab = true;
+            txtCantidadProducto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCantidadProducto.Location = new Point(478, 25);
+            txtCantidadProducto.Name = "txtCantidadProducto";
+            txtCantidadProducto.Size = new Size(75, 21);
+            txtCantidadProducto.TabIndex = 33;
+            txtCantidadProducto.TextAlign = HorizontalAlignment.Center;
             // 
-            // gbxIngresoFactura
+            // btnPagarFactura
             // 
-            gbxIngresoFactura.Controls.Add(btnFacturaPagar);
-            gbxIngresoFactura.Controls.Add(txtFacturaMonto);
-            gbxIngresoFactura.Controls.Add(lblFacturaMonto);
-            gbxIngresoFactura.Controls.Add(dtpFacturaFecha);
-            gbxIngresoFactura.Controls.Add(txtFacturaNumero);
-            gbxIngresoFactura.Controls.Add(lblFacturaFecha);
-            gbxIngresoFactura.Controls.Add(lblFacturaNumero);
-            gbxIngresoFactura.Dock = DockStyle.Left;
-            gbxIngresoFactura.Location = new Point(3, 19);
-            gbxIngresoFactura.Name = "gbxIngresoFactura";
-            gbxIngresoFactura.Size = new Size(345, 286);
-            gbxIngresoFactura.TabIndex = 2;
-            gbxIngresoFactura.TabStop = false;
-            gbxIngresoFactura.Text = "Ingreso Datos Factura";
+            btnPagarFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPagarFactura.Location = new Point(615, 69);
+            btnPagarFactura.Name = "btnPagarFactura";
+            btnPagarFactura.Size = new Size(120, 22);
+            btnPagarFactura.TabIndex = 25;
+            btnPagarFactura.Text = "Pagar Factura";
+            btnPagarFactura.UseVisualStyleBackColor = true;
             // 
-            // txtFacturaMonto
+            // txtMontoIvaFactura
             // 
-            txtFacturaMonto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFacturaMonto.Location = new Point(168, 85);
-            txtFacturaMonto.Name = "txtFacturaMonto";
-            txtFacturaMonto.Size = new Size(153, 29);
-            txtFacturaMonto.TabIndex = 3;
-            txtFacturaMonto.TextAlign = HorizontalAlignment.Center;
+            txtMontoIvaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMontoIvaFactura.Location = new Point(411, 99);
+            txtMontoIvaFactura.Name = "txtMontoIvaFactura";
+            txtMontoIvaFactura.Size = new Size(116, 22);
+            txtMontoIvaFactura.TabIndex = 24;
+            txtMontoIvaFactura.TextAlign = HorizontalAlignment.Center;
             // 
-            // lblFacturaMonto
+            // lblMontoIvaFactura
             // 
-            lblFacturaMonto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFacturaMonto.Location = new Point(16, 85);
-            lblFacturaMonto.Name = "lblFacturaMonto";
-            lblFacturaMonto.Size = new Size(146, 22);
-            lblFacturaMonto.TabIndex = 16;
-            lblFacturaMonto.Text = "Monto Factura";
-            lblFacturaMonto.TextAlign = ContentAlignment.MiddleRight;
+            lblMontoIvaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblMontoIvaFactura.Location = new Point(290, 99);
+            lblMontoIvaFactura.Name = "lblMontoIvaFactura";
+            lblMontoIvaFactura.Size = new Size(115, 22);
+            lblMontoIvaFactura.TabIndex = 23;
+            lblMontoIvaFactura.Text = "Monto IVA";
+            lblMontoIvaFactura.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // dtpFacturaFecha
+            // txtMontoFactura
             // 
-            dtpFacturaFecha.Format = DateTimePickerFormat.Short;
-            dtpFacturaFecha.Location = new Point(168, 18);
-            dtpFacturaFecha.Name = "dtpFacturaFecha";
-            dtpFacturaFecha.Size = new Size(153, 23);
-            dtpFacturaFecha.TabIndex = 1;
+            txtMontoFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMontoFactura.Location = new Point(131, 99);
+            txtMontoFactura.Name = "txtMontoFactura";
+            txtMontoFactura.Size = new Size(153, 22);
+            txtMontoFactura.TabIndex = 22;
+            txtMontoFactura.TextAlign = HorizontalAlignment.Center;
             // 
-            // txtFacturaNumero
+            // lblMontoFactura
             // 
-            txtFacturaNumero.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFacturaNumero.Location = new Point(168, 47);
-            txtFacturaNumero.Name = "txtFacturaNumero";
-            txtFacturaNumero.Size = new Size(153, 29);
-            txtFacturaNumero.TabIndex = 2;
-            txtFacturaNumero.TextAlign = HorizontalAlignment.Center;
+            lblMontoFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblMontoFactura.Location = new Point(9, 99);
+            lblMontoFactura.Name = "lblMontoFactura";
+            lblMontoFactura.Size = new Size(116, 22);
+            lblMontoFactura.TabIndex = 21;
+            lblMontoFactura.Text = "Monto Factura";
+            lblMontoFactura.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // lblFacturaFecha
+            // dtpFechaFactura
             // 
-            lblFacturaFecha.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFacturaFecha.Location = new Point(6, 19);
-            lblFacturaFecha.Name = "lblFacturaFecha";
-            lblFacturaFecha.Size = new Size(147, 22);
-            lblFacturaFecha.TabIndex = 14;
-            lblFacturaFecha.Text = "Fecha";
-            lblFacturaFecha.TextAlign = ContentAlignment.MiddleRight;
+            dtpFechaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpFechaFactura.Format = DateTimePickerFormat.Short;
+            dtpFechaFactura.Location = new Point(131, 71);
+            dtpFechaFactura.Name = "dtpFechaFactura";
+            dtpFechaFactura.Size = new Size(152, 22);
+            dtpFechaFactura.TabIndex = 18;
             // 
-            // lblFacturaNumero
+            // txtNumeroFactura
             // 
-            lblFacturaNumero.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblFacturaNumero.Location = new Point(16, 52);
-            lblFacturaNumero.Name = "lblFacturaNumero";
-            lblFacturaNumero.Size = new Size(146, 22);
-            lblFacturaNumero.TabIndex = 1;
-            lblFacturaNumero.Text = "Factura Numero ";
-            lblFacturaNumero.TextAlign = ContentAlignment.MiddleRight;
+            txtNumeroFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNumeroFactura.Location = new Point(411, 69);
+            txtNumeroFactura.Name = "txtNumeroFactura";
+            txtNumeroFactura.Size = new Size(116, 22);
+            txtNumeroFactura.TabIndex = 20;
+            txtNumeroFactura.TextAlign = HorizontalAlignment.Center;
             // 
-            // btnFacturaPagar
+            // lblFechaFactura
             // 
-            btnFacturaPagar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnFacturaPagar.Location = new Point(91, 121);
-            btnFacturaPagar.Name = "btnFacturaPagar";
-            btnFacturaPagar.Size = new Size(176, 32);
-            btnFacturaPagar.TabIndex = 17;
-            btnFacturaPagar.Text = "Pagar Factura";
-            btnFacturaPagar.UseVisualStyleBackColor = true;
+            lblFechaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblFechaFactura.Location = new Point(9, 74);
+            lblFechaFactura.Name = "lblFechaFactura";
+            lblFechaFactura.Size = new Size(116, 20);
+            lblFechaFactura.TabIndex = 17;
+            lblFechaFactura.Text = "Fecha";
+            lblFechaFactura.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // lblNumeroFactura
+            // 
+            lblNumeroFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblNumeroFactura.Location = new Point(289, 69);
+            lblNumeroFactura.Name = "lblNumeroFactura";
+            lblNumeroFactura.Size = new Size(116, 22);
+            lblNumeroFactura.TabIndex = 19;
+            lblNumeroFactura.Text = "Factura Numero ";
+            lblNumeroFactura.TextAlign = ContentAlignment.MiddleRight;
             // 
             // gbxFacturasRegistro
             // 
-            gbxFacturasRegistro.Controls.Add(gbxIngresoFactura);
             gbxFacturasRegistro.Controls.Add(gbxRegistroDeProductos);
+            gbxFacturasRegistro.Controls.Add(gbxDatosProveedor);
             gbxFacturasRegistro.Dock = DockStyle.Fill;
             gbxFacturasRegistro.Location = new Point(0, 138);
             gbxFacturasRegistro.Name = "gbxFacturasRegistro";
-            gbxFacturasRegistro.Size = new Size(774, 308);
-            gbxFacturasRegistro.TabIndex = 5;
+            gbxFacturasRegistro.Size = new Size(774, 255);
+            gbxFacturasRegistro.TabIndex = 6;
             gbxFacturasRegistro.TabStop = false;
+            gbxFacturasRegistro.Text = "Registro Facturas";
+            // 
+            // gbxDatosProveedor
+            // 
+            gbxDatosProveedor.Controls.Add(btnLimpiarDatosProveedor);
+            gbxDatosProveedor.Controls.Add(btnPagarFactura);
+            gbxDatosProveedor.Controls.Add(lblCodigoProveedor);
+            gbxDatosProveedor.Controls.Add(txtMontoIvaFactura);
+            gbxDatosProveedor.Controls.Add(lblMontoIvaFactura);
+            gbxDatosProveedor.Controls.Add(txtCodigoProveedor);
+            gbxDatosProveedor.Controls.Add(lblEmailProveedor);
+            gbxDatosProveedor.Controls.Add(lblTelefonoProveedor);
+            gbxDatosProveedor.Controls.Add(txtMontoFactura);
+            gbxDatosProveedor.Controls.Add(lblMontoFactura);
+            gbxDatosProveedor.Controls.Add(txtEmailProveedor);
+            gbxDatosProveedor.Controls.Add(txtTelefonoProveedor);
+            gbxDatosProveedor.Controls.Add(txtNumeroFactura);
+            gbxDatosProveedor.Controls.Add(lblNumeroFactura);
+            gbxDatosProveedor.Controls.Add(dtpFechaFactura);
+            gbxDatosProveedor.Controls.Add(lblDniProveedor);
+            gbxDatosProveedor.Controls.Add(lblFechaFactura);
+            gbxDatosProveedor.Controls.Add(lblNombreProveedor);
+            gbxDatosProveedor.Controls.Add(txtDniProveedor);
+            gbxDatosProveedor.Controls.Add(txtNombreProveedor);
+            gbxDatosProveedor.Dock = DockStyle.Top;
+            gbxDatosProveedor.Location = new Point(3, 19);
+            gbxDatosProveedor.Name = "gbxDatosProveedor";
+            gbxDatosProveedor.Size = new Size(768, 129);
+            gbxDatosProveedor.TabIndex = 7;
+            gbxDatosProveedor.TabStop = false;
+            gbxDatosProveedor.Text = "Datos Proveedor";
+            // 
+            // btnLimpiarDatosProveedor
+            // 
+            btnLimpiarDatosProveedor.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLimpiarDatosProveedor.Location = new Point(615, 97);
+            btnLimpiarDatosProveedor.Name = "btnLimpiarDatosProveedor";
+            btnLimpiarDatosProveedor.Size = new Size(120, 22);
+            btnLimpiarDatosProveedor.TabIndex = 26;
+            btnLimpiarDatosProveedor.Text = "Limpiar";
+            btnLimpiarDatosProveedor.UseVisualStyleBackColor = true;
+            btnLimpiarDatosProveedor.Click += btnLimpiarDatosProveedor_Click;
+            // 
+            // lblCodigoProveedor
+            // 
+            lblCodigoProveedor.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCodigoProveedor.Location = new Point(9, 19);
+            lblCodigoProveedor.Name = "lblCodigoProveedor";
+            lblCodigoProveedor.Size = new Size(116, 19);
+            lblCodigoProveedor.TabIndex = 8;
+            lblCodigoProveedor.Text = "Codigo";
+            lblCodigoProveedor.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtCodigoProveedor
+            // 
+            txtCodigoProveedor.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCodigoProveedor.Location = new Point(9, 41);
+            txtCodigoProveedor.Name = "txtCodigoProveedor";
+            txtCodigoProveedor.ReadOnly = true;
+            txtCodigoProveedor.Size = new Size(116, 22);
+            txtCodigoProveedor.TabIndex = 9;
+            txtCodigoProveedor.TextAlign = HorizontalAlignment.Center;
+            // 
+            // lblEmailProveedor
+            // 
+            lblEmailProveedor.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblEmailProveedor.Location = new Point(533, 19);
+            lblEmailProveedor.Name = "lblEmailProveedor";
+            lblEmailProveedor.Size = new Size(116, 19);
+            lblEmailProveedor.TabIndex = 16;
+            lblEmailProveedor.Text = "Email";
+            lblEmailProveedor.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblTelefonoProveedor
+            // 
+            lblTelefonoProveedor.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTelefonoProveedor.Location = new Point(411, 19);
+            lblTelefonoProveedor.Name = "lblTelefonoProveedor";
+            lblTelefonoProveedor.Size = new Size(116, 19);
+            lblTelefonoProveedor.TabIndex = 14;
+            lblTelefonoProveedor.Text = "Telefono";
+            lblTelefonoProveedor.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtEmailProveedor
+            // 
+            txtEmailProveedor.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmailProveedor.Location = new Point(533, 41);
+            txtEmailProveedor.Name = "txtEmailProveedor";
+            txtEmailProveedor.ReadOnly = true;
+            txtEmailProveedor.Size = new Size(202, 22);
+            txtEmailProveedor.TabIndex = 16;
+            txtEmailProveedor.TextAlign = HorizontalAlignment.Center;
+            // 
+            // txtTelefonoProveedor
+            // 
+            txtTelefonoProveedor.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTelefonoProveedor.Location = new Point(411, 41);
+            txtTelefonoProveedor.Name = "txtTelefonoProveedor";
+            txtTelefonoProveedor.ReadOnly = true;
+            txtTelefonoProveedor.Size = new Size(116, 22);
+            txtTelefonoProveedor.TabIndex = 15;
+            txtTelefonoProveedor.TextAlign = HorizontalAlignment.Center;
+            // 
+            // lblDniProveedor
+            // 
+            lblDniProveedor.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblDniProveedor.Location = new Point(289, 19);
+            lblDniProveedor.Name = "lblDniProveedor";
+            lblDniProveedor.Size = new Size(116, 19);
+            lblDniProveedor.TabIndex = 12;
+            lblDniProveedor.Text = "Identificacion";
+            lblDniProveedor.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblNombreProveedor
+            // 
+            lblNombreProveedor.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblNombreProveedor.Location = new Point(131, 19);
+            lblNombreProveedor.Name = "lblNombreProveedor";
+            lblNombreProveedor.Size = new Size(152, 19);
+            lblNombreProveedor.TabIndex = 10;
+            lblNombreProveedor.Text = "Proveedor";
+            lblNombreProveedor.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtDniProveedor
+            // 
+            txtDniProveedor.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDniProveedor.Location = new Point(289, 41);
+            txtDniProveedor.Name = "txtDniProveedor";
+            txtDniProveedor.ReadOnly = true;
+            txtDniProveedor.Size = new Size(116, 22);
+            txtDniProveedor.TabIndex = 13;
+            txtDniProveedor.TextAlign = HorizontalAlignment.Center;
+            // 
+            // txtNombreProveedor
+            // 
+            txtNombreProveedor.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNombreProveedor.Location = new Point(131, 41);
+            txtNombreProveedor.Name = "txtNombreProveedor";
+            txtNombreProveedor.ReadOnly = true;
+            txtNombreProveedor.Size = new Size(152, 22);
+            txtNombreProveedor.TabIndex = 11;
+            txtNombreProveedor.TextAlign = HorizontalAlignment.Center;
             // 
             // frmIngresoFacturas
             // 
@@ -391,14 +596,15 @@
             Text = "Ingreso de Facturas";
             Load += frmRegistroProductos_Load;
             gbxRegistroProductosTitulo.ResumeLayout(false);
+            gbxBuscarProveedor.ResumeLayout(false);
+            gbxBuscarProveedor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvRegistroListaFuncionarios).EndInit();
             gbxListaProductos.ResumeLayout(false);
             gbxRegistroDeProductos.ResumeLayout(false);
             gbxRegistroDeProductos.PerformLayout();
-            gbxIngresoFactura.ResumeLayout(false);
-            gbxIngresoFactura.PerformLayout();
             gbxFacturasRegistro.ResumeLayout(false);
+            gbxDatosProveedor.ResumeLayout(false);
+            gbxDatosProveedor.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -407,16 +613,13 @@
         private GroupBox gbxRegistroProductosTitulo;
         private PictureBox pbLogo;
         private Label lblProductosTitulo;
-        private DataGridView dgvRegistroListaFuncionarios;
         private DataGridViewTextBoxColumn colNombreProducto;
-        private DataGridViewTextBoxColumn colCantidadProducto;
         private DataGridViewTextBoxColumn colPrecioUnitario;
         private DataGridViewTextBoxColumn colPrecioVenta;
         private GroupBox gbxListaProductos;
         private GroupBox gbxRegistroDeProductos;
-        private TextBox txtFacturaCodigo;
-        private Label lblFacturaCodigo;
-        private Label lblFacturaNombre;
+        private Label lblCategoriaProducto;
+        private Label lblProductoNombre;
         private Label lblFuncionarioApellidoSegundo;
         private Label lblFuncionarioDNI;
         private TextBox txtFuncionarioCodigo;
@@ -424,27 +627,47 @@
         private TextBox txtFuncionarioEmail;
         private Label lblFuncionarioEmail;
         private TextBox txtFuncionarioDNI;
-        private TextBox txtFuncionarioApellidoPrimero;
-        private TextBox txtFacturaCantidad;
-        private GroupBox gbxIngresoFactura;
-        private TextBox txtFacturaNumero;
-        private Label lblFacturaNumero;
-        private DataGridViewTextBoxColumn colFacturaCodigo;
-        private DataGridViewTextBoxColumn colFacturaProducto;
-        private DataGridViewTextBoxColumn colFacturaCantidad;
-        private DataGridViewTextBoxColumn colFacturaPrecioUnd;
-        private DataGridViewTextBoxColumn colFacturaPrecioVenta;
-        private Button btnFacturaCancelar;
-        private Button btnFacturaLimpiar;
-        private Button btnFacturaAceptar;
-        private Label lblFacturaFecha;
-        private DateTimePicker dtpFacturaFecha;
-        private TextBox txtFacturaMonto;
-        private Label lblFacturaMonto;
-        private Label lblFacturaPrecioUnd;
-        private TextBox txtFacturaPrecioUnd;
-        private Label lblFacturaCantidad;
-        private Button btnFacturaPagar;
+        private TextBox txtProductoNombre;
+        private TextBox txtCantidadProducto;
+        private TextBox txtNumeroFactura;
+        private Label lblNumeroFactura;
+        private Button btnCancelarProducto;
+        private Button btnLimpiarProducto;
+        private Button btnAceptarProducto;
+        private Label lblFechaFactura;
+        private DateTimePicker dtpFechaFactura;
+        private TextBox txtMontoFactura;
+        private Label lblMontoFactura;
+        private Label lblPrecioUndProducto;
+        private TextBox txtPrecioUndProducto;
+        private Label lblCantidadProducto;
         private GroupBox gbxFacturasRegistro;
+        private Label lblCodProveedor;
+        private Button btnBuscarProveedor;
+        private TextBox txtBuscarProveedor;
+        private GroupBox gbxBuscarProveedor;
+        private GroupBox gbxDatosProveedor;
+        private Label lblCodigoProveedor;
+        private TextBox txtCodigoProveedor;
+        private Label lblEmailProveedor;
+        private Label lblTelefonoProveedor;
+        private TextBox txtEmailProveedor;
+        private TextBox txtTelefonoProveedor;
+        private Label lblDniProveedor;
+        private Label lblNombreProveedor;
+        private TextBox txtDniProveedor;
+        private TextBox txtNombreProveedor;
+        private Button btnPagarFactura;
+        private TextBox txtMontoIvaFactura;
+        private Label lblMontoIvaFactura;
+        private Button btnLimpiarDatosProveedor;
+        private TextBox txtCategoriaProducto;
+        private ListView lvwListaProductos;
+        private ColumnHeader colCatProducto;
+        private ColumnHeader colCodProducto;
+        private ColumnHeader colDesProducto;
+        private ColumnHeader colPrecioUndProducto;
+        private ColumnHeader colTotalPrecioProducto;
+        private ColumnHeader colCantidadProducto;
     }
 }
