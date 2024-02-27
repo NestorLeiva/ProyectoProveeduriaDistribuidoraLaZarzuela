@@ -11,17 +11,21 @@ namespace Proveeduria
             InitializeComponent();
         }
 
-        private void frmRegistroProductos_Load(object sender, EventArgs e)
-        {
-            _lstProductos = new List<Productos>();
-        }
+        private void frmRegistroProductos_Load(object sender, EventArgs e) { }
 
         /*------------------------------------------------- Objetos --------------------------------------------------------------------*/
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
-        private string consultarCodProveedor;
+        private string consultarCodProveedor; /*btn Buscar Proveedor*/
+        IngresoFacturas _IngresoFacturas;
 
-        List<Productos> _lstProductos;
-        IngresoFacturas _ingresoFacturas;
+
+        string codSeleccionado = string.Empty;
+        string nomSeleccionado = string.Empty;
+        string dniSeleccionado = string.Empty;
+        string telefonoSeleccionado = string.Empty;
+        string emailSeleccionado = string.Empty;
+
+
 
         /*------------------------------------------------- TextBox --------------------------------------------------------------------*/
         private void txtNumeroFactura_KeyPress(object sender, KeyPressEventArgs e)
@@ -103,20 +107,19 @@ namespace Proveeduria
 
                 if (_nodoProveedor != null)
                 {
-                    string codSeleccionado = _nodoProveedor.SelectSingleNode("CodigoProveedor").InnerText;
-                    string nomSeleccionado = _nodoProveedor.SelectSingleNode("NombreProveedor").InnerText;
-
-                    string dniSeleccionado = _nodoProveedor.SelectSingleNode("Identificacion").InnerText;
-                    string telefonoSeleccionado = _nodoProveedor.SelectSingleNode("TelefonoProveedor").InnerText;
-                    string emailSeleccionado = _nodoProveedor.SelectSingleNode("EmailProveedor").InnerText;
+                    codSeleccionado = _nodoProveedor.SelectSingleNode("CodigoProveedor").InnerText;
+                    nomSeleccionado = _nodoProveedor.SelectSingleNode("NombreProveedor").InnerText;
+                    dniSeleccionado = _nodoProveedor.SelectSingleNode("Identificacion").InnerText;
+                    telefonoSeleccionado = _nodoProveedor.SelectSingleNode("TelefonoProveedor").InnerText;
+                    emailSeleccionado = _nodoProveedor.SelectSingleNode("EmailProveedor").InnerText;
                     /* Obtengo los datos del proveedor */
 
+                    /*pinto en pantalla los datos del Proveedor*/
                     txtCodigoProveedor.Text = codSeleccionado;
                     txtNombreProveedor.Text = nomSeleccionado;
                     txtDniProveedor.Text = dniSeleccionado;
                     txtTelefonoProveedor.Text = telefonoSeleccionado;
                     txtEmailProveedor.Text = emailSeleccionado;
-                    /* Mostrar los datos en los TextBox*/
                 }
                 else
                 {
@@ -131,43 +134,50 @@ namespace Proveeduria
             }
         }
 
-        private void btnAgregarProducto_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Productos _listaProductos = new Productos()
-                {
-                    CategoriaProducto = this.txtCategoriaProducto.Text,
-                    DescripcionProducto = this.txtProductoNombre.Text,
-                    CantidadProducto = Convert.ToInt32(this.txtCantidadProducto.Text),
-                    PrecioUndProducto = Convert.ToInt32(this.txtPrecioUndProducto.Text),
-                };
-                this._lstProductos.Add(_listaProductos);
-                /*agrego los datos a la lista*/
-                MessageBox.Show("Se agrego el Producto Exitosamente.", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimpiarDatosProductos();
-            }
-            catch (Exception ex)
-            {
-                /*Mensaje de error*/
-                MessageBox.Show(ex.Message, "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }/*fin btn Agregar Producto*/
+        //private void btnAgregarProducto_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        _ListaProductos = new Productos()
+        //        {
+        //            CategoriaProducto = this.txtCategoriaProducto.Text,
+        //            DescripcionProducto = this.txtProductoNombre.Text,
+        //            CantidadProducto = Convert.ToInt32(txtCantidadProducto.Text),
+        //            PrecioUndProducto = Convert.ToInt32(txtPrecioUndProducto.Text),
+        //        };
+        //        _lstProductos.Add(_ListaProductos);
+        //        /*agrego los datos a la lista*/
+        //        MessageBox.Show("Se agrego el Producto Exitosamente.", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        LimpiarDatosProductos();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        /*Mensaje de error*/
+        //        MessageBox.Show(ex.Message, "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
+        //}/*fin btn Agregar Producto*/
 
         private void btnAceptarProducto_Click(object sender, EventArgs e)
         {
             try
             {
-                _ingresoFacturas = new IngresoFacturas()
+                _IngresoFacturas = new IngresoFacturas()
                 {
-                    CodigoProv = txtCodigoProveedor.Text,
-                    NombreProv = txtNombreProveedor.Text,
+                    /*Datos Proveedor*/
+                    CodigoProveedor = codSeleccionado,
+                    NombreProveedor = nomSeleccionado,
+                    DniProveedor= dniSeleccionado,
+                    TelefonoProveedor = telefonoSeleccionado,
+                    EmailProveedor = emailSeleccionado,
+                    /*Datos Factura*/
                     FechaFactura = dtpFechaFactura.Value.Date,
-                    NumeroFactura = txtNumeroFactura.Text,
+                    NumeroFactura = Convert.ToInt32(txtNumeroFactura.Text),
                     MontoFactura = Convert.ToInt32(txtMontoFactura.Text),
-                    MontoIVA = Convert.ToInt32(txtMontoIvaFactura.Text),
+
                 };
-                _ingresoFacturas.grabarXMLFactura("Facturas.xml");
+                _IngresoFacturas.grabarXMLFactura("FacturasCompra.xml"); /*Escribo el XML*/
+
+                /*Escritura del XML*/
                 MessageBox.Show("Se registro la Factura y Producto Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)

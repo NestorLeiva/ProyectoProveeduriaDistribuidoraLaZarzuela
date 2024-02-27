@@ -166,7 +166,7 @@
             // 
             gbxListaProductos.Controls.Add(lvwListaProductos);
             gbxListaProductos.Dock = DockStyle.Bottom;
-            gbxListaProductos.Location = new Point(0, 393);
+            gbxListaProductos.Location = new Point(0, 416);
             gbxListaProductos.Name = "gbxListaProductos";
             gbxListaProductos.Size = new Size(774, 268);
             gbxListaProductos.TabIndex = 39;
@@ -232,7 +232,7 @@
             gbxRegistroDeProductos.Dock = DockStyle.Fill;
             gbxRegistroDeProductos.Location = new Point(3, 148);
             gbxRegistroDeProductos.Name = "gbxRegistroDeProductos";
-            gbxRegistroDeProductos.Size = new Size(768, 104);
+            gbxRegistroDeProductos.Size = new Size(768, 127);
             gbxRegistroDeProductos.TabIndex = 27;
             gbxRegistroDeProductos.TabStop = false;
             gbxRegistroDeProductos.Text = "Datos Productos";
@@ -246,7 +246,6 @@
             btnAgregarProducto.TabIndex = 39;
             btnAgregarProducto.Text = "Agregar Producto";
             btnAgregarProducto.UseVisualStyleBackColor = true;
-            btnAgregarProducto.Click += btnAgregarProducto_Click;
             // 
             // txtCategoriaProducto
             // 
@@ -262,9 +261,9 @@
             // btnCancelarProducto
             // 
             btnCancelarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCancelarProducto.Location = new Point(594, 61);
+            btnCancelarProducto.Location = new Point(661, 95);
             btnCancelarProducto.Name = "btnCancelarProducto";
-            btnCancelarProducto.Size = new Size(98, 24);
+            btnCancelarProducto.Size = new Size(98, 26);
             btnCancelarProducto.TabIndex = 38;
             btnCancelarProducto.Text = "Cancelar";
             btnCancelarProducto.UseVisualStyleBackColor = true;
@@ -272,9 +271,9 @@
             // btnLimpiarProducto
             // 
             btnLimpiarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimpiarProducto.Location = new Point(484, 61);
+            btnLimpiarProducto.Location = new Point(551, 95);
             btnLimpiarProducto.Name = "btnLimpiarProducto";
-            btnLimpiarProducto.Size = new Size(98, 24);
+            btnLimpiarProducto.Size = new Size(98, 26);
             btnLimpiarProducto.TabIndex = 37;
             btnLimpiarProducto.Text = "Limpiar";
             btnLimpiarProducto.UseVisualStyleBackColor = true;
@@ -283,11 +282,11 @@
             // btnAceptarProducto
             // 
             btnAceptarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAceptarProducto.Location = new Point(380, 61);
+            btnAceptarProducto.Location = new Point(415, 95);
             btnAceptarProducto.Name = "btnAceptarProducto";
-            btnAceptarProducto.Size = new Size(98, 24);
+            btnAceptarProducto.Size = new Size(130, 26);
             btnAceptarProducto.TabIndex = 36;
-            btnAceptarProducto.Text = "Aceptar";
+            btnAceptarProducto.Text = "Guardar Factura";
             btnAceptarProducto.UseVisualStyleBackColor = true;
             btnAceptarProducto.Click += btnAceptarProducto_Click;
             // 
@@ -378,6 +377,7 @@
             txtMontoIvaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtMontoIvaFactura.Location = new Point(411, 99);
             txtMontoIvaFactura.Name = "txtMontoIvaFactura";
+            txtMontoIvaFactura.ReadOnly = true;
             txtMontoIvaFactura.Size = new Size(116, 22);
             txtMontoIvaFactura.TabIndex = 24;
             txtMontoIvaFactura.TextAlign = HorizontalAlignment.Center;
@@ -459,7 +459,7 @@
             gbxFacturasRegistro.Dock = DockStyle.Fill;
             gbxFacturasRegistro.Location = new Point(0, 138);
             gbxFacturasRegistro.Name = "gbxFacturasRegistro";
-            gbxFacturasRegistro.Size = new Size(774, 255);
+            gbxFacturasRegistro.Size = new Size(774, 278);
             gbxFacturasRegistro.TabIndex = 6;
             gbxFacturasRegistro.TabStop = false;
             gbxFacturasRegistro.Text = "Registro Facturas";
@@ -609,7 +609,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(774, 661);
+            ClientSize = new Size(774, 684);
+            ControlBox = false;
             Controls.Add(gbxFacturasRegistro);
             Controls.Add(gbxListaProductos);
             Controls.Add(gbxRegistroProductosTitulo);
