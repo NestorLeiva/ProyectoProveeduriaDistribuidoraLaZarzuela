@@ -28,7 +28,7 @@ namespace Proveeduria
 
         private void txtProveedorNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }
@@ -95,7 +95,7 @@ namespace Proveeduria
 
                 _Proveedor = new Proveedor()
                 {
-                    Nombre = this.txtProveedorNombre.Text.ToUpper(),
+                    Nombre = this.txtProveedorNombre.Text,
                     TipoDni = tipoDniSeleccionado,
                     DNI = Convert.ToInt32(this.txtProveedorDNI.Text),
                     Telefono = Convert.ToInt32(this.txtProveedorTelefono.Text),

@@ -38,7 +38,7 @@ namespace Proveeduria
 
         private void txtFuncionarioNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }
@@ -46,7 +46,7 @@ namespace Proveeduria
 
         private void txtFuncionarioApellidoPrimero_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }
@@ -54,7 +54,7 @@ namespace Proveeduria
 
         private void txtFuncionarioApellidoSegundo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }
@@ -70,7 +70,7 @@ namespace Proveeduria
 
         private void txtFuncionarioContrasenia_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }
@@ -88,12 +88,12 @@ namespace Proveeduria
                 /*Inicializacion de la clase*/
                 {
                     DNI = Convert.ToInt32(this.txtFuncionarioDNI.Text),
-                    Nombre = this.txtFuncionarioNombre.Text.ToUpper(),
-                    ApellidoPrimero = this.txtFuncionarioApellidoPrimero.Text.ToUpper(),
-                    ApellidoSegundo = this.txtFuncionarioApellidoSegundo.Text.ToUpper(),
+                    Nombre = this.txtFuncionarioNombre.Text,
+                    ApellidoPrimero = this.txtFuncionarioApellidoPrimero.Text),
+                    ApellidoSegundo = this.txtFuncionarioApellidoSegundo.Text,
                     CodFuncionario = Convert.ToInt32(this.txtFuncionarioDNI.Text),
 
-                    Contrasenia = this.txtFuncionarioContrasenia.Text.ToUpper(),
+                    Contrasenia = this.txtFuncionarioContrasenia.Text,
                     Estado = this.rbtnEstadoActivo.Text,
                 };
 

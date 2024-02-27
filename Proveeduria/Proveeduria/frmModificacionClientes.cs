@@ -36,7 +36,7 @@ namespace Proveeduria
         /* ----------------------------------------------- textbox -----------------------------------------------*/
         private void txtClienteNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }
@@ -44,7 +44,7 @@ namespace Proveeduria
 
         private void txtClienteApellidoPrimero_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }
@@ -53,7 +53,7 @@ namespace Proveeduria
 
         private void txtClienteApellidoSegundo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }
@@ -74,7 +74,7 @@ namespace Proveeduria
 
         private void txtClienteEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }
@@ -82,7 +82,7 @@ namespace Proveeduria
 
         private void txtClienteCanton_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }
@@ -90,7 +90,7 @@ namespace Proveeduria
 
         private void txtClienteDistrito_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }
@@ -98,7 +98,7 @@ namespace Proveeduria
 
         private void txtClienteOtrasSenias_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }

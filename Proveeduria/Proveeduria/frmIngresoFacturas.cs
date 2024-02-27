@@ -54,7 +54,7 @@ namespace Proveeduria
 
         private void txtCategoriaProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }
@@ -62,7 +62,7 @@ namespace Proveeduria
 
         private void txtProductoNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }

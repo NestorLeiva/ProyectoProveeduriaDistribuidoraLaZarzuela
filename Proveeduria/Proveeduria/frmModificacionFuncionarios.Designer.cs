@@ -252,6 +252,7 @@
             // 
             txtFuncionarioConsulta.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtFuncionarioConsulta.Location = new Point(6, 22);
+            txtFuncionarioConsulta.MaxLength = 10;
             txtFuncionarioConsulta.Name = "txtFuncionarioConsulta";
             txtFuncionarioConsulta.Size = new Size(254, 29);
             txtFuncionarioConsulta.TabIndex = 3;
@@ -284,7 +285,7 @@
             gbxModificarFuncionarioDatos.Dock = DockStyle.Fill;
             gbxModificarFuncionarioDatos.Location = new Point(0, 155);
             gbxModificarFuncionarioDatos.Name = "gbxModificarFuncionarioDatos";
-            gbxModificarFuncionarioDatos.Size = new Size(774, 506);
+            gbxModificarFuncionarioDatos.Size = new Size(774, 529);
             gbxModificarFuncionarioDatos.TabIndex = 5;
             gbxModificarFuncionarioDatos.TabStop = false;
             gbxModificarFuncionarioDatos.Text = "Datos Funcionarios";
@@ -392,7 +393,7 @@
             // 
             gbxFuncionarioModificarLista.Controls.Add(lvListaFuncionarios);
             gbxFuncionarioModificarLista.Dock = DockStyle.Bottom;
-            gbxFuncionarioModificarLista.Location = new Point(0, 352);
+            gbxFuncionarioModificarLista.Location = new Point(0, 375);
             gbxFuncionarioModificarLista.Name = "gbxFuncionarioModificarLista";
             gbxFuncionarioModificarLista.Size = new Size(774, 309);
             gbxFuncionarioModificarLista.TabIndex = 19;
@@ -456,7 +457,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(774, 661);
+            ClientSize = new Size(774, 684);
             ControlBox = false;
             Controls.Add(gbxFuncionarioModificarLista);
             Controls.Add(gbxModificarFuncionarioDatos);

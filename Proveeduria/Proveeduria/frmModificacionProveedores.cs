@@ -40,7 +40,7 @@ namespace Proveeduria
         /*------------------------------------------------- TextBox --------------------------------------------------------------------*/
         private void txtProveedorNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }
@@ -48,7 +48,7 @@ namespace Proveeduria
 
         private void txtProveedorDNI_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }
@@ -151,7 +151,7 @@ namespace Proveeduria
                                 txtProveedorDNI.Text = IdentificacionSeleccionado;
                                 txtProveedorDNI1.Text = DniSeleccionado;
                                 txtModificarTelefono.Text = TelefonoSeleccionado;
-                                txtProveedorEmail.Text = EmailSeleccionado;
+                                txtProveedorEmail.Text = EmailSeleccionado.ToUpper();
                                 /*almaceno los datos en las variables*/
                             }
                         }
