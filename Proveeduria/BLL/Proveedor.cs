@@ -12,10 +12,6 @@ namespace BLL
     {
         public Proveedor() { }
         /*Constructor Vacio*/
-        public Proveedor(string codigoProveedor)
-        {
-            CodigoProveedor = codigoProveedor;
-        }
         /*------------------------------------------------- Atributos --------------------------------------------------------------------*/
 
         private string codigoProveedor;
@@ -54,7 +50,6 @@ namespace BLL
                 /*realiza la lectura del XML*/
 
                 XmlNode existeProveedor = xmlDocProveedor.SelectSingleNode($"//Proveedor [CodigoProveedor='{this.CodigoProveedor}']");
-
 
             }
             else
