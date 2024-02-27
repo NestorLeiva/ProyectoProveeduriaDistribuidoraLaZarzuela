@@ -594,6 +594,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(774, 661);
+            ControlBox = false;
             Controls.Add(gbxClienteDireccion);
             Controls.Add(gbxClientesRegistrarDatos);
             Controls.Add(gbxClienteLista);

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroProveedores));
-            ListViewItem listViewItem2 = new ListViewItem("");
+            ListViewItem listViewItem1 = new ListViewItem("");
             gbxRegistroFuncionariosTitulo = new GroupBox();
             pbLogo = new PictureBox();
             lblProveedorTitulo = new Label();
@@ -279,7 +279,7 @@
             lvRegistroProveedor.BackColor = SystemColors.Info;
             lvRegistroProveedor.Columns.AddRange(new ColumnHeader[] { colCodProveedor, colNombre, colTipoDNI, colIdentificacion, colTelefono, colEmail });
             lvRegistroProveedor.Dock = DockStyle.Fill;
-            lvRegistroProveedor.Items.AddRange(new ListViewItem[] { listViewItem2 });
+            lvRegistroProveedor.Items.AddRange(new ListViewItem[] { listViewItem1 });
             lvRegistroProveedor.Location = new Point(3, 19);
             lvRegistroProveedor.Name = "lvRegistroProveedor";
             lvRegistroProveedor.Size = new Size(588, 203);
@@ -322,6 +322,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(594, 661);
+            ControlBox = false;
             Controls.Add(gbListaProveedores);
             Controls.Add(gbxRegistroFuncionariosDatos);
             Controls.Add(gbxRegistroFuncionariosTitulo);
