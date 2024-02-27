@@ -7,27 +7,10 @@ namespace DAL
         XmlDocument xmlDoc = new XmlDocument(); /*instancia del objeto XML Document*/
         public XmlDocument leerXML(string rutaArchivo)
         {
-
             xmlDoc.Load(rutaArchivo);  /*se realiza la lectura del XML desde la ruta*/
             return xmlDoc;/* se devuelve el objeto XML que contiene el XML*/
         } /*fin metodo leerXML */
 
-        public void escribirXML(string rutaArchivo, MemoryStream msDatosXML)
-        {
-            FileStream fsArchivo = new FileStream(rutaArchivo, FileMode.Create, FileAccess.Write);
-            /* Crea un objeto FileStream llamado fsArchivo para abrir el archivo en la ruta especificada en modo de creación (FileMode.Create) 
-			  y con permisos de escritura (FileAccess.Write).*/
-            if (fsArchivo != null)
-            {
-                msDatosXML.WriteTo(fsArchivo);
-                fsArchivo.Close();
-                msDatosXML.Close();
-                /* Luego, verifica si fsArchivo no es nulo. Si es nulo, no se realiza ninguna operación adicional. 
-				  Si fsArchivo no es nulo, los datos del MemoryStream se escriben en el archivo utilizando el método WriteTo. 
-				  Finalmente, se cierra el archivo y el MemoryStream.*/
-            }
-
-        } /*fin metodo escribirXML*/
 
         public void escribirXML(string rutaArchivo, XmlDocument datosXML)
         {
