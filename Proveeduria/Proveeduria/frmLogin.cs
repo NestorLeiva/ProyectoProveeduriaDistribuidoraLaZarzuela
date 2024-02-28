@@ -44,7 +44,7 @@ namespace Proveeduria
 
         private void txtContrasenia_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetrasMayusculas(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
             {
                 e.Handled = true;
             }
