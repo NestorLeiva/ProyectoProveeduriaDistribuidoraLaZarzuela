@@ -95,7 +95,7 @@ namespace Proveeduria
 
                 _Proveedor = new Proveedor()
                 {
-                    Nombre = this.txtProveedorNombre.Text,
+                    Nombre = this.txtProveedorNombre.Text.ToUpper(),
                     TipoDni = tipoDniSeleccionado,
                     DNI = Convert.ToInt32(this.txtProveedorDNI.Text),
                     Telefono = Convert.ToInt32(this.txtProveedorTelefono.Text),

@@ -136,11 +136,11 @@ namespace Proveeduria
                             estadoSeleccionado = itemSeleccionado.SubItems[7].Text;
                             /*almaceno los datos en las variables*/
 
-                            txtFuncionarioNombre.Text = nombreSeleccionado;
-                            txtFuncionarioApellidoPrimero.Text = apellidoPrimeroSeleccionado;
-                            txtFuncionarioApellidoSegundo.Text = apellidoSegundoSeleccionado;
-                            txtFuncionarioEmail.Text = emailSeleccionado;
-                            txtModificarContrasenia.Text = contraseniaSeleccionada;
+                            txtFuncionarioNombre.Text = nombreSeleccionado.ToUpper();
+                            txtFuncionarioApellidoPrimero.Text = apellidoPrimeroSeleccionado.ToUpper();
+                            txtFuncionarioApellidoSegundo.Text = apellidoSegundoSeleccionado.ToUpper();
+                            txtFuncionarioEmail.Text = emailSeleccionado.ToUpper();
+                            txtModificarContrasenia.Text = contraseniaSeleccionada.ToUpper();
                             txtFuncionarioDNI.Text = dniSeleccionado;
                             txtFuncionarioCodigo.Text = codigoFuncionarioSeleccionado;
                             /*pinta los datos en los TextBox*/

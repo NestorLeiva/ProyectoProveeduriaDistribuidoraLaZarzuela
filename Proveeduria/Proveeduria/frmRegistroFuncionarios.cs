@@ -88,9 +88,9 @@ namespace Proveeduria
                 /*Inicializacion de la clase*/
                 {
                     DNI = Convert.ToInt32(this.txtFuncionarioDNI.Text),
-                    Nombre = this.txtFuncionarioNombre.Text,
-                    ApellidoPrimero = this.txtFuncionarioApellidoPrimero.Text,
-                    ApellidoSegundo = this.txtFuncionarioApellidoSegundo.Text,
+                    Nombre = this.txtFuncionarioNombre.Text.ToUpper(),
+                    ApellidoPrimero = this.txtFuncionarioApellidoPrimero.Text.ToUpper(),
+                    ApellidoSegundo = this.txtFuncionarioApellidoSegundo.Text.ToUpper(),
                     CodFuncionario = Convert.ToInt32(this.txtFuncionarioDNI.Text),
 
                     Contrasenia = this.txtFuncionarioContrasenia.Text,
