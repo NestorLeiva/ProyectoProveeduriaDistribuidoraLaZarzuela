@@ -36,7 +36,6 @@ namespace BLL
             this.codigoProducto = codigoProducto;
         }
 
-
         /*------------------------------------------------- Getter & Setter --------------------------------------------------------------------*/
         public string CategoriaProducto { get { return categoriaProducto; } set { categoriaProducto = value; } }
         public string NombreProducto { get { return nombreProducto; } set { nombreProducto = value; } }
@@ -47,7 +46,6 @@ namespace BLL
 
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
-
 
         public string generarCodigoProducto()
         {
@@ -75,10 +73,6 @@ namespace BLL
                 CodigoProducto = CodigoProducto.Replace(" ", "");
                 /*elimino espacios vacios*/
 
-                if (validacionCodigoProducto(codigoProducto, rutaRelativaXML))
-                {
-                    throw new InvalidOperationException("El código generado ya está registrado.");
-                }
                 return CodigoProducto;
             }
             else
@@ -89,55 +83,54 @@ namespace BLL
         }/*fin generarCodigoProducto*/
 
 
-
-            public void grabarXMLProductos(string rutaArchivo)
+        public void grabarXMLProductos(string rutaArchivo)
+        {
+            if (File.Exists(rutaArchivo))
             {
-                if (File.Exists(rutaArchivo))
-                {
-                    xmlDocProducto = _ArchivoXML.leerXML(rutaArchivo);
-                    /*valido si existe el Fichero*/
-                }
-                else
-                {
-                    XmlNode xmlRoot = xmlDocProducto.CreateElement("Productos");
-                    xmlDocProducto.AppendChild(xmlRoot);
-                }
+                xmlDocProducto = _ArchivoXML.leerXML(rutaArchivo);
+                /*valido si existe el Fichero*/
+            }
+            else
+            {
+                XmlNode xmlRoot = xmlDocProducto.CreateElement("Productos");
+                xmlDocProducto.AppendChild(xmlRoot);
+            }
 
-                /*nodo Producto*/
-                XmlNode xmlProducto = xmlDocProducto.CreateElement("Producto");
-                xmlDocProducto.DocumentElement.AppendChild(xmlProducto);
+            /*nodo Producto*/
+            XmlNode xmlProducto = xmlDocProducto.CreateElement("Producto");
+            xmlDocProducto.DocumentElement.AppendChild(xmlProducto);
 
-                /*nodo CategoriaProducto*/
-                XmlNode xmlCategoriaProducto = xmlDocProducto.CreateElement("CategoriaProducto");
-                xmlCategoriaProducto.InnerText = CategoriaProducto;/*obtengo el codigo por medio del metodo*/
-                xmlProducto.AppendChild(xmlCategoriaProducto);
+            /*nodo CategoriaProducto*/
+            XmlNode xmlCategoriaProducto = xmlDocProducto.CreateElement("CategoriaProducto");
+            xmlCategoriaProducto.InnerText = CategoriaProducto;/*obtengo el codigo por medio del metodo*/
+            xmlProducto.AppendChild(xmlCategoriaProducto);
 
-                /*nodo NombreProducto*/
-                XmlNode xmlNombreProducto = xmlDocProducto.CreateElement("NombreProducto");
-                xmlNombreProducto.InnerText = NombreProducto;
-                xmlProducto.AppendChild(xmlNombreProducto);
+            /*nodo NombreProducto*/
+            XmlNode xmlNombreProducto = xmlDocProducto.CreateElement("NombreProducto");
+            xmlNombreProducto.InnerText = NombreProducto;
+            xmlProducto.AppendChild(xmlNombreProducto);
 
-                /*nodo CodigoProducto*/
-                XmlNode xmlCodProducto = xmlDocProducto.CreateElement("CodigoProducto");
-                xmlCodProducto.InnerText = generarCodigoProducto();/*obtengo el codigo por medio del metodo*/
-                xmlProducto.AppendChild(xmlCodProducto);
+            /*nodo CodigoProducto*/
+            XmlNode xmlCodProducto = xmlDocProducto.CreateElement("CodigoProducto");
+            xmlCodProducto.InnerText = generarCodigoProducto();/*obtengo el codigo por medio del metodo*/
+            xmlProducto.AppendChild(xmlCodProducto);
 
-                /*nodo CantidadProducto*/
-                XmlNode xmlCantidadProducto = xmlDocProducto.CreateElement("CantidadProducto");
-                xmlCantidadProducto.InnerText = CantidadProducto.ToString();
-                xmlProducto.AppendChild(xmlCantidadProducto);
+            /*nodo CantidadProducto*/
+            XmlNode xmlCantidadProducto = xmlDocProducto.CreateElement("CantidadProducto");
+            xmlCantidadProducto.InnerText = CantidadProducto.ToString();
+            xmlProducto.AppendChild(xmlCantidadProducto);
 
-                /*nodo PrecioProducto*/
-                XmlNode xmlPrecioProducto = xmlDocProducto.CreateElement("PrecioProducto");
-                xmlPrecioProducto.InnerText = PrecioUndProducto.ToString();
-                xmlProducto.AppendChild(xmlPrecioProducto);
+            /*nodo PrecioProducto*/
+            XmlNode xmlPrecioProducto = xmlDocProducto.CreateElement("PrecioProducto");
+            xmlPrecioProducto.InnerText = PrecioUndProducto.ToString();
+            xmlProducto.AppendChild(xmlPrecioProducto);
 
-                _ArchivoXML.escribirXML(rutaArchivo, xmlDocProducto);
-                /*Escritura del xmlProductos*/
+            _ArchivoXML.escribirXML(rutaArchivo, xmlDocProducto);
+            /*Escritura del xmlProductos*/
 
-            }/*fin grabarXMLProductos*/
+        }/*fin grabarXMLProductos*/
 
 
 
-        }/*Fin Productos*/
-    }/*fin namespace*/
+    }/*Fin Productos*/
+}/*fin namespace*/
