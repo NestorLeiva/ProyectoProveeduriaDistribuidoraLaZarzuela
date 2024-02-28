@@ -11,17 +11,15 @@ namespace Proveeduria
             InitializeComponent();
         }
 
-        private void frmRegistroProductos_Load(object sender, EventArgs e) { }
+        private void frmRegistroProductos_Load(object sender, EventArgs e) {}
 
         /*------------------------------------------------- Objetos --------------------------------------------------------------------*/
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
         private string consultarCodProveedor; /*btn Buscar Proveedor*/
 
         IngresoFacturas _IngresoFacturas;
-        public Productos _Productos; 
-
-
-
+        public List<Productos> _lstProductos = new List<Productos>();
+        public Productos _Productos;
 
         string codSeleccionado = string.Empty;
         string nomSeleccionado = string.Empty;
@@ -155,16 +153,18 @@ namespace Proveeduria
                     NumeroFactura = Convert.ToInt32(txtNumeroFactura.Text),
                     MontoFactura = Convert.ToInt32(txtMontoFactura.Text),
                     /*Datos Producto*/
-                    _Productos = _Productos,
+                    _ListaProductos = this._lstProductos
+                    /* _ListaProductos Parametro del foreach en BLL.IngresoFactura
+                    _lstProductos parametro de la Lista <Productos>*/
                 };
                 _IngresoFacturas.grabarXMLFactura("FacturasCompra.xml"); /*Escribo el XML*/
 
-                
+
                 MessageBox.Show("Se registro la Factura y Producto Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                MessageBox.Show(ex.Message, "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("*** Hubo un Error al Guardar la Factura *** ", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
@@ -181,10 +181,13 @@ namespace Proveeduria
                     CantidadProducto = Convert.ToInt32(txtCantidadProducto.Text),
                     PrecioUndProducto = Convert.ToInt32(txtPrecioUndProducto.Text),
                 };
-                _Productos.grabarXMLProductos("ListaProductos.xml");
+
+                this._lstProductos.Add(_Productos);/*Agrego los productos al xmlFacturaCompras*/
+
+                _Productos.grabarXMLProductos("ListaProductos.xml");/*Genero el XML ListaProductos*/
                 MessageBox.Show("Se registro el Producto Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarDatosProductos();
-            
+
             }
             catch (Exception ex)
             {
