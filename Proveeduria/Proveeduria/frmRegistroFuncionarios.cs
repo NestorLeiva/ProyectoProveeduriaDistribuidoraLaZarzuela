@@ -89,7 +89,7 @@ namespace Proveeduria
                 {
                     DNI = Convert.ToInt32(this.txtFuncionarioDNI.Text),
                     Nombre = this.txtFuncionarioNombre.Text,
-                    ApellidoPrimero = this.txtFuncionarioApellidoPrimero.Text),
+                    ApellidoPrimero = this.txtFuncionarioApellidoPrimero.Text,
                     ApellidoSegundo = this.txtFuncionarioApellidoSegundo.Text,
                     CodFuncionario = Convert.ToInt32(this.txtFuncionarioDNI.Text),
 
