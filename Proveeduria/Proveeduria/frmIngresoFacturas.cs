@@ -16,7 +16,11 @@ namespace Proveeduria
         /*------------------------------------------------- Objetos --------------------------------------------------------------------*/
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
         private string consultarCodProveedor; /*btn Buscar Proveedor*/
+
         IngresoFacturas _IngresoFacturas;
+        public Productos _Productos; 
+
+
 
 
         string codSeleccionado = string.Empty;
@@ -134,29 +138,6 @@ namespace Proveeduria
             }
         }
 
-        //private void btnAgregarProducto_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        _ListaProductos = new Productos()
-        //        {
-        //            CategoriaProducto = this.txtCategoriaProducto.Text,
-        //            DescripcionProducto = this.txtProductoNombre.Text,
-        //            CantidadProducto = Convert.ToInt32(txtCantidadProducto.Text),
-        //            PrecioUndProducto = Convert.ToInt32(txtPrecioUndProducto.Text),
-        //        };
-        //        _lstProductos.Add(_ListaProductos);
-        //        /*agrego los datos a la lista*/
-        //        MessageBox.Show("Se agrego el Producto Exitosamente.", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        LimpiarDatosProductos();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        /*Mensaje de error*/
-        //        MessageBox.Show(ex.Message, "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //    }
-        //}/*fin btn Agregar Producto*/
-
         private void btnAceptarProducto_Click(object sender, EventArgs e)
         {
             try
@@ -165,19 +146,20 @@ namespace Proveeduria
                 {
                     /*Datos Proveedor*/
                     CodigoProveedor = codSeleccionado,
-                    NombreProveedor = nomSeleccionado,
-                    DniProveedor= dniSeleccionado,
+                    NombreProveedor = nomSeleccionado.ToUpper(),
+                    DniProveedor = dniSeleccionado,
                     TelefonoProveedor = telefonoSeleccionado,
-                    EmailProveedor = emailSeleccionado,
+                    EmailProveedor = emailSeleccionado.ToUpper(),
                     /*Datos Factura*/
                     FechaFactura = dtpFechaFactura.Value.Date,
                     NumeroFactura = Convert.ToInt32(txtNumeroFactura.Text),
                     MontoFactura = Convert.ToInt32(txtMontoFactura.Text),
-
+                    /*Datos Producto*/
+                    _Productos = _Productos,
                 };
                 _IngresoFacturas.grabarXMLFactura("FacturasCompra.xml"); /*Escribo el XML*/
 
-                /*Escritura del XML*/
+                
                 MessageBox.Show("Se registro la Factura y Producto Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -187,6 +169,28 @@ namespace Proveeduria
 
 
         }/*fin btn Aceptar*/
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _Productos = new Productos()
+                {
+                    CategoriaProducto = txtCategoriaProducto.Text.ToUpper(),
+                    NombreProducto = txtProductoNombre.Text.ToUpper(),
+                    CantidadProducto = Convert.ToInt32(txtCantidadProducto.Text),
+                    PrecioUndProducto = Convert.ToInt32(txtPrecioUndProducto.Text),
+                };
+                _Productos.grabarXMLProductos("ListaProductos.xml");
+                MessageBox.Show("Se registro el Producto Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimpiarDatosProductos();
+            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Distribuidroa La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }/*fin btn Agregar Productos*/
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
         public void LimpiarDatosProveedor()
