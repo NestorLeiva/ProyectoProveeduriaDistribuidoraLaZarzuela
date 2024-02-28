@@ -105,15 +105,15 @@ namespace BLL
             xmlCategoriaProducto.InnerText = CategoriaProducto;/*obtengo el codigo por medio del metodo*/
             xmlProducto.AppendChild(xmlCategoriaProducto);
 
-            /*nodo NombreProducto*/
-            XmlNode xmlNombreProducto = xmlDocProducto.CreateElement("NombreProducto");
-            xmlNombreProducto.InnerText = NombreProducto;
-            xmlProducto.AppendChild(xmlNombreProducto);
-
             /*nodo CodigoProducto*/
             XmlNode xmlCodProducto = xmlDocProducto.CreateElement("CodigoProducto");
             xmlCodProducto.InnerText = generarCodigoProducto();/*obtengo el codigo por medio del metodo*/
             xmlProducto.AppendChild(xmlCodProducto);
+
+            /*nodo NombreProducto*/
+            XmlNode xmlNombreProducto = xmlDocProducto.CreateElement("NombreProducto");
+            xmlNombreProducto.InnerText = NombreProducto;
+            xmlProducto.AppendChild(xmlNombreProducto);
 
             /*nodo CantidadProducto*/
             XmlNode xmlCantidadProducto = xmlDocProducto.CreateElement("CantidadProducto");

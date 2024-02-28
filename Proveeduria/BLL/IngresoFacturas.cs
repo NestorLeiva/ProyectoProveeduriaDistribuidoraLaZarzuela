@@ -142,7 +142,7 @@ namespace BLL
                 _xmlProducto.AppendChild(_xmlCodigoProd);
 
                 /*Nodo NompreProducto*/
-                XmlNode _xmlNombreProd = xmlDocFactura.CreateElement("NombreProductos");
+                XmlNode _xmlNombreProd = xmlDocFactura.CreateElement("NombreProducto");
                 _xmlNombreProd.InnerText = _productosLista.NombreProducto;
                 _xmlProducto.AppendChild(_xmlNombreProd);
 
@@ -151,8 +151,8 @@ namespace BLL
                 _xmlCantidadProd.InnerText = _productosLista.CantidadProducto.ToString();
                 _xmlProducto.AppendChild(_xmlCantidadProd);
 
-                /*Nodo PrecioUnd*/
-                XmlNode _xmlPrecioUndProd = xmlDocFactura.CreateElement("PrecioUnidad");
+                /*Nodo PrecioProducto*/
+                XmlNode _xmlPrecioUndProd = xmlDocFactura.CreateElement("PrecioProducto");
                 _xmlPrecioUndProd.InnerText = _productosLista.PrecioUndProducto.ToString();
                 _xmlProducto.AppendChild( _xmlPrecioUndProd);
 
