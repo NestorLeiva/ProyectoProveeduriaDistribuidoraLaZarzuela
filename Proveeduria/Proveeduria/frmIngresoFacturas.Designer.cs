@@ -45,6 +45,9 @@
             colPrecioUndProducto = new ColumnHeader();
             colTotalPrecioProducto = new ColumnHeader();
             gbxRegistroDeProductos = new GroupBox();
+            btnBuscarProducto = new Button();
+            txtBuscarProductoCodigo = new TextBox();
+            lblBuscarProducto = new Label();
             btnAgregarProducto = new Button();
             txtCategoriaProducto = new TextBox();
             btnCancelarProducto = new Button();
@@ -216,6 +219,9 @@
             // 
             // gbxRegistroDeProductos
             // 
+            gbxRegistroDeProductos.Controls.Add(btnBuscarProducto);
+            gbxRegistroDeProductos.Controls.Add(txtBuscarProductoCodigo);
+            gbxRegistroDeProductos.Controls.Add(lblBuscarProducto);
             gbxRegistroDeProductos.Controls.Add(btnAgregarProducto);
             gbxRegistroDeProductos.Controls.Add(txtCategoriaProducto);
             gbxRegistroDeProductos.Controls.Add(btnCancelarProducto);
@@ -236,10 +242,42 @@
             gbxRegistroDeProductos.TabStop = false;
             gbxRegistroDeProductos.Text = "Datos Productos";
             // 
+            // btnBuscarProducto
+            // 
+            btnBuscarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBuscarProducto.Location = new Point(286, 17);
+            btnBuscarProducto.Name = "btnBuscarProducto";
+            btnBuscarProducto.Size = new Size(133, 24);
+            btnBuscarProducto.TabIndex = 42;
+            btnBuscarProducto.Text = "Buscar Producto";
+            btnBuscarProducto.UseVisualStyleBackColor = true;
+            btnBuscarProducto.Click += btnBuscarProducto_Click;
+            // 
+            // txtBuscarProductoCodigo
+            // 
+            txtBuscarProductoCodigo.AcceptsTab = true;
+            txtBuscarProductoCodigo.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtBuscarProductoCodigo.Location = new Point(186, 19);
+            txtBuscarProductoCodigo.Name = "txtBuscarProductoCodigo";
+            txtBuscarProductoCodigo.Size = new Size(94, 21);
+            txtBuscarProductoCodigo.TabIndex = 41;
+            txtBuscarProductoCodigo.TextAlign = HorizontalAlignment.Center;
+            txtBuscarProductoCodigo.KeyPress += txtBuscarProductoCodigo_KeyPress;
+            // 
+            // lblBuscarProducto
+            // 
+            lblBuscarProducto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lblBuscarProducto.Location = new Point(9, 19);
+            lblBuscarProducto.Name = "lblBuscarProducto";
+            lblBuscarProducto.Size = new Size(171, 22);
+            lblBuscarProducto.TabIndex = 40;
+            lblBuscarProducto.Text = "Buscar Producto por Codigo";
+            lblBuscarProducto.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // btnAgregarProducto
             // 
             btnAgregarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAgregarProducto.Location = new Point(76, 61);
+            btnAgregarProducto.Location = new Point(276, 97);
             btnAgregarProducto.Name = "btnAgregarProducto";
             btnAgregarProducto.Size = new Size(133, 24);
             btnAgregarProducto.TabIndex = 39;
@@ -251,7 +289,7 @@
             // 
             txtCategoriaProducto.AcceptsTab = true;
             txtCategoriaProducto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCategoriaProducto.Location = new Point(76, 24);
+            txtCategoriaProducto.Location = new Point(76, 58);
             txtCategoriaProducto.Name = "txtCategoriaProducto";
             txtCategoriaProducto.Size = new Size(94, 21);
             txtCategoriaProducto.TabIndex = 29;
@@ -293,7 +331,7 @@
             // lblPrecioUndProducto
             // 
             lblPrecioUndProducto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPrecioUndProducto.Location = new Point(559, 24);
+            lblPrecioUndProducto.Location = new Point(559, 58);
             lblPrecioUndProducto.Name = "lblPrecioUndProducto";
             lblPrecioUndProducto.Size = new Size(75, 22);
             lblPrecioUndProducto.TabIndex = 34;
@@ -304,7 +342,7 @@
             // 
             txtPrecioUndProducto.AcceptsTab = true;
             txtPrecioUndProducto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPrecioUndProducto.Location = new Point(640, 25);
+            txtPrecioUndProducto.Location = new Point(640, 59);
             txtPrecioUndProducto.Name = "txtPrecioUndProducto";
             txtPrecioUndProducto.Size = new Size(119, 21);
             txtPrecioUndProducto.TabIndex = 35;
@@ -314,7 +352,7 @@
             // lblCantidadProducto
             // 
             lblCantidadProducto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblCantidadProducto.Location = new Point(411, 23);
+            lblCantidadProducto.Location = new Point(411, 57);
             lblCantidadProducto.Name = "lblCantidadProducto";
             lblCantidadProducto.Size = new Size(61, 22);
             lblCantidadProducto.TabIndex = 32;
@@ -324,7 +362,7 @@
             // lblCategoriaProducto
             // 
             lblCategoriaProducto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblCategoriaProducto.Location = new Point(9, 23);
+            lblCategoriaProducto.Location = new Point(9, 57);
             lblCategoriaProducto.Name = "lblCategoriaProducto";
             lblCategoriaProducto.Size = new Size(61, 22);
             lblCategoriaProducto.TabIndex = 28;
@@ -334,7 +372,7 @@
             // lblProductoNombre
             // 
             lblProductoNombre.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            lblProductoNombre.Location = new Point(176, 24);
+            lblProductoNombre.Location = new Point(176, 58);
             lblProductoNombre.Name = "lblProductoNombre";
             lblProductoNombre.Size = new Size(67, 22);
             lblProductoNombre.TabIndex = 30;
@@ -344,7 +382,7 @@
             // txtProductoNombre
             // 
             txtProductoNombre.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtProductoNombre.Location = new Point(249, 24);
+            txtProductoNombre.Location = new Point(249, 58);
             txtProductoNombre.Name = "txtProductoNombre";
             txtProductoNombre.Size = new Size(156, 21);
             txtProductoNombre.TabIndex = 31;
@@ -355,7 +393,7 @@
             // 
             txtCantidadProducto.AcceptsTab = true;
             txtCantidadProducto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCantidadProducto.Location = new Point(478, 25);
+            txtCantidadProducto.Location = new Point(478, 59);
             txtCantidadProducto.Name = "txtCantidadProducto";
             txtCantidadProducto.Size = new Size(75, 21);
             txtCantidadProducto.TabIndex = 33;
@@ -681,5 +719,8 @@
         private ColumnHeader colTotalPrecioProducto;
         private ColumnHeader colCantidadProducto;
         private Button btnAgregarProducto;
+        private Button btnBuscarProducto;
+        private TextBox txtBuscarProductoCodigo;
+        private Label lblBuscarProducto;
     }
 }
