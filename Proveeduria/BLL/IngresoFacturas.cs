@@ -9,10 +9,6 @@ namespace BLL
 {
     public class IngresoFacturas : Productos
     {
-
-
-
-
         /*------------------------------------------------- Atributos --------------------------------------------------------------------*/
 
         private string codigoProveedor = string.Empty;
@@ -27,9 +23,7 @@ namespace BLL
 
         XmlDocument xmlDocFactura = new XmlDocument();
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
-
-
-
+        public Productos _Productos;
 
         /*------------------------------------------------- Getter & Setter --------------------------------------------------------------------*/
 
@@ -53,7 +47,6 @@ namespace BLL
             return "FC-" + NumeroFactura;
         }/*fin generarCodigoFactura*/
 
-
         public double calcularIVA(double MontoFactura)
         {
             return MontoFactura * 0.13;
@@ -63,7 +56,6 @@ namespace BLL
         {
             FechaFactura = fecha;
         }
-
 
         public void grabarXMLFactura(string rutaArchivo)
         {
