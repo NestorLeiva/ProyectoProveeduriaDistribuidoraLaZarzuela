@@ -57,7 +57,6 @@
             lblProductoNombre = new Label();
             txtProductoNombre = new TextBox();
             txtCantidadProducto = new TextBox();
-            btnPagarFactura = new Button();
             txtMontoIvaFactura = new TextBox();
             lblMontoIvaFactura = new Label();
             txtMontoFactura = new TextBox();
@@ -246,6 +245,7 @@
             btnAgregarProducto.TabIndex = 39;
             btnAgregarProducto.Text = "Agregar Producto";
             btnAgregarProducto.UseVisualStyleBackColor = true;
+            btnAgregarProducto.Click += btnAgregarProducto_Click;
             // 
             // txtCategoriaProducto
             // 
@@ -362,16 +362,6 @@
             txtCantidadProducto.TextAlign = HorizontalAlignment.Center;
             txtCantidadProducto.KeyPress += txtCantidadProducto_KeyPress;
             // 
-            // btnPagarFactura
-            // 
-            btnPagarFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPagarFactura.Location = new Point(615, 69);
-            btnPagarFactura.Name = "btnPagarFactura";
-            btnPagarFactura.Size = new Size(120, 22);
-            btnPagarFactura.TabIndex = 25;
-            btnPagarFactura.Text = "Pagar Factura";
-            btnPagarFactura.UseVisualStyleBackColor = true;
-            // 
             // txtMontoIvaFactura
             // 
             txtMontoIvaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -467,7 +457,6 @@
             // gbxDatosProveedor
             // 
             gbxDatosProveedor.Controls.Add(btnLimpiarDatosProveedor);
-            gbxDatosProveedor.Controls.Add(btnPagarFactura);
             gbxDatosProveedor.Controls.Add(lblCodigoProveedor);
             gbxDatosProveedor.Controls.Add(txtMontoIvaFactura);
             gbxDatosProveedor.Controls.Add(lblMontoIvaFactura);
@@ -680,7 +669,6 @@
         private Label lblNombreProveedor;
         private TextBox txtDniProveedor;
         private TextBox txtNombreProveedor;
-        private Button btnPagarFactura;
         private TextBox txtMontoIvaFactura;
         private Label lblMontoIvaFactura;
         private Button btnLimpiarDatosProveedor;
