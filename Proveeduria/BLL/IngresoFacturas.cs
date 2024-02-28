@@ -23,18 +23,16 @@ namespace BLL
 
         XmlDocument xmlDocFactura = new XmlDocument();
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
-        public Productos _Productos;
+        public Productos _Productos ;
 
         /*------------------------------------------------- Getter & Setter --------------------------------------------------------------------*/
 
+        public List<Productos> _ListaProductos { get; set; } = new List<Productos>();
         public string CodigoProveedor { get { return codigoProveedor; } set { codigoProveedor = value; } }
         public string NombreProveedor { get { return nombreProveedor; } set { nombreProveedor = value; } }
         public string DniProveedor { get { return dniProveedor; } set { dniProveedor = value; } }
-
         public string TelefonoProveedor { get { return telProveedor; } set { telProveedor = value; } }
-
-        public string EmailProveedor { get { return emailProveedor; } set { emailProveedor = value; } }
-
+        public string EmailProveedor{ get { return emailProveedor; } set { emailProveedor = value; } }
         public DateTime FechaFactura { get { return fechaFactura; } set { fechaFactura = value; } }
         public int NumeroFactura { get { return numeroFactura; } set { numeroFactura = value; } }
         public int MontoFactura { get { return montoFactura; } set { montoFactura = value; } }
@@ -122,30 +120,44 @@ namespace BLL
             xmlMontoIVAFactura.InnerText = calcularIVA(MontoFactura).ToString(); /*Calculo del IVA de la factura*/
             xmlFactura.AppendChild(xmlMontoIVAFactura);
 
+            /*------------------------------------------------- Productos --------------------------------------------------------------------*/
+            /*Nodo Productos*/
+            XmlNode xmlProductos = xmlDocFactura.CreateElement("Productos");
+            xmlFactura.AppendChild(xmlProductos);
+
+            foreach (Productos _productosLista in this._ListaProductos)
+            {
+                /*Nodo Producto*/
+                XmlNode _xmlProducto = xmlDocFactura.CreateElement("Producto");
+                xmlDocFactura.DocumentElement.AppendChild(_xmlProducto);
+
+                /*Nodo CategoriaProducto*/
+                XmlNode _xmlCategoriaProd = xmlDocFactura.CreateElement("CategoriaProducto");
+                _xmlCategoriaProd.InnerText = _productosLista.CategoriaProducto;
+                _xmlProducto.AppendChild(_xmlCategoriaProd);
+
+                /*Nodo CodigoProducto*/
+                XmlNode _xmlCodigoProd = xmlDocFactura.CreateElement("CodigoProducto");
+                _xmlCodigoProd.InnerText = _productosLista.CodigoProducto;
+                _xmlProducto.AppendChild(_xmlCodigoProd);
+
+                /*Nodo NompreProducto*/
+                XmlNode _xmlNombreProd = xmlDocFactura.CreateElement("NombreProductos");
+                _xmlNombreProd.InnerText = _productosLista.NombreProducto;
+                _xmlProducto.AppendChild(_xmlNombreProd);
+
+                /*Nodo CantidadProducto*/
+                XmlNode _xmlCantidadProd = xmlDocFactura.CreateElement("CantidadProducto");
+                _xmlCantidadProd.InnerText = _productosLista.CantidadProducto.ToString();
+                _xmlProducto.AppendChild(_xmlCantidadProd);
+
+                /*Nodo PrecioUnd*/
+                XmlNode _xmlPrecioUndProd = xmlDocFactura.CreateElement("PrecioUnidad");
+                _xmlPrecioUndProd.InnerText = _productosLista.PrecioUndProducto.ToString();
+                _xmlProducto.AppendChild( _xmlPrecioUndProd);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            } /*fin foreach*/
 
 
 
