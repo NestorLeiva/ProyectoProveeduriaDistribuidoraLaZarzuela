@@ -1,5 +1,6 @@
 ﻿using BLL;
 using System.Xml;
+using System.Xml.Linq;
 using Utils;
 
 namespace Proveeduria
@@ -11,11 +12,12 @@ namespace Proveeduria
             InitializeComponent();
         }
 
-        private void frmRegistroProductos_Load(object sender, EventArgs e) {}
+        private void frmRegistroProductos_Load(object sender, EventArgs e) { }
 
         /*------------------------------------------------- Objetos --------------------------------------------------------------------*/
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
         private string consultarCodProveedor; /*btn Buscar Proveedor*/
+        private string conusltaProducto; /*btn Buscar Producto*/
 
         IngresoFacturas _IngresoFacturas;
         public List<Productos> _lstProductos = new List<Productos>();
@@ -26,6 +28,12 @@ namespace Proveeduria
         string dniSeleccionado = string.Empty;
         string telefonoSeleccionado = string.Empty;
         string emailSeleccionado = string.Empty;
+
+        string busqCategoriaSeleccionado = string.Empty;
+        string busqProductoSeleccionado = string.Empty;
+        string busqCantidadSeleccionado = string.Empty;
+        string busqPrecioSeleccionado = string.Empty;
+
 
 
 
@@ -85,7 +93,13 @@ namespace Proveeduria
                 e.Handled = true;
             }
         }
-
+        private void txtBuscarProductoCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()) && !Validaciones.soloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
 
         /*------------------------------------------------- Botones --------------------------------------------------------------------*/
         private void btnLimpiarDatosProveedor_Click(object sender, EventArgs e)
@@ -102,18 +116,18 @@ namespace Proveeduria
         {
             try
             {
-                consultarCodProveedor = this.txtBuscarProveedor.Text;
+                consultarCodProveedor = this.txtBuscarProveedor.Text.ToUpper();
                 XmlDocument xmlDoc = _ArchivoXML.leerXML("Proveedores.xml");
 
-                XmlNode _nodoProveedor = xmlDoc.SelectSingleNode($"//Proveedor[CodigoProveedor='{consultarCodProveedor}']");
+                XmlNode _nodoBuscarProveedor = xmlDoc.SelectSingleNode($"//Proveedor[CodigoProveedor='{consultarCodProveedor}']");
 
-                if (_nodoProveedor != null)
+                if (_nodoBuscarProveedor != null)
                 {
-                    codSeleccionado = _nodoProveedor.SelectSingleNode("CodigoProveedor").InnerText;
-                    nomSeleccionado = _nodoProveedor.SelectSingleNode("NombreProveedor").InnerText;
-                    dniSeleccionado = _nodoProveedor.SelectSingleNode("Identificacion").InnerText;
-                    telefonoSeleccionado = _nodoProveedor.SelectSingleNode("TelefonoProveedor").InnerText;
-                    emailSeleccionado = _nodoProveedor.SelectSingleNode("EmailProveedor").InnerText;
+                    codSeleccionado = _nodoBuscarProveedor.SelectSingleNode("CodigoProveedor").InnerText;
+                    nomSeleccionado = _nodoBuscarProveedor.SelectSingleNode("NombreProveedor").InnerText;
+                    dniSeleccionado = _nodoBuscarProveedor.SelectSingleNode("Identificacion").InnerText;
+                    telefonoSeleccionado = _nodoBuscarProveedor.SelectSingleNode("TelefonoProveedor").InnerText;
+                    emailSeleccionado = _nodoBuscarProveedor.SelectSingleNode("EmailProveedor").InnerText;
                     /* Obtengo los datos del proveedor */
 
                     /*pinto en pantalla los datos del Proveedor*/
@@ -134,7 +148,52 @@ namespace Proveeduria
             {
                 MessageBox.Show(ex.Message, "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }/*fin btnBuscarProveedor */
+
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conusltaProducto = this.txtBuscarProductoCodigo.Text.ToUpper();
+                XmlDocument xmlDoc = _ArchivoXML.leerXML("ListaProductos.xml");
+
+                XmlNode _nodoBuscarProducto = xmlDoc.SelectSingleNode($"//Producto[CodigoProducto='{conusltaProducto}']");
+
+                if (_nodoBuscarProducto != null)
+                {
+                    busqCategoriaSeleccionado = _nodoBuscarProducto.SelectSingleNode("CategoriaProducto").InnerText;
+                    busqProductoSeleccionado = _nodoBuscarProducto.SelectSingleNode("NombreProducto").InnerText;
+                    busqCantidadSeleccionado = _nodoBuscarProducto.SelectSingleNode("CantidadProducto").InnerText;
+                    busqPrecioSeleccionado = _nodoBuscarProducto.SelectSingleNode("PrecioProducto").InnerText;
+                    /* Obtengo los datos del proveedor */
+
+                    /*pinto en pantalla los datos del Proveedor*/
+                    txtCategoriaProducto.Text = busqCategoriaSeleccionado;
+                    txtCantidadProducto.Text = busqCantidadSeleccionado;
+                    txtProductoNombre.Text = busqPrecioSeleccionado;
+                    txtPrecioUndProducto.Text = busqPrecioSeleccionado;
+
+                    // Desactivar los TextBox
+                    txtCategoriaProducto.Enabled = false;
+                    txtProductoNombre.Enabled = false;
+                }
+                else
+                {
+                    // Activo los TextBox
+                    txtCategoriaProducto.Enabled = true;
+                    txtProductoNombre.Enabled = true;
+                    MessageBox.Show("Producto No encontrado", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }/*fin btnBuscarProducto*/
+
+
+
 
         private void btnAceptarProducto_Click(object sender, EventArgs e)
         {
@@ -162,9 +221,9 @@ namespace Proveeduria
 
                 MessageBox.Show("Se registro la Factura y Producto Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception )
+            catch (Exception)
             {
-                MessageBox.Show("*** Hubo un Error al Guardar la Factura *** ", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("*** Error al Guardar la Factura *** ", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
@@ -214,6 +273,7 @@ namespace Proveeduria
             txtProductoNombre.Text = string.Empty;
             txtCantidadProducto.Text = string.Empty;
             txtPrecioUndProducto.Text = string.Empty;
+            txtBuscarProductoCodigo.Text = string.Empty;
         }/*fin Limpiar Datos Proveedor*/
 
 
