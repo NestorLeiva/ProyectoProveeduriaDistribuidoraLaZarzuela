@@ -10,41 +10,47 @@ namespace BLL
     {
         /*------------------------------------------------- Atributos --------------------------------------------------------------------*/
         private string categoriaProducto = string.Empty;
-        private string desProducto = string.Empty;
-        private int cantProducto;
-        private double precioProducto;
-        private static int numeroConsecutivo = 1; /* Variable estática para mantener el número consecutivo*/
-
+        private string nombreProducto = string.Empty;
+        private int cantidadProducto;
+        private decimal precioProducto;
+        private int totalPrecioUndProducto;
 
         /*------------------------------------------------- Getter & Setter --------------------------------------------------------------------*/
         public string CategoriaProducto { get { return categoriaProducto; } set { categoriaProducto = value; } }
-        public string DescripcionProducto { get { return desProducto; } set { desProducto = value; } }
-        public int CantidadProducto { get { return cantProducto; } set { cantProducto = value; } }
-        public double PrecioUndProducto { get { return precioProducto; } set { precioProducto = value; } }
+        public string NombreProducto { get { return nombreProducto; } set { nombreProducto = value; } }
+        public int CantidadProducto { get { return cantidadProducto; } set { cantidadProducto = value; } }
+        public decimal PrecioUndProducto { get { return precioProducto; } set { precioProducto = value; } }
+
+        public int TotalPrecioProducto { get { return totalPrecioUndProducto; } set { totalPrecioUndProducto = value; } }
+
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
-        public string crearCodigoProducto(IngresoFacturas ingresoFactura, Productos productos)
+
+
+        public string generarCodigoProducto()
         {
-
-            if (ingresoFactura != null && productos != null &&
-                productos.CategoriaProducto.Length >= 2 && productos.DescripcionProducto.Length >= 2 &&
-                ingresoFactura.NombreProv.Length >= 2 && ingresoFactura.DniProveedor >= 10000000000 /*11 dijitos*/ )
+            if (CategoriaProducto.Length >= 2 && NombreProducto.Length >= 2)
             {
-                string letrasCategoria = ingresoFactura.CategoriaProducto.Substring(0, 2);
-                string letrasDescripcion = productos.DescripcionProducto.Substring(0, 2);
-                string letrasNombreProveedor = ingresoFactura.NombreProv.Substring(0, 2);
-                string digitoDniProveedor = ingresoFactura.DniProveedor.ToString()[0].ToString();
-                int numeroProducto = numeroConsecutivo++;
+                Random codRandom = new Random(); /* instancia de la clase Random para generar números aleatorios */
 
-                return $"{letrasCategoria}{letrasDescripcion}{letrasNombreProveedor}{digitoDniProveedor}{numeroProducto}";
+                string cateProducto = CategoriaProducto.Substring(0, 2);
+                string nombProducto = NombreProducto.Substring(0, 2);
 
+                int numeroPrimero = codRandom.Next(1, 100);
+                int numeroSegundo = codRandom.Next(1, 100);
+                /*random.Next(min, max) para obtener dos números aleatorios entre un rango específico */
+
+                string codigoProducto = $"{cateProducto}{nombProducto}{numeroPrimero}{numeroSegundo}";
+
+                return codigoProducto;
             }
             else
             {
                 throw new InvalidOperationException("No se pudo generar el Codigo debido a Datos Insuficientes");
             }
-        }/*fin crearCodigoProducto
-           recibe como parámetros instancias de ambas clases: IngresoFactura y Productos*/
+
+        }/*fin generarCodigoProducto*/
+
 
 
     }/*Fin Productos*/
