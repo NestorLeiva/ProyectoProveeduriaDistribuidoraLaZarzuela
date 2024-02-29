@@ -47,6 +47,7 @@
             mnConsultaFacturas = new ToolStripMenuItem();
             mnConsultaProductos = new ToolStripMenuItem();
             mnListaClientes = new ToolStripMenuItem();
+            mnlistaProductos = new ToolStripMenuItem();
             mnVentas = new ToolStripMenuItem();
             mnVentasVentas = new ToolStripMenuItem();
             mnVentasHacienda = new ToolStripMenuItem();
@@ -54,7 +55,6 @@
             mnAcercaDe = new ToolStripMenuItem();
             mnCerrarSesion = new ToolStripMenuItem();
             mnSalir = new ToolStripMenuItem();
-            listaProductosToolStripMenuItem = new ToolStripMenuItem();
             mnMenu.SuspendLayout();
             SuspendLayout();
             // 
@@ -159,7 +159,7 @@
             // 
             // mnConsultas
             // 
-            mnConsultas.DropDownItems.AddRange(new ToolStripItem[] { mnConsultaProveedores, mnListaClientes, listaProductosToolStripMenuItem });
+            mnConsultas.DropDownItems.AddRange(new ToolStripItem[] { mnConsultaProveedores, mnListaClientes, mnlistaProductos });
             mnConsultas.Name = "mnConsultas";
             mnConsultas.Size = new Size(71, 20);
             mnConsultas.Text = "Consultas";
@@ -183,7 +183,7 @@
             mnConsultaProductos.Name = "mnConsultaProductos";
             mnConsultaProductos.Size = new Size(128, 22);
             mnConsultaProductos.Text = "Productos";
-            mnConsultaProductos.Click += mnConsultaProductos_Click;
+
             // 
             // mnListaClientes
             // 
@@ -191,6 +191,13 @@
             mnListaClientes.Size = new Size(180, 22);
             mnListaClientes.Text = "Lista Clientes";
             mnListaClientes.Click += mnListaClientes_Click;
+            // 
+            // mnlistaProductos
+            // 
+            mnlistaProductos.Name = "mnlistaProductos";
+            mnlistaProductos.Size = new Size(180, 22);
+            mnlistaProductos.Text = "Lista Productos";
+            mnlistaProductos.Click += mnlistaProductos_Click;
             // 
             // mnVentas
             // 
@@ -241,12 +248,6 @@
             mnSalir.Text = "Salir";
             mnSalir.Click += mnSalir_Click;
             // 
-            // listaProductosToolStripMenuItem
-            // 
-            listaProductosToolStripMenuItem.Name = "listaProductosToolStripMenuItem";
-            listaProductosToolStripMenuItem.Size = new Size(180, 22);
-            listaProductosToolStripMenuItem.Text = "Lista Productos";
-            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -294,6 +295,6 @@
         private ToolStripMenuItem mnCalculoDeImpuestos;
         private ToolStripMenuItem mnConsultaListaProductos;
         private ToolStripMenuItem mnListaClientes;
-        private ToolStripMenuItem listaProductosToolStripMenuItem;
+        private ToolStripMenuItem mnlistaProductos;
     }
 }

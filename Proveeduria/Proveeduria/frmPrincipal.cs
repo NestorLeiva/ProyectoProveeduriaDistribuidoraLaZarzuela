@@ -83,18 +83,9 @@ namespace Proveeduria
             frmModificacionFuncionarios pantalla = new frmModificacionFuncionarios();
             this.CargarPantalla(pantalla);
         }
-
-
-
         private void mnConsultaFacturas_Click(object sender, EventArgs e)
         {
             frmConsultaFacturas pantalla = new frmConsultaFacturas();
-            this.CargarPantalla(pantalla);
-        }
-
-        private void mnConsultaProductos_Click(object sender, EventArgs e)
-        {
-            frmConsultaProductos pantalla = new frmConsultaProductos();
             this.CargarPantalla(pantalla);
         }
 
@@ -113,6 +104,12 @@ namespace Proveeduria
         private void mnListaClientes_Click(object sender, EventArgs e)
         {
             frmConsultaClientes pantalla = new frmConsultaClientes();
+            this.CargarPantalla(pantalla);
+        }
+
+        private void mnlistaProductos_Click(object sender, EventArgs e)
+        {
+            frmConsultaProductos pantalla = new frmConsultaProductos();
             this.CargarPantalla(pantalla);
         }
     }
