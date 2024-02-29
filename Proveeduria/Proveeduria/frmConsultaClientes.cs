@@ -56,7 +56,7 @@ namespace Proveeduria
                 if (_nodoCliente != null)
                 {
                     ListViewItem _itemDNI = new ListViewItem(_nodoCliente.SelectSingleNode("NumeroIdentificacion").InnerText);/*se realiza la busqueda en el XML*/
-                    ListViewItem _itemCodigo = new ListViewItem(_nodoCliente.SelectSingleNode("CodigoCliente").InnerText);/*se realiza la busqueda en el XML*/
+                    
 
                     _itemDNI.SubItems.Add(_nodoCliente.SelectSingleNode("TipoIdentificacion").InnerText);
                     _itemDNI.SubItems.Add(_nodoCliente.SelectSingleNode("Nombre").InnerText);

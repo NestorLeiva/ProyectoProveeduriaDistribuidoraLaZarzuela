@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             gbxConsultaClientes = new GroupBox();
+            btnLimpiar = new Button();
             btnBuscarCliente = new Button();
             txtBuscarIdentificacion = new TextBox();
             label1 = new Label();
             gbxListaClientes = new GroupBox();
-            lvwListaClientes = new ListView();
             colNumIdentificacion = new ColumnHeader();
             colTipoIDentificacion = new ColumnHeader();
             colCodigoCliente = new ColumnHeader();
@@ -46,7 +46,7 @@
             colCanton = new ColumnHeader();
             colDistrito = new ColumnHeader();
             colOtrasSenias = new ColumnHeader();
-            btnLimpiar = new Button();
+            lvwListaClientes = new ListView();
             gbxConsultaClientes.SuspendLayout();
             gbxListaClientes.SuspendLayout();
             SuspendLayout();
@@ -64,6 +64,17 @@
             gbxConsultaClientes.TabIndex = 0;
             gbxConsultaClientes.TabStop = false;
             gbxConsultaClientes.Text = "Buscar por Numero de Identificacion de Cliente";
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLimpiar.Location = new Point(444, 22);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(90, 28);
+            btnLimpiar.TabIndex = 4;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnBuscarCliente
             // 
@@ -105,18 +116,6 @@
             gbxListaClientes.TabIndex = 5;
             gbxListaClientes.TabStop = false;
             gbxListaClientes.Text = "Lista De Clientes";
-            // 
-            // lvwListaClientes
-            // 
-            lvwListaClientes.BackColor = SystemColors.Info;
-            lvwListaClientes.Columns.AddRange(new ColumnHeader[] { colNumIdentificacion, colTipoIDentificacion, colCodigoCliente, colNombre, colApellidoPrimero, colApellidoSegundo, colTelefono, colEmail, colProvincia, colCanton, colDistrito, colOtrasSenias });
-            lvwListaClientes.Dock = DockStyle.Fill;
-            lvwListaClientes.Location = new Point(3, 19);
-            lvwListaClientes.Name = "lvwListaClientes";
-            lvwListaClientes.Size = new Size(794, 364);
-            lvwListaClientes.TabIndex = 6;
-            lvwListaClientes.UseCompatibleStateImageBehavior = false;
-            lvwListaClientes.View = View.Details;
             // 
             // colNumIdentificacion
             // 
@@ -178,16 +177,17 @@
             colOtrasSenias.Text = "Otras Senias";
             colOtrasSenias.Width = 120;
             // 
-            // btnLimpiar
+            // lvwListaClientes
             // 
-            btnLimpiar.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimpiar.Location = new Point(444, 22);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(90, 28);
-            btnLimpiar.TabIndex = 4;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.UseVisualStyleBackColor = true;
-            btnLimpiar.Click += btnLimpiar_Click;
+            lvwListaClientes.BackColor = SystemColors.Info;
+            lvwListaClientes.Columns.AddRange(new ColumnHeader[] { colNumIdentificacion, colTipoIDentificacion, colCodigoCliente, colNombre, colApellidoPrimero, colApellidoSegundo, colTelefono, colEmail, colProvincia, colCanton, colDistrito, colOtrasSenias });
+            lvwListaClientes.Dock = DockStyle.Fill;
+            lvwListaClientes.Location = new Point(3, 19);
+            lvwListaClientes.Name = "lvwListaClientes";
+            lvwListaClientes.Size = new Size(794, 364);
+            lvwListaClientes.TabIndex = 6;
+            lvwListaClientes.UseCompatibleStateImageBehavior = false;
+            lvwListaClientes.View = View.Details;
             // 
             // frmConsultaClientes
             // 
@@ -212,6 +212,7 @@
         private Label label1;
         private GroupBox gbxListaClientes;
         private Button btnBuscarCliente;
+        private Button btnLimpiar;
         private ListView lvwListaClientes;
         private ColumnHeader colNumIdentificacion;
         private ColumnHeader colTipoIDentificacion;
@@ -225,6 +226,5 @@
         private ColumnHeader colCanton;
         private ColumnHeader colDistrito;
         private ColumnHeader colOtrasSenias;
-        private Button btnLimpiar;
     }
 }
