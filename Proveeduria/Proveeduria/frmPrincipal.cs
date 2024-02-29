@@ -6,6 +6,10 @@ namespace Proveeduria
         {
             InitializeComponent();
         }
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private void CargarPantalla(Form pantalla) // metodo para cargar pantallas
         {
@@ -80,11 +84,7 @@ namespace Proveeduria
             this.CargarPantalla(pantalla);
         }
 
-        private void mnConsultaClientes_Click(object sender, EventArgs e)
-        {
-            frmConsultaClientes pantalla = new frmConsultaClientes();
-            this.CargarPantalla(pantalla);
-        }
+
 
         private void mnConsultaFacturas_Click(object sender, EventArgs e)
         {
@@ -107,6 +107,12 @@ namespace Proveeduria
         private void mnCalculoDeImpuestos_Click(object sender, EventArgs e)
         {
             frmCalculoHacienda pantalla = new frmCalculoHacienda();
+            this.CargarPantalla(pantalla);
+        }
+
+        private void mnListaClientes_Click(object sender, EventArgs e)
+        {
+            frmConsultaClientes pantalla = new frmConsultaClientes();
             this.CargarPantalla(pantalla);
         }
     }

@@ -178,17 +178,7 @@ namespace Proveeduria
                             txtClienteCanton.Text = CantonSeleccionado;
                             txtClienteDistrito.Text = DistritoSeleccionado;
                             txtClienteOtrasSenias.Text = OtrasSeniasSeleccionado;
-
-
                             /*pinta los datos en los TextBox*/
-
-
-
-
-
-
-
-
 
                         }// Obtener los datos de la fila seleccionada
                     }
@@ -197,9 +187,6 @@ namespace Proveeduria
                 {
                     MessageBox.Show("No se encotro al cliente con el ID: " + consultaDNI, "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
-
-
             }
             catch (Exception ex)
             {

@@ -194,7 +194,7 @@ namespace Proveeduria
                 string OtrasSenias = cliente.SelectSingleNode("OtrasSenias").InnerText;
 
                 ListViewItem itemCliente = new ListViewItem(
-                    new[] { DNI,TipoDNI,Nombre,ApellidoPrimero,ApellidoSegundo,CodigoCliente,Telefono, Email,Provincia,Canton, Distrito,OtrasSenias});
+                    new[] { DNI, TipoDNI, Nombre, ApellidoPrimero, ApellidoSegundo, CodigoCliente, Telefono, Email, Provincia, Canton, Distrito, OtrasSenias });
                 /*creo el ListView con los datos */
 
                 lvwRegistroClientes.Items.Add(itemCliente);
