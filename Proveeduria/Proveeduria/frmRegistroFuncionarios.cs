@@ -162,8 +162,6 @@ namespace Proveeduria
 
             } /*iteracion por los nodos */
 
-
-
         }/*Fin metodo CargarListaFuncionarios */
 
 
