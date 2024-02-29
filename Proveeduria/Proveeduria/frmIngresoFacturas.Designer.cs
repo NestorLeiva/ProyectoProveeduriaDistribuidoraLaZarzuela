@@ -43,7 +43,6 @@
             colDesProducto = new ColumnHeader();
             colCantidadProducto = new ColumnHeader();
             colPrecioUndProducto = new ColumnHeader();
-            colTotalPrecioProducto = new ColumnHeader();
             gbxRegistroDeProductos = new GroupBox();
             btnBuscarProducto = new Button();
             txtBuscarProductoCodigo = new TextBox();
@@ -171,19 +170,19 @@
             gbxListaProductos.Location = new Point(0, 416);
             gbxListaProductos.Name = "gbxListaProductos";
             gbxListaProductos.Size = new Size(774, 268);
-            gbxListaProductos.TabIndex = 39;
+            gbxListaProductos.TabIndex = 40;
             gbxListaProductos.TabStop = false;
             gbxListaProductos.Text = "Lista de Productos";
             // 
             // lvwListaProductos
             // 
             lvwListaProductos.BackColor = SystemColors.Info;
-            lvwListaProductos.Columns.AddRange(new ColumnHeader[] { colCatProducto, colCodProducto, colDesProducto, colCantidadProducto, colPrecioUndProducto, colTotalPrecioProducto });
+            lvwListaProductos.Columns.AddRange(new ColumnHeader[] { colCatProducto, colCodProducto, colDesProducto, colCantidadProducto, colPrecioUndProducto });
             lvwListaProductos.Dock = DockStyle.Fill;
             lvwListaProductos.Location = new Point(3, 19);
             lvwListaProductos.Name = "lvwListaProductos";
             lvwListaProductos.Size = new Size(768, 246);
-            lvwListaProductos.TabIndex = 40;
+            lvwListaProductos.TabIndex = 41;
             lvwListaProductos.UseCompatibleStateImageBehavior = false;
             lvwListaProductos.View = View.Details;
             // 
@@ -211,11 +210,6 @@
             // 
             colPrecioUndProducto.Text = "Precio Unitario";
             colPrecioUndProducto.Width = 120;
-            // 
-            // colTotalPrecioProducto
-            // 
-            colTotalPrecioProducto.Text = "Total Precio Producto";
-            colTotalPrecioProducto.Width = 130;
             // 
             // gbxRegistroDeProductos
             // 
@@ -280,7 +274,7 @@
             btnAgregarProducto.Location = new Point(276, 97);
             btnAgregarProducto.Name = "btnAgregarProducto";
             btnAgregarProducto.Size = new Size(133, 24);
-            btnAgregarProducto.TabIndex = 39;
+            btnAgregarProducto.TabIndex = 36;
             btnAgregarProducto.Text = "Agregar Producto";
             btnAgregarProducto.UseVisualStyleBackColor = true;
             btnAgregarProducto.Click += btnAgregarProducto_Click;
@@ -302,7 +296,7 @@
             btnCancelarProducto.Location = new Point(661, 95);
             btnCancelarProducto.Name = "btnCancelarProducto";
             btnCancelarProducto.Size = new Size(98, 26);
-            btnCancelarProducto.TabIndex = 38;
+            btnCancelarProducto.TabIndex = 39;
             btnCancelarProducto.Text = "Cancelar";
             btnCancelarProducto.UseVisualStyleBackColor = true;
             // 
@@ -312,7 +306,7 @@
             btnLimpiarProducto.Location = new Point(551, 95);
             btnLimpiarProducto.Name = "btnLimpiarProducto";
             btnLimpiarProducto.Size = new Size(98, 26);
-            btnLimpiarProducto.TabIndex = 37;
+            btnLimpiarProducto.TabIndex = 38;
             btnLimpiarProducto.Text = "Limpiar";
             btnLimpiarProducto.UseVisualStyleBackColor = true;
             btnLimpiarProducto.Click += btnLimpiarProducto_Click;
@@ -323,7 +317,7 @@
             btnAceptarProducto.Location = new Point(415, 95);
             btnAceptarProducto.Name = "btnAceptarProducto";
             btnAceptarProducto.Size = new Size(130, 26);
-            btnAceptarProducto.TabIndex = 36;
+            btnAceptarProducto.TabIndex = 37;
             btnAceptarProducto.Text = "Guardar Factura";
             btnAceptarProducto.UseVisualStyleBackColor = true;
             btnAceptarProducto.Click += btnAceptarProducto_Click;
@@ -716,7 +710,6 @@
         private ColumnHeader colCodProducto;
         private ColumnHeader colDesProducto;
         private ColumnHeader colPrecioUndProducto;
-        private ColumnHeader colTotalPrecioProducto;
         private ColumnHeader colCantidadProducto;
         private Button btnAgregarProducto;
         private Button btnBuscarProducto;

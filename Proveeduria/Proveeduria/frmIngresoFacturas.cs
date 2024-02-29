@@ -12,16 +12,17 @@ namespace Proveeduria
             InitializeComponent();
         }
 
-        private void frmRegistroProductos_Load(object sender, EventArgs e) { }
+        private void frmRegistroProductos_Load(object sender, EventArgs e) { _lstProductos = new List<Producto>(); }
 
         /*------------------------------------------------- Objetos --------------------------------------------------------------------*/
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
         private string consultarCodProveedor; /*btn Buscar Proveedor*/
         private string conusltaProducto; /*btn Buscar Producto*/
+        private string rutaArchivo = "FacturasCompra.xml";
 
         IngresoFacturas _IngresoFacturas;
-        public List<Productos> _lstProductos = new List<Productos>();
-        public Productos _Productos;
+        List<Producto> _lstProductos;
+        public Producto _Productos;
 
         string codSeleccionado = string.Empty;
         string nomSeleccionado = string.Empty;
@@ -192,9 +193,6 @@ namespace Proveeduria
             }
         }/*fin btnBuscarProducto*/
 
-
-
-
         private void btnAceptarProducto_Click(object sender, EventArgs e)
         {
             try
@@ -219,7 +217,11 @@ namespace Proveeduria
                 _IngresoFacturas.grabarXMLFactura("FacturasCompra.xml"); /*Escribo el XML*/
 
 
-                MessageBox.Show("Se registro la Factura y Producto Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se registro la Factura Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                LimpiarDatosProveedor();
+                /*MostrarFactura(rutaArchivo);*/
             }
             catch (Exception)
             {
@@ -233,7 +235,7 @@ namespace Proveeduria
         {
             try
             {
-                _Productos = new Productos()
+                _Productos = new Producto()
                 {
                     CategoriaProducto = txtCategoriaProducto.Text.ToUpper(),
                     NombreProducto = txtProductoNombre.Text.ToUpper(),
@@ -265,6 +267,7 @@ namespace Proveeduria
             txtNumeroFactura.Text = string.Empty;
             txtMontoFactura.Text = string.Empty;
             txtMontoIvaFactura.Text = string.Empty;
+            txtBuscarProveedor.Text = string.Empty;
         }/*fin Limpiar Datos Proveedor*/
 
         public void LimpiarDatosProductos()
@@ -276,6 +279,57 @@ namespace Proveeduria
             txtBuscarProductoCodigo.Text = string.Empty;
         }/*fin Limpiar Datos Proveedor*/
 
+        //public void MostrarFactura(string rutaArchivo)
+        //{
 
-    }
-}
+        //    try
+        //    {
+        //        XmlDocument xmlDoc = _ArchivoXML.leerXML(rutaArchivo);
+        //        XmlNodeList _nodoFactura = xmlDoc.SelectNodes("//Factura");
+        //        XmlNode _ultimaFactura = _nodoFactura.Count > 0 ? _nodoFactura[_nodoFactura.Count - 1] : null;
+        //        lvwListaProductos.Items.Clear();
+
+        //        if (_ultimaFactura != null)
+        //        {
+
+        //            // Obtener datos de la factura principal
+        //            string codigoProveedor = _ultimaFactura.SelectSingleNode("CodigoProveedor").InnerText;
+        //            string nombreProveedor = _ultimaFactura.SelectSingleNode("NombreProveedor").InnerText;
+        //            string identificacionProveedor = _ultimaFactura.SelectSingleNode("IdentificacionProveedor").InnerText;
+        //            string telefonoProveedor = _ultimaFactura.SelectSingleNode("TelefonoProveedor").InnerText;
+        //            string emailProveedor = _ultimaFactura.SelectSingleNode("EmailProveedor").InnerText;
+        //            string fechaFactura = _ultimaFactura.SelectSingleNode("FechaFactura").InnerText;
+        //            string numeroFactura = _ultimaFactura.SelectSingleNode("NumeroFactura").InnerText;
+        //            string montoFactura = _ultimaFactura.SelectSingleNode("MontoFactura").InnerText;
+        //            string montoIVAFactura = _ultimaFactura.SelectSingleNode("MontoIVAFactura").InnerText;
+
+
+
+        //            XmlNodeList _productosNodos = xmlDoc.SelectNodes("//Producto");
+        //            foreach (XmlNode nodoProducto in _ultimaFactura.ChildNodes)
+        //            {
+        //                string _categoriaProducto = nodoProducto.SelectSingleNode("CategoriaProducto").InnerText;
+        //                string _codigoProducto = nodoProducto.SelectSingleNode("CodigoProducto").InnerText;
+        //                string _nombreProducto = nodoProducto.SelectSingleNode("NombreProducto").InnerText;
+        //                string _cantidadProducto = nodoProducto.SelectSingleNode("CantidadProducto").InnerText;
+        //                string _precioProducto = nodoProducto.SelectSingleNode("CantidadProducto").InnerText;
+
+        //                ListViewItem itemProductos = new ListViewItem(
+        //                    new[] {_categoriaProducto,_codigoProducto,_nombreProducto,_cantidadProducto, _precioProducto });  
+        //                lvwListaProductos.Items.Add(itemProductos);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Error no hay Facturas Registradas", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        MessageBox.Show("Error al cargar la Factura", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+
+        //}/*fin MostrarFactura*/
+
+    } /*fin frmIngresoFacturas*/
+}/*fin namespace*/
