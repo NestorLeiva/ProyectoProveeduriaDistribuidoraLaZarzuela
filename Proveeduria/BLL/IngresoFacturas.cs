@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace BLL
 {
-    public class IngresoFacturas : Productos
+    public class IngresoFacturas : Producto
     {
         /*------------------------------------------------- Atributos --------------------------------------------------------------------*/
 
@@ -23,11 +23,12 @@ namespace BLL
 
         XmlDocument xmlDocFactura = new XmlDocument();
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
-        public Productos _Productos ;
+        public List<Producto> _ListaProductos { get; set; } = new List<Producto>();
+        public Producto _Productos ;
 
         /*------------------------------------------------- Getter & Setter --------------------------------------------------------------------*/
 
-        public List<Productos> _ListaProductos { get; set; } = new List<Productos>();
+        
         public string CodigoProveedor { get { return codigoProveedor; } set { codigoProveedor = value; } }
         public string NombreProveedor { get { return nombreProveedor; } set { nombreProveedor = value; } }
         public string DniProveedor { get { return dniProveedor; } set { dniProveedor = value; } }
@@ -125,11 +126,11 @@ namespace BLL
             XmlNode xmlProductos = xmlDocFactura.CreateElement("Productos");
             xmlFactura.AppendChild(xmlProductos);
 
-            foreach (Productos _productosLista in this._ListaProductos)
+            foreach (Producto _productosLista in this._ListaProductos)
             {
                 /*Nodo Producto*/
                 XmlNode _xmlProducto = xmlDocFactura.CreateElement("Producto");
-                xmlDocFactura.DocumentElement.AppendChild(_xmlProducto);
+                xmlProductos.AppendChild(_xmlProducto);
 
                 /*Nodo CategoriaProducto*/
                 XmlNode _xmlCategoriaProd = xmlDocFactura.CreateElement("CategoriaProducto");
@@ -157,6 +158,7 @@ namespace BLL
                 _xmlProducto.AppendChild( _xmlPrecioUndProd);
 
 
+                xmlProductos.AppendChild(_xmlProducto);/*Agrego los nodos Productos a la Factura*/
             } /*fin foreach*/
 
 
