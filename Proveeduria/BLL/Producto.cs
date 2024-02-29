@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace BLL
 {
-    public class Productos
+    public class Producto
     {
 
         /*------------------------------------------------- Atributos --------------------------------------------------------------------*/
@@ -24,9 +24,9 @@ namespace BLL
         XmlDocument xmlDocProducto = new XmlDocument();
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
 
-        public Productos() { }
+        public Producto() { }
 
-        public Productos(string categoriaProducto, string nombreProducto, int cantidadProducto, decimal precioProducto, int totalPrecioUndProducto, string codigoProducto)
+        public Producto(string categoriaProducto, string nombreProducto, int cantidadProducto, decimal precioProducto, int totalPrecioUndProducto, string codigoProducto)
         {
             this.categoriaProducto = categoriaProducto;
             this.nombreProducto = nombreProducto;
