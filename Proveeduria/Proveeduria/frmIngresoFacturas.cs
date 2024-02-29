@@ -35,9 +35,6 @@ namespace Proveeduria
         string busqCantidadSeleccionado = string.Empty;
         string busqPrecioSeleccionado = string.Empty;
 
-
-
-
         /*------------------------------------------------- TextBox --------------------------------------------------------------------*/
         private void txtNumeroFactura_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -216,18 +213,17 @@ namespace Proveeduria
                 };
                 _IngresoFacturas.grabarXMLFactura("FacturasCompra.xml"); /*Escribo el XML*/
 
-
                 MessageBox.Show("Se registro la Factura Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
                 LimpiarDatosProveedor();
-                /*MostrarFactura(rutaArchivo);*/
+
+                /*muestro los Productos de la Ultima Factura*/
+                MostrarFactura(rutaArchivo);
             }
             catch (Exception)
             {
                 MessageBox.Show("*** Error al Guardar la Factura *** ", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
 
         }/*fin btn Aceptar*/
 
@@ -279,57 +275,45 @@ namespace Proveeduria
             txtBuscarProductoCodigo.Text = string.Empty;
         }/*fin Limpiar Datos Proveedor*/
 
-        //public void MostrarFactura(string rutaArchivo)
-        //{
+        public void MostrarFactura(string rutaArchivo)
+        {
+            try
+            {
+                XmlDocument xmlDoc = _ArchivoXML.leerXML(rutaArchivo);
 
-        //    try
-        //    {
-        //        XmlDocument xmlDoc = _ArchivoXML.leerXML(rutaArchivo);
-        //        XmlNodeList _nodoFactura = xmlDoc.SelectNodes("//Factura");
-        //        XmlNode _ultimaFactura = _nodoFactura.Count > 0 ? _nodoFactura[_nodoFactura.Count - 1] : null;
-        //        lvwListaProductos.Items.Clear();
+                XmlNodeList _ultimaFactura = xmlDoc.SelectNodes("//Factura[last()]/Productos/Producto");
+                lvwListaProductos.Items.Clear();
 
-        //        if (_ultimaFactura != null)
-        //        {
+                foreach (XmlNode nodoProducto in _ultimaFactura)
+                {
+                    string _categoriaProducto = obtenerTexto(nodoProducto, "CategoriaProducto");
+                    string _codigoProducto = obtenerTexto(nodoProducto, "CodigoProducto");
+                    string _nombreProducto = obtenerTexto(nodoProducto, "NombreProducto");
+                    string _cantidadProducto = obtenerTexto(nodoProducto, "CantidadProducto");
+                    string _precioProducto = obtenerTexto(nodoProducto, "PrecioProducto");
 
-        //            // Obtener datos de la factura principal
-        //            string codigoProveedor = _ultimaFactura.SelectSingleNode("CodigoProveedor").InnerText;
-        //            string nombreProveedor = _ultimaFactura.SelectSingleNode("NombreProveedor").InnerText;
-        //            string identificacionProveedor = _ultimaFactura.SelectSingleNode("IdentificacionProveedor").InnerText;
-        //            string telefonoProveedor = _ultimaFactura.SelectSingleNode("TelefonoProveedor").InnerText;
-        //            string emailProveedor = _ultimaFactura.SelectSingleNode("EmailProveedor").InnerText;
-        //            string fechaFactura = _ultimaFactura.SelectSingleNode("FechaFactura").InnerText;
-        //            string numeroFactura = _ultimaFactura.SelectSingleNode("NumeroFactura").InnerText;
-        //            string montoFactura = _ultimaFactura.SelectSingleNode("MontoFactura").InnerText;
-        //            string montoIVAFactura = _ultimaFactura.SelectSingleNode("MontoIVAFactura").InnerText;
+                    ListViewItem itemProductos = new ListViewItem(new[] 
+                    { _categoriaProducto, _codigoProducto, _nombreProducto, _cantidadProducto, _precioProducto });
+                    lvwListaProductos.Items.Add(itemProductos);
+                }
 
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al cargar la Factura", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-
-        //            XmlNodeList _productosNodos = xmlDoc.SelectNodes("//Producto");
-        //            foreach (XmlNode nodoProducto in _ultimaFactura.ChildNodes)
-        //            {
-        //                string _categoriaProducto = nodoProducto.SelectSingleNode("CategoriaProducto").InnerText;
-        //                string _codigoProducto = nodoProducto.SelectSingleNode("CodigoProducto").InnerText;
-        //                string _nombreProducto = nodoProducto.SelectSingleNode("NombreProducto").InnerText;
-        //                string _cantidadProducto = nodoProducto.SelectSingleNode("CantidadProducto").InnerText;
-        //                string _precioProducto = nodoProducto.SelectSingleNode("CantidadProducto").InnerText;
-
-        //                ListViewItem itemProductos = new ListViewItem(
-        //                    new[] {_categoriaProducto,_codigoProducto,_nombreProducto,_cantidadProducto, _precioProducto });  
-        //                lvwListaProductos.Items.Add(itemProductos);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Error no hay Facturas Registradas", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        MessageBox.Show("Error al cargar la Factura", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-
-        //}/*fin MostrarFactura*/
+        }/*fin MostrarFactura*/
+        private string obtenerTexto(XmlNode node, string nodeName)
+        {
+            XmlNode childNode = node.SelectSingleNode(nodeName);
+            /* SelectSingleNode(nodeName) para encontrar el subnodo con el nombre especificado.*/
+            return (childNode != null) ? childNode.InnerText : string.Empty;
+            /* Verificamos si el subnodo fue encontrado.
+             Si childNode es diferente de null, significa que el subnodo existe y podemos obtener su contenido.
+             En ese caso, retornamos el contenido del subnodo, que es el texto dentro del elemento XML.
+             Si childNode es null, retornamos una cadena vacía.*/
+        }/*funcion auxiliar para obtner el texto dentro del nodo XML*/
 
     } /*fin frmIngresoFacturas*/
 }/*fin namespace*/
