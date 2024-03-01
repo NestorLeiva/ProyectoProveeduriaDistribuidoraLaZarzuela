@@ -1,4 +1,5 @@
 ﻿using BLL;
+using System.Runtime.Intrinsics.X86;
 using System.Xml;
 using System.Xml.Linq;
 using Utils;
@@ -35,7 +36,7 @@ namespace Proveeduria
         string busqCantidadSeleccionado = string.Empty;  /* btnBuscarProducto*/
         string busqPrecioSeleccionado = string.Empty;    /* btnBuscarProducto*/
 
-       
+
 
 
 
@@ -96,7 +97,7 @@ namespace Proveeduria
             }
         }
         private void txtBuscarProductoCodigo_KeyPress(object sender, KeyPressEventArgs e)
-       {
+        {
             if (!Validaciones.soloLetras(e.KeyChar.ToString()) && !Validaciones.soloNumeros(e.KeyChar))
             {
                 e.Handled = true;
@@ -162,7 +163,7 @@ namespace Proveeduria
             }
         }/*fin btnBuscarProveedor */
 
-        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        private void btnBuscarProducto_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -184,20 +185,9 @@ namespace Proveeduria
                     txtProductoNombre.Text = busqProductoSeleccionado;
                     txtCantidadProducto.Text = busqCantidadSeleccionado;
                     txtPrecioUndProducto.Text = busqPrecioSeleccionado;
-
-                    // Desactivar los TextBox
-                    txtCategoriaProducto.Enabled = false;
-                    txtProductoNombre.Enabled = false;
-                    txtCantidadProducto.Enabled = false;
-                    txtPrecioUndProducto.Enabled = false;
                 }
                 else
                 {
-                    // Activo los TextBox
-                    txtCategoriaProducto.Enabled = true;
-                    txtProductoNombre.Enabled = true;
-                    txtCantidadProducto.Enabled = true;
-                    txtPrecioUndProducto.Enabled = true;
                     MessageBox.Show("Producto No encontrado", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
@@ -206,9 +196,38 @@ namespace Proveeduria
             {
                 MessageBox.Show(ex.Message, "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }/*fin btnBuscarProducto*/
+        } /*btnBuscarProducto_Click*/
 
-        private void btnAceptarProducto_Click(object sender, EventArgs e)
+        private void btnAgregarProducto_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                SumarCantidades();
+                _Productos = new Producto()
+                {
+                    CategoriaProducto = txtCategoriaProducto.Text.ToUpper(),
+                    NombreProducto = txtProductoNombre.Text.ToUpper(),
+                    CodigoProducto = txtBuscarProductoCodigo.Text.ToUpper(),
+                    CantidadProducto = Convert.ToInt32(txtCantidadProducto.Text),
+                    PrecioUndProducto = Convert.ToInt32(txtPrecioUndProducto.Text),
+
+                };
+
+                this._lstProductos.Add(_Productos);/*Agrego los productos al xmlFacturaCompras*/
+
+
+                MessageBox.Show("Se registro el Producto Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimpiarDatosProductos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Distribuidroa La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        
+        } /*btnAgregarProducto_Click*/
+
+        private void btnAceptarProducto_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -242,49 +261,10 @@ namespace Proveeduria
             {
                 MessageBox.Show("*** Error al Guardar la Factura *** ", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }/*btnAceptarProducto_Click*/
 
-        }/*fin btn Aceptar*/
 
-        private void btnAgregarProducto_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                _Productos = new Producto()
-                {
-                    CategoriaProducto = txtCategoriaProducto.Text.ToUpper(),
-                    NombreProducto = txtProductoNombre.Text.ToUpper(),
-                    CantidadProducto = Convert.ToInt32(txtCantidadProducto.Text),
-                    PrecioUndProducto = Convert.ToInt32(txtPrecioUndProducto.Text),
 
-                };
-
-                this._lstProductos.Add(_Productos);/*Agrego los productos al xmlFacturaCompras*/
-
-                _Productos.grabarXMLProductos("ListaProductos.xml");/*Genero el XML ListaProductos*/
-                MessageBox.Show("Se registro el Producto Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimpiarDatosProductos();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Distribuidroa La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }/*fin btn Agregar Productos*/
-        private void btnSumarProducto_Click(object sender, EventArgs e)
-        {
-           
-            int valorActual = _Productos.calcularCantidad("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/CantidadProducto");
-
-            if (int.TryParse(txtNuevoCantidad.Text, out int valorIngresado))
-            {
-                int nuevoValor = valorActual + valorIngresado;
-                _ArchivoXML.modificarXML("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/CantidadProducto", nuevoValor.ToString());
-            }
-            else
-            {
-                MessageBox.Show("Ingrese un valor numérico válido en el TextBox.");
-            }
-        }/*Sumar Productos*/
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
         public void LimpiarDatosProveedor()
@@ -338,6 +318,23 @@ namespace Proveeduria
             }
 
         }/*fin MostrarFactura*/
+
+        public void SumarCantidades()
+        {
+            int valorActual = _Productos.calcularCantidad("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/CantidadProducto");
+
+            if (int.TryParse(txtCantidadProducto.Text, out int valorIngresado))
+            {
+                int nuevoValor = valorActual + valorIngresado;
+                _ArchivoXML.modificarXML("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/CantidadProducto", nuevoValor.ToString());
+                
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un valor numérico válido en el TextBox.");
+            }
+        }/*SumarCantidades*/
+
         private string obtenerTexto(XmlNode node, string nodeName)
         {
             XmlNode childNode = node.SelectSingleNode(nodeName);
@@ -347,9 +344,7 @@ namespace Proveeduria
              Si childNode es diferente de null, significa que el subnodo existe y podemos obtener su contenido.
              En ese caso, retornamos el contenido del subnodo, que es el texto dentro del elemento XML.
              Si childNode es null, retornamos una cadena vacía.*/
-        }/*funcion auxiliar para obtner el texto dentro del nodo XML*/
-
-
+        }/*funcion auxiliar para MostrarFactura() para obtner el texto dentro del nodo XML*/
 
 
     } /*fin frmIngresoFacturas*/
