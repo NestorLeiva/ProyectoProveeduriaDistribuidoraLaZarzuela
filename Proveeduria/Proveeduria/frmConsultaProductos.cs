@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using BLL;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,7 @@ namespace Proveeduria
 
         /*------------------------------------------------- Objetos --------------------------------------------------------------------*/
 
+        Producto _Productos;
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
         private string conusltaProducto; /*btn Buscar Producto*/
 
@@ -82,6 +84,41 @@ namespace Proveeduria
             txtBuscarCodigo.Text = string.Empty;
             cargarListaProductos("ListaProductos.xml");
         }
+
+        private void btnLimpiarProducto_Click(object sender, EventArgs e)
+        {
+            LimpiarDatosProductos();
+        }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _Productos = new Producto()
+                {
+                    CategoriaProducto = txtCategoriaProducto.Text.ToUpper(),
+                    NombreProducto = txtProductoNombre.Text.ToUpper(),
+                    CantidadProducto = Convert.ToInt32(txtCantidadProducto.Text),
+                    PrecioUndProducto = Convert.ToInt32(txtPrecioUndProducto.Text),
+                };
+                _Productos.grabarXMLProductos("ListaProductos.xml");/*Genero el XML ListaProductos*/
+                MessageBox.Show("Se registro el Producto Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimpiarDatosProductos();
+                cargarListaProductos("ListaProductos.xml");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Distribuidroa La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }/*fin btn AgregarProducto*/
+
+        private void btnCancelarProducto_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
 
         public void cargarListaProductos(string rutaArchivo)
@@ -99,11 +136,11 @@ namespace Proveeduria
                 string CodigoProducto = cliente.SelectSingleNode("CodigoProducto").InnerText;
                 string CantidadProducto = cliente.SelectSingleNode("CantidadProducto").InnerText;
                 string PrecioProducto = cliente.SelectSingleNode("PrecioProducto").InnerText;
-                
+
                 /*obtengo los datos del XML y los almacelo en las variables*/
 
                 ListViewItem itemCliente = new ListViewItem(
-                    new[] { CategoriaProducto, CodigoProducto, NombreProducto, CantidadProducto,PrecioProducto });
+                    new[] { CategoriaProducto, CodigoProducto, NombreProducto, CantidadProducto, PrecioProducto });
                 /*pinto los datos en el ListView */
 
                 lvwListaProductos.Items.Add(itemCliente);
@@ -111,6 +148,14 @@ namespace Proveeduria
             }/*iteracion por los nodos */
 
         }/*fin cargarLista Productos*/
+
+        public void LimpiarDatosProductos()
+        {
+            txtCategoriaProducto.Text = string.Empty;
+            txtProductoNombre.Text = string.Empty;
+            txtCantidadProducto.Text = string.Empty;
+            txtPrecioUndProducto.Text = string.Empty;
+        } /*fin limpiarDatos*/
 
 
     }/*fin frmConsultaProductos*/
