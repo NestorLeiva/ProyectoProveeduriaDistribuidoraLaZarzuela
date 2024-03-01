@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Linq;
+using System.Xml.XPath;
 
 namespace BLL
 {
@@ -19,6 +21,7 @@ namespace BLL
         private int totalPrecioUndProducto;
         private string codigoProducto = string.Empty;
         private static string rutaRelativaXML = "ListaProductos.xml";
+        private int nuevaCantidad;
 
 
         XmlDocument xmlDocProducto = new XmlDocument();
@@ -43,6 +46,7 @@ namespace BLL
         public decimal PrecioUndProducto { get { return precioProducto; } set { precioProducto = value; } }
         public int TotalPrecioProducto { get { return totalPrecioUndProducto; } set { totalPrecioUndProducto = value; } }
         public string CodigoProducto { get { return codigoProducto; } set { codigoProducto = value; } }
+        public int NuevaCantidad { get { return nuevaCantidad; } set { nuevaCantidad = value; } }
 
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
@@ -82,7 +86,25 @@ namespace BLL
 
         }/*fin generarCodigoProducto*/
 
+        public int calcularCantidad(string rutaArchivo, string xpath)
+        {
+            XElement xml = XElement.Load(rutaArchivo);
+            XElement nodo = xml.XPathSelectElement(xpath);
 
+            if (nodo != null && int.TryParse(nodo.Value, out int valor))
+            {
+                return valor;
+            }
+            else
+            {
+                throw new InvalidOperationException("No se pudo obtener el valor numérico del nodo.");
+            }
+
+            /*XElement representa un elemento XML en un documento. Pertenece a la Biblioteca La biblioteca LINQ to XML
+              XElement incluyen la obtención y modificación de atributos, la navegación a través de elementos secundarios,
+              la creación de nuevos elementos y la carga y guardado de documentos XML.*/
+
+        }/*obtenerValor*/
         public void grabarXMLProductos(string rutaArchivo)
         {
             if (File.Exists(rutaArchivo))
@@ -102,7 +124,7 @@ namespace BLL
 
             /*nodo CategoriaProducto*/
             XmlNode xmlCategoriaProducto = xmlDocProducto.CreateElement("CategoriaProducto");
-            xmlCategoriaProducto.InnerText = CategoriaProducto;/*obtengo el codigo por medio del metodo*/
+            xmlCategoriaProducto.InnerText = CategoriaProducto;
             xmlProducto.AppendChild(xmlCategoriaProducto);
 
             /*nodo CodigoProducto*/
