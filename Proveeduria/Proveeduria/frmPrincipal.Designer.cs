@@ -37,15 +37,12 @@
             mnRgistroProveedores = new ToolStripMenuItem();
             mnModificacionProveedores = new ToolStripMenuItem();
             mnIngresoFacturas = new ToolStripMenuItem();
-            mnModificacionProductos = new ToolStripMenuItem();
-            mnConsultaListaProductos = new ToolStripMenuItem();
             mnFuncionarios = new ToolStripMenuItem();
             mnRegistroFuncionario = new ToolStripMenuItem();
             mnModificacionFuncionario = new ToolStripMenuItem();
             mnConsultas = new ToolStripMenuItem();
             mnConsultaProveedores = new ToolStripMenuItem();
             mnConsultaFacturas = new ToolStripMenuItem();
-            mnConsultaProductos = new ToolStripMenuItem();
             mnListaClientes = new ToolStripMenuItem();
             mnlistaProductos = new ToolStripMenuItem();
             mnVentas = new ToolStripMenuItem();
@@ -97,7 +94,7 @@
             // 
             // mnProveedores
             // 
-            mnProveedores.DropDownItems.AddRange(new ToolStripItem[] { mnRgistroProveedores, mnModificacionProveedores, mnIngresoFacturas, mnModificacionProductos, mnConsultaListaProductos });
+            mnProveedores.DropDownItems.AddRange(new ToolStripItem[] { mnRgistroProveedores, mnModificacionProveedores, mnIngresoFacturas });
             mnProveedores.Name = "mnProveedores";
             mnProveedores.Size = new Size(142, 22);
             mnProveedores.Text = "Proveedores";
@@ -122,19 +119,6 @@
             mnIngresoFacturas.Size = new Size(217, 22);
             mnIngresoFacturas.Text = "Ingreso Facturas Proveedor";
             mnIngresoFacturas.Click += mnRegistroProductos_Click;
-            // 
-            // mnModificacionProductos
-            // 
-            mnModificacionProductos.Name = "mnModificacionProductos";
-            mnModificacionProductos.Size = new Size(217, 22);
-            mnModificacionProductos.Text = "Modificacion Productos";
-            mnModificacionProductos.Click += mnModificacionProductos_Click;
-            // 
-            // mnConsultaListaProductos
-            // 
-            mnConsultaListaProductos.Name = "mnConsultaListaProductos";
-            mnConsultaListaProductos.Size = new Size(217, 22);
-            mnConsultaListaProductos.Text = "Consulta Productos";
             // 
             // mnFuncionarios
             // 
@@ -166,7 +150,7 @@
             // 
             // mnConsultaProveedores
             // 
-            mnConsultaProveedores.DropDownItems.AddRange(new ToolStripItem[] { mnConsultaFacturas, mnConsultaProductos });
+            mnConsultaProveedores.DropDownItems.AddRange(new ToolStripItem[] { mnConsultaFacturas });
             mnConsultaProveedores.Name = "mnConsultaProveedores";
             mnConsultaProveedores.Size = new Size(180, 22);
             mnConsultaProveedores.Text = "Proveedores";
@@ -174,16 +158,9 @@
             // mnConsultaFacturas
             // 
             mnConsultaFacturas.Name = "mnConsultaFacturas";
-            mnConsultaFacturas.Size = new Size(128, 22);
+            mnConsultaFacturas.Size = new Size(180, 22);
             mnConsultaFacturas.Text = "Facturas";
             mnConsultaFacturas.Click += mnConsultaFacturas_Click;
-            // 
-            // mnConsultaProductos
-            // 
-            mnConsultaProductos.Name = "mnConsultaProductos";
-            mnConsultaProductos.Size = new Size(128, 22);
-            mnConsultaProductos.Text = "Productos";
-
             // 
             // mnListaClientes
             // 
@@ -280,7 +257,6 @@
         private ToolStripMenuItem mnRgistroProveedores;
         private ToolStripMenuItem mnIngresoFacturas;
         private ToolStripMenuItem mnModificacionProveedores;
-        private ToolStripMenuItem mnModificacionProductos;
         private ToolStripMenuItem mnFuncionarios;
         private ToolStripMenuItem mnRegistroFuncionario;
         private ToolStripMenuItem mnModificacionFuncionario;
@@ -290,10 +266,8 @@
         private ToolStripMenuItem mnConsultaFacturas;
         private ToolStripMenuItem mnVentasVentas;
         private ToolStripMenuItem mnVentasHacienda;
-        private ToolStripMenuItem mnConsultaProductos;
         private ToolStripMenuItem mnCerrarSesion;
         private ToolStripMenuItem mnCalculoDeImpuestos;
-        private ToolStripMenuItem mnConsultaListaProductos;
         private ToolStripMenuItem mnListaClientes;
         private ToolStripMenuItem mnlistaProductos;
     }

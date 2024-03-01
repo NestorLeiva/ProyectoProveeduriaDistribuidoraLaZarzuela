@@ -66,12 +66,6 @@ namespace Proveeduria
             this.CargarPantalla(pantalla);
         }
 
-        private void mnModificacionProductos_Click(object sender, EventArgs e)
-        {
-            frmModificacionProductos pantalla = new frmModificacionProductos();
-            this.CargarPantalla(pantalla);
-        }
-
         private void mnRegistroFuncionario_Click(object sender, EventArgs e)
         {
             frmRegistroFuncionarios pantalla = new frmRegistroFuncionarios();

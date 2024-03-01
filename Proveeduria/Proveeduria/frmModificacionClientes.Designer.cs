@@ -81,6 +81,7 @@
             lblBuscarDNI = new Label();
             pbLogo = new PictureBox();
             lblClienteTitulo = new Label();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             gbxClienteDireccion.SuspendLayout();
             gbxClientesRegistrarDatos.SuspendLayout();
             gbxClienteLista.SuspendLayout();
@@ -105,7 +106,7 @@
             gbxClienteDireccion.Dock = DockStyle.Right;
             gbxClienteDireccion.Location = new Point(401, 159);
             gbxClienteDireccion.Name = "gbxClienteDireccion";
-            gbxClienteDireccion.Size = new Size(373, 286);
+            gbxClienteDireccion.Size = new Size(373, 309);
             gbxClienteDireccion.TabIndex = 15;
             gbxClienteDireccion.TabStop = false;
             gbxClienteDireccion.Text = "Datos Direccion";
@@ -244,7 +245,7 @@
             gbxClientesRegistrarDatos.Dock = DockStyle.Left;
             gbxClientesRegistrarDatos.Location = new Point(0, 159);
             gbxClientesRegistrarDatos.Name = "gbxClientesRegistrarDatos";
-            gbxClientesRegistrarDatos.Size = new Size(370, 286);
+            gbxClientesRegistrarDatos.Size = new Size(370, 309);
             gbxClientesRegistrarDatos.TabIndex = 6;
             gbxClientesRegistrarDatos.TabStop = false;
             gbxClientesRegistrarDatos.Text = "Datos Cliente";
@@ -414,7 +415,7 @@
             // 
             gbxClienteLista.Controls.Add(lvwRegistroClientes);
             gbxClienteLista.Dock = DockStyle.Bottom;
-            gbxClienteLista.Location = new Point(0, 445);
+            gbxClienteLista.Location = new Point(0, 468);
             gbxClienteLista.Name = "gbxClienteLista";
             gbxClienteLista.Size = new Size(774, 216);
             gbxClienteLista.TabIndex = 23;
@@ -593,7 +594,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(774, 661);
+            ClientSize = new Size(774, 684);
             ControlBox = false;
             Controls.Add(gbxClienteDireccion);
             Controls.Add(gbxClientesRegistrarDatos);
@@ -669,5 +670,6 @@
         private ColumnHeader colCanton;
         private ColumnHeader colDistrito;
         private ColumnHeader colOtrasSenias;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

@@ -110,7 +110,7 @@ namespace Proveeduria
         {
             if (filaSeleccionada != -1)
             {
-                string consultaCodProv = txtProveedorBuscar.Text;
+                string consultaCodProv = txtProveedorBuscar.Text.ToUpper();
                 lvRegistroProveedor.Items.Clear();
                 XmlDocument xmlDoc = _ArchivoXML.leerXML("Proveedores.xml");
 
