@@ -106,5 +106,11 @@ namespace Proveeduria
             frmConsultaProductos pantalla = new frmConsultaProductos();
             this.CargarPantalla(pantalla);
         }
+
+        private void mnIngresoConsultaDeProductos_Click(object sender, EventArgs e)
+        {
+            frmConsultaProductos pantalla = new frmConsultaProductos();
+            this.CargarPantalla(pantalla);
+        }
     }
 }
