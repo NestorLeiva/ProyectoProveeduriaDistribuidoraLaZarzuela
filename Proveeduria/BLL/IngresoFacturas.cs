@@ -21,7 +21,7 @@ namespace BLL
         private int montoFactura;
         private double montoIVA;
 
-        XmlDocument xmlDocFactura = new XmlDocument();
+        XmlDocument xmlDocFacturaCompra = new XmlDocument();
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
         public List<Producto> _ListaProductos { get; set; } = new List<Producto>();
         public Producto _Productos ;
@@ -60,100 +60,100 @@ namespace BLL
         {
             if (File.Exists(rutaArchivo))
             {
-                xmlDocFactura = _ArchivoXML.leerXML(rutaArchivo);
+                xmlDocFacturaCompra = _ArchivoXML.leerXML(rutaArchivo);
 
             }
             else
             {
                 /*Nodo Facturas*/
-                XmlNode xmlRoot = xmlDocFactura.CreateElement("Facturas");
-                xmlDocFactura.AppendChild(xmlRoot);
+                XmlNode xmlRoot = xmlDocFacturaCompra.CreateElement("Facturas");
+                xmlDocFacturaCompra.AppendChild(xmlRoot);
             }
             /*Nodo Factura*/
-            XmlNode xmlFactura = xmlDocFactura.CreateElement("Factura");
-            xmlDocFactura.DocumentElement.AppendChild(xmlFactura);
+            XmlNode xmlFactura = xmlDocFacturaCompra.CreateElement("Factura");
+            xmlDocFacturaCompra.DocumentElement.AppendChild(xmlFactura);
 
             /* ----------------------------------- Proveedor --------------------------------------*/
 
             /*Nodo CodigoProveedor */
-            XmlNode xmlCodigoProveedor = xmlDocFactura.CreateElement("CodigoProveedor");
+            XmlNode xmlCodigoProveedor = xmlDocFacturaCompra.CreateElement("CodigoProveedor");
             xmlCodigoProveedor.InnerText = this.CodigoProveedor;
             xmlFactura.AppendChild(xmlCodigoProveedor);
 
             /*Nodo NombreProveedor */
-            XmlNode xmlNombreProveedor = xmlDocFactura.CreateElement("NombreProveedor");
+            XmlNode xmlNombreProveedor = xmlDocFacturaCompra.CreateElement("NombreProveedor");
             xmlNombreProveedor.InnerText = this.NombreProveedor;
             xmlFactura.AppendChild(xmlNombreProveedor);
 
             /*Nodo IdentificacionProveedor */
-            XmlNode xmlDNIProveedor = xmlDocFactura.CreateElement("IdentificacionProveedor");
+            XmlNode xmlDNIProveedor = xmlDocFacturaCompra.CreateElement("IdentificacionProveedor");
             xmlDNIProveedor.InnerText = this.DniProveedor.ToString();
             xmlFactura.AppendChild(xmlDNIProveedor);
 
             /*Nodo TelefonoProveedor */
-            XmlNode xmlTelefonoProveedor = xmlDocFactura.CreateElement("TelefonoProveedor");
+            XmlNode xmlTelefonoProveedor = xmlDocFacturaCompra.CreateElement("TelefonoProveedor");
             xmlTelefonoProveedor.InnerText = this.TelefonoProveedor.ToString();
             xmlFactura.AppendChild(xmlTelefonoProveedor);
 
             /*Nodo EmailProveedor */
-            XmlNode xmlEmailProveedor = xmlDocFactura.CreateElement("EmailProveedor");
+            XmlNode xmlEmailProveedor = xmlDocFacturaCompra.CreateElement("EmailProveedor");
             xmlEmailProveedor.InnerText = this.EmailProveedor;
             xmlFactura.AppendChild(xmlEmailProveedor);
 
             /* ----------------------------------- Factura --------------------------------------*/
             /*Nodo FechaFactura */
-            XmlNode xmlFechaFactura = xmlDocFactura.CreateElement("FechaFactura");
+            XmlNode xmlFechaFactura = xmlDocFacturaCompra.CreateElement("FechaFactura");
             xmlFechaFactura.InnerText = this.FechaFactura.ToString("dd/MM/yyyy");
             xmlFactura.AppendChild(xmlFechaFactura);
 
             /*Nodo NumeroFactura */
-            XmlNode xmlNumeroFactura = xmlDocFactura.CreateElement("NumeroFactura");
+            XmlNode xmlNumeroFactura = xmlDocFacturaCompra.CreateElement("NumeroFactura");
             xmlNumeroFactura.InnerText = this.generarCodigoFacturaCompra(); /*genero el cogido de la factura*/
             xmlFactura.AppendChild(xmlNumeroFactura);
 
             /*Nodo MontoFactura */
-            XmlNode xmlMontoFactura = xmlDocFactura.CreateElement("MontoFactura");
+            XmlNode xmlMontoFactura = xmlDocFacturaCompra.CreateElement("MontoFactura");
             xmlMontoFactura.InnerText = this.MontoFactura.ToString();
             xmlFactura.AppendChild(xmlMontoFactura);
 
             /*Nodo MontoIVAFactura */
-            XmlNode xmlMontoIVAFactura = xmlDocFactura.CreateElement("MontoIVAFactura");
+            XmlNode xmlMontoIVAFactura = xmlDocFacturaCompra.CreateElement("MontoIVAFactura");
             xmlMontoIVAFactura.InnerText = calcularIVA(MontoFactura).ToString(); /*Calculo del IVA de la factura*/
             xmlFactura.AppendChild(xmlMontoIVAFactura);
 
             /*------------------------------------------------- Productos --------------------------------------------------------------------*/
             /*Nodo Productos*/
-            XmlNode xmlProductos = xmlDocFactura.CreateElement("Productos");
+            XmlNode xmlProductos = xmlDocFacturaCompra.CreateElement("Productos");
             xmlFactura.AppendChild(xmlProductos);
 
             foreach (Producto _productosLista in this._ListaProductos)
             {
                 /*Nodo Producto*/
-                XmlNode _xmlProducto = xmlDocFactura.CreateElement("Producto");
+                XmlNode _xmlProducto = xmlDocFacturaCompra.CreateElement("Producto");
                 xmlProductos.AppendChild(_xmlProducto);
 
                 /*Nodo CategoriaProducto*/
-                XmlNode _xmlCategoriaProd = xmlDocFactura.CreateElement("CategoriaProducto");
+                XmlNode _xmlCategoriaProd = xmlDocFacturaCompra.CreateElement("CategoriaProducto");
                 _xmlCategoriaProd.InnerText = _productosLista.CategoriaProducto;
                 _xmlProducto.AppendChild(_xmlCategoriaProd);
 
                 /*Nodo CodigoProducto*/
-                XmlNode _xmlCodigoProd = xmlDocFactura.CreateElement("CodigoProducto");
+                XmlNode _xmlCodigoProd = xmlDocFacturaCompra.CreateElement("CodigoProducto");
                 _xmlCodigoProd.InnerText = _productosLista.CodigoProducto;
                 _xmlProducto.AppendChild(_xmlCodigoProd);
 
                 /*Nodo NompreProducto*/
-                XmlNode _xmlNombreProd = xmlDocFactura.CreateElement("NombreProducto");
+                XmlNode _xmlNombreProd = xmlDocFacturaCompra.CreateElement("NombreProducto");
                 _xmlNombreProd.InnerText = _productosLista.NombreProducto;
                 _xmlProducto.AppendChild(_xmlNombreProd);
 
                 /*Nodo CantidadProducto*/
-                XmlNode _xmlCantidadProd = xmlDocFactura.CreateElement("CantidadProducto");
+                XmlNode _xmlCantidadProd = xmlDocFacturaCompra.CreateElement("CantidadProducto");
                 _xmlCantidadProd.InnerText = _productosLista.CantidadProducto.ToString();
                 _xmlProducto.AppendChild(_xmlCantidadProd);
 
                 /*Nodo PrecioProducto*/
-                XmlNode _xmlPrecioUndProd = xmlDocFactura.CreateElement("PrecioProducto");
+                XmlNode _xmlPrecioUndProd = xmlDocFacturaCompra.CreateElement("PrecioProducto");
                 _xmlPrecioUndProd.InnerText = _productosLista.PrecioUndProducto.ToString();
                 _xmlProducto.AppendChild( _xmlPrecioUndProd);
 
@@ -163,7 +163,7 @@ namespace BLL
 
 
 
-            _ArchivoXML.escribirXML(rutaArchivo, xmlDocFactura);
+            _ArchivoXML.escribirXML(rutaArchivo, xmlDocFacturaCompra);
         }/*fin grabarXMLFactura*/
 
     }/*fin IngresoFacturas*/
