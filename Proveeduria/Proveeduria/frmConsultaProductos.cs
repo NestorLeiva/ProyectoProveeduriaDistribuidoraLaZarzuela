@@ -103,7 +103,7 @@ namespace Proveeduria
                 /*obtengo los datos del XML y los almacelo en las variables*/
 
                 ListViewItem itemCliente = new ListViewItem(
-                    new[] { CategoriaProducto, NombreProducto,CodigoProducto,CantidadProducto,PrecioProducto });
+                    new[] { CategoriaProducto, CodigoProducto, NombreProducto, CantidadProducto,PrecioProducto });
                 /*pinto los datos en el ListView */
 
                 lvwListaProductos.Items.Add(itemCliente);
