@@ -22,7 +22,7 @@ namespace Proveeduria
 
         IngresoFacturas _IngresoFacturas;
         List<Producto> _lstProductos;
-        public Producto _Productos;
+        public Producto _Productos = new IngresoFacturas();
 
         string codSeleccionado = string.Empty;
         string nomSeleccionado = string.Empty;
@@ -30,10 +30,14 @@ namespace Proveeduria
         string telefonoSeleccionado = string.Empty;
         string emailSeleccionado = string.Empty;
 
-        string busqCategoriaSeleccionado = string.Empty;
-        string busqProductoSeleccionado = string.Empty;
-        string busqCantidadSeleccionado = string.Empty;
-        string busqPrecioSeleccionado = string.Empty;
+        string busqCategoriaSeleccionado = string.Empty; /* btnBuscarProducto*/
+        string busqProductoSeleccionado = string.Empty;  /* btnBuscarProducto*/
+        string busqCantidadSeleccionado = string.Empty;  /* btnBuscarProducto*/
+        string busqPrecioSeleccionado = string.Empty;    /* btnBuscarProducto*/
+
+       
+
+
 
         /*------------------------------------------------- TextBox --------------------------------------------------------------------*/
         private void txtNumeroFactura_KeyPress(object sender, KeyPressEventArgs e)
@@ -92,7 +96,7 @@ namespace Proveeduria
             }
         }
         private void txtBuscarProductoCodigo_KeyPress(object sender, KeyPressEventArgs e)
-        {
+       {
             if (!Validaciones.soloLetras(e.KeyChar.ToString()) && !Validaciones.soloNumeros(e.KeyChar))
             {
                 e.Handled = true;
@@ -108,6 +112,16 @@ namespace Proveeduria
         private void btnLimpiarProducto_Click(object sender, EventArgs e)
         {
             LimpiarDatosProductos();
+
+            txtCategoriaProducto.Enabled = true;
+            txtProductoNombre.Enabled = true;
+            txtCantidadProducto.Enabled = true;
+            txtPrecioUndProducto.Enabled = true;
+        }
+
+        private void btnCancelarProducto_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void btnBuscarProveedor_Click(object sender, EventArgs e)
@@ -167,19 +181,23 @@ namespace Proveeduria
 
                     /*pinto en pantalla los datos del Proveedor*/
                     txtCategoriaProducto.Text = busqCategoriaSeleccionado;
+                    txtProductoNombre.Text = busqProductoSeleccionado;
                     txtCantidadProducto.Text = busqCantidadSeleccionado;
-                    txtProductoNombre.Text = busqPrecioSeleccionado;
                     txtPrecioUndProducto.Text = busqPrecioSeleccionado;
 
                     // Desactivar los TextBox
                     txtCategoriaProducto.Enabled = false;
                     txtProductoNombre.Enabled = false;
+                    txtCantidadProducto.Enabled = false;
+                    txtPrecioUndProducto.Enabled = false;
                 }
                 else
                 {
                     // Activo los TextBox
                     txtCategoriaProducto.Enabled = true;
                     txtProductoNombre.Enabled = true;
+                    txtCantidadProducto.Enabled = true;
+                    txtPrecioUndProducto.Enabled = true;
                     MessageBox.Show("Producto No encontrado", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
@@ -237,6 +255,7 @@ namespace Proveeduria
                     NombreProducto = txtProductoNombre.Text.ToUpper(),
                     CantidadProducto = Convert.ToInt32(txtCantidadProducto.Text),
                     PrecioUndProducto = Convert.ToInt32(txtPrecioUndProducto.Text),
+
                 };
 
                 this._lstProductos.Add(_Productos);/*Agrego los productos al xmlFacturaCompras*/
@@ -251,6 +270,21 @@ namespace Proveeduria
                 MessageBox.Show(ex.Message, "Distribuidroa La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }/*fin btn Agregar Productos*/
+        private void btnSumarProducto_Click(object sender, EventArgs e)
+        {
+           
+            int valorActual = _Productos.calcularCantidad("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/CantidadProducto");
+
+            if (int.TryParse(txtNuevoCantidad.Text, out int valorIngresado))
+            {
+                int nuevoValor = valorActual + valorIngresado;
+                _ArchivoXML.modificarXML("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/CantidadProducto", nuevoValor.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un valor numérico válido en el TextBox.");
+            }
+        }/*Sumar Productos*/
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
         public void LimpiarDatosProveedor()
@@ -292,7 +326,7 @@ namespace Proveeduria
                     string _cantidadProducto = obtenerTexto(nodoProducto, "CantidadProducto");
                     string _precioProducto = obtenerTexto(nodoProducto, "PrecioProducto");
 
-                    ListViewItem itemProductos = new ListViewItem(new[] 
+                    ListViewItem itemProductos = new ListViewItem(new[]
                     { _categoriaProducto, _codigoProducto, _nombreProducto, _cantidadProducto, _precioProducto });
                     lvwListaProductos.Items.Add(itemProductos);
                 }
@@ -314,6 +348,9 @@ namespace Proveeduria
              En ese caso, retornamos el contenido del subnodo, que es el texto dentro del elemento XML.
              Si childNode es null, retornamos una cadena vacía.*/
         }/*funcion auxiliar para obtner el texto dentro del nodo XML*/
+
+
+
 
     } /*fin frmIngresoFacturas*/
 }/*fin namespace*/
