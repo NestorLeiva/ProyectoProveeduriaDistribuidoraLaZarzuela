@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentasFacturacion));
             gbxVentasTitulo = new GroupBox();
             gbxClienteModificar = new GroupBox();
-            btnModificarBuscar = new Button();
-            txtBuscarCodigoCliente = new TextBox();
+            btnBuscarCliente = new Button();
+            txtBuscarCliente = new TextBox();
             lblBuscarCodigoCliente = new Label();
             pbLogo = new PictureBox();
             lblVentasTitulo = new Label();
@@ -41,14 +41,14 @@
             lblVentasFacturaNumero = new Label();
             lblVentasFecha = new Label();
             dtpVentaFecha = new DateTimePicker();
-            txtClienteTelefono = new TextBox();
-            txtClienteNombre = new TextBox();
-            lblClienteTelefono = new Label();
+            txtTelefono = new TextBox();
+            txtNombre = new TextBox();
+            lblTelefono = new Label();
             lblClienteNombre = new Label();
-            txtClienteDNI = new TextBox();
+            txtIdntificacion = new TextBox();
             lblClienteDNI = new Label();
-            lblClienteEmail = new Label();
-            txtClienteEmail = new TextBox();
+            lblEmail = new Label();
+            txtEmail = new TextBox();
             gbxVentasPago = new GroupBox();
             btnVentasNuevaFactura = new Button();
             btnVentasPagar = new Button();
@@ -70,6 +70,12 @@
             colCantidad = new DataGridViewTextBoxColumn();
             colPrecioUnitario = new DataGridViewTextBoxColumn();
             colTotal = new DataGridViewTextBoxColumn();
+            txtTipoIdentificacion = new TextBox();
+            lblTipoIdentificacion = new Label();
+            txtCodigoCliente = new TextBox();
+            lblCodigoCliente = new Label();
+            txtApellidoPrimero = new TextBox();
+            txtApellidoSegundo = new TextBox();
             gbxVentasTitulo.SuspendLayout();
             gbxClienteModificar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
@@ -94,8 +100,8 @@
             // 
             // gbxClienteModificar
             // 
-            gbxClienteModificar.Controls.Add(btnModificarBuscar);
-            gbxClienteModificar.Controls.Add(txtBuscarCodigoCliente);
+            gbxClienteModificar.Controls.Add(btnBuscarCliente);
+            gbxClienteModificar.Controls.Add(txtBuscarCliente);
             gbxClienteModificar.Controls.Add(lblBuscarCodigoCliente);
             gbxClienteModificar.Location = new Point(165, 57);
             gbxClienteModificar.Name = "gbxClienteModificar";
@@ -104,24 +110,25 @@
             gbxClienteModificar.TabStop = false;
             gbxClienteModificar.Text = "Buscar Cliente";
             // 
-            // btnModificarBuscar
+            // btnBuscarCliente
             // 
-            btnModificarBuscar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificarBuscar.Location = new Point(321, 22);
-            btnModificarBuscar.Name = "btnModificarBuscar";
-            btnModificarBuscar.Size = new Size(86, 25);
-            btnModificarBuscar.TabIndex = 4;
-            btnModificarBuscar.Text = "Buscar";
-            btnModificarBuscar.UseVisualStyleBackColor = true;
+            btnBuscarCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBuscarCliente.Location = new Point(321, 20);
+            btnBuscarCliente.Name = "btnBuscarCliente";
+            btnBuscarCliente.Size = new Size(85, 27);
+            btnBuscarCliente.TabIndex = 5;
+            btnBuscarCliente.Text = "Buscar";
+            btnBuscarCliente.UseVisualStyleBackColor = true;
+            btnBuscarCliente.Click += btnBuscarCliente_Click;
             // 
-            // txtBuscarCodigoCliente
+            // txtBuscarCliente
             // 
-            txtBuscarCodigoCliente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBuscarCodigoCliente.Location = new Point(180, 25);
-            txtBuscarCodigoCliente.Name = "txtBuscarCodigoCliente";
-            txtBuscarCodigoCliente.Size = new Size(135, 22);
-            txtBuscarCodigoCliente.TabIndex = 3;
-            txtBuscarCodigoCliente.TextAlign = HorizontalAlignment.Center;
+            txtBuscarCliente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtBuscarCliente.Location = new Point(180, 25);
+            txtBuscarCliente.Name = "txtBuscarCliente";
+            txtBuscarCliente.Size = new Size(135, 22);
+            txtBuscarCliente.TabIndex = 3;
+            txtBuscarCliente.TextAlign = HorizontalAlignment.Center;
             // 
             // lblBuscarCodigoCliente
             // 
@@ -155,22 +162,28 @@
             // 
             // gbxVentasDatosCliente
             // 
+            gbxVentasDatosCliente.Controls.Add(txtApellidoSegundo);
+            gbxVentasDatosCliente.Controls.Add(txtApellidoPrimero);
+            gbxVentasDatosCliente.Controls.Add(txtCodigoCliente);
+            gbxVentasDatosCliente.Controls.Add(lblCodigoCliente);
+            gbxVentasDatosCliente.Controls.Add(txtTipoIdentificacion);
+            gbxVentasDatosCliente.Controls.Add(lblTipoIdentificacion);
             gbxVentasDatosCliente.Controls.Add(lblVentasNumeroFactura);
             gbxVentasDatosCliente.Controls.Add(lblVentasFacturaNumero);
             gbxVentasDatosCliente.Controls.Add(lblVentasFecha);
             gbxVentasDatosCliente.Controls.Add(dtpVentaFecha);
-            gbxVentasDatosCliente.Controls.Add(txtClienteTelefono);
-            gbxVentasDatosCliente.Controls.Add(txtClienteNombre);
-            gbxVentasDatosCliente.Controls.Add(lblClienteTelefono);
+            gbxVentasDatosCliente.Controls.Add(txtTelefono);
+            gbxVentasDatosCliente.Controls.Add(txtNombre);
+            gbxVentasDatosCliente.Controls.Add(lblTelefono);
             gbxVentasDatosCliente.Controls.Add(lblClienteNombre);
-            gbxVentasDatosCliente.Controls.Add(txtClienteDNI);
+            gbxVentasDatosCliente.Controls.Add(txtIdntificacion);
             gbxVentasDatosCliente.Controls.Add(lblClienteDNI);
-            gbxVentasDatosCliente.Controls.Add(lblClienteEmail);
-            gbxVentasDatosCliente.Controls.Add(txtClienteEmail);
+            gbxVentasDatosCliente.Controls.Add(lblEmail);
+            gbxVentasDatosCliente.Controls.Add(txtEmail);
             gbxVentasDatosCliente.Dock = DockStyle.Top;
             gbxVentasDatosCliente.Location = new Point(3, 19);
             gbxVentasDatosCliente.Name = "gbxVentasDatosCliente";
-            gbxVentasDatosCliente.Size = new Size(768, 94);
+            gbxVentasDatosCliente.Size = new Size(768, 142);
             gbxVentasDatosCliente.TabIndex = 5;
             gbxVentasDatosCliente.TabStop = false;
             gbxVentasDatosCliente.Text = "Datos Clientes";
@@ -181,7 +194,7 @@
             lblVentasNumeroFactura.BorderStyle = BorderStyle.FixedSingle;
             lblVentasNumeroFactura.Enabled = false;
             lblVentasNumeroFactura.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasNumeroFactura.Location = new Point(637, 45);
+            lblVentasNumeroFactura.Location = new Point(276, 19);
             lblVentasNumeroFactura.Name = "lblVentasNumeroFactura";
             lblVentasNumeroFactura.Size = new Size(117, 23);
             lblVentasNumeroFactura.TabIndex = 17;
@@ -190,7 +203,7 @@
             // lblVentasFacturaNumero
             // 
             lblVentasFacturaNumero.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasFacturaNumero.Location = new Point(565, 47);
+            lblVentasFacturaNumero.Location = new Point(204, 21);
             lblVentasFacturaNumero.Name = "lblVentasFacturaNumero";
             lblVentasFacturaNumero.Size = new Size(66, 22);
             lblVentasFacturaNumero.TabIndex = 16;
@@ -200,7 +213,7 @@
             // lblVentasFecha
             // 
             lblVentasFecha.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasFecha.Location = new Point(565, 18);
+            lblVentasFecha.Location = new Point(9, 21);
             lblVentasFecha.Name = "lblVentasFecha";
             lblVentasFecha.Size = new Size(66, 22);
             lblVentasFecha.TabIndex = 15;
@@ -209,92 +222,91 @@
             // 
             // dtpVentaFecha
             // 
-            dtpVentaFecha.Enabled = false;
             dtpVentaFecha.Format = DateTimePickerFormat.Short;
-            dtpVentaFecha.Location = new Point(637, 17);
+            dtpVentaFecha.Location = new Point(81, 19);
             dtpVentaFecha.Name = "dtpVentaFecha";
             dtpVentaFecha.Size = new Size(117, 23);
             dtpVentaFecha.TabIndex = 10;
             // 
-            // txtClienteTelefono
+            // txtTelefono
             // 
-            txtClienteTelefono.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtClienteTelefono.Location = new Point(415, 17);
-            txtClienteTelefono.Name = "txtClienteTelefono";
-            txtClienteTelefono.ReadOnly = true;
-            txtClienteTelefono.Size = new Size(154, 22);
-            txtClienteTelefono.TabIndex = 8;
-            txtClienteTelefono.TextAlign = HorizontalAlignment.Center;
+            txtTelefono.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTelefono.Location = new Point(615, 76);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.ReadOnly = true;
+            txtTelefono.Size = new Size(139, 22);
+            txtTelefono.TabIndex = 8;
+            txtTelefono.TextAlign = HorizontalAlignment.Center;
             // 
-            // txtClienteNombre
+            // txtNombre
             // 
-            txtClienteNombre.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtClienteNombre.Location = new Point(107, 19);
-            txtClienteNombre.Name = "txtClienteNombre";
-            txtClienteNombre.ReadOnly = true;
-            txtClienteNombre.Size = new Size(224, 22);
-            txtClienteNombre.TabIndex = 6;
-            txtClienteNombre.TextAlign = HorizontalAlignment.Center;
+            txtNombre.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNombre.Location = new Point(136, 45);
+            txtNombre.Name = "txtNombre";
+            txtNombre.ReadOnly = true;
+            txtNombre.Size = new Size(134, 22);
+            txtNombre.TabIndex = 6;
+            txtNombre.TextAlign = HorizontalAlignment.Center;
             // 
-            // lblClienteTelefono
+            // lblTelefono
             // 
-            lblClienteTelefono.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblClienteTelefono.Location = new Point(343, 17);
-            lblClienteTelefono.Name = "lblClienteTelefono";
-            lblClienteTelefono.Size = new Size(66, 22);
-            lblClienteTelefono.TabIndex = 12;
-            lblClienteTelefono.Text = "Telefono";
-            lblClienteTelefono.TextAlign = ContentAlignment.MiddleRight;
+            lblTelefono.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTelefono.Location = new Point(543, 76);
+            lblTelefono.Name = "lblTelefono";
+            lblTelefono.Size = new Size(66, 22);
+            lblTelefono.TabIndex = 12;
+            lblTelefono.Text = "Telefono";
+            lblTelefono.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblClienteNombre
             // 
             lblClienteNombre.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblClienteNombre.Location = new Point(9, 19);
+            lblClienteNombre.Location = new Point(38, 45);
             lblClienteNombre.Name = "lblClienteNombre";
             lblClienteNombre.Size = new Size(92, 22);
             lblClienteNombre.TabIndex = 0;
             lblClienteNombre.Text = "Cliente: ";
             lblClienteNombre.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // txtClienteDNI
+            // txtIdntificacion
             // 
-            txtClienteDNI.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtClienteDNI.Location = new Point(107, 44);
-            txtClienteDNI.Name = "txtClienteDNI";
-            txtClienteDNI.ReadOnly = true;
-            txtClienteDNI.Size = new Size(224, 22);
-            txtClienteDNI.TabIndex = 7;
-            txtClienteDNI.TextAlign = HorizontalAlignment.Center;
+            txtIdntificacion.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtIdntificacion.Location = new Point(603, 45);
+            txtIdntificacion.Name = "txtIdntificacion";
+            txtIdntificacion.ReadOnly = true;
+            txtIdntificacion.Size = new Size(151, 22);
+            txtIdntificacion.TabIndex = 7;
+            txtIdntificacion.TextAlign = HorizontalAlignment.Center;
             // 
             // lblClienteDNI
             // 
             lblClienteDNI.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblClienteDNI.Location = new Point(9, 44);
+            lblClienteDNI.Location = new Point(505, 45);
             lblClienteDNI.Name = "lblClienteDNI";
             lblClienteDNI.Size = new Size(92, 22);
             lblClienteDNI.TabIndex = 3;
             lblClienteDNI.Text = "Identificacion";
             lblClienteDNI.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // lblClienteEmail
+            // lblEmail
             // 
-            lblClienteEmail.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblClienteEmail.Location = new Point(343, 47);
-            lblClienteEmail.Name = "lblClienteEmail";
-            lblClienteEmail.Size = new Size(66, 22);
-            lblClienteEmail.TabIndex = 5;
-            lblClienteEmail.Text = "Email";
-            lblClienteEmail.TextAlign = ContentAlignment.MiddleRight;
+            lblEmail.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblEmail.Location = new Point(9, 104);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(121, 22);
+            lblEmail.TabIndex = 5;
+            lblEmail.Text = "Email";
+            lblEmail.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // txtClienteEmail
+            // txtEmail
             // 
-            txtClienteEmail.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtClienteEmail.Location = new Point(415, 45);
-            txtClienteEmail.Name = "txtClienteEmail";
-            txtClienteEmail.ReadOnly = true;
-            txtClienteEmail.Size = new Size(154, 22);
-            txtClienteEmail.TabIndex = 9;
-            txtClienteEmail.TextAlign = HorizontalAlignment.Center;
+            txtEmail.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmail.Location = new Point(136, 104);
+            txtEmail.Name = "txtEmail";
+            txtEmail.ReadOnly = true;
+            txtEmail.Size = new Size(154, 22);
+            txtEmail.TabIndex = 9;
+            txtEmail.TextAlign = HorizontalAlignment.Center;
             // 
             // gbxVentasPago
             // 
@@ -455,10 +467,9 @@
             // gbxVentasProductos
             // 
             gbxVentasProductos.Controls.Add(dgvVentaListaProductos);
-            gbxVentasProductos.Dock = DockStyle.Fill;
-            gbxVentasProductos.Location = new Point(3, 113);
+            gbxVentasProductos.Location = new Point(3, 336);
             gbxVentasProductos.Name = "gbxVentasProductos";
-            gbxVentasProductos.Size = new Size(768, 336);
+            gbxVentasProductos.Size = new Size(768, 113);
             gbxVentasProductos.TabIndex = 11;
             gbxVentasProductos.TabStop = false;
             gbxVentasProductos.Text = "Lista Productos";
@@ -473,7 +484,7 @@
             dgvVentaListaProductos.Name = "dgvVentaListaProductos";
             dgvVentaListaProductos.ReadOnly = true;
             dgvVentaListaProductos.RowTemplate.Height = 25;
-            dgvVentaListaProductos.Size = new Size(762, 314);
+            dgvVentaListaProductos.Size = new Size(762, 91);
             dgvVentaListaProductos.TabIndex = 12;
             // 
             // colCodigo
@@ -506,6 +517,66 @@
             colTotal.Name = "colTotal";
             colTotal.ReadOnly = true;
             // 
+            // txtTipoIdentificacion
+            // 
+            txtTipoIdentificacion.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTipoIdentificacion.Location = new Point(136, 76);
+            txtTipoIdentificacion.Name = "txtTipoIdentificacion";
+            txtTipoIdentificacion.ReadOnly = true;
+            txtTipoIdentificacion.Size = new Size(154, 22);
+            txtTipoIdentificacion.TabIndex = 18;
+            txtTipoIdentificacion.TextAlign = HorizontalAlignment.Center;
+            // 
+            // lblTipoIdentificacion
+            // 
+            lblTipoIdentificacion.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTipoIdentificacion.Location = new Point(9, 76);
+            lblTipoIdentificacion.Name = "lblTipoIdentificacion";
+            lblTipoIdentificacion.Size = new Size(121, 22);
+            lblTipoIdentificacion.TabIndex = 19;
+            lblTipoIdentificacion.Text = "Tipo Identificacion";
+            lblTipoIdentificacion.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // txtCodigoCliente
+            // 
+            txtCodigoCliente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCodigoCliente.Location = new Point(403, 76);
+            txtCodigoCliente.Name = "txtCodigoCliente";
+            txtCodigoCliente.ReadOnly = true;
+            txtCodigoCliente.Size = new Size(134, 22);
+            txtCodigoCliente.TabIndex = 20;
+            txtCodigoCliente.TextAlign = HorizontalAlignment.Center;
+            // 
+            // lblCodigoCliente
+            // 
+            lblCodigoCliente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCodigoCliente.Location = new Point(276, 76);
+            lblCodigoCliente.Name = "lblCodigoCliente";
+            lblCodigoCliente.Size = new Size(121, 22);
+            lblCodigoCliente.TabIndex = 21;
+            lblCodigoCliente.Text = "Codigo Cliente";
+            lblCodigoCliente.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // txtApellidoPrimero
+            // 
+            txtApellidoPrimero.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtApellidoPrimero.Location = new Point(276, 45);
+            txtApellidoPrimero.Name = "txtApellidoPrimero";
+            txtApellidoPrimero.ReadOnly = true;
+            txtApellidoPrimero.Size = new Size(99, 22);
+            txtApellidoPrimero.TabIndex = 22;
+            txtApellidoPrimero.TextAlign = HorizontalAlignment.Center;
+            // 
+            // txtApellidoSegundo
+            // 
+            txtApellidoSegundo.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtApellidoSegundo.Location = new Point(381, 45);
+            txtApellidoSegundo.Name = "txtApellidoSegundo";
+            txtApellidoSegundo.ReadOnly = true;
+            txtApellidoSegundo.Size = new Size(118, 22);
+            txtApellidoSegundo.TabIndex = 23;
+            txtApellidoSegundo.TextAlign = HorizontalAlignment.Center;
+            // 
             // frmVentasFacturacion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -516,6 +587,7 @@
             Controls.Add(gbxVentasTitulo);
             Name = "frmVentasFacturacion";
             Text = "Ventas Facturacion";
+            Load += frmVentasFacturacion_Load;
             gbxVentasTitulo.ResumeLayout(false);
             gbxClienteModificar.ResumeLayout(false);
             gbxClienteModificar.PerformLayout();
@@ -540,17 +612,16 @@
         private GroupBox gbxVentasDatos;
         private GroupBox gbxVentasProductos;
         private GroupBox gbxClienteModificar;
-        private Button btnModificarBuscar;
-        private TextBox txtBuscarCodigoCliente;
+        private TextBox txtBuscarCliente;
         private Label lblBuscarCodigoCliente;
-        private TextBox txtClienteTelefono;
-        private Label lblClienteTelefono;
-        private TextBox txtClienteNombre;
+        private TextBox txtTelefono;
+        private Label lblTelefono;
+        private TextBox txtNombre;
         private Label lblClienteNombre;
         private Label lblClienteDNI;
-        private TextBox txtClienteEmail;
-        private Label lblClienteEmail;
-        private TextBox txtClienteDNI;
+        private TextBox txtEmail;
+        private Label lblEmail;
+        private TextBox txtIdntificacion;
         private Label lblVentasFecha;
         private DateTimePicker dtpVentaFecha;
         private DataGridView dgvVentaListaProductos;
@@ -573,5 +644,12 @@
         private Button btnVentasPagar;
         private Label lblVentasNumeroFactura;
         private Label lblVentasFacturaNumero;
+        private Button btnBuscarCliente;
+        private TextBox txtCodigoCliente;
+        private Label lblCodigoCliente;
+        private TextBox txtTipoIdentificacion;
+        private Label lblTipoIdentificacion;
+        private TextBox txtApellidoSegundo;
+        private TextBox txtApellidoPrimero;
     }
 }
