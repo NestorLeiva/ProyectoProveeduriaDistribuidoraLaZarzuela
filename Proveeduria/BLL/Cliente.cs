@@ -12,10 +12,11 @@ namespace BLL
         /* ----------------------------------------------- Atributos -----------------------------------------------*/
         private string codigoCliente;
 
-
-        public string CodigoCliente { get { return codigoCliente; } set { codigoCliente = value; } }
-
         /* ----------------------------------------------- Objetos -----------------------------------------------*/
+        public string CodigoCliente { get { return codigoCliente; } set { codigoCliente = value; } }
+         public VentasFacturas _VentasFactura { get;set; } /*frmVentasFacturacion*/
+        public Producto _Productos { get; set; }/*frmVentasFacturacion*/
+
 
         XmlDocument xmlDocCliente = new XmlDocument();
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
