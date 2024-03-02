@@ -37,8 +37,18 @@
             pbLogo = new PictureBox();
             lblVentasTitulo = new Label();
             gbxVentasDatosCliente = new GroupBox();
-            lblVentasNumeroFactura = new Label();
-            lblVentasFacturaNumero = new Label();
+            gbxCodigoProducto = new GroupBox();
+            txtCantidadProducto = new TextBox();
+            lblCantidadProducto = new Label();
+            btnAgregarProducto = new Button();
+            lblCodigoProducto = new Label();
+            txtCodigoProducto = new TextBox();
+            txtApellidoSegundo = new TextBox();
+            txtApellidoPrimero = new TextBox();
+            txtCodigoCliente = new TextBox();
+            lblCodigoCliente = new Label();
+            txtTipoIdentificacion = new TextBox();
+            lblTipoIdentificacion = new Label();
             lblVentasFecha = new Label();
             dtpVentaFecha = new DateTimePicker();
             txtTelefono = new TextBox();
@@ -50,40 +60,37 @@
             lblEmail = new Label();
             txtEmail = new TextBox();
             gbxVentasPago = new GroupBox();
-            btnVentasNuevaFactura = new Button();
+            lblMontoIVARes = new Label();
+            lblMontoIVA = new Label();
+            btnNuevaFactura = new Button();
             btnVentasPagar = new Button();
-            txtVentasPago = new TextBox();
+            txtPagoEfectivo = new TextBox();
             lblVantasPago = new Label();
             label1 = new Label();
             lblVentasCambio = new Label();
             lblVentasFormaPago = new Label();
             cboVentasFormaPago = new ComboBox();
-            lblVentasTotalRes = new Label();
+            lblTotalRes = new Label();
             lblVentasTotal = new Label();
-            lblVentasSubTotalRes = new Label();
+            lblSubTotalRes = new Label();
             lblVentasSubTotal = new Label();
             gbxVentasDatos = new GroupBox();
             gbxVentasProductos = new GroupBox();
-            dgvVentaListaProductos = new DataGridView();
-            colCodigo = new DataGridViewTextBoxColumn();
-            colProducto = new DataGridViewTextBoxColumn();
-            colCantidad = new DataGridViewTextBoxColumn();
-            colPrecioUnitario = new DataGridViewTextBoxColumn();
-            colTotal = new DataGridViewTextBoxColumn();
-            txtTipoIdentificacion = new TextBox();
-            lblTipoIdentificacion = new Label();
-            txtCodigoCliente = new TextBox();
-            lblCodigoCliente = new Label();
-            txtApellidoPrimero = new TextBox();
-            txtApellidoSegundo = new TextBox();
+            lvwListaVenta = new ListView();
+            colCategoriaProducto = new ColumnHeader();
+            colCodigoProducto = new ColumnHeader();
+            colProducto = new ColumnHeader();
+            colCantidadProducto = new ColumnHeader();
+            colPrecioUnitario = new ColumnHeader();
+            colTotalProducto = new ColumnHeader();
             gbxVentasTitulo.SuspendLayout();
             gbxClienteModificar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
             gbxVentasDatosCliente.SuspendLayout();
+            gbxCodigoProducto.SuspendLayout();
             gbxVentasPago.SuspendLayout();
             gbxVentasDatos.SuspendLayout();
             gbxVentasProductos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvVentaListaProductos).BeginInit();
             SuspendLayout();
             // 
             // gbxVentasTitulo
@@ -94,7 +101,7 @@
             gbxVentasTitulo.Dock = DockStyle.Top;
             gbxVentasTitulo.Location = new Point(0, 0);
             gbxVentasTitulo.Name = "gbxVentasTitulo";
-            gbxVentasTitulo.Size = new Size(774, 120);
+            gbxVentasTitulo.Size = new Size(774, 114);
             gbxVentasTitulo.TabIndex = 1;
             gbxVentasTitulo.TabStop = false;
             // 
@@ -103,19 +110,18 @@
             gbxClienteModificar.Controls.Add(btnBuscarCliente);
             gbxClienteModificar.Controls.Add(txtBuscarCliente);
             gbxClienteModificar.Controls.Add(lblBuscarCodigoCliente);
-            gbxClienteModificar.Location = new Point(165, 57);
+            gbxClienteModificar.Location = new Point(154, 45);
             gbxClienteModificar.Name = "gbxClienteModificar";
-            gbxClienteModificar.Size = new Size(427, 53);
+            gbxClienteModificar.Size = new Size(348, 47);
             gbxClienteModificar.TabIndex = 2;
             gbxClienteModificar.TabStop = false;
             gbxClienteModificar.Text = "Buscar Cliente";
             // 
             // btnBuscarCliente
             // 
-            btnBuscarCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnBuscarCliente.Location = new Point(321, 20);
+            btnBuscarCliente.Location = new Point(255, 18);
             btnBuscarCliente.Name = "btnBuscarCliente";
-            btnBuscarCliente.Size = new Size(85, 27);
+            btnBuscarCliente.Size = new Size(87, 23);
             btnBuscarCliente.TabIndex = 5;
             btnBuscarCliente.Text = "Buscar";
             btnBuscarCliente.UseVisualStyleBackColor = true;
@@ -124,18 +130,19 @@
             // txtBuscarCliente
             // 
             txtBuscarCliente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBuscarCliente.Location = new Point(180, 25);
+            txtBuscarCliente.Location = new Point(114, 19);
             txtBuscarCliente.Name = "txtBuscarCliente";
             txtBuscarCliente.Size = new Size(135, 22);
             txtBuscarCliente.TabIndex = 3;
             txtBuscarCliente.TextAlign = HorizontalAlignment.Center;
+            txtBuscarCliente.KeyPress += txtBuscarCliente_KeyPress;
             // 
             // lblBuscarCodigoCliente
             // 
             lblBuscarCodigoCliente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblBuscarCodigoCliente.Location = new Point(5, 25);
+            lblBuscarCodigoCliente.Location = new Point(8, 19);
             lblBuscarCodigoCliente.Name = "lblBuscarCodigoCliente";
-            lblBuscarCodigoCliente.Size = new Size(137, 22);
+            lblBuscarCodigoCliente.Size = new Size(100, 22);
             lblBuscarCodigoCliente.TabIndex = 4;
             lblBuscarCodigoCliente.Text = "Codigo Cliente";
             lblBuscarCodigoCliente.TextAlign = ContentAlignment.MiddleRight;
@@ -145,31 +152,30 @@
             pbLogo.Image = (Image)resources.GetObject("pbLogo.Image");
             pbLogo.Location = new Point(12, 12);
             pbLogo.Name = "pbLogo";
-            pbLogo.Size = new Size(147, 105);
+            pbLogo.Size = new Size(130, 92);
             pbLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             pbLogo.TabIndex = 14;
             pbLogo.TabStop = false;
             // 
             // lblVentasTitulo
             // 
-            lblVentasTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasTitulo.Location = new Point(239, 12);
+            lblVentasTitulo.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblVentasTitulo.Location = new Point(254, 12);
             lblVentasTitulo.Name = "lblVentasTitulo";
-            lblVentasTitulo.Size = new Size(412, 35);
+            lblVentasTitulo.Size = new Size(301, 30);
             lblVentasTitulo.TabIndex = 16;
-            lblVentasTitulo.Text = "Ventas Productos Distribuidora La Zarzuela";
+            lblVentasTitulo.Text = "Ventas Distribuidora La Zarzuela";
             lblVentasTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // gbxVentasDatosCliente
             // 
+            gbxVentasDatosCliente.Controls.Add(gbxCodigoProducto);
             gbxVentasDatosCliente.Controls.Add(txtApellidoSegundo);
             gbxVentasDatosCliente.Controls.Add(txtApellidoPrimero);
             gbxVentasDatosCliente.Controls.Add(txtCodigoCliente);
             gbxVentasDatosCliente.Controls.Add(lblCodigoCliente);
             gbxVentasDatosCliente.Controls.Add(txtTipoIdentificacion);
             gbxVentasDatosCliente.Controls.Add(lblTipoIdentificacion);
-            gbxVentasDatosCliente.Controls.Add(lblVentasNumeroFactura);
-            gbxVentasDatosCliente.Controls.Add(lblVentasFacturaNumero);
             gbxVentasDatosCliente.Controls.Add(lblVentasFecha);
             gbxVentasDatosCliente.Controls.Add(dtpVentaFecha);
             gbxVentasDatosCliente.Controls.Add(txtTelefono);
@@ -183,39 +189,138 @@
             gbxVentasDatosCliente.Dock = DockStyle.Top;
             gbxVentasDatosCliente.Location = new Point(3, 19);
             gbxVentasDatosCliente.Name = "gbxVentasDatosCliente";
-            gbxVentasDatosCliente.Size = new Size(768, 142);
+            gbxVentasDatosCliente.Size = new Size(768, 157);
             gbxVentasDatosCliente.TabIndex = 5;
             gbxVentasDatosCliente.TabStop = false;
             gbxVentasDatosCliente.Text = "Datos Clientes";
             // 
-            // lblVentasNumeroFactura
+            // gbxCodigoProducto
             // 
-            lblVentasNumeroFactura.BackColor = SystemColors.Info;
-            lblVentasNumeroFactura.BorderStyle = BorderStyle.FixedSingle;
-            lblVentasNumeroFactura.Enabled = false;
-            lblVentasNumeroFactura.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasNumeroFactura.Location = new Point(276, 19);
-            lblVentasNumeroFactura.Name = "lblVentasNumeroFactura";
-            lblVentasNumeroFactura.Size = new Size(117, 23);
-            lblVentasNumeroFactura.TabIndex = 17;
-            lblVentasNumeroFactura.TextAlign = ContentAlignment.MiddleCenter;
+            gbxCodigoProducto.Controls.Add(txtCantidadProducto);
+            gbxCodigoProducto.Controls.Add(lblCantidadProducto);
+            gbxCodigoProducto.Controls.Add(btnAgregarProducto);
+            gbxCodigoProducto.Controls.Add(lblCodigoProducto);
+            gbxCodigoProducto.Controls.Add(txtCodigoProducto);
+            gbxCodigoProducto.Location = new Point(0, 98);
+            gbxCodigoProducto.Name = "gbxCodigoProducto";
+            gbxCodigoProducto.Size = new Size(774, 58);
+            gbxCodigoProducto.TabIndex = 24;
+            gbxCodigoProducto.TabStop = false;
+            gbxCodigoProducto.Text = "Ingrese El Codigo del Producto";
             // 
-            // lblVentasFacturaNumero
+            // txtCantidadProducto
             // 
-            lblVentasFacturaNumero.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasFacturaNumero.Location = new Point(204, 21);
-            lblVentasFacturaNumero.Name = "lblVentasFacturaNumero";
-            lblVentasFacturaNumero.Size = new Size(66, 22);
-            lblVentasFacturaNumero.TabIndex = 16;
-            lblVentasFacturaNumero.Text = "# Factura";
-            lblVentasFacturaNumero.TextAlign = ContentAlignment.MiddleRight;
+            txtCantidadProducto.Location = new Point(357, 22);
+            txtCantidadProducto.Name = "txtCantidadProducto";
+            txtCantidadProducto.Size = new Size(154, 23);
+            txtCantidadProducto.TabIndex = 9;
+            txtCantidadProducto.KeyPress += txtCantidadProducto_KeyPress;
+            // 
+            // lblCantidadProducto
+            // 
+            lblCantidadProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCantidadProducto.Location = new Point(230, 23);
+            lblCantidadProducto.Name = "lblCantidadProducto";
+            lblCantidadProducto.Size = new Size(121, 22);
+            lblCantidadProducto.TabIndex = 8;
+            lblCantidadProducto.Text = "Cantidad Producto";
+            lblCantidadProducto.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // btnAgregarProducto
+            // 
+            btnAgregarProducto.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAgregarProducto.Location = new Point(517, 22);
+            btnAgregarProducto.Name = "btnAgregarProducto";
+            btnAgregarProducto.Size = new Size(125, 23);
+            btnAgregarProducto.TabIndex = 7;
+            btnAgregarProducto.Text = "Agregar Producto";
+            btnAgregarProducto.UseVisualStyleBackColor = true;
+            btnAgregarProducto.Click += btnAgregarProducto_Click;
+            // 
+            // lblCodigoProducto
+            // 
+            lblCodigoProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCodigoProducto.Location = new Point(6, 23);
+            lblCodigoProducto.Name = "lblCodigoProducto";
+            lblCodigoProducto.Size = new Size(58, 22);
+            lblCodigoProducto.TabIndex = 6;
+            lblCodigoProducto.Text = "Codigo";
+            lblCodigoProducto.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // txtCodigoProducto
+            // 
+            txtCodigoProducto.Location = new Point(70, 22);
+            txtCodigoProducto.Name = "txtCodigoProducto";
+            txtCodigoProducto.Size = new Size(154, 23);
+            txtCodigoProducto.TabIndex = 10;
+            txtCodigoProducto.KeyPress += txtCodigoProducto_KeyPress;
+            // 
+            // txtApellidoSegundo
+            // 
+            txtApellidoSegundo.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtApellidoSegundo.Location = new Point(553, 17);
+            txtApellidoSegundo.Name = "txtApellidoSegundo";
+            txtApellidoSegundo.ReadOnly = true;
+            txtApellidoSegundo.Size = new Size(134, 22);
+            txtApellidoSegundo.TabIndex = 23;
+            txtApellidoSegundo.TextAlign = HorizontalAlignment.Center;
+            // 
+            // txtApellidoPrimero
+            // 
+            txtApellidoPrimero.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtApellidoPrimero.Location = new Point(413, 17);
+            txtApellidoPrimero.Name = "txtApellidoPrimero";
+            txtApellidoPrimero.ReadOnly = true;
+            txtApellidoPrimero.Size = new Size(134, 22);
+            txtApellidoPrimero.TabIndex = 22;
+            txtApellidoPrimero.TextAlign = HorizontalAlignment.Center;
+            // 
+            // txtCodigoCliente
+            // 
+            txtCodigoCliente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCodigoCliente.Location = new Point(116, 70);
+            txtCodigoCliente.Name = "txtCodigoCliente";
+            txtCodigoCliente.ReadOnly = true;
+            txtCodigoCliente.Size = new Size(143, 22);
+            txtCodigoCliente.TabIndex = 20;
+            txtCodigoCliente.TextAlign = HorizontalAlignment.Center;
+            // 
+            // lblCodigoCliente
+            // 
+            lblCodigoCliente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCodigoCliente.Location = new Point(9, 70);
+            lblCodigoCliente.Name = "lblCodigoCliente";
+            lblCodigoCliente.Size = new Size(101, 22);
+            lblCodigoCliente.TabIndex = 21;
+            lblCodigoCliente.Text = "Codigo Cliente";
+            lblCodigoCliente.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // txtTipoIdentificacion
+            // 
+            txtTipoIdentificacion.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTipoIdentificacion.Location = new Point(397, 45);
+            txtTipoIdentificacion.Name = "txtTipoIdentificacion";
+            txtTipoIdentificacion.ReadOnly = true;
+            txtTipoIdentificacion.Size = new Size(114, 22);
+            txtTipoIdentificacion.TabIndex = 18;
+            txtTipoIdentificacion.TextAlign = HorizontalAlignment.Center;
+            // 
+            // lblTipoIdentificacion
+            // 
+            lblTipoIdentificacion.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTipoIdentificacion.Location = new Point(265, 45);
+            lblTipoIdentificacion.Name = "lblTipoIdentificacion";
+            lblTipoIdentificacion.Size = new Size(126, 22);
+            lblTipoIdentificacion.TabIndex = 19;
+            lblTipoIdentificacion.Text = "Tipo Identificacion";
+            lblTipoIdentificacion.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblVentasFecha
             // 
             lblVentasFecha.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasFecha.Location = new Point(9, 21);
+            lblVentasFecha.Location = new Point(30, 21);
             lblVentasFecha.Name = "lblVentasFecha";
-            lblVentasFecha.Size = new Size(66, 22);
+            lblVentasFecha.Size = new Size(45, 22);
             lblVentasFecha.TabIndex = 15;
             lblVentasFecha.Text = "Fecha";
             lblVentasFecha.TextAlign = ContentAlignment.MiddleRight;
@@ -231,17 +336,17 @@
             // txtTelefono
             // 
             txtTelefono.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTelefono.Location = new Point(615, 76);
+            txtTelefono.Location = new Point(337, 70);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.ReadOnly = true;
-            txtTelefono.Size = new Size(139, 22);
+            txtTelefono.Size = new Size(119, 22);
             txtTelefono.TabIndex = 8;
             txtTelefono.TextAlign = HorizontalAlignment.Center;
             // 
             // txtNombre
             // 
             txtNombre.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNombre.Location = new Point(136, 45);
+            txtNombre.Location = new Point(273, 17);
             txtNombre.Name = "txtNombre";
             txtNombre.ReadOnly = true;
             txtNombre.Size = new Size(134, 22);
@@ -251,7 +356,7 @@
             // lblTelefono
             // 
             lblTelefono.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTelefono.Location = new Point(543, 76);
+            lblTelefono.Location = new Point(265, 70);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(66, 22);
             lblTelefono.TabIndex = 12;
@@ -261,9 +366,9 @@
             // lblClienteNombre
             // 
             lblClienteNombre.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblClienteNombre.Location = new Point(38, 45);
+            lblClienteNombre.Location = new Point(204, 20);
             lblClienteNombre.Name = "lblClienteNombre";
-            lblClienteNombre.Size = new Size(92, 22);
+            lblClienteNombre.Size = new Size(63, 22);
             lblClienteNombre.TabIndex = 0;
             lblClienteNombre.Text = "Cliente: ";
             lblClienteNombre.TextAlign = ContentAlignment.MiddleRight;
@@ -271,17 +376,17 @@
             // txtIdntificacion
             // 
             txtIdntificacion.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtIdntificacion.Location = new Point(603, 45);
+            txtIdntificacion.Location = new Point(116, 45);
             txtIdntificacion.Name = "txtIdntificacion";
             txtIdntificacion.ReadOnly = true;
-            txtIdntificacion.Size = new Size(151, 22);
+            txtIdntificacion.Size = new Size(143, 22);
             txtIdntificacion.TabIndex = 7;
             txtIdntificacion.TextAlign = HorizontalAlignment.Center;
             // 
             // lblClienteDNI
             // 
             lblClienteDNI.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblClienteDNI.Location = new Point(505, 45);
+            lblClienteDNI.Location = new Point(18, 43);
             lblClienteDNI.Name = "lblClienteDNI";
             lblClienteDNI.Size = new Size(92, 22);
             lblClienteDNI.TabIndex = 3;
@@ -291,9 +396,9 @@
             // lblEmail
             // 
             lblEmail.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEmail.Location = new Point(9, 104);
+            lblEmail.Location = new Point(462, 70);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(121, 22);
+            lblEmail.Size = new Size(44, 22);
             lblEmail.TabIndex = 5;
             lblEmail.Text = "Email";
             lblEmail.TextAlign = ContentAlignment.MiddleRight;
@@ -301,26 +406,28 @@
             // txtEmail
             // 
             txtEmail.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtEmail.Location = new Point(136, 104);
+            txtEmail.Location = new Point(512, 70);
             txtEmail.Name = "txtEmail";
             txtEmail.ReadOnly = true;
-            txtEmail.Size = new Size(154, 22);
+            txtEmail.Size = new Size(239, 22);
             txtEmail.TabIndex = 9;
             txtEmail.TextAlign = HorizontalAlignment.Center;
             // 
             // gbxVentasPago
             // 
-            gbxVentasPago.Controls.Add(btnVentasNuevaFactura);
+            gbxVentasPago.Controls.Add(lblMontoIVARes);
+            gbxVentasPago.Controls.Add(lblMontoIVA);
+            gbxVentasPago.Controls.Add(btnNuevaFactura);
             gbxVentasPago.Controls.Add(btnVentasPagar);
-            gbxVentasPago.Controls.Add(txtVentasPago);
+            gbxVentasPago.Controls.Add(txtPagoEfectivo);
             gbxVentasPago.Controls.Add(lblVantasPago);
             gbxVentasPago.Controls.Add(label1);
             gbxVentasPago.Controls.Add(lblVentasCambio);
             gbxVentasPago.Controls.Add(lblVentasFormaPago);
             gbxVentasPago.Controls.Add(cboVentasFormaPago);
-            gbxVentasPago.Controls.Add(lblVentasTotalRes);
+            gbxVentasPago.Controls.Add(lblTotalRes);
             gbxVentasPago.Controls.Add(lblVentasTotal);
-            gbxVentasPago.Controls.Add(lblVentasSubTotalRes);
+            gbxVentasPago.Controls.Add(lblSubTotalRes);
             gbxVentasPago.Controls.Add(lblVentasSubTotal);
             gbxVentasPago.Dock = DockStyle.Bottom;
             gbxVentasPago.Location = new Point(0, 572);
@@ -330,40 +437,63 @@
             gbxVentasPago.TabStop = false;
             gbxVentasPago.Text = "Forma de Pago";
             // 
-            // btnVentasNuevaFactura
+            // lblMontoIVARes
             // 
-            btnVentasNuevaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnVentasNuevaFactura.Location = new Point(679, 43);
-            btnVentasNuevaFactura.Name = "btnVentasNuevaFactura";
-            btnVentasNuevaFactura.Size = new Size(78, 40);
-            btnVentasNuevaFactura.TabIndex = 17;
-            btnVentasNuevaFactura.Text = "Nueva Venta";
-            btnVentasNuevaFactura.UseVisualStyleBackColor = true;
+            lblMontoIVARes.BackColor = SystemColors.Info;
+            lblMontoIVARes.BorderStyle = BorderStyle.FixedSingle;
+            lblMontoIVARes.Enabled = false;
+            lblMontoIVARes.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblMontoIVARes.Location = new Point(104, 19);
+            lblMontoIVARes.Name = "lblMontoIVARes";
+            lblMontoIVARes.Size = new Size(95, 23);
+            lblMontoIVARes.TabIndex = 19;
+            lblMontoIVARes.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblMontoIVA
+            // 
+            lblMontoIVA.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblMontoIVA.Location = new Point(12, 19);
+            lblMontoIVA.Name = "lblMontoIVA";
+            lblMontoIVA.Size = new Size(86, 23);
+            lblMontoIVA.TabIndex = 18;
+            lblMontoIVA.Text = "IVA:";
+            lblMontoIVA.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // btnNuevaFactura
+            // 
+            btnNuevaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnNuevaFactura.Location = new Point(682, 17);
+            btnNuevaFactura.Name = "btnNuevaFactura";
+            btnNuevaFactura.Size = new Size(86, 40);
+            btnNuevaFactura.TabIndex = 17;
+            btnNuevaFactura.Text = "Nueva Factura";
+            btnNuevaFactura.UseVisualStyleBackColor = true;
             // 
             // btnVentasPagar
             // 
             btnVentasPagar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnVentasPagar.Location = new Point(534, 54);
+            btnVentasPagar.Location = new Point(590, 17);
             btnVentasPagar.Name = "btnVentasPagar";
             btnVentasPagar.Size = new Size(86, 25);
             btnVentasPagar.TabIndex = 16;
             btnVentasPagar.Text = "Pagar";
             btnVentasPagar.UseVisualStyleBackColor = true;
             // 
-            // txtVentasPago
+            // txtPagoEfectivo
             // 
-            txtVentasPago.Location = new Point(324, 54);
-            txtVentasPago.Name = "txtVentasPago";
-            txtVentasPago.Size = new Size(119, 23);
-            txtVentasPago.TabIndex = 15;
-            txtVentasPago.TextAlign = HorizontalAlignment.Center;
+            txtPagoEfectivo.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPagoEfectivo.Location = new Point(465, 20);
+            txtPagoEfectivo.Name = "txtPagoEfectivo";
+            txtPagoEfectivo.Size = new Size(119, 22);
+            txtPagoEfectivo.TabIndex = 15;
+            txtPagoEfectivo.TextAlign = HorizontalAlignment.Center;
             // 
             // lblVantasPago
             // 
-            lblVantasPago.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVantasPago.Location = new Point(245, 52);
+            lblVantasPago.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblVantasPago.Location = new Point(400, 19);
             lblVantasPago.Name = "lblVantasPago";
-            lblVantasPago.Size = new Size(73, 23);
+            lblVantasPago.Size = new Size(59, 23);
             lblVantasPago.TabIndex = 8;
             lblVantasPago.Text = "Paga: ";
             lblVantasPago.TextAlign = ContentAlignment.MiddleRight;
@@ -373,82 +503,83 @@
             label1.BackColor = SystemColors.Info;
             label1.BorderStyle = BorderStyle.FixedSingle;
             label1.Enabled = false;
-            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(534, 19);
+            label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(465, 51);
             label1.Name = "label1";
-            label1.Size = new Size(100, 23);
+            label1.Size = new Size(119, 23);
             label1.TabIndex = 7;
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblVentasCambio
             // 
-            lblVentasCambio.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasCambio.Location = new Point(455, 19);
+            lblVentasCambio.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblVentasCambio.Location = new Point(400, 51);
             lblVentasCambio.Name = "lblVentasCambio";
-            lblVentasCambio.Size = new Size(73, 23);
+            lblVentasCambio.Size = new Size(59, 23);
             lblVentasCambio.TabIndex = 6;
             lblVentasCambio.Text = "Cambio: ";
             lblVentasCambio.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblVentasFormaPago
             // 
-            lblVentasFormaPago.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasFormaPago.Location = new Point(12, 52);
+            lblVentasFormaPago.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblVentasFormaPago.Location = new Point(207, 54);
             lblVentasFormaPago.Name = "lblVentasFormaPago";
-            lblVentasFormaPago.Size = new Size(100, 23);
+            lblVentasFormaPago.Size = new Size(86, 23);
             lblVentasFormaPago.TabIndex = 5;
             lblVentasFormaPago.Text = "Forma Pago: ";
             lblVentasFormaPago.TextAlign = ContentAlignment.MiddleRight;
             // 
             // cboVentasFormaPago
             // 
+            cboVentasFormaPago.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cboVentasFormaPago.FormattingEnabled = true;
             cboVentasFormaPago.Items.AddRange(new object[] { "EFECTIVO", "TARJETA" });
-            cboVentasFormaPago.Location = new Point(118, 54);
+            cboVentasFormaPago.Location = new Point(299, 51);
             cboVentasFormaPago.Name = "cboVentasFormaPago";
-            cboVentasFormaPago.Size = new Size(121, 23);
+            cboVentasFormaPago.Size = new Size(95, 24);
             cboVentasFormaPago.TabIndex = 14;
             // 
-            // lblVentasTotalRes
+            // lblTotalRes
             // 
-            lblVentasTotalRes.BackColor = SystemColors.Info;
-            lblVentasTotalRes.BorderStyle = BorderStyle.FixedSingle;
-            lblVentasTotalRes.Enabled = false;
-            lblVentasTotalRes.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasTotalRes.Location = new Point(324, 19);
-            lblVentasTotalRes.Name = "lblVentasTotalRes";
-            lblVentasTotalRes.Size = new Size(119, 23);
-            lblVentasTotalRes.TabIndex = 3;
-            lblVentasTotalRes.TextAlign = ContentAlignment.MiddleCenter;
+            lblTotalRes.BackColor = SystemColors.Info;
+            lblTotalRes.BorderStyle = BorderStyle.FixedSingle;
+            lblTotalRes.Enabled = false;
+            lblTotalRes.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTotalRes.Location = new Point(299, 19);
+            lblTotalRes.Name = "lblTotalRes";
+            lblTotalRes.Size = new Size(95, 23);
+            lblTotalRes.TabIndex = 3;
+            lblTotalRes.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblVentasTotal
             // 
-            lblVentasTotal.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasTotal.Location = new Point(245, 19);
+            lblVentasTotal.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblVentasTotal.Location = new Point(205, 19);
             lblVentasTotal.Name = "lblVentasTotal";
-            lblVentasTotal.Size = new Size(73, 23);
+            lblVentasTotal.Size = new Size(88, 23);
             lblVentasTotal.TabIndex = 2;
             lblVentasTotal.Text = "Total: ";
             lblVentasTotal.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // lblVentasSubTotalRes
+            // lblSubTotalRes
             // 
-            lblVentasSubTotalRes.BackColor = SystemColors.Info;
-            lblVentasSubTotalRes.BorderStyle = BorderStyle.FixedSingle;
-            lblVentasSubTotalRes.Enabled = false;
-            lblVentasSubTotalRes.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasSubTotalRes.Location = new Point(118, 19);
-            lblVentasSubTotalRes.Name = "lblVentasSubTotalRes";
-            lblVentasSubTotalRes.Size = new Size(121, 23);
-            lblVentasSubTotalRes.TabIndex = 1;
-            lblVentasSubTotalRes.TextAlign = ContentAlignment.MiddleCenter;
+            lblSubTotalRes.BackColor = SystemColors.Info;
+            lblSubTotalRes.BorderStyle = BorderStyle.FixedSingle;
+            lblSubTotalRes.Enabled = false;
+            lblSubTotalRes.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblSubTotalRes.Location = new Point(104, 52);
+            lblSubTotalRes.Name = "lblSubTotalRes";
+            lblSubTotalRes.Size = new Size(95, 23);
+            lblSubTotalRes.TabIndex = 1;
+            lblSubTotalRes.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblVentasSubTotal
             // 
-            lblVentasSubTotal.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasSubTotal.Location = new Point(12, 19);
+            lblVentasSubTotal.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblVentasSubTotal.Location = new Point(12, 52);
             lblVentasSubTotal.Name = "lblVentasSubTotal";
-            lblVentasSubTotal.Size = new Size(100, 23);
+            lblVentasSubTotal.Size = new Size(86, 23);
             lblVentasSubTotal.TabIndex = 0;
             lblVentasSubTotal.Text = "Sub Total: ";
             lblVentasSubTotal.TextAlign = ContentAlignment.MiddleRight;
@@ -458,124 +589,64 @@
             gbxVentasDatos.Controls.Add(gbxVentasProductos);
             gbxVentasDatos.Controls.Add(gbxVentasDatosCliente);
             gbxVentasDatos.Dock = DockStyle.Fill;
-            gbxVentasDatos.Location = new Point(0, 120);
+            gbxVentasDatos.Location = new Point(0, 114);
             gbxVentasDatos.Name = "gbxVentasDatos";
-            gbxVentasDatos.Size = new Size(774, 452);
+            gbxVentasDatos.Size = new Size(774, 458);
             gbxVentasDatos.TabIndex = 5;
             gbxVentasDatos.TabStop = false;
             // 
             // gbxVentasProductos
             // 
-            gbxVentasProductos.Controls.Add(dgvVentaListaProductos);
-            gbxVentasProductos.Location = new Point(3, 336);
+            gbxVentasProductos.Controls.Add(lvwListaVenta);
+            gbxVentasProductos.Dock = DockStyle.Fill;
+            gbxVentasProductos.Location = new Point(3, 176);
             gbxVentasProductos.Name = "gbxVentasProductos";
-            gbxVentasProductos.Size = new Size(768, 113);
+            gbxVentasProductos.Size = new Size(768, 279);
             gbxVentasProductos.TabIndex = 11;
             gbxVentasProductos.TabStop = false;
             gbxVentasProductos.Text = "Lista Productos";
             // 
-            // dgvVentaListaProductos
+            // lvwListaVenta
             // 
-            dgvVentaListaProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvVentaListaProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVentaListaProductos.Columns.AddRange(new DataGridViewColumn[] { colCodigo, colProducto, colCantidad, colPrecioUnitario, colTotal });
-            dgvVentaListaProductos.Dock = DockStyle.Fill;
-            dgvVentaListaProductos.Location = new Point(3, 19);
-            dgvVentaListaProductos.Name = "dgvVentaListaProductos";
-            dgvVentaListaProductos.ReadOnly = true;
-            dgvVentaListaProductos.RowTemplate.Height = 25;
-            dgvVentaListaProductos.Size = new Size(762, 91);
-            dgvVentaListaProductos.TabIndex = 12;
+            lvwListaVenta.BackColor = SystemColors.Info;
+            lvwListaVenta.Columns.AddRange(new ColumnHeader[] { colCategoriaProducto, colCodigoProducto, colProducto, colCantidadProducto, colPrecioUnitario, colTotalProducto });
+            lvwListaVenta.Dock = DockStyle.Fill;
+            lvwListaVenta.Location = new Point(3, 19);
+            lvwListaVenta.Name = "lvwListaVenta";
+            lvwListaVenta.Size = new Size(762, 257);
+            lvwListaVenta.TabIndex = 0;
+            lvwListaVenta.UseCompatibleStateImageBehavior = false;
+            lvwListaVenta.View = View.Details;
             // 
-            // colCodigo
+            // colCategoriaProducto
             // 
-            colCodigo.HeaderText = "Codigo";
-            colCodigo.Name = "colCodigo";
-            colCodigo.ReadOnly = true;
+            colCategoriaProducto.Text = "Categoria Producto";
+            colCategoriaProducto.Width = 130;
+            // 
+            // colCodigoProducto
+            // 
+            colCodigoProducto.Text = "Codigo Producto";
+            colCodigoProducto.Width = 130;
             // 
             // colProducto
             // 
-            colProducto.HeaderText = "Producto";
-            colProducto.Name = "colProducto";
-            colProducto.ReadOnly = true;
+            colProducto.Text = "Producto";
+            colProducto.Width = 130;
             // 
-            // colCantidad
+            // colCantidadProducto
             // 
-            colCantidad.HeaderText = "Cantidad";
-            colCantidad.Name = "colCantidad";
-            colCantidad.ReadOnly = true;
+            colCantidadProducto.Text = "Cantidad Producto";
+            colCantidadProducto.Width = 130;
             // 
             // colPrecioUnitario
             // 
-            colPrecioUnitario.HeaderText = "Precio Unitario";
-            colPrecioUnitario.Name = "colPrecioUnitario";
-            colPrecioUnitario.ReadOnly = true;
+            colPrecioUnitario.Text = "Precio Unitario";
+            colPrecioUnitario.Width = 130;
             // 
-            // colTotal
+            // colTotalProducto
             // 
-            colTotal.HeaderText = "Total";
-            colTotal.Name = "colTotal";
-            colTotal.ReadOnly = true;
-            // 
-            // txtTipoIdentificacion
-            // 
-            txtTipoIdentificacion.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTipoIdentificacion.Location = new Point(136, 76);
-            txtTipoIdentificacion.Name = "txtTipoIdentificacion";
-            txtTipoIdentificacion.ReadOnly = true;
-            txtTipoIdentificacion.Size = new Size(154, 22);
-            txtTipoIdentificacion.TabIndex = 18;
-            txtTipoIdentificacion.TextAlign = HorizontalAlignment.Center;
-            // 
-            // lblTipoIdentificacion
-            // 
-            lblTipoIdentificacion.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTipoIdentificacion.Location = new Point(9, 76);
-            lblTipoIdentificacion.Name = "lblTipoIdentificacion";
-            lblTipoIdentificacion.Size = new Size(121, 22);
-            lblTipoIdentificacion.TabIndex = 19;
-            lblTipoIdentificacion.Text = "Tipo Identificacion";
-            lblTipoIdentificacion.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // txtCodigoCliente
-            // 
-            txtCodigoCliente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCodigoCliente.Location = new Point(403, 76);
-            txtCodigoCliente.Name = "txtCodigoCliente";
-            txtCodigoCliente.ReadOnly = true;
-            txtCodigoCliente.Size = new Size(134, 22);
-            txtCodigoCliente.TabIndex = 20;
-            txtCodigoCliente.TextAlign = HorizontalAlignment.Center;
-            // 
-            // lblCodigoCliente
-            // 
-            lblCodigoCliente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblCodigoCliente.Location = new Point(276, 76);
-            lblCodigoCliente.Name = "lblCodigoCliente";
-            lblCodigoCliente.Size = new Size(121, 22);
-            lblCodigoCliente.TabIndex = 21;
-            lblCodigoCliente.Text = "Codigo Cliente";
-            lblCodigoCliente.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // txtApellidoPrimero
-            // 
-            txtApellidoPrimero.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtApellidoPrimero.Location = new Point(276, 45);
-            txtApellidoPrimero.Name = "txtApellidoPrimero";
-            txtApellidoPrimero.ReadOnly = true;
-            txtApellidoPrimero.Size = new Size(99, 22);
-            txtApellidoPrimero.TabIndex = 22;
-            txtApellidoPrimero.TextAlign = HorizontalAlignment.Center;
-            // 
-            // txtApellidoSegundo
-            // 
-            txtApellidoSegundo.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtApellidoSegundo.Location = new Point(381, 45);
-            txtApellidoSegundo.Name = "txtApellidoSegundo";
-            txtApellidoSegundo.ReadOnly = true;
-            txtApellidoSegundo.Size = new Size(118, 22);
-            txtApellidoSegundo.TabIndex = 23;
-            txtApellidoSegundo.TextAlign = HorizontalAlignment.Center;
+            colTotalProducto.Text = "Total Producto";
+            colTotalProducto.Width = 120;
             // 
             // frmVentasFacturacion
             // 
@@ -594,11 +665,12 @@
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
             gbxVentasDatosCliente.ResumeLayout(false);
             gbxVentasDatosCliente.PerformLayout();
+            gbxCodigoProducto.ResumeLayout(false);
+            gbxCodigoProducto.PerformLayout();
             gbxVentasPago.ResumeLayout(false);
             gbxVentasPago.PerformLayout();
             gbxVentasDatos.ResumeLayout(false);
             gbxVentasProductos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvVentaListaProductos).EndInit();
             ResumeLayout(false);
         }
 
@@ -624,32 +696,39 @@
         private TextBox txtIdntificacion;
         private Label lblVentasFecha;
         private DateTimePicker dtpVentaFecha;
-        private DataGridView dgvVentaListaProductos;
-        private DataGridViewTextBoxColumn colCodigo;
-        private DataGridViewTextBoxColumn colProducto;
-        private DataGridViewTextBoxColumn colCantidad;
-        private DataGridViewTextBoxColumn colPrecioUnitario;
-        private DataGridViewTextBoxColumn colTotal;
-        private Label lblVentasTotalRes;
+        private Label lblTotalRes;
         private Label lblVentasTotal;
-        private Label lblVentasSubTotalRes;
+        private Label lblSubTotalRes;
         private Label lblVentasSubTotal;
         private Label lblVentasFormaPago;
         private ComboBox cboVentasFormaPago;
         private Label label1;
         private Label lblVentasCambio;
         private Label lblVantasPago;
-        private TextBox txtVentasPago;
-        private Button btnVentasNuevaFactura;
+        private TextBox txtPagoEfectivo;
+        private Button btnNuevaFactura;
         private Button btnVentasPagar;
-        private Label lblVentasNumeroFactura;
-        private Label lblVentasFacturaNumero;
-        private Button btnBuscarCliente;
         private TextBox txtCodigoCliente;
         private Label lblCodigoCliente;
         private TextBox txtTipoIdentificacion;
         private Label lblTipoIdentificacion;
         private TextBox txtApellidoSegundo;
         private TextBox txtApellidoPrimero;
+        private ListView lvwListaVenta;
+        private ColumnHeader colCategoriaProducto;
+        private ColumnHeader colCodigoProducto;
+        private ColumnHeader colProducto;
+        private ColumnHeader colCantidadProducto;
+        private ColumnHeader colPrecioUnitario;
+        private ColumnHeader colTotalProducto;
+        private GroupBox gbxCodigoProducto;
+        private Button btnAgregarProducto;
+        private Label lblCodigoProducto;
+        private TextBox txtCodigoProducto;
+        private Button btnBuscarCliente;
+        private TextBox txtCantidadProducto;
+        private Label lblCantidadProducto;
+        private Label lblMontoIVARes;
+        private Label lblMontoIVA;
     }
 }

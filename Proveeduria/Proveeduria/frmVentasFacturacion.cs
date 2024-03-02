@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using Utils;
 
 namespace Proveeduria
 {
@@ -18,13 +20,59 @@ namespace Proveeduria
             InitializeComponent();
         }
 
-        private void frmVentasFacturacion_Load(object sender, EventArgs e) { }
+        private void frmVentasFacturacion_Load(object sender, EventArgs e)
+        {
+            _lstProductos = new List<Producto>();
+            _Productos = new Producto();
+            _VentasFactura = new VentasFacturas();
+        }
         /*------------------------------------------------- Objetos --------------------------------------------------------------------*/
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
-        XmlDocument xmlDoc;
+        XmlDocument xmlDoc = new XmlDocument();
+        Producto _Productos;
+        Cliente _Clientes;
+        VentasFacturas _VentasFactura;
+        List<Producto> _lstProductos;
+        /*------------------------------------------------- Atributos --------------------------------------------------------------------*/
+
 
         private string consutlaCliente = string.Empty;
+        private string conusltaProducto = string.Empty;
 
+        string codigoCliente = string.Empty;
+        string tipoIdentificacionCliente = string.Empty;
+        int identificacionCliente;
+        string NombreCliente = string.Empty;
+        string ApellidoPrimeroCliente = string.Empty;
+        string ApellidoSegundoCliente = string.Empty;
+        int TelefonoCliente;
+        string emailCliente = string.Empty;
+        /*------------------------------------------------- TextBox --------------------------------------------------------------------*/
+        private void txtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()) && !Validaciones.soloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBuscarCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()) && !Validaciones.soloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCantidadProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        /*------------------------------------------------- Botones --------------------------------------------------------------------*/
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             try
@@ -36,23 +84,23 @@ namespace Proveeduria
 
                 if (_nodoBuscarCliente != null)
                 {
-                    string codigoCliente = _nodoBuscarCliente.SelectSingleNode("CodigoCliente").InnerText;
-                    string tipoIdentificacionCliente = _nodoBuscarCliente.SelectSingleNode("TipoIdentificacion").InnerText;
-                    string identificacionCliente = _nodoBuscarCliente.SelectSingleNode("NumeroIdentificacion").InnerText;
-                    string NombreCliente = _nodoBuscarCliente.SelectSingleNode("Nombre").InnerText;
-                    string ApellidoPrimeroCliente = _nodoBuscarCliente.SelectSingleNode("ApellidoPrimero").InnerText;
-                    string ApellidoSegundoCliente = _nodoBuscarCliente.SelectSingleNode("ApellidoSegundo").InnerText;
-                    string TelefonoCliente = _nodoBuscarCliente.SelectSingleNode("Telefono").InnerText;
-                    string emailCliente = _nodoBuscarCliente.SelectSingleNode("Email").InnerText;
+                    codigoCliente = _nodoBuscarCliente.SelectSingleNode("CodigoCliente").InnerText;
+                    tipoIdentificacionCliente = _nodoBuscarCliente.SelectSingleNode("TipoIdentificacion").InnerText;
+                    identificacionCliente = Convert.ToInt32(_nodoBuscarCliente.SelectSingleNode("NumeroIdentificacion").InnerText);
+                    NombreCliente = _nodoBuscarCliente.SelectSingleNode("Nombre").InnerText;
+                    ApellidoPrimeroCliente = _nodoBuscarCliente.SelectSingleNode("ApellidoPrimero").InnerText;
+                    ApellidoSegundoCliente = _nodoBuscarCliente.SelectSingleNode("ApellidoSegundo").InnerText;
+                    TelefonoCliente = Convert.ToInt32(_nodoBuscarCliente.SelectSingleNode("Telefono").InnerText);
+                    emailCliente = _nodoBuscarCliente.SelectSingleNode("Email").InnerText;
                     /* Obtengo los datos del cliente */
 
                     txtCodigoCliente.Text = codigoCliente;
                     txtTipoIdentificacion.Text = tipoIdentificacionCliente;
-                    txtIdntificacion.Text = identificacionCliente;
+                    txtIdntificacion.Text = identificacionCliente.ToString();
                     txtNombre.Text = NombreCliente;
                     txtApellidoPrimero.Text = ApellidoPrimeroCliente;
                     txtApellidoSegundo.Text = ApellidoSegundoCliente;
-                    txtTelefono.Text = TelefonoCliente;
+                    txtTelefono.Text = TelefonoCliente.ToString();
                     txtEmail.Text = emailCliente;
                     /*pinto en pantalla los datos del Cliente*/
                 }
@@ -65,16 +113,62 @@ namespace Proveeduria
             {
                 MessageBox.Show("***No se Encontro al Proveedor ***", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }/*fin btnAgregarProducto*/
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
 
 
+                MessageBox.Show("Se registro la Factura Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("*** No se Encontro el Producto ***", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }/*btnAgregarProducto*/
 
-        /*------------------------------------------------- Botones --------------------------------------------------------------------*/
-
-
-
-        /*------------------------------------------------- TextBox --------------------------------------------------------------------*/
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
+
+        public void LimpiarTextbox()
+        {
+            txtNombre.Text = string.Empty;
+            txtApellidoPrimero.Text = string.Empty;
+            txtApellidoSegundo.Text = string.Empty;
+            txtIdntificacion.Text = string.Empty;
+            txtTipoIdentificacion.Text = string.Empty;
+            txtCodigoCliente.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+        }/*LimpiarTextbox*/
+
+        public void restarCantidades()
+        {
+            conusltaProducto = this.txtCodigoProducto.Text.ToUpper();
+            int valorActual = _Productos.calcularCantidad("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/CantidadProducto");
+
+            if (int.TryParse(txtCantidadProducto.Text, out int valorIngresado))
+            {
+                int nuevoValor = valorActual - valorIngresado;
+                _ArchivoXML.modificarXML("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/CantidadProducto", nuevoValor.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un valor numérico válido en el TextBox.");
+            }
+        }/*restarCantidades*/
+
+        private string obtenerTexto(XmlNode node, string nodeName)
+        {
+            XmlNode childNode = node.SelectSingleNode(nodeName);
+            /* SelectSingleNode(nodeName) para encontrar el subnodo con el nombre especificado.*/
+            return (childNode != null) ? childNode.InnerText : string.Empty;
+            /* Verificamos si el subnodo fue encontrado.
+             Si childNode es diferente de null, significa que el subnodo existe y podemos obtener su contenido.
+             En ese caso, retornamos el contenido del subnodo, que es el texto dentro del elemento XML.
+             Si childNode es null, retornamos una cadena vacía.*/
+        }/*funcion auxiliar para MostrarFacturaVenta() para obtner el texto dentro del nodo XML*/
 
     }/*fin frmVentasFacturacion*/
 }/*fin namespace*/
