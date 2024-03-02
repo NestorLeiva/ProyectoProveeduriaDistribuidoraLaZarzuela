@@ -82,7 +82,6 @@
             colProducto = new ColumnHeader();
             colCantidadProducto = new ColumnHeader();
             colPrecioUnitario = new ColumnHeader();
-            colTotalProducto = new ColumnHeader();
             gbxVentasTitulo.SuspendLayout();
             gbxClienteModificar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
@@ -609,7 +608,7 @@
             // lvwListaVenta
             // 
             lvwListaVenta.BackColor = SystemColors.Info;
-            lvwListaVenta.Columns.AddRange(new ColumnHeader[] { colCategoriaProducto, colCodigoProducto, colProducto, colCantidadProducto, colPrecioUnitario, colTotalProducto });
+            lvwListaVenta.Columns.AddRange(new ColumnHeader[] { colCategoriaProducto, colCodigoProducto, colProducto, colCantidadProducto, colPrecioUnitario });
             lvwListaVenta.Dock = DockStyle.Fill;
             lvwListaVenta.Location = new Point(3, 19);
             lvwListaVenta.Name = "lvwListaVenta";
@@ -642,11 +641,6 @@
             // 
             colPrecioUnitario.Text = "Precio Unitario";
             colPrecioUnitario.Width = 130;
-            // 
-            // colTotalProducto
-            // 
-            colTotalProducto.Text = "Total Producto";
-            colTotalProducto.Width = 120;
             // 
             // frmVentasFacturacion
             // 
@@ -720,7 +714,6 @@
         private ColumnHeader colProducto;
         private ColumnHeader colCantidadProducto;
         private ColumnHeader colPrecioUnitario;
-        private ColumnHeader colTotalProducto;
         private GroupBox gbxCodigoProducto;
         private Button btnAgregarProducto;
         private Label lblCodigoProducto;

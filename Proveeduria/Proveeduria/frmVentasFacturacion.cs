@@ -34,8 +34,6 @@ namespace Proveeduria
         VentasFacturas _VentasFactura;
         List<Producto> _lstProductos;
         /*------------------------------------------------- Atributos --------------------------------------------------------------------*/
-
-
         private string consutlaCliente = string.Empty;
         private string conusltaProducto = string.Empty;
 
@@ -119,6 +117,7 @@ namespace Proveeduria
         {
             try
             {
+                BuscarProducto();
 
 
                 MessageBox.Show("Se registro la Factura Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -131,6 +130,38 @@ namespace Proveeduria
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
 
+        public void BuscarProducto()
+        {
+            conusltaProducto = this.txtCodigoProducto.Text.ToUpper();
+            XmlDocument xmlDoc = _ArchivoXML.leerXML("ListaProductos.xml");
+
+            XmlNodeList nodosProducto = xmlDoc.SelectNodes($"//Producto[CodigoProducto='{conusltaProducto}']");
+            if (nodosProducto.Count > 0)
+            {
+                int cantidadVenta = Convert.ToInt32(txtCantidadProducto.Text);
+
+                foreach (XmlNode nodoProducto in nodosProducto)
+                {
+                    string categoria = nodoProducto.SelectSingleNode("CategoriaProducto").InnerText;
+                    string codigo = nodoProducto.SelectSingleNode("CodigoProducto").InnerText;
+                    string nombre = nodoProducto.SelectSingleNode("NombreProducto").InnerText;
+                    string cantidad = nodoProducto.SelectSingleNode("CantidadProducto").InnerText;
+                    string precio = nodoProducto.SelectSingleNode("PrecioProducto").InnerText;
+
+                    ListViewItem itemVenta = new ListViewItem(categoria);
+                    itemVenta.SubItems.Add(codigo);
+                    itemVenta.SubItems.Add(nombre);
+                    itemVenta.SubItems.Add(cantidadVenta.ToString());
+                    itemVenta.SubItems.Add(precio);
+                    lvwListaVenta.Items.Add(itemVenta);
+                }
+                restarCantidades();
+            }
+            else
+            {
+                MessageBox.Show("Producto no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }/*BuscarProducto*/
         public void LimpiarTextbox()
         {
             txtNombre.Text = string.Empty;
@@ -142,7 +173,6 @@ namespace Proveeduria
             txtTelefono.Text = string.Empty;
             txtEmail.Text = string.Empty;
         }/*LimpiarTextbox*/
-
         public void restarCantidades()
         {
             conusltaProducto = this.txtCodigoProducto.Text.ToUpper();
