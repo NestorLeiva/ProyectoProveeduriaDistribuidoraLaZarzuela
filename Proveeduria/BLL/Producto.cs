@@ -17,8 +17,7 @@ namespace BLL
         private string categoriaProducto = string.Empty;
         private string nombreProducto = string.Empty;
         private int cantidadProducto;
-        private decimal precioProducto;
-        private int totalPrecioUndProducto;
+        private int precioProducto;
         private string codigoProducto = string.Empty;
         private static string rutaRelativaXML = "ListaProductos.xml";
         private int nuevaCantidad;
@@ -29,13 +28,12 @@ namespace BLL
 
         public Producto() { }
 
-        public Producto(string categoriaProducto, string nombreProducto, int cantidadProducto, decimal precioProducto, int totalPrecioUndProducto, string codigoProducto)
+        public Producto(string categoriaProducto, string nombreProducto, int cantidadProducto, int precioProducto,  string codigoProducto)
         {
             this.categoriaProducto = categoriaProducto;
             this.nombreProducto = nombreProducto;
             this.cantidadProducto = cantidadProducto;
-            this.precioProducto = precioProducto;
-            this.totalPrecioUndProducto = totalPrecioUndProducto;
+            this.precioProducto = precioProducto;  
             this.codigoProducto = codigoProducto;
         }
 
@@ -43,13 +41,32 @@ namespace BLL
         public string CategoriaProducto { get { return categoriaProducto; } set { categoriaProducto = value; } }
         public string NombreProducto { get { return nombreProducto; } set { nombreProducto = value; } }
         public int CantidadProducto { get { return cantidadProducto; } set { cantidadProducto = value; } }
-        public decimal PrecioUndProducto { get { return precioProducto; } set { precioProducto = value; } }
-        public int TotalPrecioProducto { get { return totalPrecioUndProducto; } set { totalPrecioUndProducto = value; } }
+        public int PrecioUndProducto { get { return precioProducto; } set { precioProducto = value; } }
+       
         public string CodigoProducto { get { return codigoProducto; } set { codigoProducto = value; } }
         public int NuevaCantidad { get { return nuevaCantidad; } set { nuevaCantidad = value; } }
 
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
+
+        public double CalcularIVA()
+        {
+            double ivaProducto = PrecioUndProducto * 0.13;
+            return ivaProducto;
+        } /*CalcularIVA*/
+
+        public double CalcularSubTotal()
+        {
+            double subTotal = PrecioUndProducto * CantidadProducto;
+            return subTotal;
+        }/*CalcularSubTotal*/
+
+        public double CalcularTotal(double ivaAcumulado)
+        {
+            double subtotal = CalcularSubTotal();
+            double total = subtotal + ivaAcumulado;
+            return total;
+        }/*CalcularTotal*/
 
         public string generarCodigoProducto()
         {
@@ -104,7 +121,8 @@ namespace BLL
               XElement incluyen la obtención y modificación de atributos, la navegación a través de elementos secundarios,
               la creación de nuevos elementos y la carga y guardado de documentos XML.*/
 
-        }/*obtenerValor*/
+        }/*obtenerValor frmIngresoFactura & frmVentas Facturacion*/
+
         public void grabarXMLProductos(string rutaArchivo)
         {
             if (File.Exists(rutaArchivo))
