@@ -45,6 +45,14 @@ namespace Proveeduria
         string ApellidoSegundoCliente = string.Empty;
         int TelefonoCliente;
         string emailCliente = string.Empty;
+
+        double ivaAcumulado = 0;
+        double subtotalAcumulado = 0;
+
+
+
+
+
         /*------------------------------------------------- TextBox --------------------------------------------------------------------*/
         private void txtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -126,6 +134,8 @@ namespace Proveeduria
             {
                 MessageBox.Show("*** No se Encontro el Producto ***", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            txtCodigoProducto.Text = string.Empty;
+            txtCantidadProducto.Text = string.Empty;
         }/*btnAgregarProducto*/
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
@@ -139,29 +149,68 @@ namespace Proveeduria
             if (nodosProducto.Count > 0)
             {
                 int cantidadVenta = Convert.ToInt32(txtCantidadProducto.Text);
-
+                
                 foreach (XmlNode nodoProducto in nodosProducto)
                 {
-                    string categoria = nodoProducto.SelectSingleNode("CategoriaProducto").InnerText;
-                    string codigo = nodoProducto.SelectSingleNode("CodigoProducto").InnerText;
-                    string nombre = nodoProducto.SelectSingleNode("NombreProducto").InnerText;
-                    string cantidad = nodoProducto.SelectSingleNode("CantidadProducto").InnerText;
-                    string precio = nodoProducto.SelectSingleNode("PrecioProducto").InnerText;
+                    Producto _Productos = new Producto()
+                    {
+                        CategoriaProducto = nodoProducto.SelectSingleNode("CategoriaProducto").InnerText,
+                        CodigoProducto = nodoProducto.SelectSingleNode("CodigoProducto").InnerText,
+                        NombreProducto = nodoProducto.SelectSingleNode("NombreProducto").InnerText,
+                        CantidadProducto = Convert.ToInt32( cantidadVenta),
+                        PrecioUndProducto =Convert.ToInt32( nodoProducto.SelectSingleNode("PrecioProducto").InnerText),
 
-                    ListViewItem itemVenta = new ListViewItem(categoria);
-                    itemVenta.SubItems.Add(codigo);
-                    itemVenta.SubItems.Add(nombre);
+                    };
+
+                    ListViewItem itemVenta = new ListViewItem(_Productos.CategoriaProducto);
+                    itemVenta.SubItems.Add(_Productos.CodigoProducto);
+                    itemVenta.SubItems.Add(_Productos.NombreProducto);
                     itemVenta.SubItems.Add(cantidadVenta.ToString());
-                    itemVenta.SubItems.Add(precio);
+                    itemVenta.SubItems.Add(_Productos.PrecioUndProducto.ToString());
+
+                    double ivaUnidad = _Productos.CalcularIVA();
+                    double subTotal = _Productos.CalcularSubTotal();
+                    double total = _Productos.CalcularTotal(ivaUnidad);
+
+                    ivaAcumulado += ivaUnidad;
+                    subtotalAcumulado += subTotal;
+
+                    lblMontoIVARes.Text = ivaAcumulado.ToString();
+                    lblSubTotalRes.Text = subTotal.ToString();
+                    lblTotalRes.Text = (subtotalAcumulado + ivaAcumulado).ToString();
+
+
+
+
+
+
+
+
+
+
                     lvwListaVenta.Items.Add(itemVenta);
-                }
+
+
+
+
+
+                };
                 restarCantidades();
+
+
             }
             else
             {
                 MessageBox.Show("Producto no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
+
         }/*BuscarProducto*/
+
+
+
+
         public void LimpiarTextbox()
         {
             txtNombre.Text = string.Empty;
