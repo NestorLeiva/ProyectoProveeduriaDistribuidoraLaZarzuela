@@ -23,7 +23,7 @@ namespace Proveeduria
 
         IngresoFacturas _IngresoFacturas;
         List<Producto> _lstProductos;
-        public Producto _Productos = new IngresoFacturas();
+        public Producto _Productos = new Producto();
 
         string codSeleccionado = string.Empty;
         string nomSeleccionado = string.Empty;
