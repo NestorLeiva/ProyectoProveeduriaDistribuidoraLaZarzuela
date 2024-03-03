@@ -112,5 +112,11 @@ namespace Proveeduria
             frmConsultaProductos pantalla = new frmConsultaProductos();
             this.CargarPantalla(pantalla);
         }
+
+        private void mnListaProveedores_Click(object sender, EventArgs e)
+        {
+            frmConsultaProveedores pantalla = new frmConsultaProveedores();
+            this.CargarPantalla(pantalla);
+        }
     }
 }
