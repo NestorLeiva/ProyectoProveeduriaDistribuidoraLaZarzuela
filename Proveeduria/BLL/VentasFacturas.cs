@@ -36,8 +36,8 @@ namespace BLL
         private double montoIVA = 0.13;
         private double subTotal;
         private double total;
+        private static int ConsecutivoVentaFactura = 1;
 
-        private int ConsecutivoVentaFactura = 1;
 
         XmlDocument xmlDocFacturaVenta = new XmlDocument();
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
@@ -62,8 +62,9 @@ namespace BLL
 
         public string generarCodigoFacturaVenta()
         {
-            int consecutivo = ConsecutivoVentaFactura++;
-            return "FV-" + (consecutivo).ToString();
+            
+            
+            return "FV-" + (ConsecutivoVentaFactura).ToString();
         }/*fin generarCodigoFactura*/
 
         public void setFechaFactura(DateTime fecha)
@@ -74,8 +75,10 @@ namespace BLL
         public void grabarXMLFacturaVentas(string rutaArchivo)
         {
             DateTime fechaNueva = FechaFactura;
-            string carpetaMes = Path.Combine(Path.GetDirectoryName(rutaArchivo), fechaNueva.ToString("yyyy-MM")+ " FacturasVenta");
-            string rutaCarpeta = Path.Combine(carpetaMes, fechaNueva.ToString("yyyy-MM-dd") + " FacturasVenta.xml");
+            string carpetaMes = Path.Combine(Path.GetDirectoryName(rutaArchivo), fechaNueva.ToString("yyyy-MM") + " FacturasVenta");
+            string nombreArchivo = $"factura_{this.generarCodigoFacturaVenta()}_{fechaFactura.ToString("yyyyMMdd")}.xml";
+            //string rutaCarpeta = Path.Combine(carpetaMes, fechaNueva.ToString("yyyy-MM-dd") + " FacturasVenta.xml");
+            string rutaCarpeta = Path.Combine(carpetaMes, nombreArchivo);
             /*generacion del carpetas por mes */
 
             if (File.Exists(rutaCarpeta))
@@ -145,7 +148,7 @@ namespace BLL
             xmlFactura.AppendChild(xmlFechaFactura);
 
             /*Nodo NumeroFactura */
-            ConsecutivoVentaFactura++;
+            
             XmlNode xmlNumeroFactura = xmlDocFacturaVenta.CreateElement("NumeroFactura");
             xmlNumeroFactura.InnerText = this.generarCodigoFacturaVenta(); /*genero el cogido de la factura*/
             xmlFactura.AppendChild(xmlNumeroFactura);
@@ -209,6 +212,7 @@ namespace BLL
             } /*fin foreach*/
 
             _ArchivoXML.escribirXML(rutaCarpeta, xmlDocFacturaVenta);
+            ConsecutivoVentaFactura++;
         }/*fin grabarXMLFactura*/
 
     }/*fin IngresoFacturas*/
