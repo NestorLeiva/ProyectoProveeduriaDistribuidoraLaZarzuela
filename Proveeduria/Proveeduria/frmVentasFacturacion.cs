@@ -49,10 +49,6 @@ namespace Proveeduria
         double ivaAcumulado = 0;
         double subtotalAcumulado = 0;
 
-
-
-
-
         /*------------------------------------------------- TextBox --------------------------------------------------------------------*/
         private void txtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -144,7 +140,7 @@ namespace Proveeduria
                             PrecioUndProducto = Convert.ToInt32(nodoProducto.SelectSingleNode("PrecioProducto").InnerText),
 
                         };
-
+                        this._lstProductos.Add(_Productos);
                         ListViewItem itemVenta = new ListViewItem(_Productos.CategoriaProducto);
                         itemVenta.SubItems.Add(_Productos.CodigoProducto);
                         itemVenta.SubItems.Add(_Productos.NombreProducto);
@@ -186,6 +182,28 @@ namespace Proveeduria
         private void btnVentasPagar_Click(object sender, EventArgs e)
         {
 
+
+;
+           
+            _VentasFactura = new VentasFacturas()
+            {
+                Nombre = txtNombre.Text,
+                ApellidoPrimero = txtApellidoPrimero.Text,
+                ApellidoSegundo = txtApellidoSegundo.Text,
+                DNI = Convert.ToInt32(txtIdntificacion.Text),
+                TipoDni = txtTipoIdentificacion.Text,
+                CodigoCliente = txtCodigoCliente.Text,
+                Telefono = Convert.ToInt32(txtTelefono.Text),
+                Email = txtEmail.Text,
+                FechaFactura = dtpVentaFecha.Value.Date,
+
+                /*-------------------------------------------*/
+                _ListaProductos = this._lstProductos
+                
+            };
+            _VentasFactura.grabarXMLFacturaVentas("FacturasVenta.xml");
+
+            MessageBox.Show("Venta Realizada con Exito", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }/*fin btnPagar*/
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
