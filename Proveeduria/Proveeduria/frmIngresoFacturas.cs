@@ -20,6 +20,7 @@ namespace Proveeduria
         private string consultarCodProveedor; /*btn Buscar Proveedor*/
         private string conusltaProducto; /*btn Buscar Producto*/
         private string rutaArchivo = "FacturasCompra.xml";
+        private int totalProductos = 0;
 
         IngresoFacturas _IngresoFacturas;
         List<Producto> _lstProductos;
@@ -104,6 +105,14 @@ namespace Proveeduria
             }
         }
 
+        private void txtPrecioUndProducto_KeyPress_1(object sender, KeyPressEventArgs e)
+       {
+            if (!Validaciones.soloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         /*------------------------------------------------- Botones --------------------------------------------------------------------*/
         private void btnLimpiarDatosProveedor_Click(object sender, EventArgs e)
         {
@@ -157,7 +166,7 @@ namespace Proveeduria
 
 
             }
-            catch (Exception )
+            catch (Exception)
             {
                 MessageBox.Show("***No se Encontro al Proveedor ***", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -208,7 +217,8 @@ namespace Proveeduria
                 XmlNodeList nodosProducto = xmlDoc.SelectNodes($"//Producto[CodigoProducto='{conusltaProducto}']");
                 if (nodosProducto.Count > 0)
                 {
-                    int cantidadVenta = Convert.ToInt32(txtCantidadProducto.Text);
+                    int cantidadCompraUnd = Convert.ToInt32(txtCantidadProducto.Text);
+                    int precioProducto = Convert.ToInt32(txtPrecioUndProducto.Text);
 
                     foreach (XmlNode nodoProducto in nodosProducto)
                     {
@@ -217,15 +227,18 @@ namespace Proveeduria
                             CategoriaProducto = nodoProducto.SelectSingleNode("CategoriaProducto").InnerText,
                             CodigoProducto = nodoProducto.SelectSingleNode("CodigoProducto").InnerText,
                             NombreProducto = nodoProducto.SelectSingleNode("NombreProducto").InnerText,
-                            CantidadProducto = Convert.ToInt32(cantidadVenta),
-                            PrecioUndProducto = Convert.ToInt32(nodoProducto.SelectSingleNode("PrecioProducto").InnerText),
+                            CantidadProducto = Convert.ToInt32(cantidadCompraUnd),
+                            PrecioUndProducto = Convert.ToInt32(precioProducto),
+
                         };
+                         totalProductos = (cantidadCompraUnd * _Productos.PrecioUndProducto);
                         this._lstProductos.Add(_Productos);
                         ListViewItem itemVenta = new ListViewItem(_Productos.CategoriaProducto);
                         itemVenta.SubItems.Add(_Productos.CodigoProducto);
                         itemVenta.SubItems.Add(_Productos.NombreProducto);
-                        itemVenta.SubItems.Add(cantidadVenta.ToString());
-                        itemVenta.SubItems.Add(_Productos.PrecioUndProducto.ToString());
+                        itemVenta.SubItems.Add(cantidadCompraUnd.ToString());
+                        itemVenta.SubItems.Add(precioProducto.ToString());
+                        itemVenta.SubItems.Add(totalProductos.ToString());
                         /*Agrego los datos al listview*/
 
                         lvwListaProductos.Items.Add(itemVenta);
@@ -236,7 +249,7 @@ namespace Proveeduria
                 else
                 {
                     MessageBox.Show("Producto no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                } 
+                }
             }
             catch (Exception)
             {
@@ -272,15 +285,13 @@ namespace Proveeduria
                 LimpiarDatosProveedor();
 
                 /*muestro los Productos de la Ultima Factura*/
-               
+
             }
             catch (Exception)
             {
                 MessageBox.Show("*** Error al Guardar la Factura *** ", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }/*btnAceptarProducto_Click*/
-
-
 
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
@@ -306,16 +317,17 @@ namespace Proveeduria
             txtBuscarProductoCodigo.Text = string.Empty;
         }/*fin Limpiar Datos Proveedor*/
 
-        
         public void SumarCantidades()
         {
             int valorActual = _Productos.calcularCantidad("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/CantidadProducto");
+            int TotalProductos = Convert.ToInt32(txtPrecioUndProducto.Text);
 
             if (int.TryParse(txtCantidadProducto.Text, out int valorIngresado))
             {
                 int nuevoValor = valorActual + valorIngresado;
                 _ArchivoXML.modificarXML("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/CantidadProducto", nuevoValor.ToString());
-                
+                _ArchivoXML.modificarXML("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/PrecioProducto", TotalProductos.ToString());
+
             }
             else
             {

@@ -43,6 +43,7 @@
             colDesProducto = new ColumnHeader();
             colCantidadProducto = new ColumnHeader();
             colPrecioUndProducto = new ColumnHeader();
+            colTotal = new ColumnHeader();
             txtMontoIvaFactura = new TextBox();
             lblMontoIvaFactura = new Label();
             txtMontoFactura = new TextBox();
@@ -97,7 +98,7 @@
             gbxRegistroProductosTitulo.Dock = DockStyle.Top;
             gbxRegistroProductosTitulo.Location = new Point(0, 0);
             gbxRegistroProductosTitulo.Name = "gbxRegistroProductosTitulo";
-            gbxRegistroProductosTitulo.Size = new Size(806, 138);
+            gbxRegistroProductosTitulo.Size = new Size(774, 138);
             gbxRegistroProductosTitulo.TabIndex = 1;
             gbxRegistroProductosTitulo.TabStop = false;
             // 
@@ -169,7 +170,7 @@
             gbxListaProductos.Dock = DockStyle.Bottom;
             gbxListaProductos.Location = new Point(0, 393);
             gbxListaProductos.Name = "gbxListaProductos";
-            gbxListaProductos.Size = new Size(806, 291);
+            gbxListaProductos.Size = new Size(774, 291);
             gbxListaProductos.TabIndex = 40;
             gbxListaProductos.TabStop = false;
             gbxListaProductos.Text = "Lista de Productos";
@@ -177,11 +178,11 @@
             // lvwListaProductos
             // 
             lvwListaProductos.BackColor = SystemColors.Info;
-            lvwListaProductos.Columns.AddRange(new ColumnHeader[] { colCatProducto, colCodProducto, colDesProducto, colCantidadProducto, colPrecioUndProducto });
+            lvwListaProductos.Columns.AddRange(new ColumnHeader[] { colCatProducto, colCodProducto, colDesProducto, colCantidadProducto, colPrecioUndProducto, colTotal });
             lvwListaProductos.Dock = DockStyle.Fill;
             lvwListaProductos.Location = new Point(3, 19);
             lvwListaProductos.Name = "lvwListaProductos";
-            lvwListaProductos.Size = new Size(800, 269);
+            lvwListaProductos.Size = new Size(768, 269);
             lvwListaProductos.TabIndex = 41;
             lvwListaProductos.UseCompatibleStateImageBehavior = false;
             lvwListaProductos.View = View.Details;
@@ -210,6 +211,11 @@
             // 
             colPrecioUndProducto.Text = "Precio Unitario";
             colPrecioUndProducto.Width = 120;
+            // 
+            // colTotal
+            // 
+            colTotal.Text = "Total Productos";
+            colTotal.Width = 120;
             // 
             // txtMontoIvaFactura
             // 
@@ -298,7 +304,7 @@
             gbxFacturasRegistro.Dock = DockStyle.Fill;
             gbxFacturasRegistro.Location = new Point(0, 138);
             gbxFacturasRegistro.Name = "gbxFacturasRegistro";
-            gbxFacturasRegistro.Size = new Size(806, 255);
+            gbxFacturasRegistro.Size = new Size(774, 255);
             gbxFacturasRegistro.TabIndex = 6;
             gbxFacturasRegistro.TabStop = false;
             gbxFacturasRegistro.Text = "Registro Facturas";
@@ -322,7 +328,7 @@
             gbxIngresoProductos.Controls.Add(lblPrecioUndProducto);
             gbxIngresoProductos.Location = new Point(3, 154);
             gbxIngresoProductos.Name = "gbxIngresoProductos";
-            gbxIngresoProductos.Size = new Size(803, 114);
+            gbxIngresoProductos.Size = new Size(771, 114);
             gbxIngresoProductos.TabIndex = 49;
             gbxIngresoProductos.TabStop = false;
             gbxIngresoProductos.Text = "Ingreso Datos Productos Nuevos";
@@ -456,10 +462,10 @@
             txtPrecioUndProducto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             txtPrecioUndProducto.Location = new Point(303, 71);
             txtPrecioUndProducto.Name = "txtPrecioUndProducto";
-            txtPrecioUndProducto.ReadOnly = true;
             txtPrecioUndProducto.Size = new Size(119, 21);
             txtPrecioUndProducto.TabIndex = 35;
             txtPrecioUndProducto.TextAlign = HorizontalAlignment.Center;
+            txtPrecioUndProducto.KeyPress += txtPrecioUndProducto_KeyPress_1;
             // 
             // btnAceptarProducto
             // 
@@ -506,7 +512,7 @@
             gbxDatosProveedor.Dock = DockStyle.Top;
             gbxDatosProveedor.Location = new Point(3, 19);
             gbxDatosProveedor.Name = "gbxDatosProveedor";
-            gbxDatosProveedor.Size = new Size(800, 129);
+            gbxDatosProveedor.Size = new Size(768, 129);
             gbxDatosProveedor.TabIndex = 7;
             gbxDatosProveedor.TabStop = false;
             gbxDatosProveedor.Text = "Datos Proveedor";
@@ -626,7 +632,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(806, 684);
+            ClientSize = new Size(774, 684);
             ControlBox = false;
             Controls.Add(gbxFacturasRegistro);
             Controls.Add(gbxListaProductos);
@@ -711,5 +717,6 @@
         private TextBox txtPrecioUndProducto;
         private Button btnAceptarProducto;
         private Label lblPrecioUndProducto;
+        private ColumnHeader colTotal;
     }
 }
