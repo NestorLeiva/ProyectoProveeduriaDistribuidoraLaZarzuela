@@ -128,7 +128,6 @@ namespace Proveeduria
                 BuscarProducto();
 
 
-                MessageBox.Show("Se registro la Factura Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
@@ -149,7 +148,7 @@ namespace Proveeduria
             if (nodosProducto.Count > 0)
             {
                 int cantidadVenta = Convert.ToInt32(txtCantidadProducto.Text);
-                
+
                 foreach (XmlNode nodoProducto in nodosProducto)
                 {
                     Producto _Productos = new Producto()
@@ -157,8 +156,8 @@ namespace Proveeduria
                         CategoriaProducto = nodoProducto.SelectSingleNode("CategoriaProducto").InnerText,
                         CodigoProducto = nodoProducto.SelectSingleNode("CodigoProducto").InnerText,
                         NombreProducto = nodoProducto.SelectSingleNode("NombreProducto").InnerText,
-                        CantidadProducto = Convert.ToInt32( cantidadVenta),
-                        PrecioUndProducto =Convert.ToInt32( nodoProducto.SelectSingleNode("PrecioProducto").InnerText),
+                        CantidadProducto = Convert.ToInt32(cantidadVenta),
+                        PrecioUndProducto = Convert.ToInt32(nodoProducto.SelectSingleNode("PrecioProducto").InnerText),
 
                     };
 
@@ -167,6 +166,7 @@ namespace Proveeduria
                     itemVenta.SubItems.Add(_Productos.NombreProducto);
                     itemVenta.SubItems.Add(cantidadVenta.ToString());
                     itemVenta.SubItems.Add(_Productos.PrecioUndProducto.ToString());
+                    /*Agrego los datos al listview*/
 
                     double ivaUnidad = _Productos.CalcularIVA();
                     double subTotal = _Productos.CalcularSubTotal();
@@ -175,38 +175,27 @@ namespace Proveeduria
                     ivaAcumulado += ivaUnidad;
                     subtotalAcumulado += subTotal;
 
-                    lblMontoIVARes.Text = ivaAcumulado.ToString();
-                    lblSubTotalRes.Text = subTotal.ToString();
+                    lblMontoIVARes.Text = ivaAcumulado.ToString(); /*impresion y llamada al metodo */
+                    lblSubTotalRes.Text = subtotalAcumulado.ToString();/*/*impresion y llamada al metodo */
                     lblTotalRes.Text = (subtotalAcumulado + ivaAcumulado).ToString();
-
-
-
-
-
-
-
-
+                    
 
 
                     lvwListaVenta.Items.Add(itemVenta);
 
-
-
-
-
                 };
                 restarCantidades();
-
-
             }
             else
             {
                 MessageBox.Show("Producto no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            txtCantidadProducto.Text = string.Empty;
+            txtCodigoProducto.Text = string.Empty;
 
 
 
-        }/*BuscarProducto*/
+        }/*BuscarProducto & impresion en listView*/
 
 
 

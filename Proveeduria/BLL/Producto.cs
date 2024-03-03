@@ -28,12 +28,12 @@ namespace BLL
 
         public Producto() { }
 
-        public Producto(string categoriaProducto, string nombreProducto, int cantidadProducto, int precioProducto,  string codigoProducto)
+        public Producto(string categoriaProducto, string nombreProducto, int cantidadProducto, int precioProducto, string codigoProducto)
         {
             this.categoriaProducto = categoriaProducto;
             this.nombreProducto = nombreProducto;
             this.cantidadProducto = cantidadProducto;
-            this.precioProducto = precioProducto;  
+            this.precioProducto = precioProducto;
             this.codigoProducto = codigoProducto;
         }
 
@@ -42,7 +42,7 @@ namespace BLL
         public string NombreProducto { get { return nombreProducto; } set { nombreProducto = value; } }
         public int CantidadProducto { get { return cantidadProducto; } set { cantidadProducto = value; } }
         public int PrecioUndProducto { get { return precioProducto; } set { precioProducto = value; } }
-       
+
         public string CodigoProducto { get { return codigoProducto; } set { codigoProducto = value; } }
         public int NuevaCantidad { get { return nuevaCantidad; } set { nuevaCantidad = value; } }
 
@@ -51,13 +51,13 @@ namespace BLL
 
         public double CalcularIVA()
         {
-            double ivaProducto = PrecioUndProducto * 0.13;
+            double ivaProducto = ((PrecioUndProducto * 0.13)*CantidadProducto);
             return ivaProducto;
         } /*CalcularIVA*/
 
         public double CalcularSubTotal()
         {
-            double subTotal = PrecioUndProducto * CantidadProducto;
+            double subTotal = ((PrecioUndProducto * CantidadProducto));
             return subTotal;
         }/*CalcularSubTotal*/
 
