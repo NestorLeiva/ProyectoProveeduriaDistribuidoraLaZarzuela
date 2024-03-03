@@ -25,6 +25,7 @@ namespace Proveeduria
             _lstProductos = new List<Producto>();
             _Productos = new Producto();
             _VentasFactura = new VentasFacturas();
+
         }
         /*------------------------------------------------- Objetos --------------------------------------------------------------------*/
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
@@ -76,6 +77,14 @@ namespace Proveeduria
             }
         }
 
+        private void txtPagoEfectivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Validaciones.soloNumeros(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         /*------------------------------------------------- Botones --------------------------------------------------------------------*/
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
@@ -101,9 +110,7 @@ namespace Proveeduria
                     txtCodigoCliente.Text = codigoCliente;
                     txtTipoIdentificacion.Text = tipoIdentificacionCliente;
                     txtIdntificacion.Text = identificacionCliente.ToString();
-                    txtNombre.Text = NombreCliente;
-                    txtApellidoPrimero.Text = ApellidoPrimeroCliente;
-                    txtApellidoSegundo.Text = ApellidoSegundoCliente;
+                    txtNombre.Text = NombreCliente +" "+ ApellidoPrimeroCliente +" "+ ApellidoSegundoCliente;
                     txtTelefono.Text = TelefonoCliente.ToString();
                     txtEmail.Text = emailCliente;
                     /*pinto en pantalla los datos del Cliente*/
@@ -118,7 +125,6 @@ namespace Proveeduria
                 MessageBox.Show("***No se Encontro al Proveedor ***", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }/*fin btnAgregarProducto*/
-
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             try
@@ -142,12 +148,14 @@ namespace Proveeduria
                             PrecioUndProducto = Convert.ToInt32(nodoProducto.SelectSingleNode("PrecioProducto").InnerText),
 
                         };
+                        int totalProductos = cantidadVenta * _Productos.PrecioUndProducto;
                         this._lstProductos.Add(_Productos);
                         ListViewItem itemVenta = new ListViewItem(_Productos.CategoriaProducto);
                         itemVenta.SubItems.Add(_Productos.CodigoProducto);
                         itemVenta.SubItems.Add(_Productos.NombreProducto);
                         itemVenta.SubItems.Add(cantidadVenta.ToString());
                         itemVenta.SubItems.Add(_Productos.PrecioUndProducto.ToString());
+                        itemVenta.SubItems.Add(totalProductos.ToString());
                         /*Agrego los datos al listview*/
 
                         double ivaUnidad = _Productos.CalcularIVA();
@@ -184,8 +192,7 @@ namespace Proveeduria
             _VentasFactura = new VentasFacturas()
             {
                 Nombre = txtNombre.Text,
-                ApellidoPrimero = txtApellidoPrimero.Text,
-                ApellidoSegundo = txtApellidoSegundo.Text,
+
                 DNI = Convert.ToInt32(txtIdntificacion.Text),
                 TipoDni = txtTipoIdentificacion.Text,
                 CodigoCliente = txtCodigoCliente.Text,
@@ -198,20 +205,23 @@ namespace Proveeduria
                 MontoTotal = Convert.ToInt32(totalRes),
                 /*-------------------------------------------*/
                 _ListaProductos = this._lstProductos
-                
+
             };
             _VentasFactura.grabarXMLFacturaVentas("FacturasVenta.xml");
-
+            
             MessageBox.Show("Venta Realizada con Exito", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }/*fin btnPagar*/
+        private void btnNuevaFactura_Click(object sender, EventArgs e)
+        {
+            LimpiarTextbox();
+            txtBuscarCliente.Text = string.Empty;
+        }
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
 
         public void LimpiarTextbox()
         {
             txtNombre.Text = string.Empty;
-            txtApellidoPrimero.Text = string.Empty;
-            txtApellidoSegundo.Text = string.Empty;
             txtIdntificacion.Text = string.Empty;
             txtTipoIdentificacion.Text = string.Empty;
             txtCodigoCliente.Text = string.Empty;
@@ -233,7 +243,6 @@ namespace Proveeduria
                 MessageBox.Show("Ingrese un valor numérico válido en el TextBox.");
             }
         }/*restarCantidades*/
-
         private string obtenerTexto(XmlNode node, string nodeName)
         {
             XmlNode childNode = node.SelectSingleNode(nodeName);
