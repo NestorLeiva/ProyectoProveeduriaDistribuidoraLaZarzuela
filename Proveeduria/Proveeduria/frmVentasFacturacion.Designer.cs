@@ -132,7 +132,7 @@
             txtBuscarCliente.Location = new Point(114, 19);
             txtBuscarCliente.Name = "txtBuscarCliente";
             txtBuscarCliente.Size = new Size(135, 22);
-            txtBuscarCliente.TabIndex = 3;
+            txtBuscarCliente.TabIndex = 4;
             txtBuscarCliente.TextAlign = HorizontalAlignment.Center;
             txtBuscarCliente.KeyPress += txtBuscarCliente_KeyPress;
             // 
@@ -142,7 +142,7 @@
             lblBuscarCodigoCliente.Location = new Point(8, 19);
             lblBuscarCodigoCliente.Name = "lblBuscarCodigoCliente";
             lblBuscarCodigoCliente.Size = new Size(100, 22);
-            lblBuscarCodigoCliente.TabIndex = 4;
+            lblBuscarCodigoCliente.TabIndex = 3;
             lblBuscarCodigoCliente.Text = "Codigo Cliente";
             lblBuscarCodigoCliente.TextAlign = ContentAlignment.MiddleRight;
             // 
@@ -189,7 +189,7 @@
             gbxVentasDatosCliente.Location = new Point(3, 19);
             gbxVentasDatosCliente.Name = "gbxVentasDatosCliente";
             gbxVentasDatosCliente.Size = new Size(768, 157);
-            gbxVentasDatosCliente.TabIndex = 5;
+            gbxVentasDatosCliente.TabIndex = 7;
             gbxVentasDatosCliente.TabStop = false;
             gbxVentasDatosCliente.Text = "Datos Clientes";
             // 
@@ -212,7 +212,7 @@
             txtCantidadProducto.Location = new Point(357, 22);
             txtCantidadProducto.Name = "txtCantidadProducto";
             txtCantidadProducto.Size = new Size(154, 23);
-            txtCantidadProducto.TabIndex = 9;
+            txtCantidadProducto.TabIndex = 18;
             txtCantidadProducto.KeyPress += txtCantidadProducto_KeyPress;
             // 
             // lblCantidadProducto
@@ -231,7 +231,7 @@
             btnAgregarProducto.Location = new Point(517, 22);
             btnAgregarProducto.Name = "btnAgregarProducto";
             btnAgregarProducto.Size = new Size(125, 23);
-            btnAgregarProducto.TabIndex = 7;
+            btnAgregarProducto.TabIndex = 19;
             btnAgregarProducto.Text = "Agregar Producto";
             btnAgregarProducto.UseVisualStyleBackColor = true;
             btnAgregarProducto.Click += btnAgregarProducto_Click;
@@ -251,7 +251,7 @@
             txtCodigoProducto.Location = new Point(70, 22);
             txtCodigoProducto.Name = "txtCodigoProducto";
             txtCodigoProducto.Size = new Size(154, 23);
-            txtCodigoProducto.TabIndex = 10;
+            txtCodigoProducto.TabIndex = 17;
             txtCodigoProducto.KeyPress += txtCodigoProducto_KeyPress;
             // 
             // txtApellidoSegundo
@@ -261,7 +261,7 @@
             txtApellidoSegundo.Name = "txtApellidoSegundo";
             txtApellidoSegundo.ReadOnly = true;
             txtApellidoSegundo.Size = new Size(134, 22);
-            txtApellidoSegundo.TabIndex = 23;
+            txtApellidoSegundo.TabIndex = 11;
             txtApellidoSegundo.TextAlign = HorizontalAlignment.Center;
             // 
             // txtApellidoPrimero
@@ -271,7 +271,7 @@
             txtApellidoPrimero.Name = "txtApellidoPrimero";
             txtApellidoPrimero.ReadOnly = true;
             txtApellidoPrimero.Size = new Size(134, 22);
-            txtApellidoPrimero.TabIndex = 22;
+            txtApellidoPrimero.TabIndex = 10;
             txtApellidoPrimero.TextAlign = HorizontalAlignment.Center;
             // 
             // txtCodigoCliente
@@ -281,7 +281,7 @@
             txtCodigoCliente.Name = "txtCodigoCliente";
             txtCodigoCliente.ReadOnly = true;
             txtCodigoCliente.Size = new Size(143, 22);
-            txtCodigoCliente.TabIndex = 20;
+            txtCodigoCliente.TabIndex = 14;
             txtCodigoCliente.TextAlign = HorizontalAlignment.Center;
             // 
             // lblCodigoCliente
@@ -301,7 +301,7 @@
             txtTipoIdentificacion.Name = "txtTipoIdentificacion";
             txtTipoIdentificacion.ReadOnly = true;
             txtTipoIdentificacion.Size = new Size(114, 22);
-            txtTipoIdentificacion.TabIndex = 18;
+            txtTipoIdentificacion.TabIndex = 13;
             txtTipoIdentificacion.TextAlign = HorizontalAlignment.Center;
             // 
             // lblTipoIdentificacion
@@ -330,7 +330,7 @@
             dtpVentaFecha.Location = new Point(81, 19);
             dtpVentaFecha.Name = "dtpVentaFecha";
             dtpVentaFecha.Size = new Size(117, 23);
-            dtpVentaFecha.TabIndex = 10;
+            dtpVentaFecha.TabIndex = 8;
             // 
             // txtTelefono
             // 
@@ -339,7 +339,7 @@
             txtTelefono.Name = "txtTelefono";
             txtTelefono.ReadOnly = true;
             txtTelefono.Size = new Size(119, 22);
-            txtTelefono.TabIndex = 8;
+            txtTelefono.TabIndex = 15;
             txtTelefono.TextAlign = HorizontalAlignment.Center;
             // 
             // txtNombre
@@ -349,7 +349,7 @@
             txtNombre.Name = "txtNombre";
             txtNombre.ReadOnly = true;
             txtNombre.Size = new Size(134, 22);
-            txtNombre.TabIndex = 6;
+            txtNombre.TabIndex = 9;
             txtNombre.TextAlign = HorizontalAlignment.Center;
             // 
             // lblTelefono
@@ -379,7 +379,7 @@
             txtIdntificacion.Name = "txtIdntificacion";
             txtIdntificacion.ReadOnly = true;
             txtIdntificacion.Size = new Size(143, 22);
-            txtIdntificacion.TabIndex = 7;
+            txtIdntificacion.TabIndex = 12;
             txtIdntificacion.TextAlign = HorizontalAlignment.Center;
             // 
             // lblClienteDNI
@@ -409,7 +409,7 @@
             txtEmail.Name = "txtEmail";
             txtEmail.ReadOnly = true;
             txtEmail.Size = new Size(239, 22);
-            txtEmail.TabIndex = 9;
+            txtEmail.TabIndex = 16;
             txtEmail.TextAlign = HorizontalAlignment.Center;
             // 
             // gbxVentasPago
@@ -432,7 +432,7 @@
             gbxVentasPago.Location = new Point(0, 572);
             gbxVentasPago.Name = "gbxVentasPago";
             gbxVentasPago.Size = new Size(774, 89);
-            gbxVentasPago.TabIndex = 13;
+            gbxVentasPago.TabIndex = 22;
             gbxVentasPago.TabStop = false;
             gbxVentasPago.Text = "Forma de Pago";
             // 
@@ -464,7 +464,7 @@
             btnNuevaFactura.Location = new Point(682, 17);
             btnNuevaFactura.Name = "btnNuevaFactura";
             btnNuevaFactura.Size = new Size(86, 40);
-            btnNuevaFactura.TabIndex = 17;
+            btnNuevaFactura.TabIndex = 26;
             btnNuevaFactura.Text = "Nueva Factura";
             btnNuevaFactura.UseVisualStyleBackColor = true;
             // 
@@ -474,9 +474,10 @@
             btnVentasPagar.Location = new Point(590, 17);
             btnVentasPagar.Name = "btnVentasPagar";
             btnVentasPagar.Size = new Size(86, 25);
-            btnVentasPagar.TabIndex = 16;
+            btnVentasPagar.TabIndex = 25;
             btnVentasPagar.Text = "Pagar";
             btnVentasPagar.UseVisualStyleBackColor = true;
+            btnVentasPagar.Click += btnVentasPagar_Click;
             // 
             // txtPagoEfectivo
             // 
@@ -484,7 +485,7 @@
             txtPagoEfectivo.Location = new Point(465, 20);
             txtPagoEfectivo.Name = "txtPagoEfectivo";
             txtPagoEfectivo.Size = new Size(119, 22);
-            txtPagoEfectivo.TabIndex = 15;
+            txtPagoEfectivo.TabIndex = 24;
             txtPagoEfectivo.TextAlign = HorizontalAlignment.Center;
             // 
             // lblVantasPago
@@ -537,7 +538,7 @@
             cboVentasFormaPago.Location = new Point(299, 51);
             cboVentasFormaPago.Name = "cboVentasFormaPago";
             cboVentasFormaPago.Size = new Size(95, 24);
-            cboVentasFormaPago.TabIndex = 14;
+            cboVentasFormaPago.TabIndex = 23;
             // 
             // lblTotalRes
             // 
@@ -591,7 +592,7 @@
             gbxVentasDatos.Location = new Point(0, 114);
             gbxVentasDatos.Name = "gbxVentasDatos";
             gbxVentasDatos.Size = new Size(774, 458);
-            gbxVentasDatos.TabIndex = 5;
+            gbxVentasDatos.TabIndex = 6;
             gbxVentasDatos.TabStop = false;
             // 
             // gbxVentasProductos
@@ -601,7 +602,7 @@
             gbxVentasProductos.Location = new Point(3, 176);
             gbxVentasProductos.Name = "gbxVentasProductos";
             gbxVentasProductos.Size = new Size(768, 279);
-            gbxVentasProductos.TabIndex = 11;
+            gbxVentasProductos.TabIndex = 20;
             gbxVentasProductos.TabStop = false;
             gbxVentasProductos.Text = "Lista Productos";
             // 
@@ -613,7 +614,7 @@
             lvwListaVenta.Location = new Point(3, 19);
             lvwListaVenta.Name = "lvwListaVenta";
             lvwListaVenta.Size = new Size(762, 257);
-            lvwListaVenta.TabIndex = 0;
+            lvwListaVenta.TabIndex = 21;
             lvwListaVenta.UseCompatibleStateImageBehavior = false;
             lvwListaVenta.View = View.Details;
             // 

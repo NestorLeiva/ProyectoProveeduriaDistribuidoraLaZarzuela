@@ -125,7 +125,54 @@ namespace Proveeduria
         {
             try
             {
-                BuscarProducto();
+                conusltaProducto = this.txtCodigoProducto.Text.ToUpper();
+                XmlDocument xmlDoc = _ArchivoXML.leerXML("ListaProductos.xml");
+
+                XmlNodeList nodosProducto = xmlDoc.SelectNodes($"//Producto[CodigoProducto='{conusltaProducto}']");
+                if (nodosProducto.Count > 0)
+                {
+                    int cantidadVenta = Convert.ToInt32(txtCantidadProducto.Text);
+
+                    foreach (XmlNode nodoProducto in nodosProducto)
+                    {
+                        Producto _Productos = new Producto()
+                        {
+                            CategoriaProducto = nodoProducto.SelectSingleNode("CategoriaProducto").InnerText,
+                            CodigoProducto = nodoProducto.SelectSingleNode("CodigoProducto").InnerText,
+                            NombreProducto = nodoProducto.SelectSingleNode("NombreProducto").InnerText,
+                            CantidadProducto = Convert.ToInt32(cantidadVenta),
+                            PrecioUndProducto = Convert.ToInt32(nodoProducto.SelectSingleNode("PrecioProducto").InnerText),
+
+                        };
+
+                        ListViewItem itemVenta = new ListViewItem(_Productos.CategoriaProducto);
+                        itemVenta.SubItems.Add(_Productos.CodigoProducto);
+                        itemVenta.SubItems.Add(_Productos.NombreProducto);
+                        itemVenta.SubItems.Add(cantidadVenta.ToString());
+                        itemVenta.SubItems.Add(_Productos.PrecioUndProducto.ToString());
+                        /*Agrego los datos al listview*/
+
+                        double ivaUnidad = _Productos.CalcularIVA();
+                        double subTotal = _Productos.CalcularSubTotal();
+                        double total = _Productos.CalcularTotal(ivaUnidad);
+
+                        ivaAcumulado += ivaUnidad;
+                        subtotalAcumulado += subTotal;
+
+                        lblMontoIVARes.Text = ivaAcumulado.ToString(); /*impresion y llamada al metodo */
+                        lblSubTotalRes.Text = subtotalAcumulado.ToString();/*/*impresion y llamada al metodo */
+                        lblTotalRes.Text = (subtotalAcumulado + ivaAcumulado).ToString();
+
+                        lvwListaVenta.Items.Add(itemVenta);
+                    };
+                    restarCantidades();
+                }
+                else
+                {
+                    MessageBox.Show("Producto no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                txtCantidadProducto.Text = string.Empty;
+                txtCodigoProducto.Text = string.Empty;
 
 
             }
@@ -136,69 +183,12 @@ namespace Proveeduria
             txtCodigoProducto.Text = string.Empty;
             txtCantidadProducto.Text = string.Empty;
         }/*btnAgregarProducto*/
+        private void btnVentasPagar_Click(object sender, EventArgs e)
+        {
+
+        }/*fin btnPagar*/
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
-
-        public void BuscarProducto()
-        {
-            conusltaProducto = this.txtCodigoProducto.Text.ToUpper();
-            XmlDocument xmlDoc = _ArchivoXML.leerXML("ListaProductos.xml");
-
-            XmlNodeList nodosProducto = xmlDoc.SelectNodes($"//Producto[CodigoProducto='{conusltaProducto}']");
-            if (nodosProducto.Count > 0)
-            {
-                int cantidadVenta = Convert.ToInt32(txtCantidadProducto.Text);
-
-                foreach (XmlNode nodoProducto in nodosProducto)
-                {
-                    Producto _Productos = new Producto()
-                    {
-                        CategoriaProducto = nodoProducto.SelectSingleNode("CategoriaProducto").InnerText,
-                        CodigoProducto = nodoProducto.SelectSingleNode("CodigoProducto").InnerText,
-                        NombreProducto = nodoProducto.SelectSingleNode("NombreProducto").InnerText,
-                        CantidadProducto = Convert.ToInt32(cantidadVenta),
-                        PrecioUndProducto = Convert.ToInt32(nodoProducto.SelectSingleNode("PrecioProducto").InnerText),
-
-                    };
-
-                    ListViewItem itemVenta = new ListViewItem(_Productos.CategoriaProducto);
-                    itemVenta.SubItems.Add(_Productos.CodigoProducto);
-                    itemVenta.SubItems.Add(_Productos.NombreProducto);
-                    itemVenta.SubItems.Add(cantidadVenta.ToString());
-                    itemVenta.SubItems.Add(_Productos.PrecioUndProducto.ToString());
-                    /*Agrego los datos al listview*/
-
-                    double ivaUnidad = _Productos.CalcularIVA();
-                    double subTotal = _Productos.CalcularSubTotal();
-                    double total = _Productos.CalcularTotal(ivaUnidad);
-
-                    ivaAcumulado += ivaUnidad;
-                    subtotalAcumulado += subTotal;
-
-                    lblMontoIVARes.Text = ivaAcumulado.ToString(); /*impresion y llamada al metodo */
-                    lblSubTotalRes.Text = subtotalAcumulado.ToString();/*/*impresion y llamada al metodo */
-                    lblTotalRes.Text = (subtotalAcumulado + ivaAcumulado).ToString();
-                    
-
-
-                    lvwListaVenta.Items.Add(itemVenta);
-
-                };
-                restarCantidades();
-            }
-            else
-            {
-                MessageBox.Show("Producto no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            txtCantidadProducto.Text = string.Empty;
-            txtCodigoProducto.Text = string.Empty;
-
-
-
-        }/*BuscarProducto & impresion en listView*/
-
-
-
 
         public void LimpiarTextbox()
         {
@@ -237,6 +227,7 @@ namespace Proveeduria
              En ese caso, retornamos el contenido del subnodo, que es el texto dentro del elemento XML.
              Si childNode es null, retornamos una cadena vacía.*/
         }/*funcion auxiliar para MostrarFacturaVenta() para obtner el texto dentro del nodo XML*/
+
 
     }/*fin frmVentasFacturacion*/
 }/*fin namespace*/
