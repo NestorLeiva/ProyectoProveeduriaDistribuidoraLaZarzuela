@@ -1,0 +1,14 @@
+<Funcionarios>
+  <Funcionario>
+    <Identificacion>1</Identificacion>
+    <Nombre>ADMIN</Nombre>
+    <ApellidoPrimero>
+    </ApellidoPrimero>
+    <ApellidoSegundo>
+    </ApellidoSegundo>
+    <Email>ADMIN@LAZARZUELA.COM</Email>
+    <CodigoFuncionario>1</CodigoFuncionario>
+    <Contrasenia>ADMIN</Contrasenia>
+    <Estado>Activo</Estado>
+  </Funcionario>
+</Funcionarios>

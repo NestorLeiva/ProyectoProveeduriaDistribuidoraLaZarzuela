@@ -1,0 +1,26 @@
+<Facturas>
+  <Factura>
+    <NumeroIdentificacion>304360498</NumeroIdentificacion>
+    <TipoIdentificacion>FISICO</TipoIdentificacion>
+    <Nombre>NESTOR</Nombre>
+    <ApellidoPrimero>LEIVA</ApellidoPrimero>
+    <ApellidoSegundo>VILLALOBOS</ApellidoSegundo>
+    <CodigoCliente>NELV498</CodigoCliente>
+    <Telefono>89101284</Telefono>
+    <Email>NLEIVA@LAZARZUELA.COM</Email>
+    <FechaFactura>04/03/2024</FechaFactura>
+    <NumeroFactura>FV-2</NumeroFactura>
+    <SubTotalFactura>10000</SubTotalFactura>
+    <MontoIVAFactura>1300</MontoIVAFactura>
+    <TotalFactura>11300</TotalFactura>
+    <Productos>
+      <Producto>
+        <CategoriaProducto>HERRAMIENTAS</CategoriaProducto>
+        <CodigoProducto>HELLCO5197</CodigoProducto>
+        <NombreProducto>LLAVE COROFIJA</NombreProducto>
+        <CantidadProducto>10</CantidadProducto>
+        <PrecioProducto>1000</PrecioProducto>
+      </Producto>
+    </Productos>
+  </Factura>
+</Facturas>

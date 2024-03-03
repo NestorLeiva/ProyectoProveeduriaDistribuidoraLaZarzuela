@@ -1,0 +1,123 @@
+<Facturas>
+  <Factura>
+    <CodigoProveedor>NE0499</CodigoProveedor>
+    <NombreProveedor>NESTOR</NombreProveedor>
+    <IdentificacionProveedor>304360499</IdentificacionProveedor>
+    <TelefonoProveedor>89101285</TelefonoProveedor>
+    <EmailProveedor>NLEIVA@LAZARZUELA.COM</EmailProveedor>
+    <FechaFactura>28/02/2024</FechaFactura>
+    <NumeroFactura>FC-1</NumeroFactura>
+    <MontoFactura>10000</MontoFactura>
+    <MontoIVAFactura>1300</MontoIVAFactura>
+    <Productos>
+      <Producto>
+        <CategoriaProducto>HERRAMIENTAS</CategoriaProducto>
+        <CodigoProducto>HEMAHU2230</CodigoProducto>
+        <NombreProducto>MAZO HULE</NombreProducto>
+        <CantidadProducto>50</CantidadProducto>
+        <PrecioProducto>500</PrecioProducto>
+      </Producto>
+    </Productos>
+  </Factura>
+  <Factura>
+    <CodigoProveedor>DF5345</CodigoProveedor>
+    <NombreProveedor>NESTOR LEIVA</NombreProveedor>
+    <IdentificacionProveedor>345345</IdentificacionProveedor>
+    <TelefonoProveedor>89101284</TelefonoProveedor>
+    <EmailProveedor>NLEIVA@LAZARZUELA.COM</EmailProveedor>
+    <FechaFactura>01/03/2024</FechaFactura>
+    <NumeroFactura>FC-2</NumeroFactura>
+    <MontoFactura>15000</MontoFactura>
+    <MontoIVAFactura>1950</MontoIVAFactura>
+    <Productos>
+      <Producto>
+        <CategoriaProducto>HERRAMIENTAS</CategoriaProducto>
+        <CodigoProducto>
+        </CodigoProducto>
+        <NombreProducto>LLAVE COROFIJA</NombreProducto>
+        <CantidadProducto>10</CantidadProducto>
+        <PrecioProducto>1000</PrecioProducto>
+      </Producto>
+    </Productos>
+  </Factura>
+  <Factura>
+    <CodigoProveedor>DF5345</CodigoProveedor>
+    <NombreProveedor>NESTOR LEIVA</NombreProveedor>
+    <IdentificacionProveedor>345345</IdentificacionProveedor>
+    <TelefonoProveedor>89101284</TelefonoProveedor>
+    <EmailProveedor>NLEIVA@LAZARZUELA.COM</EmailProveedor>
+    <FechaFactura>01/03/2024</FechaFactura>
+    <NumeroFactura>FC-3</NumeroFactura>
+    <MontoFactura>15000</MontoFactura>
+    <MontoIVAFactura>1950</MontoIVAFactura>
+    <Productos>
+      <Producto>
+        <CategoriaProducto>HERRAMIENTAS</CategoriaProducto>
+        <CodigoProducto>hellco5197</CodigoProducto>
+        <NombreProducto>LLAVE COROFIJA</NombreProducto>
+        <CantidadProducto>20</CantidadProducto>
+        <PrecioProducto>1000</PrecioProducto>
+      </Producto>
+    </Productos>
+  </Factura>
+  <Factura>
+    <CodigoProveedor>DF5345</CodigoProveedor>
+    <NombreProveedor>NESTOR LEIVA</NombreProveedor>
+    <IdentificacionProveedor>345345</IdentificacionProveedor>
+    <TelefonoProveedor>89101284</TelefonoProveedor>
+    <EmailProveedor>NLEIVA@LAZARZUELA.COM</EmailProveedor>
+    <FechaFactura>01/03/2024</FechaFactura>
+    <NumeroFactura>FC-4</NumeroFactura>
+    <MontoFactura>10000</MontoFactura>
+    <MontoIVAFactura>1300</MontoIVAFactura>
+    <Productos>
+      <Producto>
+        <CategoriaProducto>HERRAMIENTAS</CategoriaProducto>
+        <CodigoProducto>HELLCO5197</CodigoProducto>
+        <NombreProducto>LLAVE COROFIJA</NombreProducto>
+        <CantidadProducto>10</CantidadProducto>
+        <PrecioProducto>1000</PrecioProducto>
+      </Producto>
+    </Productos>
+  </Factura>
+  <Factura>
+    <CodigoProveedor>DF5345</CodigoProveedor>
+    <NombreProveedor>NESTOR LEIVA</NombreProveedor>
+    <IdentificacionProveedor>345345</IdentificacionProveedor>
+    <TelefonoProveedor>89101284</TelefonoProveedor>
+    <EmailProveedor>NLEIVA@LAZARZUELA.COM</EmailProveedor>
+    <FechaFactura>01/03/2024</FechaFactura>
+    <NumeroFactura>FC-5</NumeroFactura>
+    <MontoFactura>12222</MontoFactura>
+    <MontoIVAFactura>1588,8600000000001</MontoIVAFactura>
+    <Productos>
+      <Producto>
+        <CategoriaProducto>HERRAMIENTAS</CategoriaProducto>
+        <CodigoProducto>HELLCO5197</CodigoProducto>
+        <NombreProducto>LLAVE COROFIJA</NombreProducto>
+        <CantidadProducto>46</CantidadProducto>
+        <PrecioProducto>1000</PrecioProducto>
+      </Producto>
+    </Productos>
+  </Factura>
+  <Factura>
+    <CodigoProveedor>NE0499</CodigoProveedor>
+    <NombreProveedor>NESTOR</NombreProveedor>
+    <IdentificacionProveedor>304360499</IdentificacionProveedor>
+    <TelefonoProveedor>89101285</TelefonoProveedor>
+    <EmailProveedor>NLEIVA@LAZARZUELA.COM</EmailProveedor>
+    <FechaFactura>01/03/2024</FechaFactura>
+    <NumeroFactura>FC-12334</NumeroFactura>
+    <MontoFactura>10000</MontoFactura>
+    <MontoIVAFactura>1300</MontoIVAFactura>
+    <Productos>
+      <Producto>
+        <CategoriaProducto>HERRAMIENTAS</CategoriaProducto>
+        <CodigoProducto>HELLCO5197</CodigoProducto>
+        <NombreProducto>LLAVE COROFIJA</NombreProducto>
+        <CantidadProducto>10</CantidadProducto>
+        <PrecioProducto>1000</PrecioProducto>
+      </Producto>
+    </Productos>
+  </Factura>
+</Facturas>

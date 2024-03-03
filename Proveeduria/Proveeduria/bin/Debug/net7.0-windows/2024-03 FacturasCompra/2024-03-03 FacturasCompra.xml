@@ -1,0 +1,22 @@
+<Facturas>
+  <Factura>
+    <CodigoProveedor>NE0499</CodigoProveedor>
+    <NombreProveedor>NESTOR</NombreProveedor>
+    <IdentificacionProveedor>304360499</IdentificacionProveedor>
+    <TelefonoProveedor>89101285</TelefonoProveedor>
+    <EmailProveedor>NLEIVA@LAZARZUELA.COM</EmailProveedor>
+    <FechaFactura>03/03/2024</FechaFactura>
+    <NumeroFactura>FC-16352</NumeroFactura>
+    <MontoFactura>132234</MontoFactura>
+    <MontoIVAFactura>17190,420000000002</MontoIVAFactura>
+    <Productos>
+      <Producto>
+        <CategoriaProducto>ROPA</CategoriaProducto>
+        <CodigoProducto>ROPAHO5052</CodigoProducto>
+        <NombreProducto>PANTALON HOMBRE</NombreProducto>
+        <CantidadProducto>200</CantidadProducto>
+        <PrecioProducto>1500</PrecioProducto>
+      </Producto>
+    </Productos>
+  </Factura>
+</Facturas>
