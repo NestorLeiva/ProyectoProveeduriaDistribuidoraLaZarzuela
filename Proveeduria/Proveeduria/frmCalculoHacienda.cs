@@ -16,5 +16,15 @@ namespace Proveeduria
         {
             InitializeComponent();
         }
-    }
-}
+
+        private void frmCalculoHacienda_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+
+    }/*fin frmCalculoHacienda*/
+}/*fin namespace*/
