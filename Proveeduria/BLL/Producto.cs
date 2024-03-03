@@ -20,7 +20,9 @@ namespace BLL
         private int precioProducto;
         private string codigoProducto = string.Empty;
         private static string rutaRelativaXML = "ListaProductos.xml";
-        private int nuevaCantidad;
+        private int subTotal;
+        private int total;
+        private int iva;
 
 
         XmlDocument xmlDocProducto = new XmlDocument();
@@ -42,10 +44,11 @@ namespace BLL
         public string NombreProducto { get { return nombreProducto; } set { nombreProducto = value; } }
         public int CantidadProducto { get { return cantidadProducto; } set { cantidadProducto = value; } }
         public int PrecioUndProducto { get { return precioProducto; } set { precioProducto = value; } }
-
         public string CodigoProducto { get { return codigoProducto; } set { codigoProducto = value; } }
-        public int NuevaCantidad { get { return nuevaCantidad; } set { nuevaCantidad = value; } }
+        public int SubTotal { get { return subTotal; } set { subTotal = value; } }
 
+        public int Total { get { return total; } set {  total = value; } }
+        public int IVA { get { return iva; }set { iva = value; } }
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
 

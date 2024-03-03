@@ -48,6 +48,8 @@ namespace Proveeduria
 
         double ivaAcumulado = 0;
         double subtotalAcumulado = 0;
+        double totalRes = 0;
+
 
         /*------------------------------------------------- TextBox --------------------------------------------------------------------*/
         private void txtCodigoProducto_KeyPress(object sender, KeyPressEventArgs e)
@@ -154,10 +156,11 @@ namespace Proveeduria
 
                         ivaAcumulado += ivaUnidad;
                         subtotalAcumulado += subTotal;
+                        totalRes = (subtotalAcumulado + ivaAcumulado);
 
                         lblMontoIVARes.Text = ivaAcumulado.ToString(); /*impresion y llamada al metodo */
                         lblSubTotalRes.Text = subtotalAcumulado.ToString();/*/*impresion y llamada al metodo */
-                        lblTotalRes.Text = (subtotalAcumulado + ivaAcumulado).ToString();
+                        lblTotalRes.Text = (totalRes).ToString();
 
                         lvwListaVenta.Items.Add(itemVenta);
                     };
@@ -182,9 +185,6 @@ namespace Proveeduria
         private void btnVentasPagar_Click(object sender, EventArgs e)
         {
 
-
-;
-           
             _VentasFactura = new VentasFacturas()
             {
                 Nombre = txtNombre.Text,
@@ -197,6 +197,9 @@ namespace Proveeduria
                 Email = txtEmail.Text,
                 FechaFactura = dtpVentaFecha.Value.Date,
 
+                MontoIVA = Convert.ToInt32(ivaAcumulado),
+                MontoSubTotal = Convert.ToInt32(subtotalAcumulado),
+                MontoTotal = Convert.ToInt32(totalRes),
                 /*-------------------------------------------*/
                 _ListaProductos = this._lstProductos
                 

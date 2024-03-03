@@ -54,8 +54,8 @@ namespace BLL
         public int NumeroFactura { get { return numeroFactura; } set { numeroFactura = value; } }
         //public int MontoFactura { get { return montoFactura; } set { montoFactura = value; } }
         public double MontoIVA { get { return montoIVA; } set { montoIVA = value; } }
-        public double SubTotal { get { return subTotal; } set { subTotal = value; } }
-        public double Total { get { return total; } set { total = value; } }
+        public double MontoSubTotal { get { return subTotal; } set { subTotal = value; } }
+        public double MontoTotal { get { return total; } set { total = value; } }
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
 
@@ -147,7 +147,7 @@ namespace BLL
 
             /*Nodo SubTotalFactura */
             XmlNode xmlsubTotalFactura = xmlDocFacturaVenta.CreateElement("SubTotalFactura");
-            xmlsubTotalFactura.InnerText = this.SubTotal.ToString();
+            xmlsubTotalFactura.InnerText = this.MontoSubTotal.ToString();
             xmlFactura.AppendChild(xmlsubTotalFactura);
 
 
@@ -158,7 +158,7 @@ namespace BLL
 
             /*Nodo MontoFactura */
             XmlNode xmlTotalFactura = xmlDocFacturaVenta.CreateElement("TotalFactura");
-            xmlTotalFactura.InnerText = this.Total.ToString();
+            xmlTotalFactura.InnerText = this.MontoTotal.ToString();
             xmlFactura.AppendChild(xmlTotalFactura);
 
 
