@@ -58,13 +58,21 @@ namespace BLL
 
         public void grabarXMLFactura(string rutaArchivo)
         {
-            if (File.Exists(rutaArchivo))
+
+            DateTime fechaNueva = FechaFactura;
+            string carpetaMes = Path.Combine(Path.GetDirectoryName(rutaArchivo), fechaNueva.ToString("yyyy-MM")+ " FacturasCompra");
+            string rutaCarpeta = Path.Combine(carpetaMes, fechaNueva.ToString("yyyy-MM-dd") + " FacturasCompra.xml");
+            if (File.Exists(rutaCarpeta))
             {
-                xmlDocFacturaCompra = _ArchivoXML.leerXML(rutaArchivo);
+                xmlDocFacturaCompra = _ArchivoXML.leerXML(rutaCarpeta);
 
             }
             else
             {
+                if (!Directory.Exists(carpetaMes))
+                {
+                    Directory.CreateDirectory(carpetaMes);
+                }
                 /*Nodo Facturas*/
                 XmlNode xmlRoot = xmlDocFacturaCompra.CreateElement("Facturas");
                 xmlDocFacturaCompra.AppendChild(xmlRoot);
@@ -163,7 +171,7 @@ namespace BLL
 
 
 
-            _ArchivoXML.escribirXML(rutaArchivo, xmlDocFacturaCompra);
+            _ArchivoXML.escribirXML(rutaCarpeta, xmlDocFacturaCompra);
         }/*fin grabarXMLFactura*/
 
     }/*fin IngresoFacturas*/

@@ -59,29 +59,35 @@ namespace BLL
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
 
+
         public string generarCodigoFacturaVenta()
         {
             int consecutivo = ConsecutivoVentaFactura++;
-            return "FV-" + (consecutivo ).ToString();
+            return "FV-" + (consecutivo).ToString();
         }/*fin generarCodigoFactura*/
-
-
 
         public void setFechaFactura(DateTime fecha)
         {
             FechaFactura = fecha;
         }
 
-
         public void grabarXMLFacturaVentas(string rutaArchivo)
         {
-            if (File.Exists(rutaArchivo))
-            {
-                xmlDocFacturaVenta = _ArchivoXML.leerXML(rutaArchivo);
+            DateTime fechaNueva = FechaFactura;
+            string carpetaMes = Path.Combine(Path.GetDirectoryName(rutaArchivo), fechaNueva.ToString("yyyy-MM")+ " FacturasVenta");
+            string rutaCarpeta = Path.Combine(carpetaMes, fechaNueva.ToString("yyyy-MM-dd") + " FacturasVenta.xml");
+            /*generacion del carpetas por mes */
 
+            if (File.Exists(rutaCarpeta))
+            {
+                xmlDocFacturaVenta = _ArchivoXML.leerXML(rutaCarpeta);
             }
             else
             {
+                if (!Directory.Exists(carpetaMes))
+                {
+                    Directory.CreateDirectory(carpetaMes);
+                }
                 /*Nodo Facturas*/
                 XmlNode xmlRoot = xmlDocFacturaVenta.CreateElement("Facturas");
                 xmlDocFacturaVenta.AppendChild(xmlRoot);
@@ -143,7 +149,7 @@ namespace BLL
             XmlNode xmlNumeroFactura = xmlDocFacturaVenta.CreateElement("NumeroFactura");
             xmlNumeroFactura.InnerText = this.generarCodigoFacturaVenta(); /*genero el cogido de la factura*/
             xmlFactura.AppendChild(xmlNumeroFactura);
-            
+
 
             /*Nodo SubTotalFactura */
             XmlNode xmlsubTotalFactura = xmlDocFacturaVenta.CreateElement("SubTotalFactura");
@@ -202,13 +208,7 @@ namespace BLL
                 xmlProductos.AppendChild(_xmlProducto);/*Agrego los nodos Productos a la Factura*/
             } /*fin foreach*/
 
-
-    
-
-
-
-
-            _ArchivoXML.escribirXML(rutaArchivo, xmlDocFacturaVenta);
+            _ArchivoXML.escribirXML(rutaCarpeta, xmlDocFacturaVenta);
         }/*fin grabarXMLFactura*/
 
     }/*fin IngresoFacturas*/
