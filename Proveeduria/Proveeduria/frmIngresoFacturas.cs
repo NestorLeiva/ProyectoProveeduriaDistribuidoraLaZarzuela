@@ -202,29 +202,46 @@ namespace Proveeduria
         {
             try
             {
-                SumarCantidades();
-                _Productos = new Producto()
+                conusltaProducto = this.txtBuscarProductoCodigo.Text.ToUpper();
+                XmlDocument xmlDoc = _ArchivoXML.leerXML("ListaProductos.xml");
+
+                XmlNodeList nodosProducto = xmlDoc.SelectNodes($"//Producto[CodigoProducto='{conusltaProducto}']");
+                if (nodosProducto.Count > 0)
                 {
-                    CategoriaProducto = txtCategoriaProducto.Text.ToUpper(),
-                    NombreProducto = txtProductoNombre.Text.ToUpper(),
-                    CodigoProducto = txtBuscarProductoCodigo.Text.ToUpper(),
-                    CantidadProducto = Convert.ToInt32(txtCantidadProducto.Text),
-                    PrecioUndProducto = Convert.ToInt32(txtPrecioUndProducto.Text),
+                    int cantidadVenta = Convert.ToInt32(txtCantidadProducto.Text);
 
-                };
+                    foreach (XmlNode nodoProducto in nodosProducto)
+                    {
+                        Producto _Productos = new Producto()
+                        {
+                            CategoriaProducto = nodoProducto.SelectSingleNode("CategoriaProducto").InnerText,
+                            CodigoProducto = nodoProducto.SelectSingleNode("CodigoProducto").InnerText,
+                            NombreProducto = nodoProducto.SelectSingleNode("NombreProducto").InnerText,
+                            CantidadProducto = Convert.ToInt32(cantidadVenta),
+                            PrecioUndProducto = Convert.ToInt32(nodoProducto.SelectSingleNode("PrecioProducto").InnerText),
+                        };
+                        this._lstProductos.Add(_Productos);
+                        ListViewItem itemVenta = new ListViewItem(_Productos.CategoriaProducto);
+                        itemVenta.SubItems.Add(_Productos.CodigoProducto);
+                        itemVenta.SubItems.Add(_Productos.NombreProducto);
+                        itemVenta.SubItems.Add(cantidadVenta.ToString());
+                        itemVenta.SubItems.Add(_Productos.PrecioUndProducto.ToString());
+                        /*Agrego los datos al listview*/
 
-                this._lstProductos.Add(_Productos);/*Agrego los productos al xmlFacturaCompras*/
-
-
-                MessageBox.Show("Se registro el Producto Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimpiarDatosProductos();
-
+                        lvwListaProductos.Items.Add(itemVenta);
+                    };
+                    SumarCantidades();
+                    MessageBox.Show("Se registro el Producto Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Producto no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message, "Distribuidroa La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("*** No se Encontro el Producto ***", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        
         } /*btnAgregarProducto_Click*/
 
         private void btnAceptarProducto_Click_1(object sender, EventArgs e)
@@ -255,7 +272,7 @@ namespace Proveeduria
                 LimpiarDatosProveedor();
 
                 /*muestro los Productos de la Ultima Factura*/
-                MostrarFactura(rutaArchivo);
+               
             }
             catch (Exception)
             {
@@ -289,36 +306,7 @@ namespace Proveeduria
             txtBuscarProductoCodigo.Text = string.Empty;
         }/*fin Limpiar Datos Proveedor*/
 
-        public void MostrarFactura(string rutaArchivo)
-        {
-            try
-            {
-                XmlDocument xmlDoc = _ArchivoXML.leerXML(rutaArchivo);
-
-                XmlNodeList _ultimaFactura = xmlDoc.SelectNodes("//Factura[last()]/Productos/Producto");
-                lvwListaProductos.Items.Clear();
-
-                foreach (XmlNode nodoProducto in _ultimaFactura)
-                {
-                    string _categoriaProducto = obtenerTexto(nodoProducto, "CategoriaProducto");
-                    string _codigoProducto = obtenerTexto(nodoProducto, "CodigoProducto");
-                    string _nombreProducto = obtenerTexto(nodoProducto, "NombreProducto");
-                    string _cantidadProducto = obtenerTexto(nodoProducto, "CantidadProducto");
-                    string _precioProducto = obtenerTexto(nodoProducto, "PrecioProducto");
-
-                    ListViewItem itemProductos = new ListViewItem(new[]
-                    { _categoriaProducto, _codigoProducto, _nombreProducto, _cantidadProducto, _precioProducto });
-                    lvwListaProductos.Items.Add(itemProductos);
-                }
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error al cargar la Factura", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }/*fin MostrarFactura*/
-
+        
         public void SumarCantidades()
         {
             int valorActual = _Productos.calcularCantidad("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/CantidadProducto");

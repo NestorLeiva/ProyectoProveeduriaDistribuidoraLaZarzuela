@@ -170,10 +170,6 @@ namespace Proveeduria
                 {
                     MessageBox.Show("Producto no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                txtCantidadProducto.Text = string.Empty;
-                txtCodigoProducto.Text = string.Empty;
-
-
             }
             catch (Exception)
             {
