@@ -32,8 +32,9 @@
             btnLimpiar = new Button();
             btnBuscarCliente = new Button();
             txtBuscarIdentificacion = new TextBox();
-            label1 = new Label();
+            lblIdentificacionCliente = new Label();
             gbxListaClientes = new GroupBox();
+            lvwListaClientes = new ListView();
             colNumIdentificacion = new ColumnHeader();
             colTipoIDentificacion = new ColumnHeader();
             colCodigoCliente = new ColumnHeader();
@@ -46,7 +47,6 @@
             colCanton = new ColumnHeader();
             colDistrito = new ColumnHeader();
             colOtrasSenias = new ColumnHeader();
-            lvwListaClientes = new ListView();
             gbxConsultaClientes.SuspendLayout();
             gbxListaClientes.SuspendLayout();
             SuspendLayout();
@@ -56,11 +56,11 @@
             gbxConsultaClientes.Controls.Add(btnLimpiar);
             gbxConsultaClientes.Controls.Add(btnBuscarCliente);
             gbxConsultaClientes.Controls.Add(txtBuscarIdentificacion);
-            gbxConsultaClientes.Controls.Add(label1);
+            gbxConsultaClientes.Controls.Add(lblIdentificacionCliente);
             gbxConsultaClientes.Dock = DockStyle.Top;
             gbxConsultaClientes.Location = new Point(0, 0);
             gbxConsultaClientes.Name = "gbxConsultaClientes";
-            gbxConsultaClientes.Size = new Size(800, 64);
+            gbxConsultaClientes.Size = new Size(938, 64);
             gbxConsultaClientes.TabIndex = 0;
             gbxConsultaClientes.TabStop = false;
             gbxConsultaClientes.Text = "Buscar por Numero de Identificacion de Cliente";
@@ -96,15 +96,15 @@
             txtBuscarIdentificacion.TabIndex = 2;
             txtBuscarIdentificacion.KeyPress += txtBuscarIdentificacion_KeyPress;
             // 
-            // label1
+            // lblIdentificacionCliente
             // 
-            label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(12, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(123, 31);
-            label1.TabIndex = 1;
-            label1.Text = "Identificacion ";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            lblIdentificacionCliente.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblIdentificacionCliente.Location = new Point(12, 19);
+            lblIdentificacionCliente.Name = "lblIdentificacionCliente";
+            lblIdentificacionCliente.Size = new Size(123, 31);
+            lblIdentificacionCliente.TabIndex = 1;
+            lblIdentificacionCliente.Text = "Identificacion ";
+            lblIdentificacionCliente.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // gbxListaClientes
             // 
@@ -112,10 +112,22 @@
             gbxListaClientes.Dock = DockStyle.Fill;
             gbxListaClientes.Location = new Point(0, 64);
             gbxListaClientes.Name = "gbxListaClientes";
-            gbxListaClientes.Size = new Size(800, 386);
+            gbxListaClientes.Size = new Size(938, 597);
             gbxListaClientes.TabIndex = 5;
             gbxListaClientes.TabStop = false;
             gbxListaClientes.Text = "Lista De Clientes";
+            // 
+            // lvwListaClientes
+            // 
+            lvwListaClientes.BackColor = SystemColors.Info;
+            lvwListaClientes.Columns.AddRange(new ColumnHeader[] { colNumIdentificacion, colTipoIDentificacion, colCodigoCliente, colNombre, colApellidoPrimero, colApellidoSegundo, colTelefono, colEmail, colProvincia, colCanton, colDistrito, colOtrasSenias });
+            lvwListaClientes.Dock = DockStyle.Fill;
+            lvwListaClientes.Location = new Point(3, 19);
+            lvwListaClientes.Name = "lvwListaClientes";
+            lvwListaClientes.Size = new Size(932, 575);
+            lvwListaClientes.TabIndex = 6;
+            lvwListaClientes.UseCompatibleStateImageBehavior = false;
+            lvwListaClientes.View = View.Details;
             // 
             // colNumIdentificacion
             // 
@@ -177,25 +189,14 @@
             colOtrasSenias.Text = "Otras Senias";
             colOtrasSenias.Width = 120;
             // 
-            // lvwListaClientes
-            // 
-            lvwListaClientes.BackColor = SystemColors.Info;
-            lvwListaClientes.Columns.AddRange(new ColumnHeader[] { colNumIdentificacion, colTipoIDentificacion, colCodigoCliente, colNombre, colApellidoPrimero, colApellidoSegundo, colTelefono, colEmail, colProvincia, colCanton, colDistrito, colOtrasSenias });
-            lvwListaClientes.Dock = DockStyle.Fill;
-            lvwListaClientes.Location = new Point(3, 19);
-            lvwListaClientes.Name = "lvwListaClientes";
-            lvwListaClientes.Size = new Size(794, 364);
-            lvwListaClientes.TabIndex = 6;
-            lvwListaClientes.UseCompatibleStateImageBehavior = false;
-            lvwListaClientes.View = View.Details;
-            // 
             // frmConsultaClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(938, 661);
             Controls.Add(gbxListaClientes);
             Controls.Add(gbxConsultaClientes);
+            MinimumSize = new Size(800, 700);
             Name = "frmConsultaClientes";
             Text = "Consulta Clientes";
             Load += frmConsultaClientes_Load;
@@ -209,7 +210,7 @@
 
         private GroupBox gbxConsultaClientes;
         private TextBox txtBuscarIdentificacion;
-        private Label label1;
+        private Label lblIdentificacionCliente;
         private GroupBox gbxListaClientes;
         private Button btnBuscarCliente;
         private Button btnLimpiar;
