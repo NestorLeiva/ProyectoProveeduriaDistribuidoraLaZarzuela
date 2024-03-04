@@ -1,12 +1,12 @@
 <Clientes>
   <Cliente>
-    <NumeroIdentificacion>304360498</NumeroIdentificacion>
+    <NumeroIdentificacion>30437563</NumeroIdentificacion>
     <TipoIdentificacion>FISICO</TipoIdentificacion>
     <Nombre>NESTOR</Nombre>
     <ApellidoPrimero>LEIVA</ApellidoPrimero>
     <ApellidoSegundo>VILLALOBOS</ApellidoSegundo>
     <CodigoCliente>NELV498</CodigoCliente>
-    <Telefono>89101284</Telefono>
+    <Telefono>19101284</Telefono>
     <Email>NLEIVA@LAZARZUELA.COM</Email>
     <Provincia>CARTAGO</Provincia>
     <Canton>CENTRAL</Canton>
@@ -14,13 +14,13 @@
     <OtrasSenias>EL MOLINO</OtrasSenias>
   </Cliente>
   <Cliente>
-    <NumeroIdentificacion>304360499</NumeroIdentificacion>
+    <NumeroIdentificacion>304756399</NumeroIdentificacion>
     <TipoIdentificacion>FISICO</TipoIdentificacion>
     <Nombre>NESTOR</Nombre>
     <ApellidoPrimero>LEIVA</ApellidoPrimero>
     <ApellidoSegundo>VILLALOBOS</ApellidoSegundo>
     <CodigoCliente>NELV499</CodigoCliente>
-    <Telefono>89101284</Telefono>
+    <Telefono>19101284</Telefono>
     <Email>NLEIVA@LAZARZUELA.COM</Email>
     <Provincia>CARTAGO</Provincia>
     <Canton>CARTAGO</Canton>
@@ -28,7 +28,7 @@
     <OtrasSenias>MOLINO</OtrasSenias>
   </Cliente>
   <Cliente>
-    <NumeroIdentificacion>304360499</NumeroIdentificacion>
+    <NumeroIdentificacion>304311119</NumeroIdentificacion>
     <TipoIdentificacion>JURIDICO</TipoIdentificacion>
     <Nombre>NESTOR</Nombre>
     <ApellidoPrimero>LEIVA</ApellidoPrimero>
@@ -42,7 +42,7 @@
     <OtrasSenias>ASDASD</OtrasSenias>
   </Cliente>
   <Cliente>
-    <NumeroIdentificacion>1111</NumeroIdentificacion>
+    <NumeroIdentificacion>1112</NumeroIdentificacion>
     <TipoIdentificacion>JURIDICO</TipoIdentificacion>
     <Nombre>ASDASDASDA</Nombre>
     <ApellidoPrimero>ASDASDAS</ApellidoPrimero>
@@ -56,7 +56,7 @@
     <OtrasSenias>ASDASD</OtrasSenias>
   </Cliente>
   <Cliente>
-    <NumeroIdentificacion>1111</NumeroIdentificacion>
+    <NumeroIdentificacion>1231</NumeroIdentificacion>
     <TipoIdentificacion>JURIDICO</TipoIdentificacion>
     <Nombre>ASDASD</Nombre>
     <ApellidoPrimero>ASDASD</ApellidoPrimero>
