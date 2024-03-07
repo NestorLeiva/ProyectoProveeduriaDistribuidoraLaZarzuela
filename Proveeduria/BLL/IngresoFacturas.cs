@@ -90,7 +90,7 @@ namespace BLL
             xmlFactura.AppendChild(xmlCodigoProveedor);
 
             /*Nodo NombreProveedor */
-            XmlNode xmlNombreProveedor = xmlDocFacturaCompra.CreateElement("NombreProveedor");
+            XmlNode xmlNombreProveedor = xmlDocFacturaCompra.CreateElement("Nombre");
             xmlNombreProveedor.InnerText = this.NombreProveedor;
             xmlFactura.AppendChild(xmlNombreProveedor);
 
@@ -121,7 +121,7 @@ namespace BLL
             xmlFactura.AppendChild(xmlNumeroFactura);
 
             /*Nodo MontoFactura */
-            XmlNode xmlMontoFactura = xmlDocFacturaCompra.CreateElement("MontoFactura");
+            XmlNode xmlMontoFactura = xmlDocFacturaCompra.CreateElement("TotalFactura");
             xmlMontoFactura.InnerText = this.MontoFactura.ToString();
             xmlFactura.AppendChild(xmlMontoFactura);
 
