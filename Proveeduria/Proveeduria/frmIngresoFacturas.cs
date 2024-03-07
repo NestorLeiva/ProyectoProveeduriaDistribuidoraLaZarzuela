@@ -106,7 +106,7 @@ namespace Proveeduria
         }
 
         private void txtPrecioUndProducto_KeyPress_1(object sender, KeyPressEventArgs e)
-       {
+        {
             if (!Validaciones.soloNumeros(e.KeyChar))
             {
                 e.Handled = true;
@@ -231,7 +231,7 @@ namespace Proveeduria
                             PrecioUndProducto = Convert.ToInt32(precioProducto),
 
                         };
-                         totalProductos = (cantidadCompraUnd * _Productos.PrecioUndProducto);
+                        totalProductos = (cantidadCompraUnd * _Productos.PrecioUndProducto);
                         this._lstProductos.Add(_Productos);
                         ListViewItem itemVenta = new ListViewItem(_Productos.CategoriaProducto);
                         itemVenta.SubItems.Add(_Productos.CodigoProducto);
@@ -293,7 +293,17 @@ namespace Proveeduria
             }
         }/*btnAceptarProducto_Click*/
 
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void btnNuevaFactura_Click(object sender, EventArgs e)
+        {
+            LimpiarDatosProductos();
+            LimpiarDatosProveedor();
+            lvwListaProductos.Items.Clear();
+        }
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
         public void LimpiarDatosProveedor()
         {

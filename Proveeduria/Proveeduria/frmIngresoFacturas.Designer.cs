@@ -54,6 +54,7 @@
             lblNumeroFactura = new Label();
             gbxFacturasRegistro = new GroupBox();
             gbxIngresoProductos = new GroupBox();
+            btnNuevaFactura = new Button();
             lblBuscarProducto = new Label();
             btnBuscarProducto = new Button();
             lblCategoriaProducto = new Label();
@@ -63,7 +64,7 @@
             txtProductoNombre = new TextBox();
             txtCategoriaProducto = new TextBox();
             lblProductoNombre = new Label();
-            btnCancelarProducto = new Button();
+            btnSalir = new Button();
             lblCantidadProducto = new Label();
             btnLimpiarProducto = new Button();
             txtPrecioUndProducto = new TextBox();
@@ -92,6 +93,7 @@
             // 
             // gbxRegistroProductosTitulo
             // 
+            gbxRegistroProductosTitulo.Controls.Add(btnNuevaFactura);
             gbxRegistroProductosTitulo.Controls.Add(gbxBuscarProveedor);
             gbxRegistroProductosTitulo.Controls.Add(pbLogo);
             gbxRegistroProductosTitulo.Controls.Add(lblProductosTitulo);
@@ -320,7 +322,7 @@
             gbxIngresoProductos.Controls.Add(txtProductoNombre);
             gbxIngresoProductos.Controls.Add(txtCategoriaProducto);
             gbxIngresoProductos.Controls.Add(lblProductoNombre);
-            gbxIngresoProductos.Controls.Add(btnCancelarProducto);
+            gbxIngresoProductos.Controls.Add(btnSalir);
             gbxIngresoProductos.Controls.Add(lblCantidadProducto);
             gbxIngresoProductos.Controls.Add(btnLimpiarProducto);
             gbxIngresoProductos.Controls.Add(txtPrecioUndProducto);
@@ -332,6 +334,17 @@
             gbxIngresoProductos.TabIndex = 49;
             gbxIngresoProductos.TabStop = false;
             gbxIngresoProductos.Text = "Ingreso Datos Productos Nuevos";
+            // 
+            // btnNuevaFactura
+            // 
+            btnNuevaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnNuevaFactura.Location = new Point(664, 22);
+            btnNuevaFactura.Name = "btnNuevaFactura";
+            btnNuevaFactura.Size = new Size(98, 45);
+            btnNuevaFactura.TabIndex = 43;
+            btnNuevaFactura.Text = "Nueva Factura";
+            btnNuevaFactura.UseVisualStyleBackColor = true;
+            btnNuevaFactura.Click += btnNuevaFactura_Click;
             // 
             // lblBuscarProducto
             // 
@@ -426,15 +439,16 @@
             lblProductoNombre.Text = "Producto";
             lblProductoNombre.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // btnCancelarProducto
+            // btnSalir
             // 
-            btnCancelarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCancelarProducto.Location = new Point(599, 66);
-            btnCancelarProducto.Name = "btnCancelarProducto";
-            btnCancelarProducto.Size = new Size(98, 26);
-            btnCancelarProducto.TabIndex = 39;
-            btnCancelarProducto.Text = "Cancelar";
-            btnCancelarProducto.UseVisualStyleBackColor = true;
+            btnSalir.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSalir.Location = new Point(661, 72);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(98, 26);
+            btnSalir.TabIndex = 39;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // lblCantidadProducto
             // 
@@ -449,7 +463,7 @@
             // btnLimpiarProducto
             // 
             btnLimpiarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimpiarProducto.Location = new Point(489, 66);
+            btnLimpiarProducto.Location = new Point(557, 73);
             btnLimpiarProducto.Name = "btnLimpiarProducto";
             btnLimpiarProducto.Size = new Size(98, 26);
             btnLimpiarProducto.TabIndex = 38;
@@ -711,12 +725,13 @@
         private TextBox txtProductoNombre;
         private TextBox txtCategoriaProducto;
         private Label lblProductoNombre;
-        private Button btnCancelarProducto;
+        private Button btnSalir;
         private Label lblCantidadProducto;
         private Button btnLimpiarProducto;
         private TextBox txtPrecioUndProducto;
         private Button btnAceptarProducto;
         private Label lblPrecioUndProducto;
         private ColumnHeader colTotal;
+        private Button btnNuevaFactura;
     }
 }

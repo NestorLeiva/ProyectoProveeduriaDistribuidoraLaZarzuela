@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentasFacturacion));
             gbxVentasTitulo = new GroupBox();
+            btnNuevaFactura = new Button();
             gbxClienteModificar = new GroupBox();
             btnBuscarCliente = new Button();
             txtBuscarCliente = new TextBox();
@@ -37,6 +38,8 @@
             pbLogo = new PictureBox();
             lblVentasTitulo = new Label();
             gbxVentasDatosCliente = new GroupBox();
+            txtApellidoSegundo = new TextBox();
+            txtApellidoPrimero = new TextBox();
             gbxCodigoProducto = new GroupBox();
             txtCantidadProducto = new TextBox();
             lblCantidadProducto = new Label();
@@ -86,6 +89,7 @@
             // 
             // gbxVentasTitulo
             // 
+            gbxVentasTitulo.Controls.Add(btnNuevaFactura);
             gbxVentasTitulo.Controls.Add(gbxClienteModificar);
             gbxVentasTitulo.Controls.Add(pbLogo);
             gbxVentasTitulo.Controls.Add(lblVentasTitulo);
@@ -95,6 +99,17 @@
             gbxVentasTitulo.Size = new Size(774, 114);
             gbxVentasTitulo.TabIndex = 1;
             gbxVentasTitulo.TabStop = false;
+            // 
+            // btnNuevaFactura
+            // 
+            btnNuevaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnNuevaFactura.Location = new Point(644, 45);
+            btnNuevaFactura.Name = "btnNuevaFactura";
+            btnNuevaFactura.Size = new Size(110, 47);
+            btnNuevaFactura.TabIndex = 26;
+            btnNuevaFactura.Text = "Nueva Factura";
+            btnNuevaFactura.UseVisualStyleBackColor = true;
+            btnNuevaFactura.Click += btnNuevaFactura_Click;
             // 
             // gbxClienteModificar
             // 
@@ -160,6 +175,8 @@
             // 
             // gbxVentasDatosCliente
             // 
+            gbxVentasDatosCliente.Controls.Add(txtApellidoSegundo);
+            gbxVentasDatosCliente.Controls.Add(txtApellidoPrimero);
             gbxVentasDatosCliente.Controls.Add(gbxCodigoProducto);
             gbxVentasDatosCliente.Controls.Add(txtCodigoCliente);
             gbxVentasDatosCliente.Controls.Add(lblCodigoCliente);
@@ -182,6 +199,28 @@
             gbxVentasDatosCliente.TabIndex = 7;
             gbxVentasDatosCliente.TabStop = false;
             gbxVentasDatosCliente.Text = "Datos Clientes";
+            // 
+            // txtApellidoSegundo
+            // 
+            txtApellidoSegundo.Enabled = false;
+            txtApellidoSegundo.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtApellidoSegundo.Location = new Point(591, 17);
+            txtApellidoSegundo.Name = "txtApellidoSegundo";
+            txtApellidoSegundo.ReadOnly = true;
+            txtApellidoSegundo.Size = new Size(160, 22);
+            txtApellidoSegundo.TabIndex = 26;
+            txtApellidoSegundo.TextAlign = HorizontalAlignment.Center;
+            // 
+            // txtApellidoPrimero
+            // 
+            txtApellidoPrimero.Enabled = false;
+            txtApellidoPrimero.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtApellidoPrimero.Location = new Point(427, 17);
+            txtApellidoPrimero.Name = "txtApellidoPrimero";
+            txtApellidoPrimero.ReadOnly = true;
+            txtApellidoPrimero.Size = new Size(146, 22);
+            txtApellidoPrimero.TabIndex = 25;
+            txtApellidoPrimero.TextAlign = HorizontalAlignment.Center;
             // 
             // gbxCodigoProducto
             // 
@@ -322,7 +361,7 @@
             txtNombre.Location = new Point(273, 17);
             txtNombre.Name = "txtNombre";
             txtNombre.ReadOnly = true;
-            txtNombre.Size = new Size(478, 22);
+            txtNombre.Size = new Size(148, 22);
             txtNombre.TabIndex = 9;
             txtNombre.TextAlign = HorizontalAlignment.Center;
             // 
@@ -618,5 +657,8 @@
         private Label lblMontoIVARes;
         private Label lblMontoIVA;
         private ColumnHeader colTotalProductos;
+        private Button btnNuevaFactura;
+        private TextBox txtApellidoSegundo;
+        private TextBox txtApellidoPrimero;
     }
 }

@@ -110,7 +110,9 @@ namespace Proveeduria
                     txtCodigoCliente.Text = codigoCliente;
                     txtTipoIdentificacion.Text = tipoIdentificacionCliente;
                     txtIdntificacion.Text = identificacionCliente.ToString();
-                    txtNombre.Text = NombreCliente +" "+ ApellidoPrimeroCliente +" "+ ApellidoSegundoCliente;
+                    txtNombre.Text = NombreCliente;
+                    txtApellidoPrimero.Text = ApellidoPrimeroCliente;
+                    txtApellidoSegundo.Text = ApellidoSegundoCliente;
                     txtTelefono.Text = TelefonoCliente.ToString();
                     txtEmail.Text = emailCliente;
                     /*pinto en pantalla los datos del Cliente*/
@@ -208,20 +210,21 @@ namespace Proveeduria
 
             };
             _VentasFactura.grabarXMLFacturaVentas("FacturasVenta.xml");
-            
+
             MessageBox.Show("Venta Realizada con Exito", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }/*fin btnPagar*/
         private void btnNuevaFactura_Click(object sender, EventArgs e)
         {
+            lvwListaVenta.Items.Clear();
             LimpiarTextbox();
-            txtBuscarCliente.Text = string.Empty;
         }
-
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
 
         public void LimpiarTextbox()
         {
             txtNombre.Text = string.Empty;
+            txtApellidoPrimero.Text = string.Empty;
+            txtApellidoSegundo.Text = string.Empty;
             txtIdntificacion.Text = string.Empty;
             txtTipoIdentificacion.Text = string.Empty;
             txtCodigoCliente.Text = string.Empty;
