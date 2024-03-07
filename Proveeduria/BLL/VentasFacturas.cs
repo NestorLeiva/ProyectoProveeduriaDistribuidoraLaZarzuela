@@ -75,8 +75,8 @@ namespace BLL
             DateTime fechaNueva = FechaFactura;
             string carpetaMes = Path.Combine(Path.GetDirectoryName(rutaArchivo), fechaNueva.ToString("yyyy-MM") + " FacturasVenta");
             string nombreArchivo = $"factura_{this.generarCodigoFacturaVenta()}_{fechaFactura.ToString("yyyyMMdd")}.xml";
-            string rutaCarpeta = Path.Combine(carpetaMes, fechaNueva.ToString("yyyy-MM-dd") + " FacturasVenta.xml");
-            //string rutaCarpeta = Path.Combine(carpetaMes, nombreArchivo);
+            //string rutaCarpeta = Path.Combine(carpetaMes, fechaNueva.ToString("yyyy-MM-dd") + " FacturasVenta.xml");
+            string rutaCarpeta = Path.Combine(carpetaMes, nombreArchivo);
             /*generacion del carpetas por mes */
 
             if (File.Exists(rutaCarpeta))

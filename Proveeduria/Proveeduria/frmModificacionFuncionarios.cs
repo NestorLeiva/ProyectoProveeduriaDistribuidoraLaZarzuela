@@ -28,6 +28,7 @@ namespace Proveeduria
         /*------------------------------------------------- Objetos --------------------------------------------------------------------*/
         Funcionario _Funcionario;
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
+        /*------------------------------------------------- Atributos --------------------------------------------------------------------*/
         private int indiceFilaSeleccionada;
         private string codigoFuncionarioSeleccionado;
         private string dniSeleccionado;
@@ -212,10 +213,6 @@ namespace Proveeduria
                     CargarListaFuncionariosMod("Funcionarios.xml");
                     // Recargar la lista después de la modificación
                     LimpiarTextBox();
-                }
-                else
-                {
-                    MessageBox.Show("Error");
                 }
             }
             catch (Exception ex)

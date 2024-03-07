@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,12 +26,20 @@ namespace Proveeduria
         {
             cargarListaProductos("ListaProductos.xml");
         }
+        /*------------------------------------------------- Atributos --------------------------------------------------------------------*/
+        private string conusltaProducto; /*btn Buscar Producto*/
+        private int filaSeleccionada;
+        private string _categoriProducto = string.Empty;
+        private string _codigoProducto = string.Empty;
+        private string _nombreProducto = string.Empty;
+        private int _cantidadProducto;
+        private decimal _precioProducto;
 
         /*------------------------------------------------- Objetos --------------------------------------------------------------------*/
 
         Producto _Productos;
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
-        private string conusltaProducto; /*btn Buscar Producto*/
+        XmlDocument _xmlDoc = new XmlDocument();
 
         /*------------------------------------------------- TextBox --------------------------------------------------------------------*/
         private void txtBuscarCodigo_KeyPress(object sender, KeyPressEventArgs e)
@@ -67,6 +76,27 @@ namespace Proveeduria
                     /*Obtengo los datos */
 
                     lvwListaProductos.Items.Add(_itemDNI); /*Agrego los datos al listview*/
+
+                    if (filaSeleccionada != null)
+                    {
+                        ListViewItem itemSeleccionado = lvwListaProductos.Items[filaSeleccionada];
+                        if (filaSeleccionada != -1)
+                        {
+                            _categoriProducto = itemSeleccionado.SubItems[0].Text;
+                            _codigoProducto = itemSeleccionado.SubItems[1].Text;
+                            _nombreProducto = itemSeleccionado.SubItems[2].Text;
+                            _cantidadProducto = Convert.ToInt32(itemSeleccionado.SubItems[3].Text);
+                            _precioProducto = Convert.ToInt32(itemSeleccionado.SubItems[4].Text);
+                            /*obtengo los datos del listview*/
+
+
+                            txtCategoriaModificar.Text = _categoriProducto.ToUpper();
+                            txtProductoModificar.Text = _nombreProducto.ToUpper();
+                            txtCantidadModificar.Text = _cantidadProducto.ToString();
+                            txtPrecioModificar.Text = _precioProducto.ToString();
+                            /*pinto los datos en los texbox*/
+                        }
+                    }
                 }
                 else
                 {
@@ -87,7 +117,7 @@ namespace Proveeduria
 
         private void btnLimpiarProducto_Click(object sender, EventArgs e)
         {
-            LimpiarDatosProductos();
+            LimpiarDatosProductosNuevos();
         }
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
@@ -101,9 +131,11 @@ namespace Proveeduria
                     CantidadProducto = Convert.ToInt32(txtCantidadProducto.Text),
                     PrecioUndProducto = Convert.ToInt32(txtPrecioUndProducto.Text),
                 };
+
+
                 _Productos.grabarXMLProductos("ListaProductos.xml");/*Genero el XML ListaProductos*/
                 MessageBox.Show("Se registro el Producto Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimpiarDatosProductos();
+                LimpiarDatosProductosNuevos();
                 cargarListaProductos("ListaProductos.xml");
 
             }
@@ -117,6 +149,35 @@ namespace Proveeduria
         private void btnCancelarProducto_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string nuevaCategoriaProducto = txtCategoriaModificar.Text.ToUpper();
+                string nuevoNombreProducto = txtProductoModificar.Text.ToUpper();
+                string nuevaCantidadProducto = (txtCantidadModificar.Text);
+                string nuevoPrecioProducto = (txtPrecioModificar.Text);
+
+                _ArchivoXML.modificarXML("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/CategoriaProducto", nuevaCategoriaProducto);
+                _ArchivoXML.modificarXML("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/NombreProducto", nuevoNombreProducto);
+                _ArchivoXML.modificarXML("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/CantidadProducto", nuevaCantidadProducto);
+                _ArchivoXML.modificarXML("ListaProductos.xml", $"//Producto[CodigoProducto='{conusltaProducto}']/PrecioProducto", nuevoPrecioProducto);
+
+                MessageBox.Show("*** Producto Modificado con Exito ***", "Dostribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                cargarListaProductos("ListaProductos.xml");
+                LimpiarDatosProductosModificados();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al Modificar el Producto", "Dostribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            /*se realiza la sobre esctritura del XML*/
+        }/*fin btnModificar_Click*/
+        private void btnLimpiarModificar_Click(object sender, EventArgs e)
+        {
+            LimpiarDatosProductosModificados();
         }
 
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
@@ -137,10 +198,14 @@ namespace Proveeduria
                 string CantidadProducto = cliente.SelectSingleNode("CantidadProducto").InnerText;
                 string PrecioProducto = cliente.SelectSingleNode("PrecioProducto").InnerText;
 
-                /*obtengo los datos del XML y los almacelo en las variables*/
 
+                int cantidad = Convert.ToInt32(CantidadProducto);
+                double precioUND = Convert.ToInt32(PrecioProducto);
+                double costoTotal = cantidad * precioUND;
+
+                /*obtengo los datos del XML y los almacelo en las variables*/
                 ListViewItem itemCliente = new ListViewItem(
-                    new[] { CategoriaProducto, CodigoProducto, NombreProducto, CantidadProducto, PrecioProducto });
+                    new[] { CategoriaProducto, CodigoProducto, NombreProducto, CantidadProducto, PrecioProducto, costoTotal.ToString() });
                 /*pinto los datos en el ListView */
 
                 lvwListaProductos.Items.Add(itemCliente);
@@ -149,12 +214,21 @@ namespace Proveeduria
 
         }/*fin cargarLista Productos*/
 
-        public void LimpiarDatosProductos()
+        public void LimpiarDatosProductosNuevos()
         {
             txtCategoriaProducto.Text = string.Empty;
             txtProductoNombre.Text = string.Empty;
             txtCantidadProducto.Text = string.Empty;
             txtPrecioUndProducto.Text = string.Empty;
+        } /*fin limpiarDatos*/
+
+        public void LimpiarDatosProductosModificados()
+        {
+            txtCategoriaModificar.Text = string.Empty;
+            txtProductoModificar.Text = string.Empty;
+            txtCantidadModificar.Text = string.Empty;
+            txtPrecioModificar.Text = string.Empty;
+            txtBuscarCodigo.Text = string.Empty;
         } /*fin limpiarDatos*/
 
 

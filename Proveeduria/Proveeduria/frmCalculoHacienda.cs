@@ -99,8 +99,6 @@ namespace Proveeduria
                 {
                     MessageBox.Show($"No se encontraron Facturas con la fecha: {fechaSeleccionada} ", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-
             }
             catch (Exception ex)
             {

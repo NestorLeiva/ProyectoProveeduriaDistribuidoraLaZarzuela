@@ -273,6 +273,7 @@ namespace Proveeduria
                     FechaFactura = dtpFechaFactura.Value.Date,
                     NumeroFactura = Convert.ToInt32(txtNumeroFactura.Text),
                     MontoFactura = Convert.ToInt32(txtMontoFactura.Text),
+                    MontoIVA = Convert.ToInt32(txtMontoIvaFactura.Text),
                     /*Datos Producto*/
                     _ListaProductos = this._lstProductos
                     /* _ListaProductos Parametro del foreach en BLL.IngresoFactura
@@ -289,7 +290,7 @@ namespace Proveeduria
             }
             catch (Exception)
             {
-                MessageBox.Show("*** Error al Guardar la Factura *** ", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("*** Error al Guardar la Factura , Faltan agregar Datos *** ", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }/*btnAceptarProducto_Click*/
 
@@ -303,6 +304,11 @@ namespace Proveeduria
             LimpiarDatosProductos();
             LimpiarDatosProveedor();
             lvwListaProductos.Items.Clear();
+        }
+
+        private void btnLimpiarProducto_Click_1(object sender, EventArgs e)
+        {
+            LimpiarDatosProductos();
         }
         /*------------------------------------------------- Metodos --------------------------------------------------------------------*/
         public void LimpiarDatosProveedor()
@@ -355,7 +361,6 @@ namespace Proveeduria
              En ese caso, retornamos el contenido del subnodo, que es el texto dentro del elemento XML.
              Si childNode es null, retornamos una cadena vacía.*/
         }/*funcion auxiliar para MostrarFactura() para obtner el texto dentro del nodo XML*/
-
 
     } /*fin frmIngresoFacturas*/
 }/*fin namespace*/

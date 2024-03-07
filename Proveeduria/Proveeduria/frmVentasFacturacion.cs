@@ -194,7 +194,8 @@ namespace Proveeduria
             _VentasFactura = new VentasFacturas()
             {
                 Nombre = txtNombre.Text,
-
+                ApellidoPrimero = txtApellidoPrimero.Text,
+                ApellidoSegundo = txtApellidoSegundo.Text,
                 DNI = Convert.ToInt32(txtIdntificacion.Text),
                 TipoDni = txtTipoIdentificacion.Text,
                 CodigoCliente = txtCodigoCliente.Text,

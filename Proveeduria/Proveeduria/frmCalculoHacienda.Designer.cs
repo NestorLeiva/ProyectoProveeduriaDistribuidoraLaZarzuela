@@ -165,9 +165,9 @@
             lblCalculoRes.BackColor = SystemColors.Info;
             lblCalculoRes.BorderStyle = BorderStyle.FixedSingle;
             lblCalculoRes.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblCalculoRes.Location = new Point(318, 13);
+            lblCalculoRes.Location = new Point(216, 13);
             lblCalculoRes.Name = "lblCalculoRes";
-            lblCalculoRes.Size = new Size(322, 41);
+            lblCalculoRes.Size = new Size(494, 41);
             lblCalculoRes.TabIndex = 1;
             lblCalculoRes.TextAlign = ContentAlignment.MiddleCenter;
             // 

@@ -46,11 +46,6 @@ namespace BLL
             return "FC-" + NumeroFactura;
         }/*fin generarCodigoFactura*/
 
-        public double calcularIVA(double MontoFactura)
-        {
-            return MontoFactura * 0.13;
-        }
-
         public void setFechaFactura(DateTime fecha)
         {
             FechaFactura = fecha;
@@ -61,12 +56,13 @@ namespace BLL
 
             DateTime fechaNueva = FechaFactura;
             string carpetaMes = Path.Combine(Path.GetDirectoryName(rutaArchivo), fechaNueva.ToString("yyyy-MM")+ " FacturasCompra");
-            string nombreArchivo = $"factura_{this.generarCodigoFacturaCompra}_{fechaFactura.ToString("yyyyMMdd")}.xml";
-            string rutaCarpeta = Path.Combine(carpetaMes, fechaNueva.ToString("yyyy-MM-dd") + " FacturasCompra.xml");
+            //string nombreArchivo = $"factura_{this.generarCodigoFacturaCompra}_{fechaFactura.ToString("yyyyMMdd")}.xml";
+            string nombreArchivo = $"factura_{this.generarCodigoFacturaCompra()}_{fechaFactura.ToString("yyyyMMdd")}.xml";
+            //string rutaCarpeta = Path.Combine(carpetaMes, fechaNueva.ToString("yyyy-MM-dd") + " FacturasCompra.xml");
+            string rutaCarpeta = Path.Combine(carpetaMes, nombreArchivo);
             if (File.Exists(rutaCarpeta))
             {
                 xmlDocFacturaCompra = _ArchivoXML.leerXML(rutaCarpeta);
-
             }
             else
             {
@@ -127,7 +123,7 @@ namespace BLL
 
             /*Nodo MontoIVAFactura */
             XmlNode xmlMontoIVAFactura = xmlDocFacturaCompra.CreateElement("MontoIVAFactura");
-            xmlMontoIVAFactura.InnerText = calcularIVA(MontoFactura).ToString(); /*Calculo del IVA de la factura*/
+            xmlMontoIVAFactura.InnerText = this.MontoIVA.ToString(); /*Calculo del IVA de la factura*/
             xmlFactura.AppendChild(xmlMontoIVAFactura);
 
             /*------------------------------------------------- Productos --------------------------------------------------------------------*/
@@ -166,12 +162,8 @@ namespace BLL
                 _xmlPrecioUndProd.InnerText = _productosLista.PrecioUndProducto.ToString();
                 _xmlProducto.AppendChild( _xmlPrecioUndProd);
 
-
                 xmlProductos.AppendChild(_xmlProducto);/*Agrego los nodos Productos a la Factura*/
             } /*fin foreach*/
-
-
-
             _ArchivoXML.escribirXML(rutaCarpeta, xmlDocFacturaCompra);
         }/*fin grabarXMLFactura*/
 

@@ -19,7 +19,6 @@ namespace BLL
         private int cantidadProducto;
         private int precioProducto;
         private string codigoProducto = string.Empty;
-        private static string rutaRelativaXML = "ListaProductos.xml";
         private int subTotal;
         private int total;
         private int iva;

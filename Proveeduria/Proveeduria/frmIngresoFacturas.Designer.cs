@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresoFacturas));
             gbxRegistroProductosTitulo = new GroupBox();
+            btnNuevaFactura = new Button();
             gbxBuscarProveedor = new GroupBox();
             btnBuscarProveedor = new Button();
             lblCodProveedor = new Label();
@@ -54,7 +55,6 @@
             lblNumeroFactura = new Label();
             gbxFacturasRegistro = new GroupBox();
             gbxIngresoProductos = new GroupBox();
-            btnNuevaFactura = new Button();
             lblBuscarProducto = new Label();
             btnBuscarProducto = new Button();
             lblCategoriaProducto = new Label();
@@ -103,6 +103,17 @@
             gbxRegistroProductosTitulo.Size = new Size(774, 138);
             gbxRegistroProductosTitulo.TabIndex = 1;
             gbxRegistroProductosTitulo.TabStop = false;
+            // 
+            // btnNuevaFactura
+            // 
+            btnNuevaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnNuevaFactura.Location = new Point(664, 22);
+            btnNuevaFactura.Name = "btnNuevaFactura";
+            btnNuevaFactura.Size = new Size(98, 45);
+            btnNuevaFactura.TabIndex = 43;
+            btnNuevaFactura.Text = "Nueva Factura";
+            btnNuevaFactura.UseVisualStyleBackColor = true;
+            btnNuevaFactura.Click += btnNuevaFactura_Click;
             // 
             // gbxBuscarProveedor
             // 
@@ -224,7 +235,6 @@
             txtMontoIvaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtMontoIvaFactura.Location = new Point(411, 99);
             txtMontoIvaFactura.Name = "txtMontoIvaFactura";
-            txtMontoIvaFactura.ReadOnly = true;
             txtMontoIvaFactura.Size = new Size(116, 22);
             txtMontoIvaFactura.TabIndex = 24;
             txtMontoIvaFactura.TextAlign = HorizontalAlignment.Center;
@@ -334,17 +344,6 @@
             gbxIngresoProductos.TabIndex = 49;
             gbxIngresoProductos.TabStop = false;
             gbxIngresoProductos.Text = "Ingreso Datos Productos Nuevos";
-            // 
-            // btnNuevaFactura
-            // 
-            btnNuevaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNuevaFactura.Location = new Point(664, 22);
-            btnNuevaFactura.Name = "btnNuevaFactura";
-            btnNuevaFactura.Size = new Size(98, 45);
-            btnNuevaFactura.TabIndex = 43;
-            btnNuevaFactura.Text = "Nueva Factura";
-            btnNuevaFactura.UseVisualStyleBackColor = true;
-            btnNuevaFactura.Click += btnNuevaFactura_Click;
             // 
             // lblBuscarProducto
             // 
@@ -469,6 +468,7 @@
             btnLimpiarProducto.TabIndex = 38;
             btnLimpiarProducto.Text = "Limpiar";
             btnLimpiarProducto.UseVisualStyleBackColor = true;
+            btnLimpiarProducto.Click += btnLimpiarProducto_Click_1;
             // 
             // txtPrecioUndProducto
             // 
