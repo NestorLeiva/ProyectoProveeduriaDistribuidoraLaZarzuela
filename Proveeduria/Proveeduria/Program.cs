@@ -12,7 +12,7 @@ namespace Proveeduria
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new frmPrincipal());
-           / Application.Run(new frmLogin());
+           Application.Run(new frmLogin());
         }
     }
 }
