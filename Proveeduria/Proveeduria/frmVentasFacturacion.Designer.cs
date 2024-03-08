@@ -89,7 +89,6 @@
             // 
             // gbxVentasTitulo
             // 
-            gbxVentasTitulo.Controls.Add(btnNuevaFactura);
             gbxVentasTitulo.Controls.Add(gbxClienteModificar);
             gbxVentasTitulo.Controls.Add(pbLogo);
             gbxVentasTitulo.Controls.Add(lblVentasTitulo);
@@ -103,9 +102,9 @@
             // btnNuevaFactura
             // 
             btnNuevaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNuevaFactura.Location = new Point(644, 45);
+            btnNuevaFactura.Location = new Point(652, 14);
             btnNuevaFactura.Name = "btnNuevaFactura";
-            btnNuevaFactura.Size = new Size(110, 47);
+            btnNuevaFactura.Size = new Size(110, 37);
             btnNuevaFactura.TabIndex = 26;
             btnNuevaFactura.Text = "Nueva Factura";
             btnNuevaFactura.UseVisualStyleBackColor = true;
@@ -429,6 +428,7 @@
             // 
             // gbxVentasPago
             // 
+            gbxVentasPago.Controls.Add(btnNuevaFactura);
             gbxVentasPago.Controls.Add(lblMontoIVARes);
             gbxVentasPago.Controls.Add(lblMontoIVA);
             gbxVentasPago.Controls.Add(btnVentasPagar);
@@ -450,7 +450,7 @@
             lblMontoIVARes.BorderStyle = BorderStyle.FixedSingle;
             lblMontoIVARes.Enabled = false;
             lblMontoIVARes.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblMontoIVARes.Location = new Point(69, 19);
+            lblMontoIVARes.Location = new Point(54, 17);
             lblMontoIVARes.Name = "lblMontoIVARes";
             lblMontoIVARes.Size = new Size(95, 23);
             lblMontoIVARes.TabIndex = 19;
@@ -459,9 +459,9 @@
             // lblMontoIVA
             // 
             lblMontoIVA.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblMontoIVA.Location = new Point(17, 19);
+            lblMontoIVA.Location = new Point(6, 19);
             lblMontoIVA.Name = "lblMontoIVA";
-            lblMontoIVA.Size = new Size(46, 23);
+            lblMontoIVA.Size = new Size(42, 23);
             lblMontoIVA.TabIndex = 18;
             lblMontoIVA.Text = "IVA:";
             lblMontoIVA.TextAlign = ContentAlignment.MiddleRight;
@@ -469,9 +469,9 @@
             // btnVentasPagar
             // 
             btnVentasPagar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnVentasPagar.Location = new Point(644, 17);
+            btnVentasPagar.Location = new Point(536, 14);
             btnVentasPagar.Name = "btnVentasPagar";
-            btnVentasPagar.Size = new Size(110, 25);
+            btnVentasPagar.Size = new Size(110, 37);
             btnVentasPagar.TabIndex = 25;
             btnVentasPagar.Text = "Pagar";
             btnVentasPagar.UseVisualStyleBackColor = true;
@@ -483,18 +483,18 @@
             lblTotalRes.BorderStyle = BorderStyle.FixedSingle;
             lblTotalRes.Enabled = false;
             lblTotalRes.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTotalRes.Location = new Point(430, 19);
+            lblTotalRes.Location = new Point(389, 21);
             lblTotalRes.Name = "lblTotalRes";
-            lblTotalRes.Size = new Size(173, 23);
+            lblTotalRes.Size = new Size(125, 23);
             lblTotalRes.TabIndex = 3;
             lblTotalRes.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblVentasTotal
             // 
             lblVentasTotal.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasTotal.Location = new Point(363, 19);
+            lblVentasTotal.Location = new Point(337, 20);
             lblVentasTotal.Name = "lblVentasTotal";
-            lblVentasTotal.Size = new Size(61, 23);
+            lblVentasTotal.Size = new Size(46, 23);
             lblVentasTotal.TabIndex = 2;
             lblVentasTotal.Text = "Total: ";
             lblVentasTotal.TextAlign = ContentAlignment.MiddleRight;
@@ -505,18 +505,18 @@
             lblSubTotalRes.BorderStyle = BorderStyle.FixedSingle;
             lblSubTotalRes.Enabled = false;
             lblSubTotalRes.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblSubTotalRes.Location = new Point(262, 19);
+            lblSubTotalRes.Location = new Point(233, 19);
             lblSubTotalRes.Name = "lblSubTotalRes";
-            lblSubTotalRes.Size = new Size(95, 23);
+            lblSubTotalRes.Size = new Size(80, 23);
             lblSubTotalRes.TabIndex = 1;
             lblSubTotalRes.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblVentasSubTotal
             // 
             lblVentasSubTotal.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVentasSubTotal.Location = new Point(172, 19);
+            lblVentasSubTotal.Location = new Point(155, 19);
             lblVentasSubTotal.Name = "lblVentasSubTotal";
-            lblVentasSubTotal.Size = new Size(84, 23);
+            lblVentasSubTotal.Size = new Size(76, 23);
             lblVentasSubTotal.TabIndex = 0;
             lblVentasSubTotal.Text = "Sub Total: ";
             lblVentasSubTotal.TextAlign = ContentAlignment.MiddleRight;
