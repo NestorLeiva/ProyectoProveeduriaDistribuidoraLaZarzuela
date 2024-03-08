@@ -1,34 +1,11 @@
 <Proveedores>
   <Proveedor>
-    <CodigoProveedor>NE0499</CodigoProveedor>
-    <NombreProveedor>nestor</NombreProveedor>
+    <CodigoProveedor>AD0499</CodigoProveedor>
+    <NombreProveedor>ADMIN</NombreProveedor>
     <TipoIdentificacion>Nacional</TipoIdentificacion>
     <Identificacion>130437563</Identificacion>
     <TelefonoProveedor>19101285</TelefonoProveedor>
-    <EmailProveedor>NLEIVA@LAZARZUELA.COM</EmailProveedor>
+    <EmailProveedor>ADMIN@LAZARZUELA.COM</EmailProveedor>
   </Proveedor>
-  <Proveedor>
-    <CodigoProveedor>NE0498</CodigoProveedor>
-    <NombreProveedor>nestor</NombreProveedor>
-    <TipoIdentificacion>Juridico</TipoIdentificacion>
-    <Identificacion>301024938</Identificacion>
-    <TelefonoProveedor>11101284</TelefonoProveedor>
-    <EmailProveedor>NLEIVA@LAZARZUELA.COM</EmailProveedor>
-  </Proveedor>
-  <Proveedor>
-    <CodigoProveedor>AD3123</CodigoProveedor>
-    <NombreProveedor>ADASD</NombreProveedor>
-    <TipoIdentificacion>Nacional</TipoIdentificacion>
-    <Identificacion>123123987</Identificacion>
-    <TelefonoProveedor>12312312</TelefonoProveedor>
-    <EmailProveedor>NLEIVA@LAZARZUELA.COM</EmailProveedor>
-  </Proveedor>
-  <Proveedor>
-    <CodigoProveedor>DF5345</CodigoProveedor>
-    <NombreProveedor>NESTOR LEIVA</NombreProveedor>
-    <TipoIdentificacion>Nacional</TipoIdentificacion>
-    <Identificacion>345345546</Identificacion>
-    <TelefonoProveedor>12301284</TelefonoProveedor>
-    <EmailProveedor>NLEIVA@LAZARZUELA.COM</EmailProveedor>
-  </Proveedor>
+ 
 </Proveedores>
