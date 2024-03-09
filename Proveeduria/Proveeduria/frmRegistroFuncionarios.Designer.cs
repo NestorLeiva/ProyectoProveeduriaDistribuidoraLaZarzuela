@@ -138,7 +138,7 @@
             // 
             txtFuncionarioDNI.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtFuncionarioDNI.Location = new Point(185, 133);
-            txtFuncionarioDNI.MaxLength = 10;
+            txtFuncionarioDNI.MaxLength = 11;
             txtFuncionarioDNI.Name = "txtFuncionarioDNI";
             txtFuncionarioDNI.Size = new Size(211, 27);
             txtFuncionarioDNI.TabIndex = 4;
@@ -229,7 +229,7 @@
             gbxRegistroFuncionariosDatos.Dock = DockStyle.Fill;
             gbxRegistroFuncionariosDatos.Location = new Point(0, 131);
             gbxRegistroFuncionariosDatos.Name = "gbxRegistroFuncionariosDatos";
-            gbxRegistroFuncionariosDatos.Size = new Size(664, 530);
+            gbxRegistroFuncionariosDatos.Size = new Size(664, 553);
             gbxRegistroFuncionariosDatos.TabIndex = 2;
             gbxRegistroFuncionariosDatos.TabStop = false;
             gbxRegistroFuncionariosDatos.Text = "Datos Funcionarios";
@@ -280,7 +280,7 @@
             // 
             gbListaFuncionarios.Controls.Add(lvListaFuncionarios);
             gbListaFuncionarios.Dock = DockStyle.Bottom;
-            gbListaFuncionarios.Location = new Point(0, 378);
+            gbListaFuncionarios.Location = new Point(0, 401);
             gbListaFuncionarios.Name = "gbListaFuncionarios";
             gbListaFuncionarios.Size = new Size(664, 283);
             gbListaFuncionarios.TabIndex = 11;
@@ -343,7 +343,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(664, 661);
+            ClientSize = new Size(664, 684);
             ControlBox = false;
             Controls.Add(gbListaFuncionarios);
             Controls.Add(gbxRegistroFuncionariosDatos);

@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentasFacturacion));
             gbxVentasTitulo = new GroupBox();
-            btnNuevaFactura = new Button();
             gbxClienteModificar = new GroupBox();
             btnBuscarCliente = new Button();
             txtBuscarCliente = new TextBox();
             lblBuscarCodigoCliente = new Label();
             pbLogo = new PictureBox();
             lblVentasTitulo = new Label();
+            btnNuevaFactura = new Button();
             gbxVentasDatosCliente = new GroupBox();
             txtApellidoSegundo = new TextBox();
             txtApellidoPrimero = new TextBox();
@@ -99,17 +99,6 @@
             gbxVentasTitulo.TabIndex = 1;
             gbxVentasTitulo.TabStop = false;
             // 
-            // btnNuevaFactura
-            // 
-            btnNuevaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNuevaFactura.Location = new Point(652, 14);
-            btnNuevaFactura.Name = "btnNuevaFactura";
-            btnNuevaFactura.Size = new Size(110, 37);
-            btnNuevaFactura.TabIndex = 26;
-            btnNuevaFactura.Text = "Nueva Factura";
-            btnNuevaFactura.UseVisualStyleBackColor = true;
-            btnNuevaFactura.Click += btnNuevaFactura_Click;
-            // 
             // gbxClienteModificar
             // 
             gbxClienteModificar.Controls.Add(btnBuscarCliente);
@@ -171,6 +160,17 @@
             lblVentasTitulo.TabIndex = 16;
             lblVentasTitulo.Text = "Ventas Distribuidora La Zarzuela";
             lblVentasTitulo.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnNuevaFactura
+            // 
+            btnNuevaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnNuevaFactura.Location = new Point(652, 14);
+            btnNuevaFactura.Name = "btnNuevaFactura";
+            btnNuevaFactura.Size = new Size(110, 37);
+            btnNuevaFactura.TabIndex = 26;
+            btnNuevaFactura.Text = "Nueva Factura";
+            btnNuevaFactura.UseVisualStyleBackColor = true;
+            btnNuevaFactura.Click += btnNuevaFactura_Click;
             // 
             // gbxVentasDatosCliente
             // 

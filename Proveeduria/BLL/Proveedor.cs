@@ -39,10 +39,6 @@ namespace BLL
             {
                 throw new InvalidOperationException("No se pudo generar el Codigo debido a Datos Insuficientes");
             }
-
-
-
-
         }/*fin generarCodigoProveedor*/
 
 

@@ -60,10 +60,7 @@ namespace Proveeduria
 
         private void btnProveedorLimpiar_Click(object sender, EventArgs e)
         {
-            txtProveedorDNI.Text = string.Empty;
-            txtProveedorEmail.Text = string.Empty;
-            txtProveedorNombre.Text = string.Empty;
-            txtProveedorTelefono.Text = string.Empty;
+            limpiarTextBox();
         }
 
         private void btnProveedorCancelar_Click(object sender, EventArgs e)
@@ -109,6 +106,7 @@ namespace Proveeduria
                 // mensaje de exito 
 
                 cargarListaProveedores("Proveedores.xml");
+                limpiarTextBox();
             }
             catch (Exception ex)
             {
@@ -147,7 +145,13 @@ namespace Proveeduria
 
         }/*fin cargarListaProveedores*/
 
-
+        public void limpiarTextBox()
+        {
+            txtProveedorDNI.Text = string.Empty;
+            txtProveedorEmail.Text = string.Empty;
+            txtProveedorNombre.Text = string.Empty;
+            txtProveedorTelefono.Text = string.Empty;
+        }
 
     }/*fin froms*/
 }/*fin namespace*/

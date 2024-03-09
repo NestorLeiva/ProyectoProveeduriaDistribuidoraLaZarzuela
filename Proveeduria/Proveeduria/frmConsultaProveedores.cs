@@ -40,24 +40,23 @@ namespace Proveeduria
         {
             try
             {
-                consultaDNI = txtBuscar.Text; /*obtengo el DNI a consultar*/
+                consultaDNI = txtBuscar.Text.ToUpper(); /*obtengo el DNI a consultar*/
 
                 lvwListaProveedores.Items.Clear();/*limieza del listview*/
                 XmlDocument xmlDoc = _ArchivoXML.leerXML("Proveedores.xml"); /*lectura del XML*/
 
-                XmlNode _nodoCliente = xmlDoc.SelectSingleNode($"//Proveedor[Identificacion='{consultaDNI}']");
+                XmlNode _nodoCliente = xmlDoc.SelectSingleNode($"//Proveedor[CodigoProveedor='{consultaDNI}']");
 
                 /* se realiza la busqueda en todos los nodos "Hijo /
 				  [NumeroIdentificacion='{consultaDNI}'] es una exprecion de busqueda en los atributos Id con un valor igual al de la variable consultaDNI  "*/
 
                 if (_nodoCliente != null)
                 {
-                    ListViewItem _itemDNI = new ListViewItem(_nodoCliente.SelectSingleNode("NumeroIdentificacion").InnerText);/*se realiza la busqueda en el XML*/
+                    ListViewItem _itemDNI = new ListViewItem(_nodoCliente.SelectSingleNode("CodigoProveedor").InnerText);/*se realiza la busqueda en el XML*/
 
 
-                    _itemDNI.SubItems.Add(_nodoCliente.SelectSingleNode("CodigoProveedor").InnerText);
                     _itemDNI.SubItems.Add(_nodoCliente.SelectSingleNode("NombreProveedor").InnerText);
-                    _itemDNI.SubItems.Add(_nodoCliente.SelectSingleNode("TipoIdentificacion").InnerText);
+                    _itemDNI.SubItems.Add(_nodoCliente.SelectSingleNode("TipoIdentificacion").InnerText);;
                     _itemDNI.SubItems.Add(_nodoCliente.SelectSingleNode("Identificacion").InnerText);
                     _itemDNI.SubItems.Add(_nodoCliente.SelectSingleNode("TelefonoProveedor").InnerText);
                     _itemDNI.SubItems.Add(_nodoCliente.SelectSingleNode("EmailProveedor").InnerText);

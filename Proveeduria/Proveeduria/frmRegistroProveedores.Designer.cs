@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroProveedores));
-            ListViewItem listViewItem1 = new ListViewItem("");
+            ListViewItem listViewItem2 = new ListViewItem("");
             gbxRegistroFuncionariosTitulo = new GroupBox();
             pbLogo = new PictureBox();
             lblProveedorTitulo = new Label();
@@ -112,7 +112,7 @@
             gbxRegistroFuncionariosDatos.Dock = DockStyle.Fill;
             gbxRegistroFuncionariosDatos.Location = new Point(0, 159);
             gbxRegistroFuncionariosDatos.Name = "gbxRegistroFuncionariosDatos";
-            gbxRegistroFuncionariosDatos.Size = new Size(594, 502);
+            gbxRegistroFuncionariosDatos.Size = new Size(594, 525);
             gbxRegistroFuncionariosDatos.TabIndex = 2;
             gbxRegistroFuncionariosDatos.TabStop = false;
             gbxRegistroFuncionariosDatos.Text = "Datos Proveedores";
@@ -247,6 +247,7 @@
             // 
             txtProveedorDNI.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtProveedorDNI.Location = new Point(273, 105);
+            txtProveedorDNI.MaxLength = 11;
             txtProveedorDNI.Name = "txtProveedorDNI";
             txtProveedorDNI.Size = new Size(211, 24);
             txtProveedorDNI.TabIndex = 2;
@@ -257,6 +258,7 @@
             // 
             txtProveedorTelefono.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtProveedorTelefono.Location = new Point(273, 140);
+            txtProveedorTelefono.MaxLength = 7;
             txtProveedorTelefono.Name = "txtProveedorTelefono";
             txtProveedorTelefono.Size = new Size(211, 24);
             txtProveedorTelefono.TabIndex = 3;
@@ -267,7 +269,7 @@
             // 
             gbListaProveedores.Controls.Add(lvRegistroProveedor);
             gbListaProveedores.Dock = DockStyle.Bottom;
-            gbListaProveedores.Location = new Point(0, 436);
+            gbListaProveedores.Location = new Point(0, 459);
             gbListaProveedores.Name = "gbListaProveedores";
             gbListaProveedores.Size = new Size(594, 225);
             gbListaProveedores.TabIndex = 3;
@@ -279,7 +281,7 @@
             lvRegistroProveedor.BackColor = SystemColors.Info;
             lvRegistroProveedor.Columns.AddRange(new ColumnHeader[] { colCodProveedor, colNombre, colTipoDNI, colIdentificacion, colTelefono, colEmail });
             lvRegistroProveedor.Dock = DockStyle.Fill;
-            lvRegistroProveedor.Items.AddRange(new ListViewItem[] { listViewItem1 });
+            lvRegistroProveedor.Items.AddRange(new ListViewItem[] { listViewItem2 });
             lvRegistroProveedor.Location = new Point(3, 19);
             lvRegistroProveedor.Name = "lvRegistroProveedor";
             lvRegistroProveedor.Size = new Size(588, 203);
@@ -321,7 +323,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(594, 661);
+            ClientSize = new Size(594, 684);
             ControlBox = false;
             Controls.Add(gbListaProveedores);
             Controls.Add(gbxRegistroFuncionariosDatos);

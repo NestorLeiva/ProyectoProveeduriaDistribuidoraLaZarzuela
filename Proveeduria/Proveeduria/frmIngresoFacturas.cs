@@ -283,9 +283,8 @@ namespace Proveeduria
 
                 MessageBox.Show("Se registro la Factura Exitosamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                LimpiarDatosProductos();
                 LimpiarDatosProveedor();
-
-                /*muestro los Productos de la Ultima Factura*/
 
             }
             catch (Exception)

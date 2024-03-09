@@ -93,22 +93,22 @@ namespace Proveeduria
                     ApellidoSegundo = this.txtFuncionarioApellidoSegundo.Text.ToUpper(),
                     CodFuncionario = Convert.ToInt32(this.txtFuncionarioDNI.Text),
 
-                    Contrasenia = this.txtFuncionarioContrasenia.Text,
+                    Contrasenia = this.txtFuncionarioContrasenia.Text.ToUpper(),
                     Estado = this.rbtnEstadoActivo.Text,
                 };
 
 
                 _Funcionario.grabarXMLFuncionario("Funcionarios.xml");
                 // ruta para escribir el XML
-                MessageBox.Show("*Se Registro al Funcionario Exitosamente*", "Registrar Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("*Se Registro al Funcionario Exitosamente*", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // mensaje de exito 
 
 
                 CargarListaFuncionarios("Funcionarios.xml"); // Leer el XML y cargar los datos en el ListView
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                MessageBox.Show(ex.Message, "Registrar Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al Registrar al Funcionario *** Todos los Campos son Requeridos ***", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // mensaje de error
             }
 

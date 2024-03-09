@@ -44,8 +44,6 @@
             gbxClientesRegistrarDatos = new GroupBox();
             txtClienteTelefono = new TextBox();
             lblClienteTelefono = new Label();
-            cbxClienteTipoDNI = new ComboBox();
-            lblClienteTipoDNI = new Label();
             txtClienteNombre = new TextBox();
             lblClienteNombre = new Label();
             lblClienteApellidoPrimero = new Label();
@@ -75,8 +73,6 @@
             gbxClienteRegistro = new GroupBox();
             gbxClienteModificar = new GroupBox();
             btnModificarBuscar = new Button();
-            cbxBuscarTipoDNI = new ComboBox();
-            lblBuscarClienteDNI = new Label();
             txtBuscarDNI = new TextBox();
             lblBuscarDNI = new Label();
             pbLogo = new PictureBox();
@@ -228,8 +224,6 @@
             // 
             gbxClientesRegistrarDatos.Controls.Add(txtClienteTelefono);
             gbxClientesRegistrarDatos.Controls.Add(lblClienteTelefono);
-            gbxClientesRegistrarDatos.Controls.Add(cbxClienteTipoDNI);
-            gbxClientesRegistrarDatos.Controls.Add(lblClienteTipoDNI);
             gbxClientesRegistrarDatos.Controls.Add(txtClienteNombre);
             gbxClientesRegistrarDatos.Controls.Add(lblClienteNombre);
             gbxClientesRegistrarDatos.Controls.Add(lblClienteApellidoPrimero);
@@ -255,6 +249,7 @@
             // 
             txtClienteTelefono.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtClienteTelefono.Location = new Point(203, 189);
+            txtClienteTelefono.MaxLength = 7;
             txtClienteTelefono.Name = "txtClienteTelefono";
             txtClienteTelefono.Size = new Size(135, 22);
             txtClienteTelefono.TabIndex = 13;
@@ -270,26 +265,6 @@
             lblClienteTelefono.TabIndex = 12;
             lblClienteTelefono.Text = "Telefono";
             lblClienteTelefono.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // cbxClienteTipoDNI
-            // 
-            cbxClienteTipoDNI.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            cbxClienteTipoDNI.FormattingEnabled = true;
-            cbxClienteTipoDNI.Items.AddRange(new object[] { "JURIDICO", "FISICO" });
-            cbxClienteTipoDNI.Location = new Point(203, 19);
-            cbxClienteTipoDNI.Name = "cbxClienteTipoDNI";
-            cbxClienteTipoDNI.Size = new Size(135, 24);
-            cbxClienteTipoDNI.TabIndex = 7;
-            // 
-            // lblClienteTipoDNI
-            // 
-            lblClienteTipoDNI.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblClienteTipoDNI.Location = new Point(28, 19);
-            lblClienteTipoDNI.Name = "lblClienteTipoDNI";
-            lblClienteTipoDNI.Size = new Size(137, 22);
-            lblClienteTipoDNI.TabIndex = 10;
-            lblClienteTipoDNI.Text = "Tipo de Identificacion";
-            lblClienteTipoDNI.TextAlign = ContentAlignment.MiddleRight;
             // 
             // txtClienteNombre
             // 
@@ -509,13 +484,11 @@
             // gbxClienteModificar
             // 
             gbxClienteModificar.Controls.Add(btnModificarBuscar);
-            gbxClienteModificar.Controls.Add(cbxBuscarTipoDNI);
-            gbxClienteModificar.Controls.Add(lblBuscarClienteDNI);
             gbxClienteModificar.Controls.Add(txtBuscarDNI);
             gbxClienteModificar.Controls.Add(lblBuscarDNI);
-            gbxClienteModificar.Location = new Point(203, 67);
+            gbxClienteModificar.Location = new Point(203, 78);
             gbxClienteModificar.Name = "gbxClienteModificar";
-            gbxClienteModificar.Size = new Size(442, 80);
+            gbxClienteModificar.Size = new Size(442, 56);
             gbxClienteModificar.TabIndex = 2;
             gbxClienteModificar.TabStop = false;
             gbxClienteModificar.Text = "Buscar Cliente";
@@ -523,7 +496,7 @@
             // btnModificarBuscar
             // 
             btnModificarBuscar.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificarBuscar.Location = new Point(347, 49);
+            btnModificarBuscar.Location = new Point(350, 22);
             btnModificarBuscar.Name = "btnModificarBuscar";
             btnModificarBuscar.Size = new Size(86, 25);
             btnModificarBuscar.TabIndex = 5;
@@ -531,30 +504,10 @@
             btnModificarBuscar.UseVisualStyleBackColor = true;
             btnModificarBuscar.Click += btnModificarBuscar_Click;
             // 
-            // cbxBuscarTipoDNI
-            // 
-            cbxBuscarTipoDNI.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            cbxBuscarTipoDNI.FormattingEnabled = true;
-            cbxBuscarTipoDNI.Items.AddRange(new object[] { "JURIDICO", "FISICO" });
-            cbxBuscarTipoDNI.Location = new Point(206, 19);
-            cbxBuscarTipoDNI.Name = "cbxBuscarTipoDNI";
-            cbxBuscarTipoDNI.Size = new Size(135, 24);
-            cbxBuscarTipoDNI.TabIndex = 3;
-            // 
-            // lblBuscarClienteDNI
-            // 
-            lblBuscarClienteDNI.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblBuscarClienteDNI.Location = new Point(31, 19);
-            lblBuscarClienteDNI.Name = "lblBuscarClienteDNI";
-            lblBuscarClienteDNI.Size = new Size(137, 22);
-            lblBuscarClienteDNI.TabIndex = 12;
-            lblBuscarClienteDNI.Text = "Tipo de Identificacion";
-            lblBuscarClienteDNI.TextAlign = ContentAlignment.MiddleRight;
-            // 
             // txtBuscarDNI
             // 
             txtBuscarDNI.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBuscarDNI.Location = new Point(206, 52);
+            txtBuscarDNI.Location = new Point(209, 25);
             txtBuscarDNI.Name = "txtBuscarDNI";
             txtBuscarDNI.Size = new Size(135, 22);
             txtBuscarDNI.TabIndex = 4;
@@ -563,7 +516,7 @@
             // lblBuscarDNI
             // 
             lblBuscarDNI.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblBuscarDNI.Location = new Point(31, 52);
+            lblBuscarDNI.Location = new Point(34, 25);
             lblBuscarDNI.Name = "lblBuscarDNI";
             lblBuscarDNI.Size = new Size(137, 22);
             lblBuscarDNI.TabIndex = 4;
@@ -630,8 +583,6 @@
         private GroupBox gbxClientesRegistrarDatos;
         private TextBox txtClienteTelefono;
         private Label lblClienteTelefono;
-        private ComboBox cbxClienteTipoDNI;
-        private Label lblClienteTipoDNI;
         private TextBox txtClienteNombre;
         private Label lblClienteNombre;
         private Button btnClienteCancelar;
@@ -652,8 +603,6 @@
         private PictureBox pbLogo;
         private Label lblClienteTitulo;
         private GroupBox gbxClienteModificar;
-        private ComboBox cbxBuscarTipoDNI;
-        private Label lblBuscarClienteDNI;
         private TextBox txtBuscarDNI;
         private Label lblBuscarDNI;
         private Button btnModificarBuscar;

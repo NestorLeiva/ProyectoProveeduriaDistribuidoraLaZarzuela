@@ -18,7 +18,7 @@ namespace Proveeduria
     {
         public frmModificacionFuncionarios()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
         private void frmModificacionFuncionarios_Load(object sender, EventArgs e)
         {
@@ -68,7 +68,7 @@ namespace Proveeduria
 
         private void txtFuncionarioEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Validaciones.soloLetras(e.KeyChar.ToString()))
+            if (!Validaciones.soloLetras(e.KeyChar.ToString()) && !Validaciones.soloNumeros(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -162,17 +162,15 @@ namespace Proveeduria
                         /*Selecciono el Estado*/
 
                     } // Obtener el índice de la fila seleccionada
-
                 }
                 else
                 {
-                    MessageBox.Show("No se encontro ningun Funcionario con la Identificacion: " + consultaDNI);
+                    MessageBox.Show($"No se encontro ningun Funcionario con la Identificacion: {consultaDNI}", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message, "Error al cargar la Lista de Funcionarios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar la Lista de Funcionarios", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }/*fin boton  Consultar*/
 
@@ -180,9 +178,9 @@ namespace Proveeduria
         {
             try
             {
-                if (indiceFilaSeleccionada != -1) 
+                if (indiceFilaSeleccionada != -1)
                 {
-                    
+
                     string nuevoNombre = txtFuncionarioNombre.Text.ToUpper();
                     string nuevoApellidoPrimero = txtFuncionarioApellidoPrimero.Text.ToUpper();
                     string nuevoApellidoSegundo = txtFuncionarioApellidoSegundo.Text.ToUpper();
@@ -191,9 +189,6 @@ namespace Proveeduria
 
                     // Obtener el nuevo estado
                     string nuevoEstado = rbtnEstadoActivo.Checked ? "Activo" : "Inactivo";
-
-
-
 
                     _ArchivoXML.modificarXML("Funcionarios.xml", $"//Funcionario[Identificacion='{dniSeleccionado}']/Nombre", nuevoNombre);
                     _ArchivoXML.modificarXML("Funcionarios.xml", $"//Funcionario[Identificacion='{dniSeleccionado}']/ApellidoPrimero", nuevoApellidoPrimero);
@@ -207,17 +202,15 @@ namespace Proveeduria
                     }
                     /*Modifica solo Si ha sido Cambiado*/
 
-
-
-                    MessageBox.Show("Funcionario modificado correctamente.");
+                    MessageBox.Show("Funcionario modificado correctamente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     CargarListaFuncionariosMod("Funcionarios.xml");
                     // Recargar la lista después de la modificación
                     LimpiarTextBox();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message, "Error al modificar el Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al modificar el Funcionario", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }/*fin boton modificar*/
 
@@ -290,7 +283,7 @@ namespace Proveeduria
                 txtModificarContrasenia.Text = obtenerItemFuncionario.SubItems[7].Text;
 
             }
-            
+
         }/*fin evento ListView*/
 
 
@@ -303,7 +296,7 @@ namespace Proveeduria
             txtFuncionarioEmail.Text = string.Empty;
             txtFuncionarioCodigo.Text = string.Empty;
             txtFuncionarioDNI.Text = string.Empty;
-            txtModificarContrasenia.Text= string.Empty;
+            txtModificarContrasenia.Text = string.Empty;
         }
 
 

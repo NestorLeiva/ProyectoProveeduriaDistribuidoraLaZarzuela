@@ -154,7 +154,6 @@ namespace Proveeduria
                         {
                             string TipoDniClienteSeleccionado = itemSeleccionado.SubItems[0].Text;
                             string NumDniSeleccionado = itemSeleccionado.SubItems[1].Text;
-
                             string NombreSeleccionado = itemSeleccionado.SubItems[2].Text;
                             string ApellidoPrimeroSeleccionado = itemSeleccionado.SubItems[3].Text;
                             string ApellidoSegungoSeleccionado = itemSeleccionado.SubItems[4].Text;
@@ -166,8 +165,8 @@ namespace Proveeduria
                             string DistritoSeleccionado = itemSeleccionado.SubItems[10].Text;
                             string OtrasSeniasSeleccionado = itemSeleccionado.SubItems[11].Text;
                             /*almaceno los datos en las variables*/
-                            ;
-                            txtClienteDNI.Text = NumDniSeleccionado;
+                            
+                            txtClienteDNI.Text = TipoDniClienteSeleccionado;
                             txtClienteNombre.Text = NombreSeleccionado;
                             txtClienteApellidoPrimero.Text = ApellidoPrimeroSeleccionado;
                             txtClienteApellidoSegundo.Text = ApellidoSegungoSeleccionado;
@@ -221,7 +220,7 @@ namespace Proveeduria
                     _ArchivoXML.modificarXML("Clientes.xml", $"//Cliente[NumeroIdentificacion='{consultaDNI}']/Canton", nuevoCanton);
                     _ArchivoXML.modificarXML("Clientes.xml", $"//Cliente[NumeroIdentificacion='{consultaDNI}']/Distrito", nuevoDistrito);
                     _ArchivoXML.modificarXML("Clientes.xml", $"//Cliente[NumeroIdentificacion='{consultaDNI}']/OtrasSenias", nuevoOtrasSenias);
-                        /*Guardo los nuevos Datos en el XML*/
+                    /*Guardo los nuevos Datos en el XML*/
 
                     MessageBox.Show("*** Datos del Cliente Modificados con Exito ***", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarTexBox();
@@ -232,7 +231,7 @@ namespace Proveeduria
                     MessageBox.Show("Error al Modificar los Datos del Cliente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception )
+            catch (Exception)
             {
                 MessageBox.Show("Error al Modificar los Datos del Cliente", "Distribuidora La Zarzuela", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -242,9 +241,7 @@ namespace Proveeduria
         /* ----------------------------------------------- Metodos -----------------------------------------------*/
         public void LimpiarTexBox()
         {
-            cbxBuscarTipoDNI.SelectedIndex = 0;
-
-            cbxClienteTipoDNI.SelectedIndex = 0;
+            
             txtClienteDNI.Text = string.Empty;
             txtClienteNombre.Text = string.Empty;
             txtClienteApellidoPrimero.Text = string.Empty;

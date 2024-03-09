@@ -258,6 +258,5 @@ namespace Proveeduria
              Si childNode es null, retornamos una cadena vacía.*/
         }/*funcion auxiliar para MostrarFacturaVenta() para obtner el texto dentro del nodo XML*/
 
-
     }/*fin frmVentasFacturacion*/
 }/*fin namespace*/

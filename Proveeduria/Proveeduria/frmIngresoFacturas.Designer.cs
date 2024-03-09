@@ -93,7 +93,6 @@
             // 
             // gbxRegistroProductosTitulo
             // 
-            gbxRegistroProductosTitulo.Controls.Add(btnNuevaFactura);
             gbxRegistroProductosTitulo.Controls.Add(gbxBuscarProveedor);
             gbxRegistroProductosTitulo.Controls.Add(pbLogo);
             gbxRegistroProductosTitulo.Controls.Add(lblProductosTitulo);
@@ -107,9 +106,9 @@
             // btnNuevaFactura
             // 
             btnNuevaFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNuevaFactura.Location = new Point(664, 22);
+            btnNuevaFactura.Location = new Point(671, 50);
             btnNuevaFactura.Name = "btnNuevaFactura";
-            btnNuevaFactura.Size = new Size(98, 45);
+            btnNuevaFactura.Size = new Size(94, 45);
             btnNuevaFactura.TabIndex = 43;
             btnNuevaFactura.Text = "Nueva Factura";
             btnNuevaFactura.UseVisualStyleBackColor = true;
@@ -283,6 +282,7 @@
             // 
             txtNumeroFactura.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtNumeroFactura.Location = new Point(411, 69);
+            txtNumeroFactura.MaxLength = 20;
             txtNumeroFactura.Name = "txtNumeroFactura";
             txtNumeroFactura.Size = new Size(116, 22);
             txtNumeroFactura.TabIndex = 20;
@@ -323,6 +323,7 @@
             // 
             // gbxIngresoProductos
             // 
+            gbxIngresoProductos.Controls.Add(btnNuevaFactura);
             gbxIngresoProductos.Controls.Add(lblBuscarProducto);
             gbxIngresoProductos.Controls.Add(btnBuscarProducto);
             gbxIngresoProductos.Controls.Add(lblCategoriaProducto);
@@ -391,6 +392,7 @@
             txtCantidadProducto.AcceptsTab = true;
             txtCantidadProducto.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             txtCantidadProducto.Location = new Point(303, 47);
+            txtCantidadProducto.MaxLength = 1000;
             txtCantidadProducto.Name = "txtCantidadProducto";
             txtCantidadProducto.Size = new Size(119, 21);
             txtCantidadProducto.TabIndex = 33;
@@ -441,9 +443,9 @@
             // btnSalir
             // 
             btnSalir.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSalir.Location = new Point(661, 72);
+            btnSalir.Location = new Point(671, 16);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(98, 26);
+            btnSalir.Size = new Size(94, 26);
             btnSalir.TabIndex = 39;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -462,7 +464,7 @@
             // btnLimpiarProducto
             // 
             btnLimpiarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimpiarProducto.Location = new Point(557, 73);
+            btnLimpiarProducto.Location = new Point(567, 15);
             btnLimpiarProducto.Name = "btnLimpiarProducto";
             btnLimpiarProducto.Size = new Size(98, 26);
             btnLimpiarProducto.TabIndex = 38;
@@ -484,9 +486,9 @@
             // btnAceptarProducto
             // 
             btnAceptarProducto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAceptarProducto.Location = new Point(567, 15);
+            btnAceptarProducto.Location = new Point(431, 45);
             btnAceptarProducto.Name = "btnAceptarProducto";
-            btnAceptarProducto.Size = new Size(130, 26);
+            btnAceptarProducto.Size = new Size(130, 23);
             btnAceptarProducto.TabIndex = 37;
             btnAceptarProducto.Text = "Guardar Factura";
             btnAceptarProducto.UseVisualStyleBackColor = true;

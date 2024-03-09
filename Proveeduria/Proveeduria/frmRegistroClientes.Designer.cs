@@ -116,7 +116,7 @@
             // 
             gbxClienteLista.Controls.Add(lvwRegistroClientes);
             gbxClienteLista.Dock = DockStyle.Bottom;
-            gbxClienteLista.Location = new Point(0, 445);
+            gbxClienteLista.Location = new Point(0, 468);
             gbxClienteLista.Name = "gbxClienteLista";
             gbxClienteLista.Size = new Size(774, 216);
             gbxClienteLista.TabIndex = 19;
@@ -211,7 +211,7 @@
             gbxClienteDireccion.Dock = DockStyle.Right;
             gbxClienteDireccion.Location = new Point(401, 159);
             gbxClienteDireccion.Name = "gbxClienteDireccion";
-            gbxClienteDireccion.Size = new Size(373, 286);
+            gbxClienteDireccion.Size = new Size(373, 309);
             gbxClienteDireccion.TabIndex = 10;
             gbxClienteDireccion.TabStop = false;
             gbxClienteDireccion.Text = "Datos Direccion";
@@ -353,6 +353,7 @@
             // 
             txtClienteDNI.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtClienteDNI.Location = new Point(171, 74);
+            txtClienteDNI.MaxLength = 11;
             txtClienteDNI.Name = "txtClienteDNI";
             txtClienteDNI.Size = new Size(167, 22);
             txtClienteDNI.TabIndex = 4;
@@ -463,6 +464,7 @@
             // 
             txtClienteTelefono.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtClienteTelefono.Location = new Point(171, 186);
+            txtClienteTelefono.MaxLength = 7;
             txtClienteTelefono.Name = "txtClienteTelefono";
             txtClienteTelefono.Size = new Size(167, 22);
             txtClienteTelefono.TabIndex = 8;
@@ -488,7 +490,7 @@
             gbxClientesRegistrarDatos.Dock = DockStyle.Left;
             gbxClientesRegistrarDatos.Location = new Point(0, 159);
             gbxClientesRegistrarDatos.Name = "gbxClientesRegistrarDatos";
-            gbxClientesRegistrarDatos.Size = new Size(370, 286);
+            gbxClientesRegistrarDatos.Size = new Size(370, 309);
             gbxClientesRegistrarDatos.TabIndex = 2;
             gbxClientesRegistrarDatos.TabStop = false;
             gbxClientesRegistrarDatos.Text = "Datos Cliente";
@@ -498,7 +500,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(774, 661);
+            ClientSize = new Size(774, 684);
             ControlBox = false;
             Controls.Add(gbxClienteDireccion);
             Controls.Add(gbxClientesRegistrarDatos);
