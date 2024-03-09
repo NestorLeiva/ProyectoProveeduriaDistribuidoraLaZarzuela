@@ -3,14 +3,21 @@
     <CategoriaProducto>HERRAMIENTA</CategoriaProducto>
     <CodigoProducto>HEMAHU1324</CodigoProducto>
     <NombreProducto>MAZO HULE</NombreProducto>
-    <CantidadProducto>90</CantidadProducto>
+    <CantidadProducto>100</CantidadProducto>
     <PrecioProducto>1550</PrecioProducto>
   </Producto>
   <Producto>
     <CategoriaProducto>HERRAMIENTA</CategoriaProducto>
     <CodigoProducto>HEMA8429</CodigoProducto>
     <NombreProducto>MARTILLO</NombreProducto>
-    <CantidadProducto>25</CantidadProducto>
+    <CantidadProducto>30</CantidadProducto>
     <PrecioProducto>550</PrecioProducto>
+  </Producto>
+  <Producto>
+    <CategoriaProducto>CATEGORIA</CategoriaProducto>
+    <CodigoProducto>CAPR9351</CodigoProducto>
+    <NombreProducto>PRODUCTO</NombreProducto>
+    <CantidadProducto>5</CantidadProducto>
+    <PrecioProducto>100</PrecioProducto>
   </Producto>
 </Productos>

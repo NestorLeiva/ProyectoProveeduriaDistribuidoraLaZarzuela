@@ -13,4 +13,18 @@
     <Distrito>OCCIDEDENTAL</Distrito>
     <OtrasSenias>EL MOLINO</OtrasSenias>
   </Cliente>
+  <Cliente>
+    <NumeroIdentificacion>123456789</NumeroIdentificacion>
+    <TipoIdentificacion>JURIDICO</TipoIdentificacion>
+    <Nombre>NOMBRE</Nombre>
+    <ApellidoPrimero>APELLIDO</ApellidoPrimero>
+    <ApellidoSegundo>APELLIDO</ApellidoSegundo>
+    <CodigoCliente>NOAA789</CodigoCliente>
+    <Telefono>12345678</Telefono>
+    <Email>CORREO@CORREO.COM</Email>
+    <Provincia>CARTAGO</Provincia>
+    <Canton>CENTRAL</Canton>
+    <Distrito>CENTRAL</Distrito>
+    <OtrasSenias>CENTRAL</OtrasSenias>
+  </Cliente>
 </Clientes>

@@ -1,14 +1,24 @@
 <Funcionarios>
   <Funcionario>
     <Identificacion>1</Identificacion>
-    <Nombre>ADMIN</Nombre>
+    <Nombre>FUNCIONARIO</Nombre>
     <ApellidoPrimero>
     </ApellidoPrimero>
     <ApellidoSegundo>
     </ApellidoSegundo>
-    <Email>ADMIN@LAZARZUELA.COM</Email>
+    <Email>INACTIVO</Email>
     <CodigoFuncionario>1</CodigoFuncionario>
     <Contrasenia>ADMIN</Contrasenia>
     <Estado>Activo</Estado>
+  </Funcionario>
+  <Funcionario>
+    <Identificacion>123456789</Identificacion>
+    <Nombre>COLABORADOR</Nombre>
+    <ApellidoPrimero>FUNCIONARIO</ApellidoPrimero>
+    <ApellidoSegundo>FUNCIONARIO</ApellidoSegundo>
+    <Email>FFUNCIONARIOF@LAZARZUELA.COM</Email>
+    <CodigoFuncionario>123456789</CodigoFuncionario>
+    <Contrasenia>COLABORADOR</Contrasenia>
+    <Estado>Inactivo</Estado>
   </Funcionario>
 </Funcionarios>

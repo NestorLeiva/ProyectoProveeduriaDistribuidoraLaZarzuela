@@ -7,5 +7,12 @@
     <TelefonoProveedor>19101285</TelefonoProveedor>
     <EmailProveedor>ADMIN@LAZARZUELA.COM</EmailProveedor>
   </Proveedor>
- 
+  <Proveedor>
+    <CodigoProveedor>PR6789</CodigoProveedor>
+    <NombreProveedor>PROVEEDOR</NombreProveedor>
+    <TipoIdentificacion>Nacional</TipoIdentificacion>
+    <Identificacion>123456789</Identificacion>
+    <TelefonoProveedor>12345678</TelefonoProveedor>
+    <EmailProveedor>PROVEEDOR@PROVEEDOR.COM</EmailProveedor>
+  </Proveedor>
 </Proveedores>
