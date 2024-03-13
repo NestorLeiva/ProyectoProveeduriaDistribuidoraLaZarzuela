@@ -14,9 +14,10 @@ Profesor: <br> _<strong>Roger Rodrigez López</strong>_ <br>
 <br> _<strong>TI-131 Programación II <br>   I Cuatrimestre, 2024</strong>_ <br>
  
 ![LoginProveeduria](img/Login.png)
-![IngresoFacturas](img/IngresoFacturas.png)
+
 ![RegistroClientes](img/RegistroClientes.png)
 ![RegistroFuncionarios](img/RegistroFuncionarios.png)
+![IngresoFacturas](img/IngresoFacturas.png)
 ![Ventas](img/Ventas.png)
 
 
