@@ -17,6 +17,7 @@ namespace Proveeduria
         public frmLogin()
         {
             InitializeComponent();
+            this.AcceptButton = btnAceptar;
         }
 
         DAL.ArchivoXML _ArchivoXML = new DAL.ArchivoXML();
